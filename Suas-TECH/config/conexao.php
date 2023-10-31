@@ -15,5 +15,4 @@ try {
 } catch (Exception $e) {
 	echo "Erro ao conectar com o banco de dados! ".$e;
 	echo "teste matheus";}
-	
 ?>
