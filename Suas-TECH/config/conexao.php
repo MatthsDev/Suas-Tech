@@ -1,9 +1,9 @@
 <?php
 //CONEXÃO COM O BANCO DE DADOS
 $host = 'localhost';
-$usuario = 'u198416735_usercad';
-$senha = '@Senha12345';
-$banco = 'u198416735_sycad';
+$usuario = 'root';
+$senha = '';
+$banco = 'test';
 
 date_default_timezone_set('America/Sao_Paulo');
 
