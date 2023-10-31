@@ -14,5 +14,5 @@ try {
 	$conn = mysqli_connect($host, $usuario, $senha, $banco);
 } catch (Exception $e) {
 	echo "Erro ao conectar com o banco de dados! ".$e;
-	echo "teste diego";}
+	echo "teste matheus";}
 ?>
