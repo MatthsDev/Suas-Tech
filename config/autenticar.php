@@ -4,7 +4,7 @@ require_once("conexao.php");
 session_start();
 
 if(empty($_POST['usuario']) || empty($_POST['senha'])){
-	header("location:../index.php");
+	header("location:../nao deu certo/index.php");
 }
 
 $usuario = $_POST['usuario'];
