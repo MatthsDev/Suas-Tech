@@ -3,7 +3,7 @@
 $host = 'localhost';
 $usuario = 'root';
 $senha = '';
-$banco = 'sycad';
+$banco = 'test';
 
 date_default_timezone_set('America/Sao_Paulo');
 try {
