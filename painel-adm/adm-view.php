@@ -60,7 +60,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
       </div>
 
       <div class="visitas"></div>
-        <button class="menu-button" onclick="location.href='../views/visitas.html';">
+        <button class="menu-button" onclick="location.href='../views/visitas.php';">
           <span class="material-symbols-outlined">
             location_away
           </span>
