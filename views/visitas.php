@@ -1,4 +1,5 @@
-<?php require_once '../config/sessao.php'; ?>
+<?php 
+require_once ('../config/sessao.php'); ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
