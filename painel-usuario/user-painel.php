@@ -24,7 +24,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
   </head>
 
   <body>
-   <nav> 
+  <nav> 
     <div class="img">
       <h1 class="titulo-com-imagem">
         <img src="../img/h1-menu.svg" alt="Titulocomimagem">
@@ -37,7 +37,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
           <span class="material-symbols-outlined">
             forms_add_on
           </span>
-         Formulários
+        Formulários
         </button>
       </div>
 
@@ -55,7 +55,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
           <span class="material-symbols-outlined">
             location_away
           </span>
-           Visitas
+          Visitas
         </button>
       </div>
 
@@ -64,11 +64,21 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
           <span class="material-symbols-outlined">
             request_quote
           </span>
-           Folha de Pagamento
+          Folha de Pagamento
         </button>
       </div>
-      
-    </div>
+
+      <div class="atendimento"></div>
+        <button class="menu-button" onclick="location.href='#';">
+          <span class="material-symbols-outlined">
+            contacts
+          </span>
+          Atendimento
+        </button>
+      </div>
+    </div>  
+  </nav>
+    
     
   </body>
 </html>
