@@ -59,7 +59,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
         </button>
       </div>
 
-      <div class="folha"></div>
+      <div class="folha">
         <button class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
           <span class="material-symbols-outlined">
             request_quote
@@ -68,7 +68,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
         </button>
       </div>
 
-      <div class="atendimento"></div>
+      <div class="atendimento">
         <button class="menu-button" onclick="location.href='#';">
           <span class="material-symbols-outlined">
             contacts
@@ -76,6 +76,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
           Atendimento
         </button>
       </div>
+
     </div>  
   </nav>
     
