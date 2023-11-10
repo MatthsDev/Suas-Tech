@@ -79,15 +79,28 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
         </div>
       </div>
     </nav>
+    <?php
+include '../config/conexao.php';
+
+//dados totais dos registros de visitas
+$sqlr = "SELECT COUNT(*) as total_visitas FROM visitas_feitas";
+$result = $pdo->query($sqlr);
+$row = $result->fetch(PDO::FETCH_ASSOC);
+$totalRegistros = $row['total_visitas'];
+$numero_parecer = $totalRegistros;
+
+$sql = "SELECT COUNT(*) as total_fazer FROM tbl_tudo";
+?>
     <script>
-      // Dados para o gráfico de pizza
-      var data = {
+    // Dados para o gráfico de pizza
+    var volaroe = <?php echo $totalRegistros; ?>;
+    var data = {
         labels: ['Visitas realizadas', 'Visitas não realizadas'],
         datasets: [{
-          data: [40, 60],
-          backgroundColor: ['#13294b', '#065f33']
+            data: [volaroe, 100 - volaroe],
+            backgroundColor: ['#13294b', '#065f33']
         }]
-      };
+    };
       // Opções do gráfico (pode ser personalizado conforme necessário)
       var options = {
         responsive: true
