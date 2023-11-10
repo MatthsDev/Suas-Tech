@@ -46,7 +46,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
         <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
         <br><br><br>
         <button type="submit">BUSCAR</button>
-        <hr>
+        <div class="linha"></div> 
     </form>
 </body>
 
