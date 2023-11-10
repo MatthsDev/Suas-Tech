@@ -60,7 +60,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
       </div>
 
       <div class="visitas">
-        <button class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
+        <button class="menu-button" onclick="location.href='../controller/folha_pagamento/folha.php';">
           <span class="material-symbols-outlined">
           request_quote
           </span>

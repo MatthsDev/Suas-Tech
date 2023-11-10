@@ -1,6 +1,6 @@
 <?php
 include "conexao.php";
-session_start(); // Inicie a sessão para acessar as variáveis de sessão
+//session_start(); // Inicie a sessão para acessar as variáveis de sessão
 
 // Verifique o nível do usuário
 if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin') {
@@ -14,7 +14,3 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     $voltar_link = '../index.php'; // Altere o link para a página de login
 }
 // Verifica se o usuário está autenticado como admin ou usuário
-if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' && $_SESSION['nivel_usuario'] != 'usuario')) {
-    header("location:../index.php");
-    exit; // Encerra o script após redirecionar
-}
