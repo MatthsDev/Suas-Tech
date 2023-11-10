@@ -33,7 +33,11 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
 </head>
 
 <body>
-    <h1>DECLARAÇÃO DO CADASTRO ÚNICO</h1>
+<div class="img">
+        <h1 class="titulo-com-imagem">
+            <img src="../img/h1-declaração.svg" alt="Titulocomimagem">
+        </h1>
+    </div>
     <form method="post" action="../controller/declaracao/conferir.php">
         <select name="buscar_dados" required>
             <option value="cpf_dec">CPF:</option>
