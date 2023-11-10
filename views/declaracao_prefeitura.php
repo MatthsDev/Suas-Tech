@@ -27,7 +27,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/stylebuscar.css">
+    <link rel="stylesheet" type="text/css" href="../css/styledec.css">
     <link rel="website icon" type="png" href="../img/logo.png">
     <title>Declaração Cadastro único</title>
 </head>
