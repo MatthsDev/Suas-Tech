@@ -1,7 +1,7 @@
 <?php
 
 // Incluir a conexao com o BD
-include_once '../../config/conexao.php';
+include_once "config/conexao.php";
 
 // Receber o tipo que a senha deve ser gerada
 $tipo = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_NUMBER_INT);

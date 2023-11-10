@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Tech-SUAS</title>
 </head>
 
@@ -21,7 +21,7 @@
     <!-- Chamar a funcao "gerarSenha" do JavaScript para gerar senha para atendimento preferencial -->
     <p><button type="button" onclick="gerarSenha(2)">Preferencial</button></p>
 
-    <script src="../js/custom.js"></script>
+    <script src="custom.js"></script>
     
 </body>
 
