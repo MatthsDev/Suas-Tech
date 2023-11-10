@@ -29,7 +29,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/stylebuscar.css">
     <link rel="website icon" type="png" href="../img/icon.png">
-    <title>Declaração PBF</title>
+    <title>Declaração Cadastro único</title>
 </head>
 
 <body>
