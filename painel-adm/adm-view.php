@@ -78,7 +78,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
         </div>
 
         <div class="atendimento">
-          <a class="menu-button" onclick="location.href='#';">
+          <a class="menu-button" onclick="location.href='..views/atend.php';">
             <span class="material-symbols-outlined">
               contacts
             </span>
