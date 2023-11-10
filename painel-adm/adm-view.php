@@ -24,7 +24,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
   </head>
 
   <body>
-   <nav> 
+  <nav> 
     <div class="img">
       <h1 class="titulo-com-imagem">
         <img src="../img/h1-menu.svg" alt="Titulocomimagem">
@@ -46,7 +46,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
           <span class="material-symbols-outlined">
             forms_add_on
           </span>
-         Formulários
+        Formulários
         </button>
       </div>
 
@@ -55,7 +55,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
           <span class="material-symbols-outlined">
           location_away
           </span>
-           Visitas
+          Visitas
         </button>
       </div>
 
@@ -64,7 +64,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
           <span class="material-symbols-outlined">
           request_quote
           </span>
-           Folha de Pagamento
+          Folha de Pagamento
         </button>
       </div>
 
@@ -73,7 +73,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
           <span class="material-symbols-outlined">
           quick_reference_all
           </span>
-           Declaração do Cadastro Único
+          Declaração do Cadastro Único
         </button>
       </div>
 
