@@ -76,6 +76,15 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
            Declaração do Cadastro Único
         </button>
       </div>
+
+      <div class="atendimento">
+        <button class="menu-button" onclick="location.href='#';">
+          <span class="material-symbols-outlined">
+            contacts
+          </span>
+          Atendimento
+        </button>
+      </div>
       
     </div>
     
