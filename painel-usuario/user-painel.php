@@ -24,57 +24,57 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
   </head>
 
   <body>
-  <nav> 
+  
     <div class="img">
       <h1 class="titulo-com-imagem">
         <img src="../img/h1-menu.svg" alt="Titulocomimagem">
       </h1>
     </div>
     <div class="container">
-
+  <nav> 
       <div class="formularios">
-        <button class="menu-button" onclick="location.href='../views/menuformulario.php';">
+        <a class="menu-button" onclick="location.href='../views/menuformulario.php';">
           <span class="material-symbols-outlined">
             forms_add_on
           </span>
         Formulários
-        </button>
+        </a>
       </div>
 
       <div class="parecer">
-        <button class="menu-button" onclick="location.href='../views/declaracao_prefeitura.php';">
+        <a class="menu-button" onclick="location.href='../views/declaracao_prefeitura.php';">
           <span class="material-symbols-outlined">
             forum
           </span>
           Declaração do Cadastro Único
-        </button>
+        </a>
       </div>
 
       <div class="visitas">
-        <button class="menu-button" onclick="location.href='../views/visitas.php';">
+        <a class="menu-button" onclick="location.href='../views/visitas.php';">
           <span class="material-symbols-outlined">
             location_away
           </span>
           Visitas
-        </button>
+        </a>
       </div>
 
       <div class="folha">
-        <button class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
+        <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
           <span class="material-symbols-outlined">
             request_quote
           </span>
           Folha de Pagamento
-        </button>
+        </a>
       </div>
 
       <div class="atendimento">
-        <button class="menu-button" onclick="location.href='#';">
+        <a class="menu-button" onclick="location.href='#';">
           <span class="material-symbols-outlined">
             contacts
           </span>
           Atendimento
-        </button>
+        </a>
       </div>
 
     </div>  
