@@ -35,7 +35,7 @@ ini_set('memory_limit', '256M');
     <div class="container">    
         <div class="busca">    
             <form action="">
-                <input name="cod_fam" class="busca2" placeholder="Digite o COD.FAMILIAR ou NOME do beneficiário." type="text" required>
+                <input name="cod_fam" class="busca2" placeholder="Digite o CPF ou NOME do beneficiário." type="text" required>
                 <button type="submit">Buscar</button>
             <a
              href="<?php echo $voltar_link; ?>">
