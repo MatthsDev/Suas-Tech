@@ -24,68 +24,68 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
   </head>
 
   <body>
-  <nav> 
+  
     <div class="img">
       <h1 class="titulo-com-imagem">
         <img src="../img/h1-menu.svg" alt="Titulocomimagem">
       </h1>
     </div>
     <div class="container">
+      <nav> 
+        <div class="cadastrar">
+          <a class="menu-button" onclick="location.href='##';">
+            <span class="material-symbols-outlined">
+              person_add
+            </span>
+            Cadastrar Usuários
+          </a>
+        </div>
 
-      <div class="cadastrar">
-        <button class="menu-button" onclick="location.href='##';">
-          <span class="material-symbols-outlined">
-            person_add
-          </span>
-          Cadastrar Usuários
-        </button>
-      </div>
+        <div class="formularios">
+          <a class="menu-button" onclick="location.href='../views/menuformulario.php';">
+            <span class="material-symbols-outlined">
+              forms_add_on
+            </span>
+            Formulários
+          </a>
+        </div>
 
-      <div class="formularios">
-        <button class="menu-button" onclick="location.href='../views/menuformulario.php';">
-          <span class="material-symbols-outlined">
-            forms_add_on
-          </span>
-        Formulários
-        </button>
-      </div>
+        <div class="parecer">
+          <a class="menu-button" onclick="location.href='../views/visitas.php';">
+            <span class="material-symbols-outlined">
+            location_away
+            </span>
+            Visitas
+          </a>
+        </div>
 
-      <div class="parecer">
-        <button class="menu-button" onclick="location.href='../views/visitas.php';">
-          <span class="material-symbols-outlined">
-          location_away
-          </span>
-          Visitas
-        </button>
-      </div>
+        <div class="visitas">
+          <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha.php';">
+            <span class="material-symbols-outlined">
+            request_quote
+            </span>
+            Folha de Pagamento
+          </a>
+        </div>
 
-      <div class="visitas">
-        <button class="menu-button" onclick="location.href='../controller/folha_pagamento/folha.php';">
-          <span class="material-symbols-outlined">
-          request_quote
-          </span>
-          Folha de Pagamento
-        </button>
-      </div>
+        <div class="folha">
+          <a class="menu-button" onclick="location.href='../views/declaracao_prefeitura.php';">
+            <span class="material-symbols-outlined">
+            quick_reference_all
+            </span>
+            Declaração do Cadastro Único
+          </a>
+        </div>
 
-      <div class="folha">
-        <button class="menu-button" onclick="location.href='../views/declaracao_prefeitura.php';">
-          <span class="material-symbols-outlined">
-          quick_reference_all
-          </span>
-          Declaração do Cadastro Único
-        </button>
-      </div>
-
-      <div class="atendimento">
-        <button class="menu-button" onclick="location.href='#';">
-          <span class="material-symbols-outlined">
-            contacts
-          </span>
-          Atendimento
-        </button>
-      </div>
-      
+        <div class="atendimento">
+          <a class="menu-button" onclick="location.href='#';">
+            <span class="material-symbols-outlined">
+              contacts
+            </span>
+            Atendimento
+          </a>
+        </div>
+      <nav>    
     </div>
     
   </body>
