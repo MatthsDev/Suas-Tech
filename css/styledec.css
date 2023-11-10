@@ -23,20 +23,6 @@ img {
     flex-direction: column;
     padding: 10px
 }
-
-.busca {
-    padding: 10px;
-    font-weight: bold;
-    color: #13294b;
-}
-
-.busca2 {
-    background-color: #ffffff;
-    padding: 3px ;
-    width: 150px;
-    border-radius: 5px;
-    font-size: auto;
-}
 .linha{
     border: 1px solid #13294b;
 }
@@ -59,13 +45,9 @@ button:hover,a:hover{
     box-shadow: 0 0 0 1px #3b83f65f;
     color: #fff;
 }
-a{
-    font-size: 13px;
-}
-select{
-    font-size: 15px;
-    border-radius: 4px;
-}
+select,
 input{
+    font-size: 16px;
     border-radius: 4px;
 }
+
