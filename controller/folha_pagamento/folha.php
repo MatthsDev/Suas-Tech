@@ -74,7 +74,7 @@ if (!isset($_GET['cod_fam'])) {
     if ($sql_query->num_rows == 0) {
         ?>
             <tr class="resultado">
-        <td colspan="5">Nenhum resultado encontrado...</td>
+        <td colspan="6">Nenhum resultado encontrado...</td>
             </tr>
                     <?php
 } else {
