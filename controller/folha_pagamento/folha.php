@@ -12,7 +12,7 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     // Redirecionar para a página de login ou exibir uma mensagem de erro, pois o nível do usuário não está definido.
     $voltar_link = '../index.php'; // Altere o link para a página de login
 }
-include('../../config/conexao.php');
+require_once ('../../config/sessao.php');
 ini_set('memory_limit', '256M');
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ ini_set('memory_limit', '256M');
         <?php
             }else{
                 $sql_cod = $conn->real_escape_string($_GET['cod_fam']);
-                $sql_dados = "SELECT * FROM folha_pag WHERE cod_familiar LIKE '%$sql_cod%' OR rf_nome LIKE '%$sql_cod%' ";
+                $sql_dados = "SELECT * FROM folha_pag WHERE rf_cpf LIKE '%$sql_cod%' OR rf_nome LIKE '%$sql_cod%' ";
                 $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn-error);
 
                 if($sql_query->num_rows == 0){
