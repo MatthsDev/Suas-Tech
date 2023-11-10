@@ -56,7 +56,7 @@ if (!isset($_GET['cod_fam'])) {
 } else {
     $sql_cod = $conn->real_escape_string($_GET['cod_fam']);
     $sql_dados = "SELECT * FROM folha_pag WHERE rf_cpf LIKE '%$sql_cod%' OR rf_nome LIKE '%$sql_cod%' ";
-    $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar!" . $conn - error);
+    $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar!" . $conn -> error);
 
     if ($sql_query->num_rows == 0) {
         ?>
