@@ -7,7 +7,7 @@ body {
     overflow: auto;
     font-family: "Inter", sans-serif;
     display: flex;
-   flex-direction: column;
+    flex-direction: column;
 }
 
 img {
@@ -19,9 +19,9 @@ img {
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     flex-direction: column;
-    padding: 30px 0px 0px 10px;
+    padding: 10px
 }
 
 .busca {
@@ -37,11 +37,11 @@ img {
     border-radius: 5px;
     font-size: auto;
 }
-
-
 .linha{
     border: 1px solid #13294b;
-    
+}
+.lin1{
+    padding-top: 15px;
 }
 button,a {
     text-decoration: none;
