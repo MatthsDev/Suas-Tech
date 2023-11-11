@@ -74,7 +74,7 @@
 
     #justified-text {
         text-align: justify;
-        font-size: 20px;
+        font-size: 16px;
         text-indent: 50px;
         margin-top: 20px;
     }
