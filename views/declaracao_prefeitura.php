@@ -35,7 +35,7 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
         </h1>
     </div>
 <div class="container">
-    <form method="post" action="../controller/declaracao/conferir.php">
+    <form method="post" action="declaracao_conferir">
         <select name="buscar_dados" required>
             <option value="cpf_dec">CPF:</option>
             <option value="nis_dec">NIS:</option>
