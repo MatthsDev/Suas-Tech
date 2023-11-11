@@ -175,15 +175,24 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             } else {
                 $sexooo = " inscrita ";
             }
-        }
-        if ($renba_media > 218 && $sqli->rowCount() > 0) {
-            $recebendo = ", mas segundo o art 6° da mesma lei a família está em Regra de Proteção";
-        } elseif ($renba_media < 219 && $sqli->rowCount() > 0) {
-            $dadosf = $sqli->fetch(PDO::FETCH_ASSOC);
-            $situacao = $dadosf['sitbeneficiario'];
-            $recebendo = " e, está com benefício " . $situacao;
+            if ($renba_media > 218 && $sqli->rowCount() > 0) {
+                $recebendo = ", mas segundo o art 6° da mesma lei a família está em Regra de Proteção";
+            } elseif ($renba_media < 219 && $sqli->rowCount() > 0) {
+                $dadosf = $sqli->fetch(PDO::FETCH_ASSOC);
+                $situacao = $dadosf['sitbeneficiario'];
+                $recebendo = " e, está com benefício " . $situacao;
+            } else {
+                $recebendo = ".";
+            }
+    
         } else {
-            $recebendo = ".";
+            echo "<script>
+            alert('NIS não encontrado.');
+            setTimeout(function() {
+                window.history.back(); // Volta para a página anterior
+            }, 500);
+            </script>";
+            die();
         }
 
         if ($sqli->rowCount() > 0) {
