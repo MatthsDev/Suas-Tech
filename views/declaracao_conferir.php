@@ -92,11 +92,11 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
     ?>
             <br><label>CPF: <?php echo $cpf_formatado; ?></label><br>
             <label>Nome: </label>
-            <input type="text" name="nome_dec" placeholder="Digite o nome completo"><br>
+            <input type="text" name="nome_dec" placeholder="Digite o nome completo" required><br>
             <label>Nome da Mãe: </label>
-            <input type="text" name="nome_mae_dec" placeholder="Digite o nome completo"><br>
+            <input type="text" name="nome_mae_dec" placeholder="Digite o nome completo" required><br>
 
-            <label><input type="radio" name="gender" value="male">
+            <label><input type="radio" name="gender" value="male" required>
                 <span class="circle" style="background-color: dodgerblue;"></span> Homem</label>
             <label><input type="radio" name="gender" value="female">
                 <span class="circle" style="background-color: hotpink;"></span> Mulher</label>
