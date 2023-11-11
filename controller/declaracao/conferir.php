@@ -41,13 +41,13 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             ?>
             <h3>Confira se as informações estão corretas</h3>
             <?php
-$dados = $sql->fetch(PDO::FETCH_ASSOC);
+            $dados = $sql->fetch(PDO::FETCH_ASSOC);
             $dadosf = $sqli->fetch(PDO::FETCH_ASSOC);
 
             $renba_media = $dados["vlr_renda_media_fam"];
-
             // Formata o número como moeda brasileira
             $real_br_formatado = number_format($renba_media, 2, ',', '.');
+
             $cod_familiar = $dados["cod_familiar_fam"];
             $benef1 = $dadosf['pacto'];
             $sexo_pessoa_ = $dados["cod_sexo_pessoa"];
