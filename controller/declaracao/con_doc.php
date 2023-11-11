@@ -194,7 +194,6 @@ if (isset($_POST['btn-ip1'])) {
             CADETE<br><span style="font-size:16px">Coord. Cadastro Único e Prog. Bolsa Família</span><br><span
                 style="font-size:16px">Mat.: 108026</span></div><br>
         <div class="signature-line"></div><br>
-
     </form>
     <?php
 } else {
