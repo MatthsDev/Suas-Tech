@@ -44,7 +44,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
       <div class="parecer">
         <a class="menu-button" onclick="location.href='../views/declaracao_prefeitura.php';">
           <span class="material-symbols-outlined">
-            forum
+          quick_reference_all
           </span>
           Declaração do Cadastro Único
         </a>
