@@ -69,7 +69,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
         </div>
 
         <div class="folha">
-          <a class="menu-button" onclick="location.href='../views/declaracao_prefeitura.php';">
+          <a class="menu-button" onclick="location.href='../views/declar/declaracao_prefeitura.php';">
             <span class="material-symbols-outlined">
             quick_reference_all
             </span>
