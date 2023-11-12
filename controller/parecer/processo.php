@@ -36,7 +36,5 @@ require_once("../../config/conexao.php");
         $conn->close();
 
 ?>
-
-
 </body>
 </html>
