@@ -89,6 +89,7 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
     $cpf_formatado = substr($cpf_formatando, 0, 3) . '.' . substr($cpf_formatando, 3, 3) . '.' . substr($cpf_formatando, 6, 3) . '-' . substr($cpf_formatando, 9, 2);
 
     ?>  
+
                 <br><label>CPF: <?php echo $cpf_formatado; ?></label><br>
                 <label>Nome: </label>
                 <input type="text" name="nome_dec" placeholder="Digite o nome completo" required><br>
