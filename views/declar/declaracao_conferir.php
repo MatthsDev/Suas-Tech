@@ -88,19 +88,21 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
     $cpf_formatando = sprintf('%011s', $cpf_dec);
     $cpf_formatado = substr($cpf_formatando, 0, 3) . '.' . substr($cpf_formatando, 3, 3) . '.' . substr($cpf_formatando, 6, 3) . '-' . substr($cpf_formatando, 9, 2);
 
-    ?>
-            <br><label>CPF: <?php echo $cpf_formatado; ?></label><br>
-            <label>Nome: </label>
-            <input type="text" name="nome_dec" placeholder="Digite o nome completo" required><br>
-            <label>Nome da Mãe: </label>
-            <input type="text" name="nome_mae_dec" placeholder="Digite o nome completo"required><br>
+    ?>  
+        <div class="inf">
+                <br><label>CPF: <?php echo $cpf_formatado; ?></label><br>
+                <label>Nome: </label>
+                <input type="text" name="nome_dec" placeholder="Digite o nome completo" required><br>
+                <label>Nome da Mãe: </label>
+                <input type="text" name="nome_mae_dec" placeholder="Digite o nome completo"required><br>
 
-            <label><input type="radio" name="gender" value="male" required>
-                <span class="circle" style="background-color: dodgerblue;"></span> Homem</label>
-            <label><input type="radio" name="gender" value="female">
-                <span class="circle" style="background-color: hotpink;"></span> Mulher</label>
+                <label><input type="radio" name="gender" value="male" required>
+                    <span class="circle" style="background-color: dodgerblue;"></span> Homem</label>
+                <label><input type="radio" name="gender" value="female">
+                    <span class="circle" style="background-color: hotpink;"></span> Mulher</label>
 
-            <br><br><input type="submit" name="btn-ip5" value="Imprimir">
+                <br><br><input type="submit" name="btn-ip5" value="Imprimir">
+        </div>        
         </form>
         <?php
 // Armazene a variável na sessão
