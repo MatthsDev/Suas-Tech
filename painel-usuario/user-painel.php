@@ -33,7 +33,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
     <div class="container">
   <nav> 
       <div class="formularios">
-        <a class="menu-button" onclick="location.href='../views/menuformulario.php';">
+        <a class="menu-button" onclick="location.href='../views/forms/menuformulario.php';">
           <span class="material-symbols-outlined">
             forms_add_on
           </span>
@@ -51,7 +51,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
       </div>
 
       <div class="visitas">
-        <a class="menu-button" onclick="location.href='../views/visitas.php';">
+        <a class="menu-button" onclick="location.href='../views/visit/visitas.php';">
           <span class="material-symbols-outlined">
             location_away
           </span>
