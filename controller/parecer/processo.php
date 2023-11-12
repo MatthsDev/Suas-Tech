@@ -11,7 +11,7 @@
 <body>
 
 <?php
-include("../../config/conexao.php");
+require_once("../../config/conexao.php");
     //PEGANDO OS DADOS DO FORMULÁRIO
     $codigo_familiar = $_POST['codigo_familiar'];
     $nomerf = $_POST['nomerf'];
@@ -27,7 +27,7 @@ include("../../config/conexao.php");
             <div class="linha"></div> 
             <?php
             // Redireciona para a página registrar.html após 3 segundos
-            echo '<script> setTimeout(function(){ window.location.href = "../../views/registrar.php"; }, 3000); </script>';
+            echo '<script> setTimeout(function(){ window.location.href = "../../views/visit/registrar.php"; }, 3000); </script>';
         
         } else {
             echo "ERRO no envio dos DADOS: ".$smtp->error;
