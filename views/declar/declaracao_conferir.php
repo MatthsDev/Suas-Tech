@@ -1,8 +1,6 @@
 <?php
-require_once '../controller/declaracao/conferir.php';
-require_once '../controller/validar_cpf.php';
-//inicia a sessão
-//session_start();
+require_once '../../controller/declaracao/conferir.php';
+require_once '../../controller/validar_cpf.php';
 
 ?>
 <!DOCTYPE html>
@@ -12,14 +10,15 @@ require_once '../controller/validar_cpf.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../../style-registrar.css">
-        <link rel="website icon" type="png" href="../img/icon.png">
+        <link rel="website icon" type="png" href="../../img/logo.png">
         <title>Declaração</title>
     </head>
 
 <body>
         <h1>DECLARAÇÃO DO CADASTRO ÚNICO</h1>
         <h3>Confira se as informações estão corretas</h3>
-        <form method="post" action="../controller/declaracao/con_doc.php">
+        <form method="post" action="../../controller/declaracao/con_doc.php">
+
         <?php
 if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
     echo "Código Familiar: " . $cod_familiar_formatado . "<br>";
