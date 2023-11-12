@@ -81,7 +81,7 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" type="png" href="../../img/icon.png">
+    <link rel="website icon" type="png" href="../../img/logo.png">
     <title>documento oficial do cadastro único - são bento do una</title>
 </head>
 
@@ -150,7 +150,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao_prefeitura.php";
     }, 500);
     </script>
     <script>
@@ -203,7 +203,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao_prefeitura.php";
     }, 500);
     </script>
     <script>
@@ -257,7 +257,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao_prefeitura.php";
     }, 5000);
     </script>
     <script>
@@ -312,7 +312,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao_prefeitura.php";
     }, 5000);
     </script>
     <script>
@@ -371,7 +371,7 @@ $nome_dec = $_POST['nome_dec'];
     </form>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao_prefeitura.php";
     }, 500);
     </script>
     <script>
