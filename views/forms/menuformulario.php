@@ -27,7 +27,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
     <title>TechSUAS - Formulários</title>
     <link rel="stylesheet" href="../../css/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="website icon" type="png" href="../img/logo.png">
+    <link rel="website icon" type="png" href="../../img/logo.png">
 </head>
 <body>
 
