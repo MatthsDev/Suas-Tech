@@ -95,7 +95,7 @@ ini_set('memory_limit', '256M');
 
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
 
-include "../../config/conexao.php";
+require_once "../../config/conexao.php";
 
 //data criada com formato 'DD de mmmm de YYYY'
 $timestampptbr = time();
