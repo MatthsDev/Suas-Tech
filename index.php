@@ -10,8 +10,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/login.css">
-	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="cadunico/css/login.css">
+	<link rel="shortcut icon" href="cadunico/img/logo.png" type="image/x-icon">
 	<link rel="icon" href="" type="image/x-icon">
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -22,9 +22,9 @@
 	
 
 	<div class="login-form">
-		<form action="config/autenticar.php" method="post">
+		<form action="cadunico/config/autenticar.php" method="post">
 			<div class="logo">
-				<img src="img/logo1.png" alt="TECHSUAS">
+				<img src="cadunico/img/logo1.png" alt="TECHSUAS">
 			</div>
 			<h2 class="text-center">
 				Acessar Sistema
