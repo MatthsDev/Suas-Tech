@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 body{
     background-color: #d7e9f8;
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: "Inter", sans-serif;
     overflow: auto;
     padding-left: 10px;
@@ -38,5 +40,6 @@ form{
     background-color: #ffffff;
     border-radius: 5px;
     font-weight: bold;
+    color: #13294b;
 }
 

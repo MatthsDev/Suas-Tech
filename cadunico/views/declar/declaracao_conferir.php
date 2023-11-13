@@ -11,7 +11,7 @@ require_once '../../controller/validar_cpf.php';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../../css/style-dec-conf.css">
         <link rel="website icon" type="png" href="../../img/logo.png">
-        <title>Declaração</title>
+        <title>Conferir Declaração</title>
     </head>
 
 <body>
