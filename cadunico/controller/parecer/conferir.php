@@ -12,11 +12,9 @@
 
 <body>
     <h1>PARECER TÉCNICO DE VISITA DOMICILIAR</h1>
-
     <?php
 // Inclui o arquivo "conexao.php" que deve conter a configuração da conexão com o banco de dados
 require_once "../../config/conexao.php";
-ini_set('memory_limit', '256M');
 
 // Verifica se o formulário foi enviado via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -100,15 +98,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             ?>
     <form method="post" action="gerarpdf.php">
-        <label name="numero_parecer">Parecer: <?php echo $numero_parecer; ?> / <?php echo $anoatual; ?></label><br>
-        <br><br><label>CÓDIGO FAMILIAR: </label>
+        <p name="numero_parecer">Parecer: <?php echo $numero_parecer; ?> / <?php echo $anoatual; ?></p>
+        <p><label>CÓDIGO FAMILIAR: </label>
         <?php
 $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
             // Exibe as informações encontradas
-            echo $cod_familiar_formatado;?><br>
+            echo $cod_familiar_formatado;?></p>
         <label>NIS do Responsável pela(o) Unidade Familiar (RUF): </label>
         <?php
-echo $nis_responsavel_formatado . "<br><br>";
+echo $nis_responsavel_formatado;
             // Outras informações que você deseja exibir
         } else {
             echo "Nenhum registro encontrado para o CPF informado.";
@@ -140,7 +138,7 @@ echo $nis_responsavel_formatado . "<br><br>";
         <p>Ação: <?php echo $acao; ?></p>
         <p>Parecer Técnico: <?php echo $dadosv["parecer_tec"]; ?></p>
         <p>São Bento do Una - PE, <?php echo $data_formatada_at; ?></p>
-        <hr><br><input type="submit" name="btn-pdf" value="Gerar Arquivo"><br><br>
+        <hr><input type="submit" name="btn-pdf" value="Gerar Arquivo">
     </form>
     <?php
 $parecer_tec = $dadosv["parecer_tec"];
