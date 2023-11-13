@@ -22,7 +22,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('C:/Users/emman/Documents/PROCAD-SUAS/formularios/timbre.png'); /* Substitua 'timbre.png' pelo nome da sua imagem de timbre */
+    background-image: url('../../img/marca.png'); /* Substitua 'timbre.png' pelo nome da sua imagem de timbre */
     background-repeat: no-repeat;
     background-size: contain; /* Ajuste o tamanho da imagem para caber na página */
     background-position: center center; /* Posicione a imagem no centro da página */
