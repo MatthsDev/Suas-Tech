@@ -21,7 +21,7 @@ include_once 'config/sessao.php';
     <h1>Cadastro de Usuários</h1>
 
     <div class="container">
-    <form action="">
+    <form action="post">
         <label>CPF: </label>
         <input type="text" name="cpf_dec" placeholder="Digite o CPF..." required><br>
         
@@ -34,14 +34,15 @@ include_once 'config/sessao.php';
             <option value="usuario">Usuário:</option>
         </select>
 
-        <button type="submit">Cadastrar</button>
         <br>
+        <button type="submit">Cadastrar</button>
         <a href="<?php echo $voltar_link; ?>">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
     </form>
     <?php
     require_once 'config/validar_cpf.php';
+        if (!isset($_POST['cpf_dec']))
     ?>
     <div class=lin1>
         <div class="linha"></div>
