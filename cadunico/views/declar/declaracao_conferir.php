@@ -1,6 +1,6 @@
 <?php
 require_once '../../controller/declaracao/conferir.php';
-require_once '../../controller/validar_cpf.php';
+require_once '../../../controller/validar_cpf.php';
 
 ?>
 <!DOCTYPE html>
