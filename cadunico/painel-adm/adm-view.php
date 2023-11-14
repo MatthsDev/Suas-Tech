@@ -33,7 +33,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
     <div class="container">
       <nav> 
         <div class="cadastrar">
-          <a class="menu-button" onclick="location.href='../../cadastro_user.php';">
+          <a class="menu-button" onclick="location.href='cadastro_user.php';">
             <span class="material-symbols-outlined">
               person_add
             </span>
