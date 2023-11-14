@@ -38,7 +38,7 @@ include "../../../config/sessao.php";
                 <label>AÇÃO DA VISITA: </label>
                 <select name="acao_visita" required>
                     <option value="" disabled selected hidden>Selecione a ação da visita.</option>
-
+                    <option value="1">LOCALIZADO</option>
                     <option value="2">NÃO LOCALIZADO</option>
                     <option value="3">FALECIMENTO DO RESPONSÁVEL FAMILIAR</option>
                     <option value="4">A FAMÍLIA RECUSOU ATUALIZAR</option>
