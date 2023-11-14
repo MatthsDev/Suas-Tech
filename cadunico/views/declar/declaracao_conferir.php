@@ -1,8 +1,8 @@
 <?php
-require_once '../../controller/declaracao/conferir.php';
-require_once '../../../controller/validar_cpf.php';
-
+include "../../../config/sessao.php";
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

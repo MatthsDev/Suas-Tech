@@ -17,4 +17,4 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
 } elseif (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'usuario') {
     // O usuário é um usuário comum.
     $voltar_link = '../../painel-usuario/user-painel.php';
-}
+} 
