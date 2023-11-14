@@ -1,6 +1,6 @@
 <?php
 // CARREGANDO SCRIPTS DE CONEXÃO E CONFIGURAÇÃO DO SISTEMA (BANCO DE DADOS)
-require_once("../../config/conexao.php");
+require_once("../../../config/conexao.php");
 
 // CARREGANDO SESSAO DO USUARIO
 session_start();
