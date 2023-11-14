@@ -1,6 +1,6 @@
 <?php
 session_start(); // Inicie a sessão para acessar as variáveis de sessão
-include '../../config/conexao.php';
+include '../config/conexao.php';
 
 // Verifique o nível do usuário
 if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin') {

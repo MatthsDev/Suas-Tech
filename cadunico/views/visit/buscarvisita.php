@@ -1,5 +1,5 @@
 <?php
-include "../../../config/conexao.php";
+include "../../config/conexao.php";
 session_start(); // Inicie a sessão para acessar as variáveis de sessão
 
 // Verifique o nível do usuário
