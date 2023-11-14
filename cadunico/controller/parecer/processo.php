@@ -11,7 +11,7 @@
 <body>
 
 <?php
-require_once("../../config/conexao.php");
+require_once("../../../config/conexao.php");
     //PEGANDO OS DADOS DO FORMULÁRIO
     $codigo_familiar = $_POST['codigo_familiar'];
     $nomerf = $_POST['nomerf'];
