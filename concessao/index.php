@@ -23,6 +23,6 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     <title>Concessão</title>
 </head>
 <body>
-    
+    <p><label>CPF: </label> <input type="text" name="cpf_dec" spacehold="Digite o CPF..."></p>
 </body>
 </html>
