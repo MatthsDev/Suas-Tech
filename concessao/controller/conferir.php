@@ -1,13 +1,14 @@
 <?php
 
 require_once '../../cadunico/controller/validar_cpf.php';
+require_once '../../cadunico/config/conexao.php';
 
 //puxa as informações do formulário '../index.php'
 if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
     $opcao = $_POST['buscar_dados'];
     if ($opcao == 'cpf_dec') {
         //cria as variáveis com o valor recebido
-        $cpf_dec = ['valorescolhido'];
+        $cpf_dec = $_POST['valorescolhido'];
 
         //formato do CPF '000.000.000-00'
         $cpf_formatando = sprintf('%011s', $cpf_dec);
@@ -25,7 +26,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
 
         }else{
             //caso não encontre o cpf na tabela tbl_tudo
-            echo 'Nenhum dado nesse CPF:' . $cpf_formatado;
+            echo 'Nenhum dado nesse CPF: ' . $cpf_formatado;
         }
     }
 }
