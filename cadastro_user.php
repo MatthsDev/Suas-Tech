@@ -1,5 +1,5 @@
 <?php
-
+include_once 'config/sessao.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,7 +13,35 @@
 </head>
 
 <body>
+    <div class="img">
+        <h1 class="titulo-com-imagem">
+            <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
+        </h1>
+    </div>
     <h1>Cadastro de Usuários</h1>
 
+    <div class="container">
+    <form method="post" action="declaracao_conferir">
+        <label>CPF: </label>
+        <input type="text" name="cpf_dec" placeholder="Digite o CPF..." required><br>
+        <label>NOME: </label>
+        <input type="text" name="nome_dec" placeholder="Digite o nome completo..." required><br>
+        
+        <label>Tipo de acesso: </label>
+        <select name="buscar_dados" required>
+            <option value="adm">Administrador:</option>
+            <option value="usuario">Usuário:</option>
+        </select>
+        <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
+        <button type="submit">BUSCAR</button>
+        <a
+            href="<?php echo $voltar_link; ?>">
+                <i class="fas fa-arrow-left"></i> Voltar ao menu
+            </a>
+    </form>
+    <div class=lin1>
+        <div class="linha"></div>
+    </div>
+</div>
 </body>
 </html>
