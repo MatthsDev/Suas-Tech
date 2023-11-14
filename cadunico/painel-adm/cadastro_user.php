@@ -45,9 +45,10 @@ include_once '../../config/sessao.php';
         if (!isset($_POST['cpf_dec'])){
 
         }else{
-            $smtp = $conn->prepare("INSERT INTO usuarios (cpf_dec, nome_dec, buscar_dados, setor) VALUES (?,?,?,?)");
-            $smtp->bind_param("sssss", $codigo_familiar, $nomerf, $data_visita, $acao_visita, $parecer);
-        
+            $cpf_dec = $_POST['cpf_dec'];
+            //$smtp = $conn->prepare("INSERT INTO usuarios (cpf_dec, nome_dec, buscar_dados, setor) VALUES (?,?,?,?)");
+            //$smtp->bind_param("sssss", $codigo_familiar, $nomerf, $data_visita, $acao_visita, $parecer);
+            echo $cpf_dec;
         }
     ?>
     <div class=lin1>
