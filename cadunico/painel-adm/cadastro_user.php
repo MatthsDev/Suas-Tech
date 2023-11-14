@@ -1,5 +1,5 @@
 <?php
-include_once 'config/sessao.php';
+include_once '../../config/sessao.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,8 +30,8 @@ include_once 'config/sessao.php';
 
         <label>Tipo de acesso: </label>
         <select name="buscar_dados" required>
-            <option value="adm">Administrador:</option>
-            <option value="usuario">Usuário:</option>
+            <option value="adm">Administrador</option>
+            <option value="usuario">Usuário</option>
         </select>
 
         <br>
@@ -41,8 +41,14 @@ include_once 'config/sessao.php';
             </a>
     </form>
     <?php
-    require_once 'config/validar_cpf.php';
-        if (!isset($_POST['cpf_dec']))
+    require_once '../../config/validar_cpf.php';
+        if (!isset($_POST['cpf_dec'])){
+
+        }else{
+            $smtp = $conn->prepare("INSERT INTO usuarios (cpf_dec, nome_dec, buscar_dados, setor) VALUES (?,?,?,?)");
+            $smtp->bind_param("sssss", $codigo_familiar, $nomerf, $data_visita, $acao_visita, $parecer);
+        
+        }
     ?>
     <div class=lin1>
         <div class="linha"></div>
