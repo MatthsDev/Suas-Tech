@@ -10,6 +10,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
     header("location:../../index.php");
     exit; // Encerra o script após redirecionar
 }
+
 ?>
 <!DOCTYPE html>
 <html>
