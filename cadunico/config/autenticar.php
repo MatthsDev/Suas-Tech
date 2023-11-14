@@ -4,7 +4,7 @@ require_once("conexao.php");
 session_start();
 
 if(empty($_POST['usuario']) || empty($_POST['senha'])){
-	header("location:../index.php");
+	header("location:../../index.php");
 }
 
 $usuario = $_POST['usuario'];
@@ -36,5 +36,5 @@ if($linhas > 0){
 
 }else{
 	echo "<script language='javascript'>window.alert('Dados Incorretos!!'); </script>";
-	echo "<script language='javascript'>window.location='../index.php'; </script>";
+	echo "<script language='javascript'>window.location='../../index.php'; </script>";
 }
