@@ -21,7 +21,7 @@ include_once 'config/sessao.php';
     <h1>Cadastro de Usuários</h1>
 
     <div class="container">
-    <form method="post" action="declaracao_conferir">
+    <form method="post" action="">
         <label>CPF: </label>
         <input type="text" name="cpf_dec" placeholder="Digite o CPF..." required><br>
         <label>NOME: </label>
