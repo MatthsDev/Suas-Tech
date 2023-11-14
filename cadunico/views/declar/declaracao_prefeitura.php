@@ -1,6 +1,6 @@
-<?php 
+<?php
 session_start(); // Inicie a sessão para acessar as variáveis de sessão
-include('../../config/conexao.php');
+include '../../config/conexao.php';
 
 // Verifique o nível do usuário
 if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin') {
@@ -28,7 +28,7 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     <title>Declaração Cadastro único</title>
 </head>
 
-<body>    
+<body>
     <div class="img">
         <h1 class="titulo-com-imagem">
             <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
@@ -47,10 +47,10 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
     </form>
-    <div class=lin1>    
-        <div class="linha"></div> 
-    </div>    
-</div>    
+    <div class=lin1>
+        <div class="linha"></div>
+    </div>
+</div>
 </body>
 
 </html>
