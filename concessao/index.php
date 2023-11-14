@@ -25,11 +25,11 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
 <body>
 <div class="img">
         <h1 class="titulo-com-imagem">
-            <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
+            <img src="" alt="Titulocomimagem">
         </h1>
     </div>
 <div class="container">
-    <form method="post" action="declaracao_conferir">
+    <form method="post" action="">
         <select name="buscar_dados" required>
             <option value="cpf_dec">CPF:</option>
             <option value="nis_dec">NIS:</option>
