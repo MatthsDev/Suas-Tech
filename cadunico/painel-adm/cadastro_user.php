@@ -8,7 +8,7 @@ include_once '../../config/sessao.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" type="png" href="cadunico/img/logo.png">
+    <link rel="website icon" type="png" href="../img/logo.png">
     <title>Cadastro Usuários</title>
 </head>
 
@@ -21,7 +21,7 @@ include_once '../../config/sessao.php';
     <h1>Cadastro de Usuários</h1>
 
     <div class="container">
-    <form method="post" action="post">
+    <form method="post" action="">
         <label>CPF: </label>
         <input type="text" name="cpf_dec" placeholder="Digite o CPF..." required><br>
 
