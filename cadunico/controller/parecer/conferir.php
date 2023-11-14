@@ -169,7 +169,7 @@ $parecer_tec = $dadosv["parecer_tec"];
 
         $cod_familiar_formatado = substr_replace(str_pad($codfamv, 11, "0", STR_PAD_LEFT), '-', 9, 0);
         echo "Não foi realizado nenhuma visita a essa família " . $cod_familiar_formatado . "<br>";
-        echo "<hr><br><a href='../../views/buscarvisita.html'><button>Voltar</button></a>";
+        echo "<hr><br><a href='../../views/visit/buscarvisita.php'><button>Voltar</button></a>";
     }
 }?>
 

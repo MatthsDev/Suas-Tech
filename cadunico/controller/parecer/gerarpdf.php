@@ -15,7 +15,7 @@
 
     <?php
 
-require_once '../../config/conexao.php';
+require_once '../../../config/conexao.php';
 
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
 

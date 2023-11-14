@@ -9,6 +9,7 @@
         padding: 0;
         background-image: url('../../img/marca.png');
         background-size: cover;
+        background-repeat: no-repeat;
     }
 
     select {
@@ -78,10 +79,16 @@
         text-indent: 50px;
         margin-top: 20px;
     }
+    .conteudo{
+    display:block;
+    padding: 0px 5px 0px 30px;
+}
+
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../../img/logo.png">
+    <link rel="stylesheet" href="stylegerar.css">
     <title>documento oficial do cadastro único - são bento do una</title>
 </head>
 
@@ -127,7 +134,7 @@ if (isset($_POST['btn-ip1'])) {
         ?>
     <form id="form">
         <br><br><br><br><br><br>
-        <div id="justified-text">
+        <div id="justified-text" class="conteudo">
             <p>Para os devidos fins, confirmo que <?php echo $sexo; ?> <?php echo $nom_pessoa; ?>, CPF:
                 <?php echo $cpf_formatado; ?>, <?php echo $sexoo; ?> <?php echo $nom_mae_rf; ?>, está
                 <?php echo $sexooo; ?> no Cadastro Único para Programas do Governo Federal.
