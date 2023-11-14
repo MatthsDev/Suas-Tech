@@ -21,9 +21,10 @@ include_once 'config/sessao.php';
     <h1>Cadastro de Usuários</h1>
 
     <div class="container">
-    <form method="post" action="">
+    <form action="">
         <label>CPF: </label>
         <input type="text" name="cpf_dec" placeholder="Digite o CPF..." required><br>
+        
         <label>NOME: </label>
         <input type="text" name="nome_dec" placeholder="Digite o nome completo..." required><br>
 
@@ -34,11 +35,14 @@ include_once 'config/sessao.php';
         </select>
 
         <button type="submit">Cadastrar</button>
-        <br><a
-            href="<?php echo $voltar_link; ?>">
+        <br>
+        <a href="<?php echo $voltar_link; ?>">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
     </form>
+    <?php
+    require_once 'config/validar_cpf.php';
+    ?>
     <div class=lin1>
         <div class="linha"></div>
     </div>
