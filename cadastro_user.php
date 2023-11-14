@@ -15,7 +15,7 @@ include_once 'config/sessao.php';
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
+            <img src="cadunico/img/" alt="NoImage">
         </h1>
     </div>
     <h1>Cadastro de Usuários</h1>
@@ -26,15 +26,15 @@ include_once 'config/sessao.php';
         <input type="text" name="cpf_dec" placeholder="Digite o CPF..." required><br>
         <label>NOME: </label>
         <input type="text" name="nome_dec" placeholder="Digite o nome completo..." required><br>
-        
+
         <label>Tipo de acesso: </label>
         <select name="buscar_dados" required>
             <option value="adm">Administrador:</option>
             <option value="usuario">Usuário:</option>
         </select>
-        <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
-        <button type="submit">BUSCAR</button>
-        <a
+
+        <button type="submit">Cadastrar</button>
+        <br><a
             href="<?php echo $voltar_link; ?>">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
