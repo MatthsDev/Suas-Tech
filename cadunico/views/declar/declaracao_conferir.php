@@ -1,7 +1,7 @@
 <?php
-include "../../../config/sessao.php";
+require_once '../../controller/declaracao/conferir.php';
+require_once '../../../controller/validar_cpf.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -39,7 +39,6 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
         'cod_familiar_formatado' => $cod_familiar_formatado,
         'nom_pessoa' => $nom_pessoa,
         'sexo' => $sexo,
-        'nom_pessoa' => $nom_pessoa,
         'sexoo' => $sexoo,
         'nom_mae_rf' => $nom_mae_rf,
         'status_cadastro' => $status_cadastro,
@@ -68,7 +67,6 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
         'cod_familiar_formatado' => $cod_familiar_formatado,
         'nom_pessoa' => $nom_pessoa,
         'sexo' => $sexo,
-        'nom_pessoa' => $nom_pessoa,
         'sexoo' => $sexoo,
         'nom_mae_rf' => $nom_mae_rf,
         'status_cadastro' => $status_cadastro,
