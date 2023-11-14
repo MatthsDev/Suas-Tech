@@ -1,6 +1,6 @@
 <?php
 // controller/atendimento/gerar_senha.php
-include_once '../../config/conexao.php';
+include_once '../../../config/conexao.php';
 
 $tipo = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_NUMBER_INT);
 
