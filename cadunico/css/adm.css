@@ -10,7 +10,7 @@ body {
   margin-top: 0px;
 }
 
-img {
+.titulo-com-imagem {
   display: flex;
   width: 100%;
   max-height: 120px
@@ -46,6 +46,18 @@ img {
 .menu-button:hover {
   background-color: #3b82f6;
   transform: scale(1.05);
+}
+.tudo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.calendario{
+  max-width: 600px;
+  max-height: 800px;
+  border-radius: 10px;
+  margin-left: 100px;
+  opacity: 90%;
 }
 
 @media screen and (max-width: 800px) {

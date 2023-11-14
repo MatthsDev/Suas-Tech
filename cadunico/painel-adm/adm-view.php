@@ -27,9 +27,10 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
   
     <div class="img">
       <h1 class="titulo-com-imagem">
-        <img src="../img/h1-menu.svg" alt="Titulocomimagem">
+        <img class="titulo-com-imagem" src="../img/h1-menu.svg" alt="Titulocomimagem">
       </h1>
     </div>
+  <div class="tudo">
     <div class="container">
       <nav> 
         <div class="cadastrar">
@@ -85,8 +86,12 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
             Atendimento
           </a>
         </div>
-      <nav>    
+      <nav>   
     </div>
     
+    <div class="calendario">
+    <img class="calendario" src="../img/calend.png" alt="calend">
+    </div> 
+  </div>
   </body>
 </html>
