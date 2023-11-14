@@ -14,7 +14,7 @@
     <h1>PARECER TÉCNICO DE VISITA DOMICILIAR</h1>
     <?php
 // Inclui o arquivo "conexao.php" que deve conter a configuração da conexão com o banco de dados
-require_once "../../config/conexao.php";
+require_once "../../../config/conexao.php";
 
 // Verifica se o formulário foi enviado via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
