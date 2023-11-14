@@ -1,16 +1,8 @@
 <?php
-// CARREGANDO SCRIPTS DE CONEXÃO E CONFIGURAÇÃO DO SISTEMA (BANCO DE DADOS)
-require_once("../../../config/conexao.php");
-
-// CARREGANDO SESSAO DO USUARIO
-session_start();
-
-// Verifica se o usuário está autenticado como admin ou usuário
-if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' && $_SESSION['nivel_usuario'] != 'usuario')) {
-    header("location:../index.php");
-    exit; // Encerra o script após redirecionar
-}
+include "../../../config/sessao.php";
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
