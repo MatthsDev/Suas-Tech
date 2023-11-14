@@ -1,8 +1,6 @@
 <?php
 include "../../../config/conexao.php";
 include "../../../config/sessao.php";
-IN
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
