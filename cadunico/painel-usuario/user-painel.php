@@ -27,59 +27,62 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
   
     <div class="img">
       <h1 class="titulo-com-imagem">
-        <img src="../img/h1-menu.svg" alt="Titulocomimagem">
+        <img class="titulo-com-imagem" src="../img/h1-menu.svg" alt="Titulocomimagem">
       </h1>
     </div>
     <div class="container">
-  <nav> 
-      <div class="formularios">
-        <a class="menu-button" onclick="location.href='../views/forms/menuformulario.php';">
-          <span class="material-symbols-outlined">
-            forms_add_on
-          </span>
-        Formulários
-        </a>
-      </div>
+  <div class="tudo">      
+    <nav> 
+        <div class="formularios">
+          <a class="menu-button" onclick="location.href='../views/forms/menuformulario.php';">
+            <span class="material-symbols-outlined">
+              forms_add_on
+            </span>
+          Formulários
+          </a>
+        </div>
 
-      <div class="parecer">
-        <a class="menu-button" onclick="location.href='../views/declar/declaracao_prefeitura.php';">
-          <span class="material-symbols-outlined">
-          quick_reference_all
-          </span>
-          Declaração do Cadastro Único
-        </a>
-      </div>
+        <div class="parecer">
+          <a class="menu-button" onclick="location.href='../views/declar/declaracao_prefeitura.php';">
+            <span class="material-symbols-outlined">
+            quick_reference_all
+            </span>
+            Declaração do Cadastro Único
+          </a>
+        </div>
 
-      <div class="visitas">
-        <a class="menu-button" onclick="location.href='../views/visit/visitas.php';">
-          <span class="material-symbols-outlined">
-            location_away
-          </span>
-          Visitas
-        </a>
-      </div>
+        <div class="visitas">
+          <a class="menu-button" onclick="location.href='../views/visit/visitas.php';">
+            <span class="material-symbols-outlined">
+              location_away
+            </span>
+            Visitas
+          </a>
+        </div>
 
-      <div class="folha">
-        <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
-          <span class="material-symbols-outlined">
-            request_quote
-          </span>
-          Folha de Pagamento
-        </a>
-      </div>
+        <div class="folha">
+          <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
+            <span class="material-symbols-outlined">
+              request_quote
+            </span>
+            Folha de Pagamento
+          </a>
+        </div>
 
-      <div class="atendimento">
-        <a class="menu-button" onclick="location.href='#';">
-          <span class="material-symbols-outlined">
-            contacts
-          </span>
-          Atendimento
-        </a>
-      </div>
+        <div class="atendimento">
+          <a class="menu-button" onclick="location.href='#';">
+            <span class="material-symbols-outlined">
+              contacts
+            </span>
+            Atendimento
+          </a>
+        </div>
 
-    </div>  
-  </nav>
-    
-    
+      </div>  
+    </nav>
+    <div class="calendario">
+      <img class="calendario" src="../img/calend.png" alt="calend">
+    </div> 
+  </div>   
   </body>
 </html>
