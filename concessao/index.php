@@ -23,6 +23,8 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     <title>Concessão</title>
 </head>
 <body>
+    <form method="post" action="controller/buscar_dados.php" required>
     <p><label>CPF: </label> <input type="text" name="cpf_dec" spacehold="Digite o CPF..."></p>
+    <input type="submit" name="btn" value="Enviar">
 </body>
 </html>
