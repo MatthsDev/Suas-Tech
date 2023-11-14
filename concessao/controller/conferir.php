@@ -14,14 +14,18 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         $cpf_formatado = substr($cpf_formatando, 0, 3) . '.' . substr($cpf_formatando, 3, 3) . '.' . substr($cpf_formatando, 6, 3) . '-' . substr($cpf_formatando, 9, 2);
 
     // Consulta SQL para buscar informações na tabela com base no Código Familiar
-    $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE cod_familiar_fam = :codfam");
-    $sql->bindParam(':codfam', $codfam, PDO::PARAM_STR);
+    $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
+    $sql->bindParam(':cpf_dec', $cpf_dec, PDO::PARAM_STR);
     $sql->execute();
 
     if ($sql->rowCount() > 0) {
         
         // Recupera os dados da consulta
         $dados = $sql->fetch(PDO::FETCH_ASSOC);
+
+        }else{
+            //caso não encontre o cpf na tabela tbl_tudo
+            echo 'Nenhum dado nesse CPF:' . $cpf_formatado;
         }
     }
 }
