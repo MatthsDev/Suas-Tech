@@ -23,8 +23,27 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     <title>Concessão</title>
 </head>
 <body>
-    <form method="post" action="controller/buscar_dados.php" required>
-    <p><label>CPF: </label> <input type="text" name="cpf_dec" spacehold="Digite o CPF..."></p>
-    <input type="submit" name="btn" value="Enviar">
+<div class="img">
+        <h1 class="titulo-com-imagem">
+            <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
+        </h1>
+    </div>
+<div class="container">
+    <form method="post" action="declaracao_conferir">
+        <select name="buscar_dados" required>
+            <option value="cpf_dec">CPF:</option>
+            <option value="nis_dec">NIS:</option>
+        </select>
+        <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
+        <button type="submit">BUSCAR</button>
+        <a
+            href="<?php echo $voltar_link; ?>">
+                <i class="fas fa-arrow-left"></i> Voltar ao menu
+            </a>
+    </form>
+    <div class=lin1>
+        <div class="linha"></div>
+    </div>
+</div>
 </body>
 </html>
