@@ -1,3 +1,3 @@
 <?php
 
-require_once '../../controller/validar_cpf.php';
+require_once '../../cadunico/controller/validar_cpf.php';
