@@ -4,7 +4,7 @@ require_once("conexao.php");
 session_start();
 
 if(empty($_POST['usuario']) || empty($_POST['senha'])){
-	header("location:../../index.php");
+	header("location:../index.php");
 }
 
 $usuario = $_POST['usuario'];
@@ -25,16 +25,16 @@ if($linhas > 0){
 	$_SESSION['nivel_usuario'] = $dados[0]['nivel'];
 
 	if($_SESSION['nivel_usuario'] == 'admin'){
-		header("location:../painel-adm/adm-view.php");
+		header("location:../cadunico/painel-adm/adm-view.php");
 		exit();
 	}
 
 	if($_SESSION['nivel_usuario'] == 'usuario'){
-		header("location:../painel-usuario/user-painel.php");
+		header("location:../cadunico/painel-usuario/user-painel.php");
 		exit();
 	}
 
 }else{
 	echo "<script language='javascript'>window.alert('Dados Incorretos!!'); </script>";
-	echo "<script language='javascript'>window.location='../../index.php'; </script>";
+	echo "<script language='javascript'>window.location='../index.php'; </script>";
 }
