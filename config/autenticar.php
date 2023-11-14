@@ -11,7 +11,6 @@ $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
 $res = $pdo->prepare("SELECT * from usuarios where usuario = :usuario and senha = :senha ");
-
 $res->bindValue(":usuario", $usuario);
 $res->bindValue(":senha", $senha);
 $res->execute();
@@ -38,3 +37,13 @@ if($linhas > 0){
 	echo "<script language='javascript'>window.alert('Dados Incorretos!!'); </script>";
 	echo "<script language='javascript'>window.location='../index.php'; </script>";
 }
+
+
+//FUNÇÃO BOTAO
+
+    if(isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] == 'admin'){
+        echo '<a href="../painel-adm/adm-view.php">Ir para o Painel de Admin</a>';
+    } elseif(isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] == 'usuario'){
+        echo '<a href="../painel-usuario/user-painel.php">Ir para o Painel de Usuário</a>';
+    }
+?>
