@@ -14,4 +14,15 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     // Redirecionar para a página de login ou exibir uma mensagem de erro, pois o nível do usuário não está definido.
     $voltar_link = '../../index.php'; // Altere o link para a página de login
 }
-
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concessão</title>
+</head>
+<body>
+    
+</body>
+</html>
