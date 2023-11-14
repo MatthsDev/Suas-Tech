@@ -12,7 +12,7 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
     // Redirecionar para a página de login ou exibir uma mensagem de erro, pois o nível do usuário não está definido.
     $voltar_link = '../index.php'; // Altere o link para a página de login
 }
-include('../../config/conexao.php');
+include('../../../config/conexao.php');
 ini_set('memory_limit', '256M');
 ?>
 <!DOCTYPE html>
