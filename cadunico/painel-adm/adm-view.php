@@ -88,7 +88,6 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
         </div>
       <nav>   
     </div>
-    
     <div class="calendario">
     <img class="calendario" src="../img/calend.png" alt="calend">
     </div> 
