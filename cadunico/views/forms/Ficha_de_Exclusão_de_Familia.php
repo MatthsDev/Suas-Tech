@@ -1,6 +1,6 @@
 <?php
 // CARREGANDO SCRIPTS DE CONEXÃO E CONFIGURAÇÃO DO SISTEMA (BANCO DE DADOS)
-require_once("../../config/conexao.php");
+require_once("../../../config/conexao.php");
 
 // CARREGANDO SESSAO DO USUARIO
 session_start();
@@ -22,7 +22,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('timbre.png');
+    background-image: url('../../img/marca.png');
     background-size: cover;
   }
     select {
