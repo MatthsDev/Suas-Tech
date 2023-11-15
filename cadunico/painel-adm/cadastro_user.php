@@ -1,5 +1,7 @@
 <?php
+require_once '../../config/conexao.php';
 include_once '../../config/sessao.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
