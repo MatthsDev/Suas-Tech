@@ -50,6 +50,7 @@ include_once '../../config/sessao.php';
             </a>
     </form>
     <?php
+require_once '../../config/conexao.php';
 require_once '../../config/validar_cpf.php';
 if (!isset($_POST['cpf_dec'])) {
 
@@ -62,7 +63,7 @@ if (!isset($_POST['cpf_dec'])) {
 
     $smtp = $conn->prepare("INSERT INTO usuarios_test (cpf_dec, nome_dec, buscar_dados, senha_user, nome_user, setor) VALUES (?,?,?,?,?,?)");
     $smtp->bind_param("ssssss", $cpf_dec, $nome_dec, $tpacesso, $user_senha, $user_name, $setor);
-    require_once '../../config/conexao.php';
+
 
 }
 ?>
