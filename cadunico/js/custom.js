@@ -1,6 +1,6 @@
 async function gerarSenha(tipoSenha) {
     try {
-        const dados = await fetch('../controller/atendimento/gerar_senha.php?tipo=' + tipoSenha);
+        const dados = await fetch('../../controller/atendimento/gerar_senha.php?tipo=' + tipoSenha);
         
         if (!dados.ok) {
             throw new Error('Erro na requisição: ' + dados.status);
