@@ -1,8 +1,35 @@
 <?php
 include_once '../../config/sessao.php';
-require_once '../../config/validar_cpf.php';
 
+// Inicializa a mensagem como vazia
+$mensagem = "";
 
+// Verifica se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+
+    $cpf_dec = $_POST['cpf_dec'];
+
+    // Se o CPF for válido, continua com as outras operações
+    require_once '../../config/conexao.php';
+
+    $nome_dec = $_POST['nome_dec'];
+    $tpacesso = $_POST['buscar_dados'];
+    $user_senha = $_POST['senha_user'];
+    $user_name = $_POST['nome_user'];
+
+    $smtp = $conn->prepare("INSERT INTO usuarios_test (cpf_dec, nome_dec, buscar_dados, senha_user, nome_user) VALUES (?,?,?,?,?)");
+    $smtp->bind_param("sssss", $cpf_dec, $nome_dec, $tpacesso, $user_senha, $user_name);
+
+    if ($smtp->execute()) {
+        $mensagem = "Dados enviados com sucesso!";
+    } else {
+        $mensagem = "ERRO no envio dos DADOS: " . $smtp->error;
+    }
+
+    $smtp->close();
+    $conn->close();
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
