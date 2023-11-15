@@ -30,10 +30,17 @@ include_once '../../config/sessao.php';
 
         <label>Tipo de acesso: </label>
         <select name="buscar_dados" required>
-            <option value="" disabled selected hidden>Selecione o perfil</option>
+            <option value="" disabled selected hidden>Selecione</option>
             <option value="adm">Administrador</option>
             <option value="usuario">Usuário</option>
         </select>
+
+        <br>
+        <label>Nome de Usuário:</label>
+        <input type="text" name="nome_user">
+        <br>
+        <label>Senha:</label>
+        <input type="text" name="senha_user">
 
         <br>
         <button type="submit">Cadastrar</button>
@@ -49,11 +56,13 @@ if (!isset($_POST['cpf_dec'])) {
     $cpf_dec = $_POST['cpf_dec'];
     $nome_dec = $_POST['nome_dec'];
     $tpacesso = $_POST['buscar_dados'];
-    //$smtp = $conn->prepare("INSERT INTO usuarios (cpf_dec, nome_dec, buscar_dados, setor) VALUES (?,?,?,?)");
-    //$smtp->bind_param("sssss", $codigo_familiar, $nomerf, $data_visita, $acao_visita, $parecer);
-    echo $nome_dec;
-    echo $cpf_dec;
-    echo $tpacesso;
+    $user_senha = $_POST['senha_user'];
+    $user_name = $_POST['nome_user'];
+
+    $smtp = $conn->prepare("INSERT INTO usuarios_test (cpf_dec, nome_dec, buscar_dados, senha_user, nome_user, setor) VALUES (?,?,?,?,?,?)");
+    $smtp->bind_param("ssssss", $cpf_dec, $nome_dec, $tpacesso, $user_senha, $user_name, $setor);
+
+    echo "Dados salvo com sucesso!";
 }
 ?>
     <div class=lin1>
