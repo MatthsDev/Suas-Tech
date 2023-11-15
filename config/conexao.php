@@ -3,7 +3,7 @@
 $host = 'localhost';
 $usuario = 'root';
 $senha = '';
-$banco = 'syshosp';
+$banco = 'test';
 $port = 3306;
 
 date_default_timezone_set('America/Sao_Paulo');
