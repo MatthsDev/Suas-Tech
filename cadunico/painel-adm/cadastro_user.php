@@ -19,6 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($smtp->execute()) {
         $mensagem = "Dados enviados com sucesso!";
+    } elseif ($tpacesso == NULL && $user_senha == NULL) {
+        die();
+        echo "CAMPOS OBRIGATÓRIOS VAZIOS";
+        
     } else {
         $mensagem = "ERRO no envio dos DADOS: " . $smtp->error;
     }
@@ -32,11 +36,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <meta http-'equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../img/logo.png">
+    <link rel="stylesheet" href="../css/style-registrar.css">
     <title>Cadastro Usuários</title>
     <script>
+        function formatarCPF(cpf) {
+            // Remove caracteres não numéricos
+            cpf = cpf.replace(/\D/g, '');
+
+            // Adiciona ponto e traço conforme o formato do CPF
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+
+            // Atualiza o valor no campo
+            document.getElementById('cpf_dec').value = cpf;
+        }
         function validarCPF(cpf) {
             cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
 
@@ -60,7 +75,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         function processarCPF() {
+            //Obtem o valor do CPF
             var cpf = document.getElementById('cpf_dec').value;
+
+            //Formata o CPF
+            formatarCPF(cpf);
+
             var cpfValido = validarCPF(cpf);
 
             if (cpfValido) {
@@ -106,15 +126,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="senha_user">
 
             <br>
-            <button type="button" onclick="processarCPF()">Cadastrar</button>
+            <button type="submit" onclick="processarCPF()">Cadastrar</button>
             <a href="<?php echo $voltar_link; ?>">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
         </form>
-
-        <div class="lin1">
-            <div class="linha"></div>
-        </div>
     </div>
 </body>
 
