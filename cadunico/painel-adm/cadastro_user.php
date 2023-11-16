@@ -6,6 +6,9 @@ $mensagem = "";
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    require_once '../../config/validar_cpf.php';
+    if (validarCPF($cpf_dec)){    
     $cpf_dec = $_POST['cpf_dec'];
     require_once '../../config/conexao.php';
 
@@ -29,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $smtp->close();
     $conn->close();
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -126,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="senha_user">
 
             <br>
-            <button type="submit" onclick="processarCPF()">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
             <a href="<?php echo $voltar_link; ?>">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
