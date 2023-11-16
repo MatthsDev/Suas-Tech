@@ -17,7 +17,7 @@ ini_set('memory_limit', '256M');
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img src="../../img/h1.svg" alt="Titulocomimagem">
+            <img src="../../img/h1-folha.svg" alt="Titulocomimagem">
         </h1>
     </div>
     <div class="container">    
