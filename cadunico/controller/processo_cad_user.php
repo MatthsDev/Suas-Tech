@@ -18,19 +18,26 @@ $mensagem = "";
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $tpacesso = $_POST['buscar_dados'];
+    $tpacesso = $_POST['nivel'];
     $user_senha = $_POST['senha_user'];
     $user_name = $_POST['nome_user'];
+    $setor = $_POST['setor'];
 
     // Adiciona a data e hora atual ao SQL
-    $smtp = $conn->prepare("INSERT INTO usuarios_test (buscar_dados, senha_user, nome_user, data_registro) VALUES (?,?,?, NOW())");
-    $smtp->bind_param("sss", $tpacesso, $user_senha, $user_name);
+    $smtp = $conn->prepare("INSERT INTO usuarios (nome_user, senha_user, nivel, setor, data_registro) VALUES (?,?,?,?, NOW())");
+
+    // Verifica se a preparação foi bem-sucedida
+    if ($smtp === false) {
+        die('Erro na preparação SQL: ' . $conn->error);
+    }
+
+    $smtp->bind_param("ssss", $user_name, $user_senha, $tpacesso, $setor);
 
     if ($smtp->execute()) {?>
         <H1 >"DADOS ENVIADOS COM SUCESSO!" </H1>
         <div class="linha"></div>
         <?php
-        // Redireciona para a página registrar.html após 3 segundos
+// Redireciona para a página registrar.html após 3 segundos
         echo '<script> setTimeout(function(){ window.location.href = "../painel-adm/cadastro_user.php"; }, 1500); </script>';
 
     } else {

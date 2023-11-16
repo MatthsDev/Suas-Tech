@@ -32,12 +32,14 @@
 
             <br>
             <label>Tipo de acesso: </label>
-            <select name="buscar_dados" required>
+            <select name="nivel" required>
                 <option value="" disabled selected hidden>Selecione</option>
-                <option value="adm">Administrador</option>
+                <option value="admin">Administrador</option>
                 <option value="usuario">Usuário</option>
             </select>
 
+            <label>Setor:</label>
+            <input type="text" name="setor" placeholder="De qual instância" required>
 
             <br>
             <button type="submit">Cadastrar</button>
