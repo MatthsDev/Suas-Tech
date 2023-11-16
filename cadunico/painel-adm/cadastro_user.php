@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Cadastro de Usuários</h1>
 
     <div class="container">
-        <form method="post" action="">
+    <form id="formulario" method="post" action="">
 
             <label>CPF: </label>
             <input type="text" id="cpf_dec" name="cpf_dec" placeholder="Digite o CPF..." required
