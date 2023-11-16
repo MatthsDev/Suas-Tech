@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Seu Projeto</title>
+    <title>Tech-Suas</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../../js/custom.js"></script>
 </head>
