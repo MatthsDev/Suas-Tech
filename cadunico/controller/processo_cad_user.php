@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $setor = $_POST['setor'];
 
     // Adiciona a data e hora atual ao SQL
-    $smtp = $conn->prepare("INSERT INTO usuarios (nome_user, senha_user, nivel, setor, data_registro) VALUES (?,?,?,?, NOW())");
+    $smtp = $conn->prepare("INSERT INTO usuarios (usuario, senha, nivel, setor, data_registro) VALUES (?,?,?,?, NOW())");
 
     // Verifica se a preparação foi bem-sucedida
     if ($smtp === false) {
