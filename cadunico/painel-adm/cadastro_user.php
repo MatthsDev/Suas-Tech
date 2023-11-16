@@ -21,11 +21,11 @@
     <h1>Cadastro de Usuários</h1>
 
     <div class="container">
-    <form method="post" action="">
+    <form method="post" action="../controller/processo_cad_user.php">
 
 
             <label>Nome de Usuário:</label>
-            <input type="text" name="nome_user" placeholder="Exp: set.lastname" required>
+            <input type="text" name="nome_user" placeholder="Exemplo: cad.silva para o cadastro único" required>
             <br>
             <label>Senha:</label>
             <input type="text" name="senha_user" placeholder="Senha" required>
