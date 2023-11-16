@@ -1,86 +1,12 @@
 <?php
 include_once '../../config/sessao.php';
 
-?>
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" type="png" href="../img/logo.png">
-    <title>Cadastro Usuários</title>
-    <script>
-        function formatarCPF(cpf) {
-            // Remove caracteres não numéricos
-            cpf = cpf.replace(/\D/g, '');
-
-            // Adiciona ponto e traço conforme o formato do CPF
-            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-
-            // Atualiza o valor no campo
-            document.getElementById('cpf_dec').value = cpf;
-        }
-
-        function validarCPF(cpf) {
-    // Remove caracteres não numéricos
-    cpf = cpf.replace(/\D/g, '');
-
-    // Verifica se o CPF possui 11 dígitos
-    if (cpf.length !== 11) {
-        return false;
-    }
-
-    // Verifica se todos os dígitos são iguais, o que torna o CPF inválido
-    if (/^(\d)\1+$/.test(cpf)) {
-        return false;
-    }
-
-    // Calcula os dígitos verificadores
-    var v1 = 0;
-    for (var i = 0; i < 9; i++) {
-        v1 += parseInt(cpf.charAt(i)) * (10 - i);
-    }
-    v1 = (v1 * 10) % 11;
-
-    var v2 = 0;
-    for (var i = 0; i < 10; i++) {
-        v2 += parseInt(cpf.charAt(i)) * (11 - i);
-    }
-    v2 = (v2 * 10) % 11;
-
-    // Compara os dígitos verificadores com os dígitos informados
-    if ((v1 === 10 ? 0 : v1) !== parseInt(cpf.charAt(9)) || (v2 === 10 ? 0 : v2) !== parseInt(cpf.charAt(10))) {
-        return false;
-    }
-
-    // Se todas as verificações passaram, o CPF é válido
-    return true;
-}
-
-        function processarCPF() {
-            // Obtém o valor do campo CPF
-            var cpf = document.getElementById('cpf_dec').value;
-
-            // Formata o CPF
-            formatarCPF(cpf);
-
-            // Valida o CPF
-            var cpfValido = validarCPF(cpf);
-
-            // Exibe uma mensagem de validação (pode ser personalizada conforme sua necessidade)
-            if (cpfValido) {
-                <?php
 // Inicializa a mensagem como vazia
 $mensagem = "";
 
 // Verifica se o formulário foi enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf_dec = $_POST['cpf_dec'];
-
-    // Se o CPF for válido, continua com as outras operações
     require_once '../../config/conexao.php';
 
     $nome_dec = $_POST['nome_dec'];
@@ -99,14 +25,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     $smtp->close();
     $conn->close();
-    echo '<script> setTimeout(function(){ window.location.href = "cadastro_user.php"; }, 300); </script>';
-            }
+}
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-'equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="../img/logo.png">
+    <title>Cadastro Usuários</title>
+    <script>
+        function validarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+            if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
+                return false;
+            }
+
+            var v1 = 0;
+            for (var i = 0; i < 9; i++) {
+                v1 += parseInt(cpf.charAt(i)) * (10 - i);
+            }
+            v1 = (v1 * 10) % 11;
+
+            var v2 = 0;
+            for (var i = 0; i < 10; i++) {
+                v2 += parseInt(cpf.charAt(i)) * (11 - i);
+            }
+            v2 = (v2 * 10) % 11;
+
+            return (v1 === 10 ? 0 : v1) === parseInt(cpf.charAt(9)) && (v2 === 10 ? 0 : v2) === parseInt(cpf.charAt(10));
+        }
+
+        function processarCPF() {
+            var cpf = document.getElementById('cpf_dec').value;
+            var cpfValido = validarCPF(cpf);
+
+            if (cpfValido) {
+                document.getElementById('formulario').submit();
             } else {
                 alert('CPF inválido!');
             }
         }
     </script>
+
 </head>
 
 <body>
