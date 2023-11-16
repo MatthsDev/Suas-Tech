@@ -27,8 +27,6 @@
             <label>Nome de Usuário:</label>
             <input type="text" name="nome_user" placeholder="Exemplo: cad.silva para o cadastro único" required>
             <br>
-            <label>Senha:</label>
-            <input type="text" name="senha_user" placeholder="Senha" required>
 
             <br>
             <label>Tipo de acesso: </label>
@@ -38,6 +36,7 @@
                 <option value="usuario">Usuário</option>
             </select>
 
+            <br>
             <label>Setor:</label>
             <input type="text" name="setor" placeholder="De qual instância" required>
 
