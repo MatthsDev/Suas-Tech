@@ -7,8 +7,6 @@ $mensagem = "";
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    require_once '../../config/validar_cpf.php';
-    if (validarCPF($cpf_dec)){    
     $cpf_dec = $_POST['cpf_dec'];
     require_once '../../config/conexao.php';
 
@@ -32,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $smtp->close();
     $conn->close();
-    }
+    
 }
 ?>
 <!DOCTYPE html>
@@ -45,7 +43,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="../css/style-registrar.css">
     <title>Cadastro Usuários</title>
-    <script>
+
+
+</head>
+
+<body>
+    <div class="img">
+        <h1 class="titulo-com-imagem">
+            <img src="cadunico/img/" alt="NoImage">
+        </h1>
+    </div>
+    <h1>Cadastro de Usuários</h1>
+
+    <div class="container">
+    <form id="formulario" method="post" action="">
+
+            <label>CPF: </label>
+            <input type="text" id="cpf_dec" name="cpf_dec" placeholder="Digite o CPF..." required
+                oninput="formatarCPF(this.value)"><br>
+
+            <label>NOME: </label>
+            <input type="text" name="nome_dec" placeholder="Digite o nome completo..." required><br>
+
+            <label>Tipo de acesso: </label>
+            <select name="buscar_dados" required>
+                <option value="" disabled selected hidden>Selecione</option>
+                <option value="adm">Administrador</option>
+                <option value="usuario">Usuário</option>
+            </select>
+
+            <br>
+            <label>Nome de Usuário:</label>
+            <input type="text" name="nome_user">
+            <br>
+            <label>Senha:</label>
+            <input type="text" name="senha_user">
+
+            <br>
+            <button type="submit" onclick="processarCPF()">Cadastrar</button>
+            <a href="<?php echo $voltar_link; ?>">
+                <i class="fas fa-arrow-left"></i> Voltar ao menu
+            </a>
+        </form>
+    </div>
+</body>
+<script>
         function formatarCPF(cpf) {
             // Remove caracteres não numéricos
             cpf = cpf.replace(/\D/g, '');
@@ -94,48 +136,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     </script>
-
-</head>
-
-<body>
-    <div class="img">
-        <h1 class="titulo-com-imagem">
-            <img src="cadunico/img/" alt="NoImage">
-        </h1>
-    </div>
-    <h1>Cadastro de Usuários</h1>
-
-    <div class="container">
-    <form id="formulario" method="post" action="">
-
-            <label>CPF: </label>
-            <input type="text" id="cpf_dec" name="cpf_dec" placeholder="Digite o CPF..." required
-                oninput="formatarCPF(this.value)"><br>
-
-            <label>NOME: </label>
-            <input type="text" name="nome_dec" placeholder="Digite o nome completo..." required><br>
-
-            <label>Tipo de acesso: </label>
-            <select name="buscar_dados" required>
-                <option value="" disabled selected hidden>Selecione</option>
-                <option value="adm">Administrador</option>
-                <option value="usuario">Usuário</option>
-            </select>
-
-            <br>
-            <label>Nome de Usuário:</label>
-            <input type="text" name="nome_user">
-            <br>
-            <label>Senha:</label>
-            <input type="text" name="senha_user">
-
-            <br>
-            <button type="submit">Cadastrar</button>
-            <a href="<?php echo $voltar_link; ?>">
-                <i class="fas fa-arrow-left"></i> Voltar ao menu
-            </a>
-        </form>
-    </div>
-</body>
 
 </html>
