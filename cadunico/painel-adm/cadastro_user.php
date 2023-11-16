@@ -5,26 +5,13 @@ $mensagem = "";
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $cpf_dec = $_POST['cpf_dec'];
-
-    $nome_dec = $_POST['nome_dec'];
     $tpacesso = $_POST['buscar_dados'];
     $user_senha = $_POST['senha_user'];
     $user_name = $_POST['nome_user'];
 
-    $smtp = $conn->prepare("INSERT INTO usuarios_test (cpf_dec, nome_dec, buscar_dados, senha_user, nome_user) VALUES (?,?,?,?,?)");
-    $smtp->bind_param("sssss", $cpf_dec, $nome_dec, $tpacesso, $user_senha, $user_name);
-
-    if ($smtp->execute()) {
-        $mensagem = "Dados enviados com sucesso!";
-    } elseif ($tpacesso == null && $user_senha == null) {
-        die();
-        echo "CAMPOS OBRIGATÓRIOS VAZIOS";
-
-    } else {
-        $mensagem = "ERRO no envio dos DADOS: " . $smtp->error;
-    }
+    $smtp = $conn->prepare("INSERT INTO usuarios_test (buscar_dados, senha_user, nome_user) VALUES (?,?,?)");
+    $smtp->bind_param("sss", $tpacesso, $user_senha, $user_name);
+    $smtp->execute();
 
     $smtp->close();
     $conn->close();
@@ -56,13 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
     <form id="formulario" method="post" action="">
 
-            <br>
+
             <label>Nome de Usuário:</label>
             <input type="text" name="nome_user" placeholder="Exp: set.lastname" required>
             <br>
             <label>Senha:</label>
             <input type="text" name="senha_user" placeholder="Senha" required>
 
+            <br>
             <label>Tipo de acesso: </label>
             <select name="buscar_dados" required>
                 <option value="" disabled selected hidden>Selecione</option>
@@ -79,54 +67,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 </body>
-<script>
-        function formatarCPF(cpf) {
-            // Remove caracteres não numéricos
-            cpf = cpf.replace(/\D/g, '');
-
-            // Adiciona ponto e traço conforme o formato do CPF
-            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-
-            // Atualiza o valor no campo
-            document.getElementById('cpf_dec').value = cpf;
-        }
-        function validarCPF(cpf) {
-            cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
-
-            if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
-                return false;
-            }
-
-            var v1 = 0;
-            for (var i = 0; i < 9; i++) {
-                v1 += parseInt(cpf.charAt(i)) * (10 - i);
-            }
-            v1 = (v1 * 10) % 11;
-
-            var v2 = 0;
-            for (var i = 0; i < 10; i++) {
-                v2 += parseInt(cpf.charAt(i)) * (11 - i);
-            }
-            v2 = (v2 * 10) % 11;
-
-            return (v1 === 10 ? 0 : v1) === parseInt(cpf.charAt(9)) && (v2 === 10 ? 0 : v2) === parseInt(cpf.charAt(10));
-        }
-
-        function processarCPF() {
-            //Obtem o valor do CPF
-            var cpf = document.getElementById('cpf_dec').value;
-
-            //Formata o CPF
-            formatarCPF(cpf);
-
-            var cpfValido = validarCPF(cpf);
-
-            if (cpfValido) {
-                document.getElementById('formulario').submit();
-            } else {
-                alert('CPF inválido!');
-            }
-        }
-    </script>
-
 </html>
