@@ -1,14 +1,12 @@
 <?php
-include_once '../../config/sessao.php';
-
+require_once '../../config/conexao.php';
 // Inicializa a mensagem como vazia
 $mensagem = "";
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+
     $cpf_dec = $_POST['cpf_dec'];
-    require_once '../../config/conexao.php';
 
     $nome_dec = $_POST['nome_dec'];
     $tpacesso = $_POST['buscar_dados'];
@@ -20,17 +18,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($smtp->execute()) {
         $mensagem = "Dados enviados com sucesso!";
-    } elseif ($tpacesso == NULL && $user_senha == NULL) {
+    } elseif ($tpacesso == null && $user_senha == null) {
         die();
         echo "CAMPOS OBRIGATÓRIOS VAZIOS";
-        
+
     } else {
         $mensagem = "ERRO no envio dos DADOS: " . $smtp->error;
     }
 
     $smtp->close();
     $conn->close();
-    
+
 }
 ?>
 <!DOCTYPE html>
@@ -58,12 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
     <form id="formulario" method="post" action="">
 
-            <label>CPF: </label>
-            <input type="text" id="cpf_dec" name="cpf_dec" placeholder="Digite o CPF..." required
-                oninput="formatarCPF(this.value)"><br>
-
-            <label>NOME: </label>
-            <input type="text" name="nome_dec" placeholder="Digite o nome completo..." required><br>
+            <br>
+            <label>Nome de Usuário:</label>
+            <input type="text" name="nome_user" placeholder="Exp: set.lastname" required>
+            <br>
+            <label>Senha:</label>
+            <input type="text" name="senha_user" placeholder="Senha" required>
 
             <label>Tipo de acesso: </label>
             <select name="buscar_dados" required>
@@ -72,16 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <option value="usuario">Usuário</option>
             </select>
 
-            <br>
-            <label>Nome de Usuário:</label>
-            <input type="text" name="nome_user">
-            <br>
-            <label>Senha:</label>
-            <input type="text" name="senha_user">
 
             <br>
             <button type="submit" onclick="processarCPF()">Cadastrar</button>
-            <a href="<?php echo $voltar_link; ?>">
+            <a href="adm-view.php">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
         </form>
