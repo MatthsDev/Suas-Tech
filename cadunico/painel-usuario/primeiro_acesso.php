@@ -25,6 +25,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
 
 <body>
     <script src="../js/cpfvalid.js"></script>
+    
     <div class="img">
         <h1 class="titulo-com-imagem">
             <img class="titulo-com-imagem" src="../img/h1-primeiro.svg" alt="Titulocomimagem">
