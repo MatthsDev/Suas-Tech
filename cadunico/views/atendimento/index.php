@@ -13,6 +13,6 @@ include_once "../../../config/conexao.php";
     <a href="gerar_atend.php">Gerar Senha</a><br>
     <a href="atendimento.php">Chamar Senha</a><br>
     <a href="liberar_senha.php">Liberar Senha</a><br>
-    <a href="tela.php">Liberar Senha</a><br>
+    <a href="tela.php">Tela</a><br>
 </body>
 </html>

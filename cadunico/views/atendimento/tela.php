@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <a href="index.php"></a>
+    <a href="index.php">Voltar</a>
     <div id="listar"></div>
     <script src="../../js/custom.js"></script>
 

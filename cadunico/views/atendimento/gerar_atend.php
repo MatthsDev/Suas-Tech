@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <a href="index.php">Voltar</a>
     <h2>Gerar senha de atendimento</h2>
 
     <span id="msgAlerta"></span>

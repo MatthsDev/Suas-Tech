@@ -10,8 +10,7 @@ include_once "../../../config/conexao.php";
 </head>
 
 <body>
-    <a href="index.php">Gerar Senha</a><br>
-    <a href="atendimento.php">Chamar Senha</a><br>
+    <a href="index.php">Voltar</a><br>
 
     <h2>Chamar Senha</h2>
 
