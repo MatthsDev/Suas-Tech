@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../style-registrar.css">
     <link rel="shortcut icon" href="../../img/logo.png" type="image/png">
-    <title>Cadastro salvo</title>
+    <title>Cadastro Salvo</title>
     <link rel="stylesheet" href="../../css/style-processo.css">
 </head>
 <body>
@@ -19,7 +19,7 @@ $mensagem = "";
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tpacesso = $_POST['nivel'];
-    $user_senha = "@senha123";
+    $senha_hashed = password_hash("@senha123", PASSWORD_DEFAULT);
     $user_name = $_POST['nome_user'];
     $setor = $_POST['setor'];
 
@@ -31,15 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die('Erro na preparação SQL: ' . $conn->error);
     }
 
-    $smtp->bind_param("ssss", $user_name, $user_senha, $tpacesso, $setor);
+    $smtp->bind_param("ssss", $user_name, $senha_hashed, $tpacesso, $setor);
 
     if ($smtp->execute()) {?>
-        <H1 >"DADOS ENVIADOS COM SUCESSO!" </H1>
+        <h1>DADOS ENVIADOS COM SUCESSO!</h1>
         <div class="linha"></div>
         <?php
-// Redireciona para a página registrar.html após 3 segundos
+        // Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
         echo '<script> setTimeout(function(){ window.location.href = "../painel-adm/cadastro_user.php"; }, 1500); </script>';
-
     } else {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }
