@@ -15,7 +15,18 @@ img {
     width: 100%;
     max-height: 120px
 }
-
+h3{
+    color: #13294b;
+    padding-bottom: 10px;
+}
+.linha1{
+    display: flex;
+    flex-direction: row;
+}
+.linha2{
+    border: 1px solid #13294b;
+    flex-direction: row;
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -47,11 +58,15 @@ a{
     text-transform: none;
 }
 .btns{
-    padding-top: 2px;
+    padding-top: 25px;
 }
-.nome,.tipodeacesso,.setor,.email{
+.cpf,.dtnasc,.email,.telefone,.cargo,.idcargo,.senha,.btn{
     font-size: 16px;
     padding-top: 15px;
+    color: #13294b;
+}
+.nome{
+    font-size: 16px;
     color: #13294b;
 }
 input,
