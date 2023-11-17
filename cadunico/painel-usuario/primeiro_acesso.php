@@ -34,8 +34,13 @@
     <input type="email" name="email" placeholder="Email particular" required>
 
     <label>Telefone:</label>
-    <input type="email" name="email" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
+    <input type="text" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
 
+    <label>Cargo:</label>
+    <input type="text" name="cargo" placeholder="Email particular" required>
+
+    <label>Identificação do Cargo:</label>
+    <input type="text" name="cargo" placeholder="Matricula ou Certificado" required>
 
     <button type="submit">Concluir Cadastro</button>
 </form>
