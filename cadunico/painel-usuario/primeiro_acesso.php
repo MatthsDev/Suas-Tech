@@ -34,23 +34,12 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <h6>todos os campos com * são obrigatórios</h6>
 <form method="post" action="../controller/dados_alterados.php">
 
-<<<<<<< HEAD
     <!-- Adicione campos para coletar informações adicionais -->
     <label>Nome Completo:</label>
     <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
 
     <label>CPF:</label>
     <input type="text" name="cpf" placeholder="Apenas numeros" required>
-=======
-        <label>Nome Completo:</label>
-        <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
-
-        <label>CPF:</label>
-        <input type="text" id="cpf" name="cpf" placeholder="Apenas números" maxlength="14" required
-            onblur="validarCPF(this)" required>
-
-        <div id="res" name="res"></div>
->>>>>>> 30392f6727b2be977c80569d92d15dd60fbbd2f4
 
     <label>Data de Nascimento:</label>
     <input type="date" name="dt_nasc" required>
@@ -70,15 +59,8 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <label>Nova Senha:</label>
     <input type="text" name="senha" placeholder="Escolha uma nova senha" required>
 
-<<<<<<< HEAD
     <button type="submit">Concluir Cadastro</button>
-
-    <script src="../js/mascaras.js"></script>
 </form>
-=======
-        <button type="submit">Concluir Cadastro</button>
-    </form>
->>>>>>> 30392f6727b2be977c80569d92d15dd60fbbd2f4
 
 </body>
 
