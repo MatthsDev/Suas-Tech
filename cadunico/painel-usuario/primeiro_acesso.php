@@ -20,6 +20,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/andr-04/vanilla-masker/master/dist/vanilla-masker.min.js"></script>
+    <script src="../js/jquery.mask.min.js"></script>
     <script src="../js/jquery.mask.js"></script>
 </head>
 
@@ -27,7 +28,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <script src="../js/cpfvalid.js"></script>
     <div class="img">
         <h1 class="titulo-com-imagem">
-
+            
             <img class="titulo-com-imagem" src="../img/h1-primeiro.svg" alt="Titulocomimagem">
         </h1>
     </div>
