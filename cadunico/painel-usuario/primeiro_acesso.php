@@ -1,3 +1,11 @@
+<?php
+require_once '../../config/conexao.php';
+session_start();
+
+$nome_user = $_SESSION['nome_user_1_acesso'];
+$nome_user;
+$_SESSION['nome_user_1_acesso'] = $nome_user;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,7 +17,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../img/logo.png">
-    <script src="https://cdn.rawgit.com/andr-04/vanilla-masker/master/dist/vanilla-masker.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../js/cpfvalid.js"></script>
 </head>

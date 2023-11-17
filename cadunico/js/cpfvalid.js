@@ -1,3 +1,14 @@
+document.addEventListener("DOMContentLoaded", function () {
+    var cpfInput = $("#cpf");
+    var telefoneInput = $("#telefone");
+
+    // Aplicar máscara para CPF
+    cpfInput.mask('000.000.000-00');
+
+    // Aplicar máscara para telefone (se necessário)
+    telefoneInput.mask('(00) 0 0000-0000');
+});
+
 function _cpf(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     if (!cpf) { // Se o CPF estiver vazio, retorna como válido
