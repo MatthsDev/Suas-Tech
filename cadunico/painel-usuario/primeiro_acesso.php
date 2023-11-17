@@ -26,19 +26,22 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
         <img class="titulo-com-imagem" src="../img/h1-p-acesso.svg" alt="Titulocomimagem">
     </h1>
     </div>
-            <h3>Bem-vindo <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.</h3>
-    <h6>todos os campos com * são obrigatórios</h6>
+
 
 <div class="container">    
+    <h3>Bem-vindo <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.</h3>
+
+    <div class="linha"></div>
+    
     <form method="post" action="../controller/dados_alterados.php">
         <div class="nome">  
             <label>Nome Completo:</label>
-            <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
+            <input type="text" name="nome_comp" placeholder="Digite seu nome completo." required>
         </div>
         
         <div class="cpf">
             <label>CPF:</label>
-            <input type="text" name="cpf" placeholder="Apenas numeros" required>
+            <input type="text" name="cpf" placeholder="Apenas números." required>
         </div>
 
         <div class="dtnasc">
@@ -48,12 +51,12 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
 
         <div class="email">
             <label>E-mail:</label>
-            <input type="email" name="email" placeholder="Email particular" required>
+            <input type="email" name="email" placeholder="E-mail particular." required>
         </div>
 
         <div class="telefone">
             <label>Telefone:</label>
-            <input type="text" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
+            <input type="text" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx." required>
         </div>
 
         <div class="cargo">
@@ -63,12 +66,12 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
 
         <div class="idcargo">
             <label>Identificação do Cargo:</label>
-            <input type="text" name="id_cargo" placeholder="Matricula ou Certificado" required>
+            <input type="text" name="id_cargo" placeholder="Matricula ou Certificado." required>
         </div>
 
         <div class="senha">
             <label>Nova Senha:</label>
-            <input type="text" name="senha" placeholder="Escolha uma nova senha" required>
+            <input type="text" name="senha" placeholder="Escolha uma nova senha." required>
         </div>
         <div class="btn">
             <button type="submit">Concluir Cadastro</button>
