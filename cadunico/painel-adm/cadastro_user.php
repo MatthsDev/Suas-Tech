@@ -23,7 +23,7 @@
         <form method="post" action="../controller/processo_cad_user.php">
             <div class="nome">
                 <label>Nome de Usuário:</label>
-                <input type="text" name="nome_user" placeholder="Exemplo: cad.silva para o cadastro único" required>
+                <input type="text" name="nome_user" placeholder="Ex: cad.(usuario) para o cadastro único" required>
             </div>
             <div class="tipodeacesso">
                 <label>Tipo de acesso: </label>
