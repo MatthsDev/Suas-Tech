@@ -54,10 +54,9 @@ body {
 }
 .calendario{
   max-width: 600px;
-  max-height: 800px;
+  max-height: 80 0px;
   border-radius: 10px;
   margin-left: 100px;
-  opacity: 90%;
 }
 
 @media screen and (max-width: 800px) {
