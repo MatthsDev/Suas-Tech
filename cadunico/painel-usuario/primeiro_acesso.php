@@ -31,33 +31,48 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
 
 <div class="container">    
     <form method="post" action="../controller/dados_alterados.php">
+        <div class="nome">  
+            <label>Nome Completo:</label>
+            <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
+        </div>
+        
+        <div class="cpf">
+            <label>CPF:</label>
+            <input type="text" name="cpf" placeholder="Apenas numeros" required>
+        </div>
 
-        <label>Nome Completo:</label>
-        <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
+        <div class="dtnasc">
+            <label>Data de Nascimento:</label>
+            <input type="date" name="dt_nasc" required>
+        </div>
 
-        <label>CPF:</label>
-        <input type="text" name="cpf" placeholder="Apenas numeros" required>
+        <div class="email">
+            <label>E-mail:</label>
+            <input type="email" name="email" placeholder="Email particular" required>
+        </div>
 
-        <label>Data de Nascimento:</label>
-        <input type="date" name="dt_nasc" required>
+        <div class="telefone">
+            <label>Telefone:</label>
+            <input type="text" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
+        </div>
 
-        <label>E-mail:</label>
-        <input type="email" name="email" placeholder="Email particular" required>
+        <div class="cargo">
+            <label>Cargo:</label>
+            <input type="text" name="cargo" required>
+        </div>
 
-        <label>Telefone:</label>
-        <input type="text" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
+        <div class="idcargo">
+            <label>Identificação do Cargo:</label>
+            <input type="text" name="id_cargo" placeholder="Matricula ou Certificado" required>
+        </div>
 
-        <label>Cargo:</label>
-        <input type="text" name="cargo" required>
-
-        <label>Identificação do Cargo:</label>
-        <input type="text" name="id_cargo" placeholder="Matricula ou Certificado" required>
-
-        <label>Nova Senha:</label>
-        <input type="text" name="senha" placeholder="Escolha uma nova senha" required>
-
-        <button type="submit">Concluir Cadastro</button>
-
+        <div class="senha">
+            <label>Nova Senha:</label>
+            <input type="text" name="senha" placeholder="Escolha uma nova senha" required>
+        </div>
+        <div class="btn">
+            <button type="submit">Concluir Cadastro</button>
+        </div>
         <script src="../js/mascaras.js"></script>
     </form>
 </div>
