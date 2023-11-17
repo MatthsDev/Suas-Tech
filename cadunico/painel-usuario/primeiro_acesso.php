@@ -16,12 +16,15 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <link rel="stylesheet" href="../css/adm.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../img/logo.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/andr-04/vanilla-masker/master/dist/vanilla-masker.min.js"></script>
+    <script src="../js/jquery.mask.min.js"></script>
+    <script src="../js/jquery.mask.js"></script>
 </head>
 
 <body>
+    <script src="../js/cpfvalid.js"></script>
     <div class="img">
     <h1 class="titulo-com-imagem">
         <img class="titulo-com-imagem" src="../img/h1-primeiro.svg" alt="Titulocomimagem">
@@ -31,12 +34,23 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <h6>todos os campos com * são obrigatórios</h6>
 <form method="post" action="../controller/dados_alterados.php">
 
+<<<<<<< HEAD
     <!-- Adicione campos para coletar informações adicionais -->
     <label>Nome Completo:</label>
     <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
 
     <label>CPF:</label>
     <input type="text" name="cpf" placeholder="Apenas numeros" required>
+=======
+        <label>Nome Completo:</label>
+        <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
+
+        <label>CPF:</label>
+        <input type="text" id="cpf" name="cpf" placeholder="Apenas números" maxlength="14" required
+            onblur="validarCPF(this)" required>
+
+        <div id="res" name="res"></div>
+>>>>>>> 30392f6727b2be977c80569d92d15dd60fbbd2f4
 
     <label>Data de Nascimento:</label>
     <input type="date" name="dt_nasc" required>
@@ -56,10 +70,15 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <label>Nova Senha:</label>
     <input type="text" name="senha" placeholder="Escolha uma nova senha" required>
 
+<<<<<<< HEAD
     <button type="submit">Concluir Cadastro</button>
 
     <script src="../js/mascaras.js"></script>
 </form>
+=======
+        <button type="submit">Concluir Cadastro</button>
+    </form>
+>>>>>>> 30392f6727b2be977c80569d92d15dd60fbbd2f4
 
 </body>
 
