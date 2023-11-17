@@ -55,7 +55,7 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
     echo "Noma da Mãe: " . $nom_mae_rf . "<br>";
     echo "Data da ultima atualização: " . $data_atualizada . "<br>";
     echo "Renda Per Capita: R$ " . $real_br_formatado . "<br>";
-    echo $recebendo;
+
     ?>
     <br><input type="submit" name="btn-ip1" value="Imprimir">
     <?php

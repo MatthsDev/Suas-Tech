@@ -10,14 +10,14 @@ ini_set('memory_limit', '256M');
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Folha de Pagamento</title>
-    <link rel="stylesheet" type="text/css" href="style-folha.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style-folha.css">
     <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img src="h1.svg" alt="Titulocomimagem">
+            <img src="../../img/h1-folha.svg" alt="Titulocomimagem">
         </h1>
     </div>
     <div class="container">    

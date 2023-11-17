@@ -1,5 +1,4 @@
 <?php
-// controller/atendimento/gerar_senha.php
 include_once '../../../config/conexao.php';
 
 $tipo = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_NUMBER_INT);
@@ -16,35 +15,54 @@ if (!empty($tipo)) {
 
     $result_senha = $conn->prepare($query_senha);
 
-    $result_senha->bind_param('i', $tipo);
-    $result_senha->execute();
-    $result_senha->store_result();
+    if ($result_senha) {
+        $result_senha->bind_param('i', $tipo);
+        $result_senha->execute();
+        $result_senha->store_result();
 
-    if ($result_senha->num_rows > 0) {
-        $result_senha->bind_result($id, $nome_senha);
-        $result_senha->fetch();
+        if ($result_senha->num_rows > 0) {
+            $result_senha->bind_result($id, $nome_senha);
+            $result_senha->fetch();
 
-        $query_senha_gerada = "INSERT INTO senhas_geradas (senha_id, sits_senha_id, created) VALUES (?, 2, NOW())";
-        $cad_senha_gerada = $conn->prepare($query_senha_gerada);
-        $cad_senha_gerada->bind_param('i', $id);
-        $cad_senha_gerada->execute();
+            $query_senha_gerada = "INSERT INTO senhas_geradas (senha_id, sits_senha_id, created) VALUES (?, 2, NOW())";
 
-        if ($cad_senha_gerada->affected_rows > 0) {
-            $query_edit_senha = "UPDATE senhas SET sits_senha_id=2 WHERE id=? LIMIT 1";
-            $edit_senha = $conn->prepare($query_edit_senha);
-            $edit_senha->bind_param('i', $id);
-            $edit_senha->execute();
+            $cad_senha_gerada = $conn->prepare($query_senha_gerada);
 
-            $retorna = ['status' => true, 'nome_senha' => "<span style='color: green;'>$nome_senha</span>"];
+            if ($cad_senha_gerada) {
+                $cad_senha_gerada->bind_param('i', $id);
+                $cad_senha_gerada->execute();
+
+                if ($cad_senha_gerada->affected_rows > 0) {
+                    $query_edit_senha = "UPDATE senhas SET sits_senha_id=2 WHERE id=? LIMIT 1";
+                    $edit_senha = $conn->prepare($query_edit_senha);
+
+                    if ($edit_senha) {
+                        $edit_senha->bind_param('i', $id);
+                        $edit_senha->execute();
+
+                        $retorna = ['status' => true, 'nome_senha' => "<span style='color: green;'>$nome_senha</span>"];
+                    } else {
+                        $retorna = ['status' => false, 'msg' => 'Erro ao preparar a terceira query'];
+                    }
+                } else {
+                    $retorna = ['status' => false, 'msg' => 'Erro ao gerar a senha'];
+                }
+            } else {
+                $retorna = ['status' => false, 'msg' => 'Erro ao preparar a segunda query'];
+            }
         } else {
-            $retorna = ['status' => false, 'msg' => "<p style='color: #f00;'>Erro: Senha não gerada!</p>"];
+            $retorna = ['status' => false, 'msg' => 'Senhas esgotadas'];
         }
     } else {
-        $retorna = ['status' => false, 'msg' => "<p style='color: #f00;'>Erro: Senhas esgotadas!</p>"];
+        $retorna = ['status' => false, 'msg' => 'Erro ao preparar a primeira query'];
     }
 } else {
-    $retorna = ['status' => false, 'msg' => "<p style='color: #f00;'>Erro: Senha não gerada!</p>"];
+    $retorna = ['status' => false, 'msg' => 'Tipo não fornecido'];
 }
 
+// Garante que o cabeçalho seja interpretado como JSON
+header('Content-Type: application/json');
+
+// Retorna a resposta como JSON
 echo json_encode($retorna);
 ?>

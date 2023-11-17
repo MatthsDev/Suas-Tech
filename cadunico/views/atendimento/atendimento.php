@@ -1,12 +1,12 @@
 <?php
-include_once "./conexao.php";
+include_once "../../../config/conexao.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8" />
-    <title>Celke</title>
+    <title>Tech-Suas</title>
 </head>
 
 <body>
@@ -43,33 +43,31 @@ include_once "./conexao.php";
     // Inicio SELETOR que esta ao redor da lista de senha que he utilizada no JS para excluir a senha chamada
     echo "<div id='lista-senha-gerada'>";
 
-    // Ler os dados retornado do banco de dados
-    while ($row_senha_gerada = $result_senhas_geradas->fetch(PDO::FETCH_ASSOC)){
-        //var_dump($row_senha_gerada);
+    // Leer los datos retornados del banco de datos
+    while ($row_senha_gerada = $result_senhas_geradas->fetch()) {
+        if (is_array($row_senha_gerada)) {
+            // Extraer para imprimir a través de la clave en el array
+            extract($row_senha_gerada);
 
-        // Extrair para imprimir através da chave no array
-        extract($row_senha_gerada);
+            // Inicio SELETOR utilizado para indicar cuál contraseña debe ser excluida cuando la misma sea llamada
+            echo "<div id='senha-gerada-$id'>";
 
-        // Inicio SELETOR utilizado para indicar qual senha deve ser excluida quando a mesma for chamada
-        echo "<div id='senha-gerada-$id'>";
+            // Imprimir los datos de la contraseña
+            echo "id: $id <br>";
+            echo "Nome da senha: $nome_senha <br>";
+            echo "Tipo da senha: $nome <br>";
 
-        // Imprimir os dados da senha
-        echo "ID da senha gerada: $id <br>";
-        echo "Nome da senha: $nome_senha <br>";
-        echo "Tipo da senha: $nome <br>";        
+            echo "<hr>";
 
-        echo "<hr>";
-
-        // Fim SELETOR utilizado para indicar qual senha deve ser excluida quando a mesma for chamada
-        echo "</div>";
-        
+            // Fin SELETOR utilizado para indicar cuál contraseña debe ser excluida cuando la misma sea llamada
+            echo "</div>";
+        }
     }
-
     // Fim SELETOR que esta ao redor da lista de senha que he utilizada no JS para excluir a senha chamada
     echo "</div>";
     ?>
 
-    <script src="js/custom.js"></script>
+    <script src="../../js/custom.js"></script>
 
 </body>
 
