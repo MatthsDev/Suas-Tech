@@ -15,6 +15,9 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <link rel="stylesheet" href="../css/adm.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../img/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body>
@@ -53,6 +56,8 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <input type="text" name="senha" placeholder="Escolha uma nova senha" required>
 
     <button type="submit">Concluir Cadastro</button>
+
+    <script src="../js/mascaras.js"></script>
 </form>
 
 </body>
