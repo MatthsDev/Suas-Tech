@@ -15,36 +15,34 @@
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img src="cadunico/img/" alt="NoImage">
+            <img src="../img/h1-cad-user.svg" alt="NoImage">
         </h1>
     </div>
-    <h1>Cadastro de Usuários</h1>
 
     <div class="container">
-    <form method="post" action="../controller/processo_cad_user.php">
-
-
-            <label>Nome de Usuário:</label>
-            <input type="text" name="nome_user" placeholder="Exemplo: cad.silva para o cadastro único" required>
-            <br>
-
-            <br>
-            <label>Tipo de acesso: </label>
-            <select name="nivel" required>
-                <option value="" disabled selected hidden>Selecione</option>
-                <option value="admin">Administrador</option>
-                <option value="usuario">Usuário</option>
-            </select>
-
-            <br>
-            <label>Setor:</label>
-            <input type="text" name="setor" placeholder="De qual instância" required>
-
-            <br>
-            <button type="submit">Cadastrar</button>
-            <a href="adm-view.php">
+        <form method="post" action="../controller/processo_cad_user.php">
+            <div class="nome">
+                <label>Nome de Usuário:</label>
+                <input type="text" name="nome_user" placeholder="Exemplo: cad.silva para o cadastro único" required>
+            </div>
+            <div class="tipodeacesso">
+                <label>Tipo de acesso: </label>
+                <select name="nivel" required>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="admin">Administrador</option>
+                    <option value="usuario">Usuário</option>
+                </select>
+            </div>
+            <div class="setor">    
+                <label>Setor:</label>
+                <input type="text" name="setor" placeholder="De qual instância" required>
+            </div>
+            <div class="btns">
+                <button type="submit">Cadastrar</button>
+                <a href="adm-view.php">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
-            </a>
+                </a>
+            </div>    
         </form>
     </div>
 </body>
