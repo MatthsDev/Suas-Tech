@@ -39,7 +39,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
         <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
 
         <label>CPF:</label>
-        <input type="text" name="cpf" placeholder="Apenas numeros" required>
+        <input type="text" id="cpf" name="cpf" placeholder="Apenas numeros" required>
 
         <label>Data de Nascimento:</label>
         <input type="date" name="dt_nasc" required>
@@ -48,7 +48,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
         <input type="email" name="email" placeholder="Email particular" required>
 
         <label>Telefone:</label>
-        <input type="text" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
+        <input type="text" id="telefone" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
 
         <label>Cargo:</label>
         <input type="text" name="cargo" required>
