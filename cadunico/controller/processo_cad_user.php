@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../../style-registrar.css">
     <link rel="shortcut icon" href="../../img/logo.png" type="image/png">
     <title>Cadastro Salvo</title>
-    <link rel="stylesheet" href="../../css/style-processo.css">
+    <link rel="stylesheet" href="../css/style-processo.css">
 </head>
 <body>
 
