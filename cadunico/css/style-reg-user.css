@@ -6,6 +6,8 @@ body {
     background-color: #d7e9f8;
     overflow: auto;
     font-family: "Inter", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 img {
@@ -41,12 +43,23 @@ a:hover{
 }   
 a{
     text-decoration: none;
+    text-transform: none;
 }
 .btns{
-    padding-top: 20px;
+    padding-top: 25px;
 }
-.nome,.tipodeacesso,.setor{
-    font-size: 20px;
-    padding-top: 10px;
+.nome,.tipodeacesso,.setor,.email{
+    font-size: 16px;
+    padding-top: 15px;
     color: #13294b;
 }
+input,
+select {
+    background-color: #ffffff;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
+    border-radius: 5px;
+    padding: 1px 2px;
+    border-style: outset;
+}
+

@@ -81,7 +81,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
       </div>  
     </nav>
     <div class="calendario">
-      <img class="calendario" src="../img/calend.png" alt="calend">
+      <img class="calendario" src="../img/calend.svg" alt="calend">
     </div> 
   </div>   
   </body>

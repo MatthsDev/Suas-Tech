@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="../css/style-reg-user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Cadastro Usuários</title>
 
 
@@ -23,7 +24,11 @@
         <form method="post" action="../controller/processo_cad_user.php">
             <div class="nome">
                 <label>Nome de Usuário:</label>
-                <input type="text" name="nome_user" placeholder="Exemplo: cad.silva para o cadastro único" required>
+                <input type="text" name="nome_user" placeholder="Ex: cad.(usuário)" required>
+            </div>
+            <div class="email">
+                <label>E-mail:</label>
+                <input type="text" name="email" placeholder="Digite aqui seu e-mail" required>
             </div>
             <div class="tipodeacesso">
                 <label>Tipo de acesso: </label>
