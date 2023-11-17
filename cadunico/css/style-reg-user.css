@@ -52,3 +52,13 @@ a{
     padding-top: 10px;
     color: #13294b;
 }
+input,
+select {
+    background-color: #ffffff;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
+    border-radius: 5px;
+    padding: 1px 2px;
+    border-style: outset;
+}
+
