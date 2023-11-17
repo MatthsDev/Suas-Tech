@@ -63,7 +63,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="../js/jquery.mask.min.js"></script>
-        <script src="../js/mascaras.js"></script>
+        <script src="../js/mascara.js"></script>
     </form>
 
 </body>
