@@ -6,6 +6,8 @@ body {
     background-color: #d7e9f8;
     overflow: auto;
     font-family: "Inter", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 img {
@@ -46,7 +48,7 @@ a{
     padding-top: 20px;
 }
 .nome,.tipodeacesso,.setor{
-    font-size: 20px;
+    font-size: 16px;
     padding-top: 10px;
     color: #13294b;
 }
