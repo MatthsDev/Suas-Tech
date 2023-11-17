@@ -18,7 +18,7 @@
     </div>
 
     <h6>todos os campos com * são obrigatórios</h6>
-<form method="post" action="">
+<form method="post" action="../controller/dados_alterados.php">
 
     <!-- Adicione campos para coletar informações adicionais -->
     <label>Nome Completo:</label>
@@ -37,10 +37,13 @@
     <input type="text" name="telefone" placeholder="Exemplo: (xx) x xxxx-xxxx" required>
 
     <label>Cargo:</label>
-    <input type="text" name="cargo" placeholder="Email particular" required>
+    <input type="text" name="cargo" required>
 
     <label>Identificação do Cargo:</label>
-    <input type="text" name="cargo" placeholder="Matricula ou Certificado" required>
+    <input type="text" name="id_cargo" placeholder="Matricula ou Certificado" required>
+
+    <label>Nova Senha:</label>
+    <input type="text" name="senha" placeholder="Escolha uma nova senha" required>
 
     <button type="submit">Concluir Cadastro</button>
 </form>

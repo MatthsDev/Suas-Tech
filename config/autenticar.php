@@ -25,6 +25,9 @@ if ($linhas > 0) {
 
     // Verifique se é o primeiro acesso pela senha
     if ($senha == "@senha123") {
+        // Passa o nome do usuário para a página de primeiro acesso
+        $_SESSION['nome_user_1_acesso'] = $dados[0]['usuario'];
+
         // Redirecione para a página de conclusão do cadastro
         header("Location: ../cadunico/painel-usuario/primeiro_acesso.php");
         exit();
