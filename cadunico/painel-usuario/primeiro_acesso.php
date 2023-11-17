@@ -1,3 +1,11 @@
+<?php
+require_once '../../config/conexao.php';
+session_start();
+
+$nome_user = $_SESSION['nome_user_1_acesso'];
+echo $nome_user;
+$_SESSION['nome_user_1_acesso'] = $nome_user;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,13 +18,12 @@
 </head>
 
 <body>
-
     <div class="img">
     <h1 class="titulo-com-imagem">
         <img class="titulo-com-imagem" src="../img/h1-primeiro.svg" alt="Titulocomimagem">
     </h1>
     </div>
-
+            <h3>Bem-vindo <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.</h3>
     <h6>todos os campos com * são obrigatórios</h6>
 <form method="post" action="../controller/dados_alterados.php">
 

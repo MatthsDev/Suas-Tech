@@ -62,30 +62,29 @@ async function obterUltimasSenhas() {
         }
 
         const resposta = await dados.json();
-        console.log('Resposta do servidor:', resposta);
 
         // Atualizar dinamicamente a lista de últimas senhas na página
         atualizarListaSenhas(resposta);
     } catch (error) {
-        console.error('Erro na requisição:', error);
-        document.getElementById("msgAlerta").innerHTML = 'Erro na requisição. Verifique o console para mais detalhes.';
-        document.getElementById("senhaGerada").innerHTML = "";
+        console.error('Erro na requisição:', error.message);
     }
 }
 
-// Função para atualizar a lista de últimas senhas na página
-function atualizarListaSenhas(ultimasSenhas) {
-    // Limpar a lista atual
-    document.getElementById("listaUltimasSenhas").innerHTML = "";
+// Função para obter as últimas senhas e atualizar dinamicamente a lista
+async function obterUltimasSenhas() {
+    try {
+        const dados = await fetch('../../views/atendimento/tela.php');
 
-    // Adicionar as novas senhas à lista
-    ultimasSenhas.forEach((senha) => {
-        const divSenha = document.createElement("div");
-        divSenha.textContent = `ID: ${senha.id}, Senha: ${senha.nome_senha}`;
-        document.getElementById("listaUltimasSenhas").appendChild(divSenha);
-    });
+        if (!dados.ok) {
+            throw new Error('Erro na requisição: ' + dados.status);
+        }
+
+        const resposta = await dados.json();
+
+        // Atualizar dinamicamente a lista de últimas senhas na página
+        atualizarListaSenhas(resposta);
+    } catch (error) {
+        console.error('Erro na requisição:', error.message);
+    }
 }
-
-// Chamar a função para obter as últimas senhas ao carregar a página
-obterUltimasSenhas();
 

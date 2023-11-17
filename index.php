@@ -22,7 +22,7 @@
 	
 
 	<div class="login-form">
-		<form action="config/autenticar.php" method="post">
+		<form action="config/verificar_senha.php" method="post">
 			<div class="logo">
 				<img src="cadunico/img/logo1.png" alt="TECHSUAS">
 			</div>
