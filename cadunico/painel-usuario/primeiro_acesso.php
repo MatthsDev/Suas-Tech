@@ -30,9 +30,10 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
 
 <div class="container">    
     <h3>Bem-vindo <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.</h3>
+    <div class="linha1">
+        <div class="linha2"></div>
+    </div>
 
-    <div class="linha"></div>
-    
     <form method="post" action="../controller/dados_alterados.php">
         <div class="nome">  
             <label>Nome Completo:</label>
