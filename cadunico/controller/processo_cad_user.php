@@ -22,17 +22,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha_hashed = password_hash("@senha123", PASSWORD_DEFAULT);
     $user_name = $_POST['nome_user'];
     $setor = $_POST['setor'];
+    $funcao = $_POST['funcao'];
 //    $email = $_POST['email'];
 
     // Adiciona a data e hora atual ao SQL
-    $smtp = $conn->prepare("INSERT INTO usuarios (usuario, senha, nivel, setor, data_registro) VALUES (?,?,?,?, NOW())");
+    $smtp = $conn->prepare("INSERT INTO usuarios (usuario, senha, nivel, setor, funcao, data_registro) VALUES (?,?,?,?, NOW())");
 
     // Verifica se a preparação foi bem-sucedida
     if ($smtp === false) {
         die('Erro na preparação SQL: ' . $conn->error);
     }
 
-    $smtp->bind_param("ssss", $user_name, $senha_hashed, $tpacesso, $setor);
+    $smtp->bind_param("sssss", $user_name, $senha_hashed, $tpacesso, $setor, $funcao);
 
     if ($smtp->execute()) {?>
         <h1>DADOS ENVIADOS COM SUCESSO!</h1>

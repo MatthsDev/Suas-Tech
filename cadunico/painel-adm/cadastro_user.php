@@ -38,16 +38,25 @@
                     <option value="usuario">Usuário</option>
                 </select>
             </div>
-            <div class="setor">    
+            <div class="setor">
                 <label>Setor:</label>
                 <input type="text" name="setor" placeholder="De qual instância" required>
             </div>
+            <div class="tipodeacesso">
+                <label>Função: </label>
+                <select name="funcao" required>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="1">Coordenação</option>
+                    <option value="2">Tecnico(a)</option>
+                    <option value="3">Outros</option>
+                </select>
             <div class="btns">
                 <button type="submit">Cadastrar</button>
                 <a href="adm-view.php">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
-            </div>    
+            </div>
+            </div>
         </form>
     </div>
 </body>
