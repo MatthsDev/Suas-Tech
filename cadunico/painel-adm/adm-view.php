@@ -96,8 +96,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
           <a class="logout" onclick="location.href='../../index.php';">
             <span class="material-symbols-outlined">
               logout
-            </span>
-            
+            </span> 
           </a>
         </div>
   </body>
