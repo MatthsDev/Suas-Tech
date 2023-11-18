@@ -31,12 +31,16 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     </div>
     <div class="container">    
     <h3>Bem-vindo (a)
-        <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.
+        <?php echo $nome; ?>, esse é o seu primeiro acesso. Informe seus dados.
     </h3>
         <form method="post" action="../controller/dados_alterados.php">
             <div class="nome">
                 <label>Nome Completo:</label>
                 <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
+            </div>
+            <div class="nome">
+                <label>Nome Social:</label>
+                <input type="text" name="apelido" placeholder="Como quer que nos reportamos a você?" required>
             </div>
             <div class="cpf">
                 <label>CPF:</label>

@@ -13,6 +13,7 @@ $nome_user = $_SESSION['nome_user_1_acesso'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Coletar as informações do formulário
     $nome_completo = $_POST['nome_comp'];
+    $apelido =$_POST['apelido'];
     $cpf = $_POST['cpf'];
     $data_nascimento = $_POST['dt_nasc'];
     $telefone = $_POST['telefone'];
