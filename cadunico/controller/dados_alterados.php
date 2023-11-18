@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtém o nome do usuário da sessão
 
     // Atualize as informações na tabela de usuários
-    $smtp = $conn->prepare("UPDATE usuarios SET nome=?, senha=?, cpf=?, dt_nasc=?, telefone=?, email=?, cargo=?, id_cargo=? WHERE usuario=?");
-    $smtp->bind_param("sssssssss", $nome_completo, $senha_hashed, $cpf, $data_nascimento, $telefone, $email, $cargo, $id_cargo, $nome_user);
+    $smtp = $conn->prepare("UPDATE usuarios SET nome=?, apelido=?, senha=?, cpf=?, dt_nasc=?, telefone=?, email=?, cargo=?, id_cargo=? WHERE usuario=?");
+    $smtp->bind_param("ssssssssss", $nome_completo, $apelido, $senha_hashed, $cpf, $data_nascimento, $telefone, $email, $cargo, $id_cargo, $nome_user);
 
     //echo "Nome Completo: " . $nome_completo . "<br>";
     //echo "Senha Hashed: " . $senha_hashed . "<br>";
