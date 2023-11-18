@@ -26,7 +26,6 @@ body {
 .menu-button {
   background-color: #13294b;
   color: #fff;
-  border: none;
   border-radius: 10px;
   padding: 12px 20px;
   margin: 20px;
@@ -43,7 +42,8 @@ body {
   margin-right: 10px;
 }
 
-.menu-button:hover {
+.menu-button:hover,
+.logout:hover {
   background-color: #3b82f6;
   transform: scale(1.05);
 }
@@ -57,6 +57,19 @@ body {
   max-height: 80 0px;
   border-radius: 10px;
   margin-left: 100px;
+}
+
+.logout{
+  background-color: #13294b;
+  color:#ffffff;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 2px 2px;
+  position: sticky;
+  left: 1160px;
+  opacity: 80%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {
