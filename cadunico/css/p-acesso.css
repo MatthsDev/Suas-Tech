@@ -57,8 +57,8 @@ a{
     text-decoration: none;
     text-transform: none;
 }
-.btns{
-    padding-top: 25px;
+.btn{
+    padding-top: 30px;
 }
 .cpf,.dtnasc,.email,.telefone,.cargo,.idcargo,.senha,.btn{
     font-size: 16px;
