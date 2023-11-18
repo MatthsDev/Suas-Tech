@@ -97,7 +97,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
             <span class="material-symbols-outlined">
               logout
             </span>
-            
+            1
           </a>
         </div>
   </body>
