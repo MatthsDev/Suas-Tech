@@ -28,7 +28,7 @@
             </div>
             <div class="email">
                 <label>E-mail:</label>
-                <input type="text" name="email" placeholder="Digite aqui seu e-mail" required>
+                <input type="email" name="email" placeholder="Digite aqui seu e-mail" required>
             </div>
             <div class="tipodeacesso">
                 <label>Tipo de acesso: </label>
