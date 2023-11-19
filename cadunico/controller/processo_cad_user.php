@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Caso o Nome do Usuário seja unico será adicionado ao SQL
-    $smtp = $conn->prepare("INSERT INTO usuarios (usuario, senha, nivel, setor, funcao, email, data_registro) VALUES (?,?,?,?, NOW())");
+    $smtp = $conn->prepare("INSERT INTO usuarios (usuario, senha, nivel, setor, funcao, email, data_registro) VALUES (?,?,?,?, ?, ?, NOW())");
 
     // Verifica se a preparação foi bem-sucedida
     if ($smtp === false) {
