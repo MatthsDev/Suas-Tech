@@ -1,5 +1,5 @@
 <?php
-require_once '../../../config/conexao.php';
+require_once '../../config/conexao.php';
 
 $nomeUsuario = $_SESSION['user_usuario'];
 
@@ -19,7 +19,7 @@ if ($sql->rowCount() > 0) {
     }elseif($funcao == 2){
         $func = "Tecnico";
     }else{
-        $func = "";
+        $func = null;
     }
     $dtNasc = $dados['dt_nasc'];
     $telefone = $dados['telefone'];

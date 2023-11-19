@@ -1,5 +1,6 @@
 <?php
-include "../../../config/sessao.php";
+include "../../config/sessao.php";
+include '../controller/dados_usuario.php';
 ?>
 
 
@@ -15,3 +16,23 @@ include "../../../config/sessao.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Declaração Cadastro único</title>
 </head>
+<body>
+    <div class="img">
+        <h1 class="titulo-com-imagem">
+            <img src="../../img/h1.svg" alt="Titulocomimagem">
+        </h1>
+    </div>
+<?php
+echo $nome . "<br>";
+echo $apelido . "<br>";
+
+echo $cpf . "<br>";
+echo $dtNasc . "<br>";
+echo $telefone . "<br>";
+echo $email . "<br>";
+echo $cargo . "<br>";
+echo $idcargo . "<br>";
+echo $func . "<br>";
+?>
+
+</body>
