@@ -15,9 +15,9 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <title>TechSUAS - Menu</title>
     <link rel="stylesheet" href="../css/p-acesso.css">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../img/logo.png">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../js/cpfvalid.js"></script>
@@ -29,7 +29,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
             <img class="titulo-com-imagem" src="../img/h1-p-acesso.svg" alt="Titulocomimagem">
         </h1>
     </div>
-    <div class="container">    
+    <div class="container">
     <h3>Bem-vindo (a)
         <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.
     </h3>
@@ -52,7 +52,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
                 <label>Data de Nascimento:</label>
                 <input type="date" name="dt_nasc" required>
             </div>
-            <div class="email">    
+            <div class="email">
                 <label>E-mail:</label>
                 <input type="email" name="email" placeholder="Email particular" required>
             </div>
@@ -76,7 +76,17 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
                 <button type="submit">Concluir Cadastro</button>
             </div>
         </form>
-    </div>    
+    </div>
+    <!-- Adicione isso ao final do body do seu HTML -->
+<script src="js/scripts.js"></script>
+<script>
+    // Seu script principal
+    $(document).ready(function() {
+        // Aplica a máscara de CPF ao campo com o ID 'cpf'
+        $('#cpf').mask('000.000.000-00', { reverse: true });
+    });
+</script>
+
 </body>
 
 </html>
