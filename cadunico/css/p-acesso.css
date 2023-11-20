@@ -54,7 +54,7 @@ a{
 .btn{
     padding-top: 25px;
 }
-.cpf,.dtnasc,.email,.telefone,.cargo,.idcargo,.senha{
+.cpf,.dtnasc,.email,.telefone,.cargo,.idcargo,.senha,.nomesocial{
     font-size: 16px;
     padding-top: 15px;
     color: #13294b;
