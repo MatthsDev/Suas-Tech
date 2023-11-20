@@ -5,7 +5,7 @@ include 'dados_usuario.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nm = $_POST['nome'];
     $ap = $_POST['apelido'];
-    
+    $s_hashed = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $tele= $_POST['tele'];
     $email1 = $_POST['email'];
     $cg = $_POST['cargo'];
@@ -17,7 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($smtp->execute()) {
 
         // Atualização bem-sucedida, redirecione para a página de Login
-        echo "<script language='javascript'>window.alert('Dados alterados com sucesso.'); </script>";
+        echo "<script language='javascript'>window.alert('Dados alterados com sucesso.');
+        setTimeout(function() {
+            window.history.back(); // Volta para a página anterior
+        }, 500);
+        </script>";
     exit();
     } else {
         echo "Erro na atualização das informações: " . $smtp->error;

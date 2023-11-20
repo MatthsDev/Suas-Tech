@@ -51,6 +51,7 @@ include '../controller/dados_usuario.php';
 
         <div id="senhaVisual">
             <button type="button" onclick="iniciarEdicao('senha')">Mudar Senha</button><br>
+    </div>
 
         <div id="senhaEdicao" class="edicao">
             <label for="senha">>></label>
