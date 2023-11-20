@@ -93,8 +93,6 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
             <input type="text" id="idcargo" name="idcargo" value="<?php echo $idcargo; ?>" required>
         </div>
 
-<?php echo $func . "<br>"; ?>
-
         <button type="submit">Salvar Alterações</button>
     </form>
 
