@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conexao.php';
+require_once '../../../config/conexao.php';
 session_start();
 
 $nome_user = $_SESSION['nome_user_1_acesso'];

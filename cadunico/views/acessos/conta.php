@@ -1,6 +1,6 @@
 <?php
-include "../../config/sessao.php";
-include '../controller/dados_usuario.php';
+include "../../../config/sessao.php";
+include '../../controller/dados_usuario.php';
 ?>
 
 <!DOCTYPE html>
