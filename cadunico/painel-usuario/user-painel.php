@@ -47,7 +47,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario')
             <span class="material-symbols-outlined">
             quick_reference_all
             </span>
-            Declaração do Cadastro Único
+            Declarações do Cadastro Único
           </a>
         </div>
 
