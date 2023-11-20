@@ -90,9 +90,9 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
 
                 <br><label>CPF: <?php echo $cpf_formatado; ?></label><br>
                 <label>Nome: </label>
-                <input type="text" name="nome_dec" placeholder="Digite o nome completo" required><br>
+                <input type="text" name="nome_dec" oninput="sempre_maiusculo(this)" placeholder="Digite o nome completo" required><br>
                 <label>Nome da Mãe: </label>
-                <input type="text" name="nome_mae_dec" placeholder="Digite o nome completo"required><br>
+                <input type="text" name="nome_mae_dec" oninput="sempre_maiusculo(this)" placeholder="Digite o nome completo"required><br>
 
                 <label><input type="radio" name="gender" value="male" required>
                     <span class="circle" style="background-color: dodgerblue;"></span> Homem</label>
@@ -110,5 +110,11 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
 
 ?>
         </form>
-</body>
+        <script>
+        function sempre_maiusculo(elemento) {
+        // Converte o texto do campo para maiúsculas
+        elemento.value = elemento.value.toUpperCase();
+    }
+    </script>
+    </body>
 </html>

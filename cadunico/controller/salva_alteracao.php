@@ -5,14 +5,13 @@ include 'dados_usuario.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nm = $_POST['nome'];
     $ap = $_POST['apelido'];
-    $s_hashed = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $tele= $_POST['tele'];
     $email1 = $_POST['email'];
     $cg = $_POST['cargo'];
     $idcg = $_POST['idcargo'];
 
-    $smtp = $conn->prepare("UPDATE usuarios SET nome=?, apelido=?, senha=?, telefone=?, email=?, cargo=?, id_cargo=? WHERE usuario=?");
-    $smtp->bind_param("ssssssss", $nm, $ap, $s_hashed, $tele, $email1, $cg, $idcg, $nomeUsuario);
+    $smtp = $conn->prepare("UPDATE usuarios SET nome=?, apelido=?, telefone=?, email=?, cargo=?, id_cargo=? WHERE usuario=?");
+    $smtp->bind_param("sssssss", $nm, $ap, $tele, $email1, $cg, $idcg, $nomeUsuario);
 
     if ($smtp->execute()) {
 

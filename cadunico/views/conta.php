@@ -11,6 +11,7 @@ include '../controller/dados_usuario.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="image/png" href="../img/logo.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <title>Sala do Usuário</title>
@@ -36,7 +37,7 @@ include '../controller/dados_usuario.php';
         <!-- Campos de edição (inicialmente ocultos) -->
         <div id="nomeEdicao" class="edicao">
             <label for="nome">Nome completo:</label>
-            <input type="text" id="nome" name="nome" value="<?php echo $nome; ?>" required>
+            <input type="text" id="nome" name="nome" value="<?php echo $nome; ?>" oninput="sempre_maiusculo(this)" required>
         </div>
 
         <div id="apelidoVisual">
@@ -46,18 +47,8 @@ include '../controller/dados_usuario.php';
         <!-- Campos de edição (inicialmente ocultos) -->
         <div id="apelidoEdicao" class="edicao">
             <label for="apelido">Como quer ser chamado(a)? </label>
-            <input type="text" id="apelido" name="apelido" value="<?php echo $apelido; ?>" required>
+            <input type="text" id="apelido" name="apelido" value="<?php echo $apelido; ?>" oninput="sempre_maiusculo(this)" required>
         </div>
-
-        <div id="senhaVisual">
-            <button type="button" onclick="iniciarEdicao('senha')">Mudar Senha</button><br>
-    </div>
-
-        <div id="senhaEdicao" class="edicao">
-            <label for="senha">>></label>
-            <input type="text" id="senha" name="senha" required>
-        </div>
-
 
 <?php echo "CPF: " . $cpf . "<br>";
 echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
@@ -89,12 +80,12 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
         <!-- Campos de edição (inicialmente ocultos) -->
         <div id="cargoEdicao" class="edicao">
             <label for="cargo">Cargo: </label>
-            <input type="text" id="cargo" name="cargo" value="<?php echo $cargo; ?>" required>
+            <input type="text" id="cargo" name="cargo" value="<?php echo $cargo; ?>" id="sempre_maiusculo(this)" required>
         </div>
 
         <div id="idcargoVisual">
             Certificado ou Matricula: <?php echo $idcargo; ?>
-            <button type="button" onclick="iniciarEdicao('idcargo')">Editar</button><br>
+            <button type="button" id="sempre_maiusculo(this)">Editar</button><br>
         </div>
         <!-- Campos de edição (inicialmente ocultos) -->
         <div id="idcargoEdicao" class="edicao">
@@ -117,7 +108,9 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
             document.getElementById(campo + 'Visual').style.display = 'none';
             document.getElementById(campo + 'Edicao').style.display = 'block';
         }
+
     </script>
+        <script src='../js/personalise.js'></script>
 </body>
 
 </html>
