@@ -101,11 +101,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
     <a href="<?php echo $voltar_link; ?>">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
-
-
-
-
-
+    
         <script src='../js/personalise.js'></script>
 </body>
 
