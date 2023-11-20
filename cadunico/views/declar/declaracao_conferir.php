@@ -110,11 +110,6 @@ if ($sql->rowCount() > 0 && $sqli->rowCount() == 0) {
 
 ?>
         </form>
-        <script>
-        function sempre_maiusculo(elemento) {
-        // Converte o texto do campo para maiúsculas
-        elemento.value = elemento.value.toUpperCase();
-    }
-    </script>
+        <script src="../../js/personalise.js"></script>
     </body>
 </html>

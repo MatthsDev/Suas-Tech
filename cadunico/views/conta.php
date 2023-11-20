@@ -75,12 +75,12 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
 
         <div id="cargoVisual">
             Cargo: <?php echo $cargo; ?>
-            <button type="button" onclick="iniciarEdicao('cargo')">Editar</button><br>
+            <button type="button" onclick="iniciarEdicao('cargo')" id=>Editar</button><br>
         </div>
         <!-- Campos de edição (inicialmente ocultos) -->
         <div id="cargoEdicao" class="edicao">
             <label for="cargo">Cargo: </label>
-            <input type="text" id="cargo" name="cargo" value="<?php echo $cargo; ?>" id="sempre_maiusculo(this)" required>
+            <input type="text" id="cargo" name="cargo" value="<?php echo $cargo; ?>" oninput="sempre_maiusculo(this)" required>
         </div>
 
         <div id="idcargoVisual">
@@ -102,14 +102,10 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
         <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
 
-    <script>
-        function iniciarEdicao(campo) {
-            // Oculta a visualização e exibe o campo de edição
-            document.getElementById(campo + 'Visual').style.display = 'none';
-            document.getElementById(campo + 'Edicao').style.display = 'block';
-        }
 
-    </script>
+
+
+
         <script src='../js/personalise.js'></script>
 </body>
 
