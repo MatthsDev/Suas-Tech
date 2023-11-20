@@ -38,7 +38,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
                 <label>Nome Completo:</label>
                 <input type="text" name="nome_comp" placeholder="Digite seu nome completo" required>
             </div>
-            <div class="nome">
+            <div class="nomesocial">
                 <label>Nome Social:</label>
                 <input type="text" name="apelido" placeholder="Como quer que nos reportamos a você?" required>
             </div>
