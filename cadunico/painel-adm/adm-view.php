@@ -2,13 +2,7 @@
 
 // CARREGANDO SCRIPTS DE CONEXÃO E CONFIGURAÇÃO DO SISTEMA ( BANCO DE DADOS )
 require_once("../../config/conexao.php");
-
-//CARREGANDO SESSAO DO USUARIO
-session_start();
-if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
-	header("location:../index.php");
-}
-
+include '../../config/protecao.php';
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +87,7 @@ if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
     </div> 
   </div>
   <div class="logout">
-          <a class="logout" onclick="location.href='../../index.php';">
+          <a class="logout" onclick="location.href='../../config/logout.php';">
             <span class="material-symbols-outlined">
               logout
             </span> 
