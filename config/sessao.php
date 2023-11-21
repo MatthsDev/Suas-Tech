@@ -2,6 +2,9 @@
 include "conexao.php";
 session_start(); // Inicie a sessão para acessar as variáveis de sessão
 
+// Inicialize a variável $voltar_link
+$voltar_link1 = "/Suas-tech/index.php";
+
 // Verifica se o usuário está autenticado como admin ou usuário
 if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' && $_SESSION['nivel_usuario'] != 'usuario')) {
     // Configurar a mensagem do SweetAlert
@@ -9,9 +12,6 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
 
     // Configurar o tipo de alerta (success, error, warning, etc.)
     $tipo_alerta = "error";
-
-    // Configurar o link para redirecionamento
-    $voltar_link = "/Suas-tech/index.php";
     ?>
 
     <!DOCTYPE html>
@@ -30,20 +30,20 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
 
     <body>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Exemplo de uso do SweetAlert2
-            Swal.fire({
-                title: '<?php echo $mensagem; ?>',
-                icon: '<?php echo $tipo_alerta; ?>',
-                confirmButtonText: 'OK',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '<?php echo $voltar_link; ?>';
-                }
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Exemplo de uso do SweetAlert2
+                Swal.fire({
+                    title: '<?php echo $mensagem; ?>',
+                    icon: '<?php echo $tipo_alerta; ?>',
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '<?php echo $voltar_link1; ?>';
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 
     </body>
 
@@ -51,6 +51,15 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
 
     <?php
     exit; // Encerra o script após exibir o alerta
+}
+//SALVAR LINK DO BOTÃO
+if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin') {
+    // O usuário é um administrador.
+    $voltar_link = '../../painel-adm/adm-view.php';
+
+} elseif (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'usuario') {
+    // O usuário é um usuário comum.
+    $voltar_link = '../../painel-usuario/user-painel.php';
 }
 // Se o usuário estiver autenticado, continue com o restante do código...
 ?>
