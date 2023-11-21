@@ -1,5 +1,5 @@
 <?php
-include "../../../config/sessao.php";
+include "../../../config/protecao.php";
 ?>
 
 
