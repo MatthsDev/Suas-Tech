@@ -2,7 +2,7 @@
 
 // CARREGANDO SCRIPTS DE CONEXÃO E CONFIGURAÇÃO DO SISTEMA ( BANCO DE DADOS )
 require_once("../../config/conexao.php");
-include '../../config/protecao.php';
+include '../../config/sessao.php';
 ?>
 
 <!DOCTYPE html>
