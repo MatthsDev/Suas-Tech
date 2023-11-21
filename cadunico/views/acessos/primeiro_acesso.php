@@ -71,7 +71,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
             </div>
             <div class="senha">
                 <label>Nova Senha:</label>
-                <input type="text" name="senha" placeholder="Escolha uma nova senha." required>
+                <input type="password" name="senha" placeholder="Escolha uma nova senha." required>
             </div>
             <div class="btn">
                 <button type="submit">Concluir Cadastro</button>
