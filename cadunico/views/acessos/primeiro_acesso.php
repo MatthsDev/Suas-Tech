@@ -34,7 +34,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <h3>Bem-vindo (a)
         <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.
     </h3>
-        <form method="post" action="../controller/dados_alterados.php">
+        <form method="post" action="../../controller/dados_alterados.php">
             <div class="nome">
                 <label>Nome Completo:</label>
                 <input type="text" name="nome_comp" oninput="sempre_maiusculo(this)" placeholder="Digite seu nome completo." required>
