@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/conexao.php';
+require_once '../../../config/conexao.php';
 session_start();
 
 // Verifique se a sessão foi iniciada
@@ -24,9 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Obtém o nome do usuário da sessão
 
-    // Atualize as informações na tabela de usuários
     $smtp = $conn->prepare("UPDATE usuarios SET nome=?, apelido=?, senha=?, cpf=?, dt_nasc=?, telefone=?, email=?, cargo=?, id_cargo=? WHERE usuario=?");
+
+    if (!$smtp) {
+        die('Erro na preparação da consulta: ' . $conn->error);
+    }
+    
     $smtp->bind_param("ssssssssss", $nome_completo, $apelido, $senha_hashed, $cpf, $data_nascimento, $telefone, $email, $cargo, $id_cargo, $nome_user);
+    
 
     //echo "Nome Completo: " . $nome_completo . "<br>";
     //echo "Senha Hashed: " . $senha_hashed . "<br>";

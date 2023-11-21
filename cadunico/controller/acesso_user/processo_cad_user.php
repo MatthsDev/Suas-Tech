@@ -11,7 +11,7 @@
 <body>
 
 <?php
-require_once '../../config/conexao.php';
+require_once '../../../config/conexao.php';
 
 // Inicializa a mensagem como vazia
 $mensagem = "";
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($verifica_usuario->num_rows > 0) {
         // Se o nome de usuário já está em uso, exibe uma mensagem ou redirecione de volta ao formulário
-        echo '<script>alert("Nome de usuário já em uso. Por favor, escolha outro."); window.location.href = "../painel-adm/cadastro_user.php";</script>';
+        echo '<script>alert("Nome de usuário já em uso. Por favor, escolha outro."); window.location.href = "../../painel-adm/cadastro_user.php";</script>';
         exit();
     }
 
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="linha"></div>
         <?php
 // Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
-        echo '<script> setTimeout(function(){ window.location.href = "../painel-adm/cadastro_user.php"; }, 1500); </script>';
+        echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
     } else {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }

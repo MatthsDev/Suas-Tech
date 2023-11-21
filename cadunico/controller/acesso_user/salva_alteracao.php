@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/sessao.php';
+require_once '../../../config/sessao.php';
 include 'dados_usuario.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
