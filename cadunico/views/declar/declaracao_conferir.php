@@ -1,6 +1,10 @@
 <?php
-require_once '../../controller/declaracao/conferir.php';
-require_once '../../../config/validar_cpf.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/declaracao/conferir.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
+
 ?>
 
 <!DOCTYPE html>

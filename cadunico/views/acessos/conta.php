@@ -1,6 +1,7 @@
 <?php
-include "../../../config/sessao.php";
-include '../../controller/dados_usuario.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/dados_usuario.php';
 ?>
 
 <!DOCTYPE html>

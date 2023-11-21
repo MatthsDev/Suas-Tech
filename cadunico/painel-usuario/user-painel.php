@@ -1,15 +1,8 @@
 <?php
-
-// CARREGANDO SCRIPTS DE CONEXÃO E CONFIGURAÇÃO DO SISTEMA ( BANCO DE DADOS )
-require_once("../../config/conexao.php");
-
-//CARREGANDO SESSAO DO USUARIO
-session_start();
-if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'usuario'){
-	header("location:../index.php");
-}
-
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">

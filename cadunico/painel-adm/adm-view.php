@@ -1,8 +1,6 @@
 <?php
-
-// CARREGANDO SCRIPTS DE CONEXÃO E CONFIGURAÇÃO DO SISTEMA ( BANCO DE DADOS )
-require_once("../../config/conexao.php");
-include '../../config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 ?>
 
 <!DOCTYPE html>

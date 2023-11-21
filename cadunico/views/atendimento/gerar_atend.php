@@ -1,4 +1,7 @@
-<!-- view/index.php -->
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

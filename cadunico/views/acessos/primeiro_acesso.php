@@ -1,5 +1,5 @@
 <?php
-require_once '../../../config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 session_start();
 
 $nome_user = $_SESSION['nome_user_1_acesso'];
