@@ -1,3 +1,7 @@
+<?php
+include '../../config/protecao.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
