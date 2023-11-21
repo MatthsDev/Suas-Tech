@@ -1,10 +1,14 @@
 <?php
 require_once '../../../config/conexao.php';
 
-$nomeUsuario = $_SESSION['user_usuario'];
+if(!isset($_SESSION )){
+    session_start();
+}
 
-$sql = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :nomeUsuario");
-$sql->execute(array(':nomeUsuario' => $nomeUsuario));
+$user_name = $_SESSION['user_usuario'];
+
+$sql = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :user_usuario");
+$sql->execute(array(':user_usuario' => $user_name));
 
 if ($sql->rowCount() > 0) {
 
