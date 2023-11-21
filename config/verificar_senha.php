@@ -27,7 +27,7 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
         $_SESSION['nome_user_1_acesso'] = $dados['usuario'];
 
         // Redirecione para a página de conclusão do cadastro
-        header("Location: ../cadunico/views/primeiro_acesso.php");
+        header("Location: ../cadunico/views/acessos/primeiro_acesso.php");
         exit();
     }
 
