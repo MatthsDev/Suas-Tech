@@ -87,9 +87,9 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $conteudo .= "<p>" . $texto . "</p>";
             $conteudo .= "<p>Permaneço à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>";
             $conteudo .= "<p>Atenciosamente,</p>";
-            $conteudo .= $usuario;
-            $conteudo .= $cargo;
-            $conteudo .= $idcargo;
+            $conteudo .= $usuario . "<br>";
+            $conteudo .= $cargo . "<br>";
+            $conteudo .= $idcargo . "<br>";
             $conteudo .= "";
             $conteudo .= "";
             header("Location: print_enc.php?conteudo=" . urlencode($conteudo));
