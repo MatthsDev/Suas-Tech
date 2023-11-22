@@ -60,7 +60,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             // Função para obter as últimas senhas e atualizar dinamicamente a lista
             function obterUltimasSenhas() {
                 $.ajax({
-                    url: "ajax/listar_tela.php",
+                    url: "ajax/listar_ultimas.php",
                     method: "post",
                     dataType: "html",
                     success: function (result) {
@@ -78,5 +78,4 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     </script>
 
 </body>
-
 </html>

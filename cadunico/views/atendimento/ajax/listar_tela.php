@@ -1,11 +1,13 @@
 <?php
-require_once("../../../../config/conexao.php");
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
 echo '
 <table class="table table-sm mt-3">
     <thead class="thead-light">
         <tr>
-            <th scope="col">Senha</th>
+            <th scope="col">SENHA</th>
         </tr>
     </thead>
     <tbody>';
@@ -28,6 +30,9 @@ foreach ($dados_total as $row) {
     echo '
         <tr>
             <td>' . $nome_senha . '</td>
+        </tr>
+        <tr>
+            <th scope="col"> MESA ' . $idmesa . '</th>
         </tr>';
 }
 
