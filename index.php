@@ -49,7 +49,9 @@
 				<a data-toggle="modal" data-target="#modal-senha" class="float-right">Recuperar Senha</a>
 			</div>
 		</form>
-	<div class="rodape" type="text">
+	</div>	
+	<footer class="rodape">
 			Sistema desenvolvido por DDV &trade;
+	</footer>
 </body>
 </html>
