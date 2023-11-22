@@ -99,10 +99,12 @@ body{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	background-color: #f2f2f2;
-	padding: 20px;
+	background-color: #13294b;
+	padding: 5px;
 	text-align: center;
 	font-size: 14px;
-	color: #666;
-  }
+	color: #ffffff;
+	opacity: 90%;
+	
+}
 

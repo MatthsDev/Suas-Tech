@@ -52,7 +52,7 @@
 	</div>	
 	
 	<footer class="rodape">
-			Sistema desenvolvido por DDV &trade;
+			Sistema desenvolvido por DDV &trade; &nbsp;&nbsp;&nbsp;&nbsp; Versão 1.0.0	
 	</footer>
 </body>
 </html>
