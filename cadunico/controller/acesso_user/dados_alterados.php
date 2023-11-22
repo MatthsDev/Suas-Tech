@@ -1,5 +1,6 @@
 <?php
-require_once '../../../config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 session_start();
 
 // Verifique se a sessão foi iniciada
@@ -46,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Atualização bem-sucedida, redirecione para a página de Login
         echo "<script language='javascript'>window.alert('Dados alterados com sucesso.'); </script>";
-        header("Location: ../../index.php");
+        header("Location: ../../../index.php");
         exit();
     } else {
         echo "Erro na atualização das informações: " . $smtp->error;
