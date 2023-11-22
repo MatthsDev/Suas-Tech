@@ -23,11 +23,24 @@ img {
     flex-direction: column;
     padding: 10px
 }
+.desligamento,.encaminhamento{
+    padding-top: 10px;
+    color: #13294b;
+}
+.decprefeitura{
+    color: #13294b;
+}
 .linha{
     border: 1px solid #13294b;
 }
 .lin1{
     padding-top: 15px;
+}
+textarea{
+    width: 300px;
+    border-radius: 5px;
+    position: relative;
+    top: 13px;
 }
 button,a {
     text-decoration: none;
