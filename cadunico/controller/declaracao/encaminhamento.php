@@ -87,11 +87,13 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $conteudo .= "<p>" . $texto . "</p>";
             $conteudo .= "<p>Permaneço à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>";
             $conteudo .= "<p>Atenciosamente,</p>";
+            $conteudo .= "<div class='signature-line'>";
             $conteudo .= $usuario . "<br>";
             $conteudo .= $cargo . "<br>";
-            $conteudo .= $idcargo . "<br>";
-            $conteudo .= "";
-            $conteudo .= "";
+            $conteudo .= $idcargo . "<br><br><br>";
+            $conteudo .= "<p>_________________________________________________________________________________________________________</p>";
+            $conteudo .= "<p>ASSINATURA</p>";
+            $conteudo .= "</div>";
             header("Location: print_enc.php?conteudo=" . urlencode($conteudo));
         }
     }elseif ($opcao == "nis_dec") {

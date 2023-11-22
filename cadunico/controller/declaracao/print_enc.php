@@ -3,14 +3,13 @@
 <html lang="pt-BR">
 
     <head>
-    <head>
 <style>
 
     body {
         font-family: Arial, sans-serif;
         background-image: url('../../img/marca.png');
         background-size: 790px;
-        background-repeat: repeat;
+        display: flex;
     }
 
     #title {
@@ -45,8 +44,9 @@
 
     .signature-line {
         margin-top: 20px;
-        font-size: 20px;
+        font-size: 16px;
         text-align: center;
+        position: relative;
     }
 
     #justified-text {
