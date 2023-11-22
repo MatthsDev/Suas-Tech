@@ -76,6 +76,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <div class="calendario">
       <img class="calendario" src="../img/calend.svg" alt="calend">
     </div> 
-  </div>   
+  </div>
+  <div class="logout">
+          <a class="logout" onclick="location.href='../../config/logout.php';">
+            <span class="material-symbols-outlined">
+              logout
+            </span> 
+          </a>
+        </div>
   </body>
 </html>

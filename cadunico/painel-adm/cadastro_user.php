@@ -26,7 +26,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     </div>
 
     <div class="container">
-        <form method="post" action="../controller/processo_cad_user.php">
+        <form method="post" action="../controller/acesso_user/processo_cad_user.php">
             <div class="nome">
                 <label>Nome de Usuário:</label>
                 <input type="text" name="nome_user" placeholder="Ex: cad.(usuário)" required>

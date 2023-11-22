@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+
 
 $nome_user = $_SESSION['nome_user_1_acesso'];
 $nome_user;
@@ -33,14 +34,14 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <h3>Bem-vindo (a)
         <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.
     </h3>
-        <form method="post" action="../controller/dados_alterados.php">
+        <form method="post" action="../../controller/acesso_user/dados_alterados.php">
             <div class="nome">
                 <label>Nome Completo:</label>
-                <input type="text" name="nome_comp" placeholder="Digite seu nome completo." required>
+                <input type="text" name="nome_comp" oninput="sempre_maiusculo(this)" placeholder="Digite seu nome completo." required>
             </div>
             <div class="nomesocial">
                 <label>Nome Social/apelido:</label>
-                <input type="text" name="apelido" placeholder="" required>
+                <input type="text" name="apelido" oninput="sempre_maiusculo(this)" placeholder="" required>
             </div>
             <div class="cpf">
                 <label>CPF:</label>
@@ -62,7 +63,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
             </div>
             <div class="cargo">
                 <label>Cargo:</label>
-                <input type="text" name="cargo" required>
+                <input type="text" name="cargo" oninput="sempre_maiusculo(this)" required>
             </div>
             <div class="idcargo">
                 <label>Identificação do Cargo:</label>
@@ -70,7 +71,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
             </div>
             <div class="senha">
                 <label>Nova Senha:</label>
-                <input type="text" name="senha" placeholder="Escolha uma nova senha." required>
+                <input type="password" name="senha" placeholder="Escolha uma nova senha." required>
             </div>
             <div class="btn">
                 <button type="submit">Concluir Cadastro</button>
@@ -78,14 +79,8 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
         </form>
     </div>
 <script src="js/scripts.js"></script>
-<script>
-    // Seu script principal
-    $(document).ready(function() {
-        // Aplica a máscara de CPF ao campo com o ID 'cpf'
-        $('#cpf').mask('000.000.000-00', { reverse: true });
-    });
-</script>
 
+<script src="../../js/personalise.js"></script>
 </body>
 
 </html>
