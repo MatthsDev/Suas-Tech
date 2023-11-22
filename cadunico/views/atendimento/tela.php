@@ -17,6 +17,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 <body>
     <a href="index.php">Voltar</a>
     <div id="listar"></div>
+    <div id="listar_ultimas"></div>
+
+
+
+
+
+
+
+
+
+
+
     <script src="../../js/custom.js"></script>
 
     <!--AJAX PARA LISTAR OS DADOS -->
@@ -30,6 +42,29 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                     dataType: "html",
                     success: function (result) {
                         $('#listar').html(result);
+                    },
+                });
+            }
+
+            // Chamar a função para obter as últimas senhas ao carregar a página
+            obterUltimasSenhas();
+
+            // Atualizar a lista a cada 1 segundo (1000 milissegundos)
+            setInterval(obterUltimasSenhas, 1000);
+        });
+    </script>
+
+    <!--AJAX PARA LISTAR OS DADOS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Função para obter as últimas senhas e atualizar dinamicamente a lista
+            function obterUltimasSenhas() {
+                $.ajax({
+                    url: "ajax/listar_tela.php",
+                    method: "post",
+                    dataType: "html",
+                    success: function (result) {
+                        $('#listar_ultimas').html(result);
                     },
                 });
             }
