@@ -95,13 +95,14 @@ body{
 	
 	text-decoration:underline;
 }
-.rodape{
-width: 100%;
-color: #ffffff;
-background-color: #13294b;
-font-size: 10px;
-border-radius:2px;
-position: relative;
-text-align: center;
-}
+.rodape {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #f2f2f2;
+	padding: 20px;
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+  }
 

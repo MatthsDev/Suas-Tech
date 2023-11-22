@@ -74,16 +74,7 @@ body {
   cursor: pointer;
 }
 
-.rodape {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #f2f2f2;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-}
+
 
 @media screen and (max-width: 800px) {
   .menu-button {
