@@ -10,6 +10,8 @@
         background-image: url('../../img/marca.png');
         background-size: 790px;
         display: flex;
+        background-size: cover;
+        background-repeat: no-repeat; 
     }
 
     #title {
@@ -60,7 +62,6 @@
     display:block;
     padding: 0px 5px 0px 30px;
 }
-
 </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
