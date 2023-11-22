@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p name="numero_parecer">Parecer: <?php echo $numero_parecer; ?> / <?php echo $anoatual; ?></p>
         <p><label>CÓDIGO FAMILIAR: </label>
         <?php
-$endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
+    $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
             // Exibe as informações encontradas
             echo $cod_familiar_formatado;?></p>
         <label>NIS do Responsável pela(o) Unidade Familiar (RUF): </label>
