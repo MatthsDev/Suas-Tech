@@ -1,5 +1,5 @@
 <?php
-require_once '../../../config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 if(!isset($_SESSION )){
     session_start();
@@ -30,6 +30,7 @@ if ($sql->rowCount() > 0) {
     $email = $dados['email'];
     $cargo = $dados['cargo'];
     $idcargo = $dados['id_cargo'];
+    $idmesa = $dados['guinche'];
     
 }
 ?>
