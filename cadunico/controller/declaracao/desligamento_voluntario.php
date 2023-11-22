@@ -117,9 +117,9 @@ if (isset($_POST['nis_dec'])) {
 <br><br>
 <p>Dados do(a) Responsável Familiar:</p>
 <?php
-echo "Nome completo: " . $nom_pessoa . "<br>";
-        echo "CPF: " . $cpf_formatado . "<br>";
-        echo "NIS: " . $nis_dec . "<br>";
+echo "Nome completo: <b>" . $nom_pessoa . "</b><br>";
+        echo "CPF: <b>" . $cpf_formatado . "</b><br>";
+        echo "NIS: <b>" . $nis_dec . "</b><br>";
         ?>
     <br><br>
 <p style='text-align:right;'>São Bento do Una, <?php echo $data_formatada_at; ?></p>
@@ -136,12 +136,18 @@ echo "Nome completo: " . $nom_pessoa . "<br>";
 <p>A presente declaração foi assinada em duas vias, uma arquivada no município e a outra entregue para o(a) beneficiário(a).</p>
 <br><br>
 <p>Dados do(a) coordenador(a) municipal do Programa Bolsa Família:</p>
-<?php 
+<?php
+$mysql = "SELECT * FROM usuarios WHERE cargo LIKE '%CADASTRO ÚNICO%' ";
+        $mysqlq = $conn->query($mysql) or die("ERRO ao consultar !" . $conn - error);
 
+        if ($mysqlq->num_rows == 0) {
+            echo "COORDENAÇÃO NÃO IDENTIFICADA.";
+        } else {
+            $dados = $mysqlq->fetch_assoc();
+            echo "Nome completo: <b>" . $dados['nome'] . "</b><br>";
+            echo "CPF: <b>" . $dados['cpf'] . "</b><br>";
 
-echo "Nome completo: " . $nome . "<br>";
-
-        echo "CPF: " . $cpf . "<br>";
+        }
         ?>
     <br><br>
 <p style='text-align:right;'>São Bento do Una, <?php echo $data_formatada_at; ?></p>
@@ -150,7 +156,20 @@ echo "Nome completo: " . $nome . "<br>";
 <p style='text-align:center;'>Assinatura do(a) coordenador(a) municipal do Programa Bolsa Família</p>
 </div>
 </form>
+    </body>
+    <script>
+    setTimeout(function(){ 
+        window.location.href = "../../views/declar/declaracao.php"; 
+        }, 3000); 
+        </script>
+    <script>
+    window.onload = function() {
+        window.print();
+    };
+    </script>
+    </html>
 <?php
+
 } else {
         echo "<script language='javascript'>window.alert('Nenhum dado encontrato.!'); </script>";
         echo "<script language='javascript'>window.location='../../views/declar/declaracao.php'; </script>";
