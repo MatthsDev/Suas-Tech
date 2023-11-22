@@ -1,52 +1,45 @@
 <?php
-if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
-    $opcao = $_POST['buscar_dados'];
-    if ($opcao == "cpf_dec") {
-        $cpf_dec = $_POST['valorescolhido'];
-        $cpf_formatando = sprintf('%011s', $cpf_dec);
-        $cpf_formatado = substr($cpf_formatando, 0, 3) . '.' . substr($cpf_formatando, 3, 3) . '.' . substr($cpf_formatando, 6, 3) . '-' . substr($cpf_formatando, 9, 2);
 
-        function validarCPF($cpf)
-        {
-            // Remove caracteres não numéricos
-            $cpf = preg_replace('/[^0-9]/', '', $cpf);
+require_once "conexao.php";
+session_start();
 
-            // Verifica se o CPF tem 11 dígitos
-            if (strlen($cpf) != 11) {
-                die('CPF inválido. O CPF deve conter 11 dígitos.');
-            }
+if (empty($_POST['usuario']) || empty($_POST['senha'])) {
+    header("location:../index.php");
+}
 
-            // Verifica se todos os dígitos são iguais, o que invalida o CPF
-            if (preg_match('/(\d)\1{10}/', $cpf)) {
-                echo "<script>
-                alert('CPF inválido, Todos os digitos são iguais.');
-                setTimeout(function() {
-                    window.history.back(); // Volta para a página anterior
-                }, 500);
-                </script>";
-                die();
-            }
+$usuario = $_POST['usuario'];
+$senha_login = $_POST['senha'];
 
-            // Calcula os dígitos verificadores
-            for ($i = 9; $i < 11; $i++) {
-                $digito = 0;
-                for ($j = 0; $j < $i; $j++) {
-                    $digito += $cpf[$j] * (($i + 1) - $j);
-                }
-                $digito = (($digito % 11) < 2) ? 0 : 11 - ($digito % 11);
-                if ($cpf[$i] != $digito) {
-                    echo "<script>
-                    alert('CPF inválido.');
-                    setTimeout(function() {
-                        window.history.back(); // Volta para a página anterior
-                    }, 500);
-                    </script>";
-                        die();
-                }
-            }
-        }
+$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :usuario");
+$stmt->bindValue(":usuario", $usuario);
+$stmt->execute();
 
-        // Chama a função validarCPF com o CPF obtido do formulário
-        $message = validarCPF($cpf_formatado);
+$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($dados && password_verify($senha_login, $dados['senha'])) {
+    $_SESSION['nome_usuario'] = $dados['nome'];
+    $_SESSION['user_usuario'] = $dados['usuario'];
+    $_SESSION['nivel_usuario'] = $dados['nivel'];
+
+    // Verifique se é o primeiro acesso pela senha
+    if ($senha_login == "@senha123") {
+        // Passa o nome do usuário para a página de primeiro acesso
+        $_SESSION['nome_user_1_acesso'] = $dados['usuario'];
+
+        // Redirecione para a página de conclusão do cadastro
+        header("Location: ../cadunico/views/acessos/primeiro_acesso.php");
+        exit();
     }
+
+    // Redirecione com base no nível de acesso
+    if ($_SESSION['nivel_usuario'] == 'admin') {
+        header("location:../cadunico/painel-adm/adm-view.php");
+        exit();
+    } elseif ($_SESSION['nivel_usuario'] == 'usuario') {
+        header("location:../cadunico/painel-usuario/user-painel.php");
+        exit();
+    }
+} else {
+    echo "<script language='javascript'>window.alert('Senha incorreta!'); </script>";
+    echo "<script language='javascript'>window.location='../index.php'; </script>";
 }
