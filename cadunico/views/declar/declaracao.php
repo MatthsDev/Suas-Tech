@@ -14,7 +14,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Declarações</title>
 </head>
-
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
