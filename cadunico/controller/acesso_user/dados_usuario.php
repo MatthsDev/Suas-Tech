@@ -13,6 +13,7 @@ $sql->execute(array(':user_usuario' => $user_name));
 if ($sql->rowCount() > 0) {
 
     $dados = $sql->fetch(PDO::FETCH_ASSOC);
+    $id_user = $dados['id'];
     $nome = $dados['nome'];
     $apelido = $dados['apelido'];
     $cpf = $dados['cpf'];
@@ -30,7 +31,5 @@ if ($sql->rowCount() > 0) {
     $email = $dados['email'];
     $cargo = $dados['cargo'];
     $idcargo = $dados['id_cargo'];
-    $idmesa = $dados['guinche'];
-
 }
 ?>

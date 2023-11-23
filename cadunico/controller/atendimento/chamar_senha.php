@@ -1,7 +1,8 @@
 <?php
 
-// Incluir a conexao com o BD
-include_once '../../../config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/atendimento/user_session/dados.php';
 
 // Receber o tipo que a senha deve ser chamada
 $tipo = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_NUMBER_INT);
@@ -33,13 +34,16 @@ if (!empty($tipo)) {
             // Extrair para imprimir através da chave no array
             extract($row_senha_gerada);
 
-            // Alterar o status da senha gerada
+            // Alterar o status da senha gerada e incluir o ID do usuário logado
             $query_edit_senha_gerada = "UPDATE senhas_geradas 
-                        SET sits_senha_id = 4, modified = NOW()
+                        SET sits_senha_id = 4, 
+                            modified = NOW(),
+                            user_id = :id_user
                         WHERE id=:id_senha_gerada";
 
             // Prepara a QUERY
             $edit_senha_gerada = $pdo->prepare($query_edit_senha_gerada);
+            $edit_senha_gerada->bindValue(":id_user", $id_user, PDO::PARAM_INT);
             $edit_senha_gerada->bindValue(":id_senha_gerada", $id_senha_gerada, PDO::PARAM_INT);
 
             // Executar a QUERY
@@ -66,3 +70,4 @@ if (!empty($tipo)) {
 
 // Retornar os dados para o JavaScript
 echo json_encode($retorna);
+?>
