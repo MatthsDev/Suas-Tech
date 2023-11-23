@@ -16,7 +16,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
 <body>
     <a href="index.php">Voltar</a>
+
+    
     <div id="listar"></div>
+
+
+
     <div id="listar_ultimas"></div>
 
 

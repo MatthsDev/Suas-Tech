@@ -12,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $smtp = $conn->prepare("UPDATE usuarios SET nome=?, apelido=?, telefone=?, email=?, cargo=?, id_cargo=? WHERE usuario=?");
     $smtp->bind_param("sssssss", $nm, $ap, $tele, $email1, $cg, $idcg, $nomeUsuario);
-
     if ($smtp->execute()) {
 
         // Atualização bem-sucedida, redirecione para a página de Login
