@@ -12,7 +12,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <link rel="stylesheet" type="text/css" href="../../css/styledec.css">
     <link rel="website icon" type="png" href="../../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Declaração Cadastro único</title>
+    <title>Declarações</title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 </select>
                 <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
 
-                <label>Encaminho para: </label>
+                <label>Encaminhar para: </label>
                 <input id="" name="direcao">
 
                 <label>Texto: </label>
