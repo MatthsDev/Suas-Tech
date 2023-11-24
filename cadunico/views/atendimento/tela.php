@@ -57,7 +57,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             obterUltimasSenhas();
 
             // Atualizar a lista a cada 1 segundo (1000 milissegundos)
-            // setInterval(obterUltimasSenhas, 1000);
+            setInterval(obterUltimasSenhas, 1000);
         });
     </script>
 
@@ -80,7 +80,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             obterUltimasSenhas();
 
             // Atualizar a lista a cada 1 segundo (1000 milissegundos)
-            // setInterval(obterUltimasSenhas, 1000);
+            setInterval(obterUltimasSenhas, 1000);
         });
     </script>
 
