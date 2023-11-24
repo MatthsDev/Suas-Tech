@@ -2,16 +2,6 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
-echo '
-<table class="table table-sm mt-3">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">SENHA</th>
-            <th scope="col">MESA</th>
-        </tr>
-    </thead>
-    <tbody>';
-
 // Execute a consulta SQL
 $res_todos = $pdo->query("SELECT senger.id, senger.user_id, sen.nome_senha
 FROM senhas_geradas AS senger
@@ -29,20 +19,41 @@ foreach ($dados_total as $row) {
     $user_id = $row['user_id'];
 
     // Consulta para obter o guiche associado ao usuário que gerou a senha
-        $stmt = $pdo->prepare("SELECT guiche FROM usuarios WHERE id = :user_id");
-        $stmt->bindValue(':user_id', $user_id);
-        $stmt->execute();
-        $guiche_result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $guiche = $guiche_result['guiche'];
+    $stmt = $pdo->prepare("SELECT guiche FROM usuarios WHERE id = :user_id");
+    $stmt->bindValue(':user_id', $user_id);
+    $stmt->execute();
+    $guiche_result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $guiche = $guiche_result['guiche'];
+
 
     echo '
-        <tr>
-            <td>' . $nome_senha . '</td>
-             <td>' . $guiche . '</td>
-        </tr>';
-}
+       
+                <div class="senhaAtual">
 
-echo '
-    </tbody>
-</table>';
+                    <div class="row sencham">
+                    
+                        <div class="senhatxt">
+                            <div class="" id="nome_sen" style="text-align: center;">
+                                <span class="senhaAtualTexto">SENHA</span>
+                            </div>
+
+                            <div class="" id="num_sen" style="text-align: center;">
+                                <span id="senhaAtualNumero">' . $nome_senha . '</span>
+                            </div>
+                        </div>
+
+                        <div class="senhaguiche">
+                            <div class="" id="nome_sen">
+                                <span class="senhaAtualTexto"> MESA </span>
+                            </div>
+                            <div class=""  id="nome_sen">
+                                <span class="senhaAtualTexto">' . $guiche . '</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>';
+}
 ?>

@@ -3,13 +3,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
 echo '
-<table class="table table-sm mt-3">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">ULTIMAS CHAMADAS</th>
-        </tr>
-    </thead>
-    <tbody>';
+<div class="cont_ult1">
+    <div class="cont-txt">
+            <span class="ultsenha">ULTIMAS CHAMADAS</span> 
+    </div>
+
+    <div class="cont-num">';
 
 // Execute a consulta SQL
 $res_todos = $pdo->query("SELECT senger.id, sen.nome_senha
@@ -27,11 +26,10 @@ foreach ($dados_total as $row) {
     $nome_senha = $row['nome_senha'];
 
     echo '
-        <tr>
-            <td>' . $nome_senha . '</td>
-        </tr>';
+            <span class="ultnum">' . $nome_senha . '</span><br>
+       ';
 }
 
 echo '
-    </tbody>
-</table>';
+   </div>
+</div>';

@@ -1,0 +1,92 @@
+.barraSuperior {
+	height: 200px;
+	margin-top: 10px;
+}
+
+/* CONTEINER AZUL DA TELA */
+.barramedia {
+	display: flex;
+	flex-flow: nowrap;
+	/* background-color: #003a5f; */
+}
+
+/*CONTEINER QUE CONTEM SENHA E MESA OS DOIS BLOCOS */
+.sencham {
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+	align-items: center;
+	border: 3px solid #003a5f;
+	;
+	background-color: #003a5f;
+	border-radius: 20px;
+	height: 99%;
+}
+
+/* CONTEINER QUE CONTEM SENHA */
+.senhatxt {
+	color: white;
+	padding-bottom: 10%;
+
+}
+
+/*CONTEINER QUE CONTEM MESA  */
+.senhaguiche {
+	text-align: center;
+	color: white;
+	margin-top: 0px;
+}
+
+/*SPAN QUE EDITA O TEXTO  */
+.senhaAtualTexto {
+	font-size: 55pt;
+	font-weight: 400;
+}
+
+/*SPAN QUE EDITA O NUMERO */
+#senhaAtualNumero {
+	font-size: 60pt;
+	font-weight: 400;
+}
+
+
+
+/*CAMPO DO TITULO EXEMPLO( SENHA E MESA)*/
+#nome_sen {
+	padding-bottom: 2%;
+}
+
+#num_sen {
+	padding-bottom: 2%;
+}
+
+
+
+.cont_ult1 {
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+	align-items: center;
+	border: 3px solid #003a5f;
+	background-color: #003a5f;
+	border-radius: 20px;
+	color: white;
+	height: 80%;
+	margin-left: 8%;
+	padding: 10%;
+}
+
+.cont-num {
+	text-align: left;
+}
+
+
+.ultsenha {
+	font-size: 30pt;
+	font-weight: 400;
+}
+
+.ultnum {
+	font-size: 30pt;
+	padding-top: 18%;
+}

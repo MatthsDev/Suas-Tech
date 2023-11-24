@@ -12,19 +12,21 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <title>Tech-Suas</title>
     <!-- Inclua o jQuery antes de qualquer outro script que dependa dele -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="/Suas-Tech/cadunico/css/atend/style_tela.css">
+
 </head>
 
 <body>
     <a href="index.php">Voltar</a>
 
-    
-    <div id="listar"></div>
+    <div class="barramedia">
+        <div id="listar"></div>
 
 
 
-    <div id="listar_ultimas"></div>
+        <div id="listar_ultimas"></div>
 
-
+    </div>
 
 
 
@@ -55,7 +57,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             obterUltimasSenhas();
 
             // Atualizar a lista a cada 1 segundo (1000 milissegundos)
-            setInterval(obterUltimasSenhas, 1000);
+            // setInterval(obterUltimasSenhas, 1000);
         });
     </script>
 
@@ -78,9 +80,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             obterUltimasSenhas();
 
             // Atualizar a lista a cada 1 segundo (1000 milissegundos)
-            setInterval(obterUltimasSenhas, 1000);
+            // setInterval(obterUltimasSenhas, 1000);
         });
     </script>
 
 </body>
+
 </html>
