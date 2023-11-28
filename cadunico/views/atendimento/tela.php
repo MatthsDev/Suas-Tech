@@ -20,6 +20,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <a href="index.php">Voltar</a>
 
     <div class="barramedia">
+        
         <div id="listar"></div>
 
 
