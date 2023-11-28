@@ -30,7 +30,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         $timestampptbr = time();
         $data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
 
-            if ($sql->rowCount() > 0) {
+        if ($sql->rowCount() > 0) {
             $dados = $sql->fetch(PDO::FETCH_ASSOC);
             $cod_familiar = $dados["cod_familiar_fam"];
             $nom_pessoa = $dados["nom_pessoa"];
@@ -79,7 +79,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
 
             $conteudo = "<div id='title'style='margin-top: 100px;'>CADASTRO ÚNICO - SÃO BENTO DO UNA</div>";
-            $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";            
+            $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
             $conteudo .= "<br><br><p>Assunto: Encaminho" . $sexo . $nom_pessoa . $sexoo . $nom_mae_rf . ", reside em " . $endereco_conpleto . ".</p>";
             $conteudo .= "<p>Ao(a) Coordenador(a) do " . $direcao . ",</p>";
             $conteudo .= "<p>" . $texto . "</p>";
@@ -94,7 +94,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $conteudo .= "</div>";
             header("Location: print_enc.php?conteudo=" . urlencode($conteudo));
         }
-    }elseif ($opcao == "nis_dec") {
+    } elseif ($opcao == "nis_dec") {
         $nis_dec = $_POST['valorescolhido'];
         $texto = $_POST['texto'];
         $direcao = $_POST['direcao'];
@@ -109,7 +109,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         $timestampptbr = time();
         $data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
 
-            if ($sql->rowCount() > 0) {
+        if ($sql->rowCount() > 0) {
             $dados = $sql->fetch(PDO::FETCH_ASSOC);
             $cod_familiar = $dados["cod_familiar_fam"];
             $nom_pessoa = $dados["nom_pessoa"];
@@ -158,7 +158,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
 
             $conteudo = "<h1>CADASTRO ÚNICO - SÃO BENTO DO UNA</h1>";
-            $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";            
+            $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
             $conteudo .= "<br><br><p>Assunto: Encaminho" . $sexo . $nom_pessoa . $sexoo . $nom_mae_rf . ", reside em " . $endereco_conpleto . ".</p>";
             $conteudo .= "<p>Ao(a) Coordenador(a) do " . $direcao . ",</p>";
             $conteudo .= "<p>" . $texto . "</p>";
@@ -173,9 +173,8 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $conteudo .= "</div>";
             header("Location: print_enc.php?conteudo=" . urlencode($conteudo));
         }
-    }else{
-        Echo "Não foi encontrado nenhum nis";
+    } else {
+        echo "Nâo encontrado.";
     }
 }
-
 ?>

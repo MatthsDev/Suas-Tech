@@ -50,7 +50,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 <input id="" name="direcao">
 
                 <label>Texto: </label>
-                <textarea id="" name="texto"></textarea>
+                <textarea id="" name="texto" required></textarea>
                 <button type="submit">BUSCAR</button>
             </form>
             <div class=lin1>
