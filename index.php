@@ -16,7 +16,6 @@
 
 <body>
     <div class="login-form">
-    $2y$10$o.A7GwqNtOS2ZvLRB4Obk.jfGMpIx9.dTQjavJUPEDNwjnJVP.RMq
         <form action="config/autenticar.php" method="post">
             <div class="logo">
                 <img src="cadunico/img/logo1.png" alt="TECHSUAS">
