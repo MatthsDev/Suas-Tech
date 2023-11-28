@@ -105,4 +105,11 @@ body{
 	font-size: 15px;
 	color: #ffffff;
 }
-
+input{
+	background-color: #ffffff;
+	color:#ffffff; x
+}
+.input-group-text {
+	cursor: pointer;
+	opacity: 80%;
+}
