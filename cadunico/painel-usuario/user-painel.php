@@ -40,7 +40,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             <span class="material-symbols-outlined">
             quick_reference_all
             </span>
-            Declarações
+            Declarações Cadastro Único
           </a>
         </div>
 

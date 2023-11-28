@@ -37,7 +37,8 @@ img {
     padding-top: 15px;
 }
 textarea{
-    width: 300px;
+    width: 350px;
+    height: auto;
     border-radius: 5px;
     position: relative;
     top: 13px;
