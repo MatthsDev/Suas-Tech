@@ -1,6 +1,7 @@
 body{
 	color:#fff;
 	background-color:#d7e9f8;
+	overflow: hidden;
 }
 
 .login-form{
@@ -107,7 +108,7 @@ body{
 }
 input{
 	background-color: #ffffff;
-	color:#ffffff; x
+	color:#ffffff; 
 }
 .input-group-text {
 	cursor: pointer;
