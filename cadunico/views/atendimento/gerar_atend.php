@@ -30,7 +30,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
     <?php
         if (!isset($_GET['cpf_dec'])){
-            echo "Não localizado";
+            echo "";
         }else{
             $cpf_dec = $_GET['cpf_dec'];
             $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
@@ -38,9 +38,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
             if ($sql->rowCount() > 0) {
                 $dados = $sql->fetch(PDO::FETCH_ASSOC);
-                $nom_pessoa = $dados["nom_pessoa"];}
+                $nom_pessoa = $dados["nom_pessoa"];
+                echo $cpf_dec . " " . $nom_pessoa;
+            }else{ echo "esse cpf não foi localizado" . $_GET['cpf_dec']; 
+            ?>
 
-            echo $cpf_dec . $nom_pessoa;
+                <input type="text">
+            <?php }
+
+
         }
     ?>
 </body>
