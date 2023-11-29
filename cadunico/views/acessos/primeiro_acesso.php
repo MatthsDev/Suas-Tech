@@ -77,7 +77,6 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
             </div>
         </form>
     </div>
-<script src="js/scripts.js"></script>
 
 <script src="../../js/personalise.js"></script>
 </body>

@@ -9,6 +9,25 @@ document.addEventListener("DOMContentLoaded", function () {
     telefoneInput.mask('(00) 0 0000-0000');
 });
 
+function formatarCPF(cpf) {
+    // Remove caracteres especiais (pontos e traços)
+    var cpfFormatado = cpf.replace(/[^\d]+/g, '');
+
+    // Remove o zero à frente, se existir
+    cpfFormatado = cpfFormatado.replace(/^0+/, '');
+
+    // Adiciona a máscara
+    cpfFormatado = cpfFormatado.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+
+    return cpfFormatado;
+}
+
+// Exemplo de uso:
+var cpfNaoFormatado = "07815823424";
+var cpfFormatado = formatarCPF(cpfNaoFormatado);
+console.log(cpfFormatado); // Exibe "078.158.234-24" no console
+
+
 function _cpf(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     if (!cpf) { // Se o CPF estiver vazio, retorna como válido

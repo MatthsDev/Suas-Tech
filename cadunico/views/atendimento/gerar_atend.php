@@ -1,6 +1,18 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+
+function formatarCPF($cpf)
+{
+    // Remove caracteres especiais (pontos e traço)
+    $cpfFormatado = preg_replace('/[^0-9]/', '', $cpf);
+
+    // Remove o zero à frente, se existir
+    $cpfFormatado = ltrim($cpfFormatado, '0');
+
+    return $cpfFormatado;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +22,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <meta charset="UTF-8" />
     <title>Tech-Suas</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../../js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../../js/cpfvalid.js"></script>
 </head>
 
 <body>
@@ -22,32 +36,38 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <p><button onclick="gerarSenha(1)">Gerar Senha Tipo 1</button></p>
     <p><button onclick="gerarSenha(2)">Gerar Senha Tipo 2</button></p>
 
-    <form>
-    <label>CPF: </label>
-    <input type="text" name="cpf_dec" placeholder="Digite o CPF para consultar...">
-    <button type="submit">BUSCAR</button>
+    <form method="GET">
+        <label>CPF: </label>
+        <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF para consultar..." onblur="validarCPF(this)">
+        <button type="submit">BUSCAR</button>
     </form>
 
     <?php
-        if (!isset($_GET['cpf_dec'])){
-            echo "";
-        }else{
-            $cpf_dec = $_GET['cpf_dec'];
-            $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
-            $sql->execute(array(':cpf_dec' => $cpf_dec));
+    if (!isset($_GET['cpf'])) {
+        echo "nada";
+    } else {
+        $cpf_dec = $_GET['cpf'];
 
-            if ($sql->rowCount() > 0) {
-                $dados = $sql->fetch(PDO::FETCH_ASSOC);
-                $nom_pessoa = $dados["nom_pessoa"];
-                echo $cpf_dec . " " . $nom_pessoa;
-            }else{ echo "esse cpf não foi localizado" . $_GET['cpf_dec']; 
+        // Formata o CPF antes de consultar no banco de dados
+        $cpf_dec_formatado = formatarCPF($cpf_dec);
+
+        $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec_formatado");
+        $sql->execute(array(':cpf_dec_formatado' => $cpf_dec_formatado));
+
+        if ($sql->rowCount() > 0) {
+            $dados = $sql->fetch(PDO::FETCH_ASSOC);
+            $nom_pessoa = $dados["nom_pessoa"];
+            echo $cpf_dec . " " . $nom_pessoa;
+        } else {
+            echo "Esse CPF não foi localizado: " . $cpf_dec;
+
+            // Aqui você pode adicionar a lógica para lidar com o CPF não encontrado
             ?>
 
-                <input type="text">
-            <?php }
-
-
+            <input type="text">
+            <?php
         }
+    }
     ?>
 </body>
 
