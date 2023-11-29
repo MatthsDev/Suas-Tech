@@ -27,14 +27,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
     </div>
 
-
-
-
-
-
-
-
-
     <script src="../../js/custom.js"></script>
 
     <!--AJAX PARA LISTAR OS DADOS -->

@@ -53,6 +53,10 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             } else {
                 $sexooo = " inscrita ";
             }
+            //Formatando o CPF
+            $cpf_table = $dados['num_cpf_pessoa'];
+            $cpf_formatando = sprintf('%011s', $cpf_table);
+            $cpf_formatado = substr($cpf_formatando, 0, 3) . '.' . substr($cpf_formatando, 3, 3) . '.' . substr($cpf_formatando, 6, 3) . '-' . substr($cpf_formatando, 9, 2);
 
             //Define as variáveis com o endereço
             $tipo_logradouro = $dados["nom_tip_logradouro_fam"];
@@ -80,7 +84,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
 
             $conteudo = "<div id='title'style='margin-top: 100px;'>CADASTRO ÚNICO - SÃO BENTO DO UNA</div>";
             $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
-            $conteudo .= "<br><br><p>Assunto: Encaminho" . $sexo . $nom_pessoa . $sexoo . $nom_mae_rf . ", reside em " . $endereco_conpleto . ".</p>";
+            $conteudo .= "<br><br><p>Assunto: Encaminho" . $sexo . $nom_pessoa . ", CPF: " . $cpf_formatado . $sexoo . $nom_mae_rf . ", reside em " . $endereco_conpleto . ".</p>";
             $conteudo .= "<p>Ao(a) Coordenador(a) do " . $direcao . ",</p>";
             $conteudo .= "<p>" . $texto . "</p>";
             $conteudo .= "<p>Permaneço à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>";
@@ -159,7 +163,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
 
             $conteudo = "<h1>CADASTRO ÚNICO - SÃO BENTO DO UNA</h1>";
             $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
-            $conteudo .= "<br><br><p>Assunto: Encaminho" . $sexo . $nom_pessoa . $sexoo . $nom_mae_rf . ", reside em " . $endereco_conpleto . ".</p>";
+            $conteudo .= "<br><br><p>Assunto: Encaminho" . $sexo . $nom_pessoa . ", CPF: " . $cpf_formatado . $sexoo . $nom_mae_rf . ", reside em " . $endereco_conpleto . ".</p>";
             $conteudo .= "<p>Ao(a) Coordenador(a) do " . $direcao . ",</p>";
             $conteudo .= "<p>" . $texto . "</p>";
             $conteudo .= "<p>Permaneço à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>";
