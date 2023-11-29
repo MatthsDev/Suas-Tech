@@ -36,7 +36,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </div>
 
         <div class="parecer">
-          <a class="menu-button" onclick="location.href='../views/declar/declaracao_prefeitura.php';">
+          <a class="menu-button" onclick="location.href='../views/declar/declaracao.php';">
             <span class="material-symbols-outlined">
             quick_reference_all
             </span>
@@ -54,7 +54,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </div>
 
         <div class="folha">
-          <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
+          <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha.php';">
             <span class="material-symbols-outlined">
               request_quote
             </span>
