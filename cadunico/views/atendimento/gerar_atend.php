@@ -25,6 +25,7 @@ function formatarCPF($cpf)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../../js/cpfvalid.js"></script>
+    <script src="../../js/custom.js"></script>
 </head>
 
 <body>
@@ -33,8 +34,8 @@ function formatarCPF($cpf)
 
     <span id="msgAlerta"></span>
     <p>Senha: <span id="senhaGerada"></span></p>
-    <p><button onclick="gerarSenha(1)">Gerar Senha Tipo 1</button></p>
-    <p><button onclick="gerarSenha(2)">Gerar Senha Tipo 2</button></p>
+    <p><button onclick="gerarSenha(1)">PBF NORMAL</button></p>
+    <p><button onclick="gerarSenha(2)">PBF PRIORIDADE</button></p>
 
     <form method="GET">
         <label>CPF: </label>
@@ -64,14 +65,8 @@ function formatarCPF($cpf)
             // Aqui você pode adicionar a lógica para lidar com o CPF não encontrado
             ?>
 
-<<<<<<< HEAD
-                <input type="text">
-            <?php 
-            }
-=======
             <input type="text">
             <?php
->>>>>>> 1c7f190909557c4ccb2c252e6be2f38c750b2872
         }
     }
     ?>
