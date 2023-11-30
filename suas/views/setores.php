@@ -21,6 +21,37 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 </head>
 <body>
     <h1>CADASTRO DE SETORES</h1>
+
+    <form>
+    <label>CPF da Coordenação: </label>
+    <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" required>
+    <button type="submit">BUSCAR</button>
+    </form>
+    <?php
+if (isset($_GET['cpf_coord'])) {
+    $cpf_coord = $_GET['cpf_coord'];
+
+    $sql = $pdo->prepare("SELECT * FROM usuarios WHERE cpf = :cpf_coord");
+    $sql->execute(array(':cpf_coord' => $cpf_coord));
+
+    if ($sql->rowCount() > 0) {
+        $dados = $sql->fetch(PDO::FETCH_ASSOC);
+        $nome_coord = $dados['nome'];
+    } else {
+        $nome_coord = "Esse cpf não foi localizado " . $_GET['cpf_coord'] . ". Você pode Cadastrar <a href='../../cadunico/painel-adm/cadastro_user.php'>AQUI</a>";
+    
+    }
+
+    ?><label>Coordenação Responsável: </label> <?php
+    ?><p><?php echo $nome_coord; ?></p><?php
+} else {
+    ?> <label>Aguardando coordenador responsável</label> <?php
+}
+
+$_SESSION['cpf_coord'] = $_GET['cpf_coord'];
+$_SESSION['nome_coord'] = $nome_coord  ;
+?>
+
     <form method="post" action="../controller/salvando_setor.php">
 
     <label>INSTITUIÇÃO: </label>
@@ -32,11 +63,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <label>Código do Estabelecimento: </label>
     <input type="text" name="codigo" placeholder="Caso tenha...">
 
-    <label>Coordenação Responsável: </label>
-    <input type="text" name="responsavel" placeholder="Nome do Responsável">
-
-    <label>CPF da Coordenação: </label>
-    <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" required>
 
     <button type="submit">SALVAR</button>
 

@@ -65,8 +65,14 @@ function formatarCPF($cpf)
             // Aqui você pode adicionar a lógica para lidar com o CPF não encontrado
             ?>
 
+<<<<<<< HEAD
+                <input type="text">
+            <?php 
+            }
+=======
             <input type="text">
             <?php
+>>>>>>> 1c7f190909557c4ccb2c252e6be2f38c750b2872
         }
     }
     ?>

@@ -23,7 +23,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <!--INICIO DA DECLARAÇÃO PARA PREFEITURA-->
     <div class="container">
         <div class="decprefeitura">
-            <form method="post" action="declaracao_conferir">
+            <form method="post" action="declaracao_conferir.php">
                 <h2>Declaração Para Contratação</h2>
                 <select name="buscar_dados" required>
                     <option value="cpf_dec">CPF:</option>
