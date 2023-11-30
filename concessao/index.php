@@ -1,6 +1,7 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </h1>
     </div>
 <div class="container">
-    <form action="">
+    <form method="post" action="">
         <select name="buscar_dados" required>
             <option value="cpf_dec">CPF:</option>
             <option value="nis_dec">NIS:</option>
