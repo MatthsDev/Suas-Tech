@@ -2,6 +2,9 @@
 include "conexao.php";
 session_start(); // Inicie a sessão para acessar as variáveis de sessão
 
+// Inicialize a variável $voltar_link
+$voltar_link1 = "/Suas-tech/index.php";
+
 // Verifica se o usuário está autenticado como admin ou usuário
 if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' && $_SESSION['nivel_usuario'] != 'usuario')) {
     // Configurar a mensagem do SweetAlert
@@ -27,27 +30,20 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
 
     <body>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Exemplo de uso do SweetAlert2
-        Swal.fire({
-            title: '<?php echo $mensagem; ?>',
-            icon: '<?php echo $tipo_alerta; ?>',
-            confirmButtonText: 'OK',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Construa a URL completa concatenando o diretório e o nome do arquivo
-                var dirpage = '<?php echo $diretorio; ?>';
-                var indexPage = 'index.php';
-                var url = dirpage + indexPage;
-
-                // Redirecione para a página desejada
-                window.location.href = url;
-            }
-        });
-    });
-</script>
-
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Exemplo de uso do SweetAlert2
+                Swal.fire({
+                    title: '<?php echo $mensagem; ?>',
+                    icon: '<?php echo $tipo_alerta; ?>',
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '<?php echo $voltar_link1; ?>';
+                    }
+                });
+            });
+        </script>
 
     </body>
 

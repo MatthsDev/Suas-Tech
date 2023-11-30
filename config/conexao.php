@@ -6,11 +6,6 @@ $senha = '';
 $banco = 'test';
 $port = 3306;
 
-
-$diretorio = "/suas-tech/";
-
-$manipulador = dir($diretorio);
-
 date_default_timezone_set('America/Sao_Paulo');
 try {
 $pdo = new PDO("mysql:dbname=$banco;host=$host", "$usuario", "$senha");
