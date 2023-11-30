@@ -1,9 +1,9 @@
 <?php
-include "conexao.php";
+
 session_start(); // Inicie a sessão para acessar as variáveis de sessão
 
 // Inicialize a variável $voltar_link
-$voltar_link1 = "/Suas-tech/index.php";
+$voltar_link1 = "BASE_PATH . 'index.php';";
 
 // Verifica se o usuário está autenticado como admin ou usuário
 if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' && $_SESSION['nivel_usuario'] != 'usuario')) {
@@ -39,7 +39,7 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
                     confirmButtonText: 'OK',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '<?php echo $voltar_link1; ?>';
+                        window.location.href = '../../index.php';
                     }
                 });
             });

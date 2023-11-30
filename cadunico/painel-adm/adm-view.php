@@ -1,7 +1,10 @@
 <?php
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+// Inclui o arquivo de sessão usando BASE_PATH
+include_once BASE_PATH . '/config/sessao.php';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
