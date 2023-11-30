@@ -30,7 +30,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/dados_u
         </h1>
     </div>
 
-    <form method="post" action="../controller/salva_alteracao.php">
+    <form method="post" action="../../controller/acesso_user/salva_alteracao.php">
         <div id="nomeVisual">
             Nome completo: <?php echo $nome; ?>
             <button type="button" onclick="iniciarEdicao('nome')">Editar</button> <br>
