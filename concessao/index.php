@@ -26,7 +26,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         <button type="submit">BUSCAR</button>
         
         <?php
-       if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
+        if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         $opcao = $_POST['buscar_dados'];
         if ($opcao == "cpf_dec") {
             $cpf_dec = $_POST['valorescolhido'];
