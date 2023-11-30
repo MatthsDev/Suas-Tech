@@ -6,8 +6,10 @@ $senha = '';
 $banco = 'test';
 $port = 3306;
 
-// Define o caminho base como a raiz do projeto
-define('BASE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/suas-tech/');
+
+$diretorio = "/suas-tech/";
+
+$manipulador = dir($diretorio);
 
 date_default_timezone_set('America/Sao_Paulo');
 try {
