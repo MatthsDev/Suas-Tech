@@ -6,6 +6,8 @@ $senha = '';
 $banco = 'test';
 $port = 3306;
 
+$raiz_dom= "/Suas-Tech/";
+
 date_default_timezone_set('America/Sao_Paulo');
 try {
 $pdo = new PDO("mysql:dbname=$banco;host=$host", "$usuario", "$senha");
