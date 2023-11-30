@@ -34,11 +34,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             // Consulta preparada para evitar injeção de SQL
             $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
             $sql->execute(array(':cpf_dec' => $cpf_dec));
-            
+
             if ($sql->rowCount() > 0) {
 
-                $dados = $sql->fetch(PDO::FETCH_ASSOC);}
-    }
+                $dados = $sql->fetch(PDO::FETCH_ASSOC);
+            $nome = $dados['nom_pessoa'];
+            echo $nome; 
+        }
+    } else {echo "erro não encontrado";}
+}
     
         ?>
 
