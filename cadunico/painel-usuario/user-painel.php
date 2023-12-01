@@ -84,13 +84,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
       <span class="material-symbols-outlined">
         Settings
       </span> 
-    </button>
       <div class="drop-content">
-        <a href='../../config/logout.php';>
+        <a title="Sair" href='../../config/logout.php';>
         <span class="material-symbols-outlined">logout</span>    
         </a>
         <a href='../views/acessos/conta.php';>
-        <span class="material-symbols-outlined">manage_accounts</span>       
+        <span title="Alterar Usuário" class="material-symbols-outlined">manage_accounts</span>       
         </a>
       </div>
   </div>
