@@ -1,19 +1,8 @@
 <?php
 
-session_start(); // Inicie a sessão para acessar as variáveis de sessão
-include '../config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
-// Verifique o nível do usuário
-if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin') {
-    // O usuário é um administrador.
-    $voltar_link = 'painel-adm/adm-view.php';
-} elseif (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'usuario') {
-    // O usuário é um usuário comum.
-    $voltar_link = 'painel-usuario/user-painel.php';
-} else {
-    // Redirecionar para a página de login ou exibir uma mensagem de erro, pois o nível do usuário não está definido.
-    $voltar_link = '../index.php'; // Altere o link para a página de login
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,6 +25,28 @@ if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin')
         </select>
         <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
         <button type="submit">BUSCAR</button>
+
+        <?php
+if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
+    $opcao = $_POST['buscar_dados'];
+    if ($opcao == "cpf_dec") {
+        $cpf_dec = $_POST['valorescolhido'];
+        //dados da tabela com todos os cadastros
+        // Consulta preparada para evitar injeção de SQL
+        $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
+        $sql->execute(array(':cpf_dec' => $cpf_dec));
+
+        if ($sql->rowCount() > 0) {
+
+            $dados = $sql->fetch(PDO::FETCH_ASSOC);
+            $nome = $dados['nom_pessoa'];
+            echo $nome;
+        }
+    } else {echo "erro não encontrado";}
+}
+
+?>
+
         <a
             href="<?php echo $voltar_link; ?>">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
