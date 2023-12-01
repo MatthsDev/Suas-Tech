@@ -65,6 +65,8 @@ if (isset($_GET['cpf'])) {
     <p>Senha: <span id="senhaGerada"></span></p>
     <p><button onclick="gerarSenha(1)">PBF NORMAL</button></p>
     <p><button onclick="gerarSenha(2)">PBF PRIORIDADE</button></p>
+    <p><button onclick="gerarSenha(3)">PBF SITIO</button></p>
+    <p><button onclick="gerarSenha(4)">PBF ESPECIAL</button></p>
 </body>
 
 </html>
