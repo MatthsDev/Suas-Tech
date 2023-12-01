@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $smtp->bind_param("sssssss", $nm, $ap, $tele, $email1, $cg, $idcg, $nomeUsuario);
     if ($smtp->execute()) {
 
-        // Atualização bem-sucedida, redirecione para a página de Login
+        // Atualização bem-sucedida, redirecione para a SALA DO USUÁRIO
         echo "<script language='javascript'>window.alert('Dados alterados com sucesso.');
         setTimeout(function() {
             window.history.back(); // Volta para a página anterior
