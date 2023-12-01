@@ -94,7 +94,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
             <input type="text" id="idcargo" name="idcargo" value="<?php echo $idcargo; ?>" required>
         </div>
 
-        <a type="submit">Salvar Alterações</a>
+        <button type="submit">Salvar Alterações</button>
         
         <a href="<?php echo $voltar_link; ?>">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
