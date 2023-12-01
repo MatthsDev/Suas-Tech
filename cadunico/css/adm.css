@@ -123,16 +123,3 @@ button[name="drop"]{
   align-content: flex-end;
   padding-right: 40px;
 }
-
-
-@media screen and (max-width: 800px) {
-  .menu-button {
-
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .menu-button {
-
-  }
-}
