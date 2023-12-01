@@ -2,10 +2,12 @@
 include_once '../../../config/conexao.php';
 
 $tipo = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_NUMBER_INT);
+$nomePessoa = filter_input(INPUT_GET, 'nome', FILTER_SANITIZE_STRING);
+$cpfPessoa = filter_input(INPUT_GET, 'cpf_pess', FILTER_SANITIZE_STRING);
 
 $retorna = [];
 
-if (!empty($tipo)) {
+if (!empty($tipo) && !empty($nomePessoa)) {
     $query_senha = "SELECT id, nome_senha 
                     FROM senhas
                     WHERE sits_senha_id = 1
@@ -24,12 +26,12 @@ if (!empty($tipo)) {
             $result_senha->bind_result($id, $nome_senha);
             $result_senha->fetch();
 
-            $query_senha_gerada = "INSERT INTO senhas_geradas (senha_id, sits_senha_id, created) VALUES (?, 2, NOW())";
+            $query_senha_gerada = "INSERT INTO senhas_geradas (senha_id, nome_pess, cpf_pess, sits_senha_id, created) VALUES (?, ?, ?, 2, NOW())";
 
             $cad_senha_gerada = $conn->prepare($query_senha_gerada);
 
             if ($cad_senha_gerada) {
-                $cad_senha_gerada->bind_param('i', $id);
+                $cad_senha_gerada->bind_param('isi', $id, $nomePessoa, $cpfPessoa);
                 $cad_senha_gerada->execute();
 
                 if ($cad_senha_gerada->affected_rows > 0) {
@@ -57,7 +59,7 @@ if (!empty($tipo)) {
         $retorna = ['status' => false, 'msg' => 'Erro ao preparar a primeira query'];
     }
 } else {
-    $retorna = ['status' => false, 'msg' => 'Tipo não fornecido'];
+    $retorna = ['status' => false, 'msg' => 'Tipo ou nome não fornecidos'];
 }
 
 // Garante que o cabeçalho seja interpretado como JSON

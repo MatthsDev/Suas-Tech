@@ -13,6 +13,23 @@ function formatarCPF($cpf)
     return $cpfFormatado;
 }
 
+$cpf_dec_formatado = null;
+$nom_pessoa = null;
+
+if (isset($_GET['cpf'])) {
+    $cpf_dec = $_GET['cpf'];
+
+    // Formata o CPF antes de consultar no banco de dados
+    $cpf_dec_formatado = formatarCPF($cpf_dec);
+
+    $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec_formatado");
+    $sql->execute(array(':cpf_dec_formatado' => $cpf_dec_formatado));
+
+    if ($sql->rowCount() > 0) {
+        $dados = $sql->fetch(PDO::FETCH_ASSOC);
+        $nom_pessoa = $dados["nom_pessoa"];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,44 +49,24 @@ function formatarCPF($cpf)
     <a href="index.php">Voltar</a>
     <h2>Gerar senha de atendimento</h2>
 
-    <span id="msgAlerta"></span>
-    <p>Senha: <span id="senhaGerada"></span></p>
-    <p><button onclick="gerarSenha(1)">PBF NORMAL</button></p>
-    <p><button onclick="gerarSenha(2)">PBF PRIORIDADE</button></p>
-
     <form method="GET">
         <label>CPF: </label>
         <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF para consultar..." onblur="validarCPF(this)">
         <button type="submit">BUSCAR</button>
     </form>
 
-    <?php
-    if (!isset($_GET['cpf'])) {
-        echo "nada";
-    } else {
-        $cpf_dec = $_GET['cpf'];
+    <!-- Adicione um novo campo para o nome -->
+    <input type="hidden" id="cpf_pess" name="cpf_pess" value="<?php echo $cpf_dec_formatado; ?>">
+    
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite o nome" value="<?php echo $nom_pessoa; ?>">
 
-        // Formata o CPF antes de consultar no banco de dados
-        $cpf_dec_formatado = formatarCPF($cpf_dec);
-
-        $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec_formatado");
-        $sql->execute(array(':cpf_dec_formatado' => $cpf_dec_formatado));
-
-        if ($sql->rowCount() > 0) {
-            $dados = $sql->fetch(PDO::FETCH_ASSOC);
-            $nom_pessoa = $dados["nom_pessoa"];
-            echo $cpf_dec . " " . $nom_pessoa;
-        } else {
-            echo "Esse CPF não foi localizado: " . $cpf_dec;
-
-            // Aqui você pode adicionar a lógica para lidar com o CPF não encontrado
-            ?>
-
-            <input type="text">
-            <?php
-        }
-    }
-    ?>
+    <span id="msgAlerta"></span>
+    <p>Senha: <span id="senhaGerada"></span></p>
+    <p><button onclick="gerarSenha(1)">PBF NORMAL</button></p>
+    <p><button onclick="gerarSenha(2)">PBF PRIORIDADE</button></p>
+    <p><button onclick="gerarSenha(3)">PBF SITIO</button></p>
+    <p><button onclick="gerarSenha(4)">PBF ESPECIAL</button></p>
 </body>
 
 </html>

@@ -76,7 +76,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
 
         <div id="cargoVisual">
             Cargo: <?php echo $cargo; ?>
-            <button type="button" onclick="iniciarEdicao('cargo')" id=>Editar</button><br>
+            <button type="button" onclick="iniciarEdicao('cargo')">Editar</button><br>
         </div>
         <!-- Campos de edição (inicialmente ocultos) -->
         <div id="cargoEdicao" class="edicao">
@@ -86,7 +86,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
 
         <div id="idcargoVisual">
             Certificado ou Matricula: <?php echo $idcargo; ?>
-            <button type="button" id="sempre_maiusculo(this)">Editar</button><br>
+            <button type="button" onclick="iniciarEdicao('idcargo')">Editar</button><br>
         </div>
         <!-- Campos de edição (inicialmente ocultos) -->
         <div id="idcargoEdicao" class="edicao">
