@@ -11,8 +11,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style-alt-user.css">
     <link rel="website icon" type="image/png" href="../img/logo.png">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <title>Sala do Usuário</title>
@@ -26,10 +26,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <!--<img src="../../img/h1.svg" alt="Titulocomimagem">-->
+        <img src="../../img/h1-salaUser" alt="Titulocomimagem">
         </h1>
     </div>
-
+<div class="tudo">
     <form method="post" action="../../controller/acesso_user/salva_alteracao.php">
         <div id="nomeVisual">
             Nome completo: <?php echo $nome; ?>
@@ -94,14 +94,17 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
             <input type="text" id="idcargo" name="idcargo" value="<?php echo $idcargo; ?>" required>
         </div>
 
-        <button type="submit">Salvar Alterações</button>
+        <a type="submit">Salvar Alterações</a>
+        
+        <a href="<?php echo $voltar_link; ?>">
+        <i class="fas fa-arrow-left"></i> Voltar ao menu
+        </a>
     </form>
 
-    <a href="<?php echo $voltar_link; ?>">
-        <i class="fas fa-arrow-left"></i> Voltar ao menu
-    </a>
+
+</div>
     
-        <script src='../js/personalise.js'></script>
+        <script src='../../js/personalise.js'></script>
 </body>
 
 </html>
