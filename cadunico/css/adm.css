@@ -52,38 +52,74 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 .calendario{
   max-width: 600px;
-  max-height: 80 0px;
+  max-height: 800px;
   border-radius: 10px;
-  margin-left: 100px;
+  border: 0px ;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.calend{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 40px;
 }
 
-.logout{
-  text-align: center;
-  background-color: #13294b;
-  color:#ffffff;
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-  padding: 5px 3px 3px 3px;
-  position: sticky;
-  left: 1160px;
-  opacity: 80%;
+button[name="drop"]{
+  border: none;
   cursor: pointer;
+  background-color:#13294b;
+  padding: 5px;  
+  color: white;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.drop-content{
+  display: none;
+  background-color: #13294b;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.drop-content a{
+  color: #ffffff;
+  padding: 5px 8px;
+  text-decoration: none;
+  display: block;
+}
+.menu-drop:hover .drop-content{
+  display: block;
+}
+.menu-drop:hover button[name="drop"]{
+  background-color: #13294b
 }
 
-
-
-@media screen and (max-width: 800px) {
-  .menu-button {
-    font-size: 13px;
-  }
+.drop-content a:hover{
+  background-color: #13294b;
+  border-radius: 5px;
 }
 
-@media screen and (min-width: 1400px) {
-  .menu-button {
-    font-size: 30px;
-  }
+.drop-content{
+  display: none;
+  background-color: #13294b63;
+  font-size: 7px;
+  position: absolute; 
+  left: 32px; 
+  bottom: 0px;
+  border-radius: 5px;
+}
+.menu-drop{
+  position: relative;
+}
+.drop-all{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: flex-end;
+  padding-right: 40px;
 }

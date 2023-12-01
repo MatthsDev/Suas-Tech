@@ -80,16 +80,29 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </div>
       <nav>   
     </div>
-    <div class="calendario">
-    <img class="calendario" src="../img/calend.svg" alt="calend">
-    </div> 
+    <div class="calend">  
+      <div class="calendendario">
+        <img class="calendario" src="../img/calend.svg" alt="calend">
+      </div> 
+    </div>  
   </div>
-  <div class="logout">
-          <a class="logout" onclick="location.href='../../config/logout.php';">
-            <span class="material-symbols-outlined">
-              logout
-            </span> 
-          </a>
-        </div>
+  <div class="drop-all">
+  <div class="menu-drop">
+    <button class="logout" type="button" name="drop">
+      <span class="material-symbols-outlined">
+        Settings
+      </span> 
+    </button>
+      <div class="drop-content">
+        <a href='../../config/logout.php';>
+        <span class="material-symbols-outlined">logout</span> 
+        Sair    
+        </a>
+        <a href='../views/acessos/conta.php';>
+        <span class="material-symbols-outlined">manage_accounts</span> 
+          Alterar úsuario
+        </a>
+      </div>
+  </div>
   </body>
 </html>
