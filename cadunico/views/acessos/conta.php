@@ -101,7 +101,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
         <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
     
-        <script src='../js/personalise.js'></script>
+        <script src='../../js/personalise.js'></script>
 </body>
 
 </html>
