@@ -87,12 +87,13 @@ button[name="drop"]{
 }
 .drop-content a{
   color: #ffffff;
-  padding: 5px 8px;
+  padding: 10px;
   text-decoration: none;
   display: block;
 }
 .menu-drop:hover .drop-content{
-  display: block;
+  display: flex;
+  align-items: center;
 }
 .menu-drop:hover button[name="drop"]{
   background-color: #13294b
@@ -101,15 +102,18 @@ button[name="drop"]{
 .drop-content a:hover{
   background-color: #13294b;
   border-radius: 5px;
+  padding: 8px;
 }
 
 .drop-content{
   display: none;
+  flex-direction: row;
   background-color: #13294b63;
-  font-size: 7px;
+  font-size: 8px;
   position: absolute; 
-  left: 32px; 
+  right: 32px; 
   bottom: 0px;
+  top: 0px;
   border-radius: 5px;
 }
 .menu-drop{

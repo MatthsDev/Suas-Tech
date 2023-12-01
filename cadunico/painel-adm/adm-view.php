@@ -95,12 +95,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     </button>
       <div class="drop-content">
         <a href='../../config/logout.php';>
-        <span class="material-symbols-outlined">logout</span> 
-        Sair    
+        <span class="material-symbols-outlined">logout</span>    
         </a>
         <a href='../views/acessos/conta.php';>
-        <span class="material-symbols-outlined">manage_accounts</span> 
-          Alterar úsuario
+        <span class="material-symbols-outlined">manage_accounts</span>       
         </a>
       </div>
   </div>
