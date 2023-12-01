@@ -1,6 +1,12 @@
 async function gerarSenha(tipoSenha) {
     try {
-        const dados = await fetch('../../controller/atendimento/gerar_senha.php?tipo=' + tipoSenha);
+        // Obtenha o nome da pessoa do campo de entrada
+        const nomePessoa = document.getElementById("nome").value;
+        // Obtenha o nome da pessoa do campo de entrada
+        const cpfPessoa = document.getElementById("cpf_pess").value;
+
+        // Adicione o nome da pessoa à URL da requisição
+        const dados = await fetch(`../../controller/atendimento/gerar_senha.php?tipo=${tipoSenha}&nome=${nomePessoa}&cpf_pess=${cpfPessoa}`);
 
         if (!dados.ok) {
             throw new Error('Erro na requisição: ' + dados.status);
@@ -14,6 +20,11 @@ async function gerarSenha(tipoSenha) {
         } else {
             document.getElementById("senhaGerada").innerHTML = resposta.nome_senha;
             document.getElementById("msgAlerta").innerHTML = "";
+            
+            // Limpar o campo do nome após a geração da senha
+            document.getElementById("nome").value = "";
+            // Limpar o campo do nome após a geração da senha
+            document.getElementById("cpf_pess").value = "";
         }
     } catch (error) {
         console.error('Erro:', error.message);
@@ -21,6 +32,7 @@ async function gerarSenha(tipoSenha) {
         document.getElementById("senhaGerada").innerHTML = "";
     }
 }
+
 
 // Funcao chamar senha conforme o tipo de senha recebido
 async function chamarSenha(tipoSenha) {
