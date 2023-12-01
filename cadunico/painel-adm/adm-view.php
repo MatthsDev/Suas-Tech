@@ -97,11 +97,11 @@ include_once BASE_PATH . '/config/sessao.php';
       </span> 
     </button>
       <div class="drop-content">
-        <a href="#">
+        <a href='../../config/logout.php';>
         <span class="material-symbols-outlined">logout</span> 
         Sair    
         </a>
-        <a href="#">
+        <a href='../views/acessos/conta.php';>
         <span class="material-symbols-outlined">manage_accounts</span> 
           Alterar úsuario
         </a>
