@@ -130,6 +130,8 @@ button[name="drop"]{
   padding-top: 20px;
 }
 .usertext{
+  display: inline-block;
+  white-space: nowrap;
   font-size: 15px;
   position: relative;
   max-height: 10px;
@@ -139,10 +141,12 @@ button[name="drop"]{
   color: #ffffff;
   opacity: 70%;
   }
-  h3{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    border-radius: 5px;
-    background-color: #d7e9f839;
-    text-align: center;
-  }
+h3{
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #d7e9f839;
+  text-align: center;
+}

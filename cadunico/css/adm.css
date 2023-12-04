@@ -129,19 +129,24 @@ button[name="drop"]{
   padding-right: 40px;
 }
 .usertext{
-font-size: 15px;
-position: relative;
-max-height: 10px;
-max-width: 150px;
-top: 70px;
-left: 640px;
-color: #ffffff;
-opacity: 70%;
-}
+  
+  white-space: nowrap;
+  font-size: 15px;
+  position: relative;
+  max-height: 8px;
+  max-width: 150px;
+  top: 65px;
+  left: 590px;
+  color: #ffffff;
+  opacity: 70%;
+  }
 h3{
+  display: inline-block;
+  white-space: nowrap;
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   border-radius: 5px;
   background-color: #d7e9f839;
   text-align: center;
-}
+  padding: 1px;
+} 
