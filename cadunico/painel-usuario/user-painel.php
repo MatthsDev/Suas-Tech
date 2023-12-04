@@ -1,6 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+
+include_once '../controller/acesso_user/dados_usuario.php';
 ?>
 
 
@@ -17,7 +19,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
   </head>
 
   <body>
-  
+  <div class="usertext">
+    <h3>Bem-vindo (a)
+        <?php echo $apelido; ?>
+    </h3>
+  </div>
   <div class="img">
       <h1 class="titulo-com-imagem">
         <img class="titulo-com-imagem" src="../img/h1-menu.svg" alt="Titulocomimagem">

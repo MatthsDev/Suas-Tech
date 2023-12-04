@@ -129,3 +129,20 @@ button[name="drop"]{
   padding-right: 40px;
   padding-top: 20px;
 }
+.usertext{
+  font-size: 15px;
+  position: relative;
+  max-height: 10px;
+  max-width: 150px;
+  top: 70px;
+  left: 640px;
+  color: #ffffff;
+  opacity: 70%;
+  }
+  h3{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #d7e9f839;
+    text-align: center;
+  }
