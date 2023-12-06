@@ -21,10 +21,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
     <?php
     // Botao para chamar a funcao "chamarSenha". Funcao que chama a senha 
-    echo "<p><button type='button' onclick='chamarSenha(1)'>Convencional</button></p>";
+    echo "<p><button type='button' onclick='chamarSenha(1)'>CONVENCIONAL</button></p>";
 
-    // Botao para chamar a funcao "chamarSenha". Funcao que chama a senha  
-    echo "<p><button type='button' onclick='chamarSenha(2)'>Preferencial</button></p>";
+    echo "<p><button type='button' onclick='chamarSenha(2)'>PREFERENCIAL CONVENCIONAL</button></p>";
+
+    echo "<p><button type='button' onclick='chamarSenha(3)'>PREFERENCIAL SITIO</button></p>";
+
+    echo "<p><button type='button' onclick='chamarSenha(3)'>PREFERENCIAL ESPECIAL </button></p>";
 
     // Recuperar a senhas geradas que estao salva na tabela "senhas_geradas", com a situacao 2 "Emitida"
     $query_senhas_geradas = "SELECT senger.id,
