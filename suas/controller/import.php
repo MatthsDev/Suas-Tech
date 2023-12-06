@@ -9,6 +9,7 @@ echo "<!DOCTYPE html>
     <link rel='website icon' type='png' href='../../cadunico/img/logo.png'>
     <title>Importar CSV</title>
 </head>";
+
 $csv_tbl = $_POST['csv_tbl'];
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
@@ -229,7 +230,6 @@ if ($csv_tbl == 'tudo') {
             $import_data->bindValue(':marc_sit_rua', ($linha[158] ?? "NULL"));
             $import_data->execute();
 
-
             if ($import_data->rowCount()) {
                 $linhas_importadas++;
             } else {
@@ -238,11 +238,12 @@ if ($csv_tbl == 'tudo') {
 
             }
         }
-        echo "$linhas_importadas linha(s) importadas, $linhas_n_importadas linha(s) não importada(s). $linha_nao_importada não foi importado.";
+        echo "$linhas_importadas linha(s) importadas, $linhas_n_importadas linha(s) não importada(s). ";
     } else {
         echo "Apenas arquivos CSV.";
     }
 } elseif ($csv_tbl == 'folha') {
+
     //limpa os dados da tabela antes de repor os novos dados
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $limpTabela = "folha_pag";
@@ -255,14 +256,15 @@ if ($csv_tbl == 'tudo') {
         fgetcsv($dados);
 
         while ($linha = fgetcsv($dados, 1000, ";")) {
+
             $query = "INSERT INTO folha_pag (prog,
             ref_folha,
             uf,
             ibge,
             cod_familiar,
-            cpf,
-            nis,
-            nome,
+            rf_cpf,
+            rf_nis,
+            rf_nome,
             tipo_pgto_previsto,
             pacto,
             compet_parcela,
@@ -289,39 +291,39 @@ if ($csv_tbl == 'tudo') {
             cep,
             telefone1,
             telefone2) VALUES (:prog,
-:ref_folha,
-:uf,
-:ibge,
-:cod_familiar,
-:cpf,
-:nis,
-:nome,
-:tipo_pgto_previsto,
-:pacto,
-:compet_parcela,
-:tp_benef,
-:vlrbenef,
-:vlrtotal,
-:sitbeneficio,
-:sitbeneficiario,
-:sitfam,
-:inicio_vig_benef,
-:fim_vig_benef,
-:marca_rf,
-:quilombola,
-:trab_escrv,
-:indigena,
-:catador_recic,
-:trabalho_inf,
-:renda_per_capita,
-:renda_com_pbf,
-:qtd_pessoas,
-:dt_atu_cadastral,
-:endereco,
-:bairro,
-:cep,
-:telefone1,
-:telefone2)";
+                        :ref_folha,
+                        :uf,
+                        :ibge,
+                        :cod_familiar,
+                        :rf_cpf,
+                        :rf_nis,
+                        :rf_nome,
+                        :tipo_pgto_previsto,
+                        :pacto,
+                        :compet_parcela,
+                        :tp_benef,
+                        :vlrbenef,
+                        :vlrtotal,
+                        :sitbeneficio,
+                        :sitbeneficiario,
+                        :sitfam,
+                        :inicio_vig_benef,
+                        :fim_vig_benef,
+                        :marca_rf,
+                        :quilombola,
+                        :trab_escrv,
+                        :indigena,
+                        :catador_recic,
+                        :trabalho_inf,
+                        :renda_per_capita,
+                        :renda_com_pbf,
+                        :qtd_pessoas,
+                        :dt_atu_cadastral,
+                        :endereco,
+                        :bairro,
+                        :cep,
+                        :telefone1,
+                        :telefone2)";
 
             $import_data = $pdo->prepare($query);
             $import_data->bindValue(':prog', ($linha[0] ?? "NULL"));
@@ -329,9 +331,9 @@ if ($csv_tbl == 'tudo') {
             $import_data->bindValue(':uf', ($linha[2] ?? "NULL"));
             $import_data->bindValue(':ibge', ($linha[3] ?? "NULL"));
             $import_data->bindValue(':cod_familiar', ($linha[4] ?? "NULL"));
-            $import_data->bindValue(':cpf', ($linha[5] ?? "NULL"));
-            $import_data->bindValue(':nis', ($linha[6] ?? "NULL"));
-            $import_data->bindValue(':nome', ($linha[7] ?? "NULL"));
+            $import_data->bindValue(':rf_cpf', ($linha[5] ?? "NULL"));
+            $import_data->bindValue(':rf_nis', ($linha[6] ?? "NULL"));
+            $import_data->bindValue(':rf_nome', ($linha[7] ?? "NULL"));
             $import_data->bindValue(':tipo_pgto_previsto', ($linha[8] ?? "NULL"));
             $import_data->bindValue(':pacto', ($linha[9] ?? "NULL"));
             $import_data->bindValue(':compet_parcela', ($linha[10] ?? "NULL"));
@@ -358,6 +360,7 @@ if ($csv_tbl == 'tudo') {
             $import_data->bindValue(':cep', ($linha[31] ?? "NULL"));
             $import_data->bindValue(':telefone1', ($linha[32] ?? "NULL"));
             $import_data->bindValue(':telefone2', ($linha[33] ?? "NULL"));
+            $import_data->execute();
 
             if ($import_data->rowCount()) {
                 $linhas_importadas++;
@@ -367,9 +370,8 @@ if ($csv_tbl == 'tudo') {
 
             }
         }
-        echo "$linhas_importadas linha(s) importadas, $linhas_n_importadas linha(s) não importada(s). $linha_nao_importada não foi importado.";
+        echo "$linhas_importadas linha(s) importadas, $linhas_n_importadas linha(s) não importada(s). ";
     } else {
         echo "Apenas arquivos CSV.";
     }
-
 }
