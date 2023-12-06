@@ -157,7 +157,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declar/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao.php";
     }, 500);
     </script>
     <script>
@@ -210,7 +210,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declar/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao.php";
     }, 500);
     </script>
     <script>
@@ -264,7 +264,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declar/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao.php";
     }, 5000);
     </script>
     <script>
@@ -319,7 +319,7 @@ if (isset($_POST['btn-ip1'])) {
     ?>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declar/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao.php";
     }, 5000);
     </script>
     <script>
@@ -378,7 +378,7 @@ $nome_dec = $_POST['nome_dec'];
     </form>
     <script>
     setTimeout(function() {
-        window.location.href = "../../views/declar/declaracao_prefeitura.php";
+        window.location.href = "../../views/declar/declaracao.php";
     }, 500);
     </script>
     <script>
