@@ -14,7 +14,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
 ini_set('memory_limit', '32768M');
-ini_set('max_execution_time', 240);
+ini_set('max_execution_time', 300);
 $arquivo = $_FILES['arquivoCSV'];
 
 $linhas_importadas = 0;
