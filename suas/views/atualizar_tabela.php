@@ -8,7 +8,7 @@
     <title>Importar CSV</title>
 </head>
 <body>
-    <form action="import.php" method="POST" enctype="multipart/form-data">
+    <form action="../controller/import.php" method="POST" enctype="multipart/form-data">
 
         <labal>Qual tabela você pretende atualizar: </label>
         <select name="csv_tbl" required>
