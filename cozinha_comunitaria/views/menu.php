@@ -1,9 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
-
-include_once '../controller/acesso_user/dados_usuario.php';
-
+include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,6 +17,11 @@ include_once '../controller/acesso_user/dados_usuario.php';
             <img class="titulo-com-imagem" src="../img/h1-cozinha.svg" alt="Titulocomimagem">
         </h1>
     </div>
+    <div class="apelido">    
+        <h3>Bem-vindo (a)
+            <?php echo $apelido; ?>.
+        </h3> 
+    </div>    
     <div class="container">
         <div class="menu"> 
             <nav>

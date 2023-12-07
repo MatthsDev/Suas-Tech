@@ -16,6 +16,20 @@ display: flex;
 width: 100%;
 max-height: 120px
 }
+h3{
+    display: flex;
+    white-space: nowrap;
+    font-size: 15px;
+    border-radius: 5px;
+    color: #082A71;
+    text-align: center;
+    padding: 1px;
+    padding-left: 10px;
+} 
+.apelido{
+    display: flex;
+    justify-content: center;
+}
 .container{
     display: flex;
     flex-direction: row;
@@ -47,7 +61,7 @@ span{
     cursor: pointer;
     transition: 0.3s;
     font-size: 20px;
-    box-shadow: 0px 5px 15px rgba(79, 26, 26, 0.3);
+    box-shadow: 0px 5px 15px rgba(79, 26, 26, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
