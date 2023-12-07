@@ -1,6 +1,7 @@
 <?php 
-include('../../../config/conexao.php');
-include('../../../config/sessao.php');
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+
 ini_set('memory_limit', '256M');
 ?>
 <!DOCTYPE html>
