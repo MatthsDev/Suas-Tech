@@ -13,7 +13,7 @@
 
 <body>
 
-    <h1>CADASTRO BOM-PRATO</h1>
+    <h1>CADASTRO USUARIO</h1>
     <form id="formUsuario" action="/Suas-Tech/conzinha_comunitaria/controller/user_control.php" method="POST">
         <label for="cpf">CPF:</label>
         <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o CPF">
@@ -41,6 +41,8 @@
 
         <label for="nome">NUMERO: </label>
         <input type="text" id="numero" name="numero">
+
+
     </form>
 
     <script>
