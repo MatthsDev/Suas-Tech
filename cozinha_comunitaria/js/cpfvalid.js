@@ -22,14 +22,6 @@ function formatarCPF(cpf) {
     return cpfFormatado;
 }
 
-
-
-// Exemplo de uso:
-var cpfNaoFormatado = "07815823424";
-var cpfFormatado = formatarCPF(cpfNaoFormatado);
-console.log(cpfFormatado); // Exibe "078.158.234-24" no console
-
-
 function _cpf(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     if (!cpf) { // Se o CPF estiver vazio, retorna como válido
