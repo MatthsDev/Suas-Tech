@@ -13,7 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="../css/style-reg-user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Cadastro Usuários</title>
+    <title>Cadastro de Operadores</title>
 
 
 </head>
@@ -26,7 +26,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     </div>
 
     <div class="container">
-        <form method="post" action="../controller/acesso_user/processo_cad_user.php">
+        <form method="post" action="../cadunico/controller/acesso_user/processo_cad_user.php">
             <div class="nome">
                 <label>Nome de Usuário:</label>
                 <input type="text" name="nome_user" placeholder="Ex: cad.(usuário)" required>
@@ -57,7 +57,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 </select>
             <div class="btns">
                 <button type="submit">Cadastrar</button>
-                <a href="adm-view.php">
+                <a href="menu.php">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
