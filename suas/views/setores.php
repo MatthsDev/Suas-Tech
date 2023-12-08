@@ -1,5 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
 ?>
@@ -16,6 +18,35 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../../cadunico/js/cpfvalid.js"></script>
 
+    <script>
+        // Função para buscar os dados do coordenador
+        function buscarCoord(cpf){
+            $.ajax({
+                type: "GET",
+                url: "../../controller/salvando_setor.php", //caminho do php que busca os dados
+                data: {cpf_coord: cpf},
+                sucess: function (response){
+                    //Atualiza
+                    $("#nomeCoordenador").html(response);
+                }
+            });
+        }
+
+        // Função para preencher o CPF no campo após a busca
+        function preencheCPF{
+            $("#cpf").val(cpf);
+        }
+
+        // Função para buscar automaticamente ao perder o foco no campo
+        $(document).ready(function () {
+            $("#cpf").blur(function () {
+                var cpfCoord = $(this).val();
+                buscarCoordenador(cpfCoord);
+                preencherCPF(cpfCoord); // Preencher o CPF no campo
+            });
+        });
+        </script>
+
 
     <title>Cadastro de setores</title>
 </head>
@@ -25,11 +56,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <form>
     <label>CPF da Coordenação: </label>
     <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" required>
-    <button type="submit">BUSCAR</button>
+    <p id="nomeCoordenador"></p>
     </form>
     <?php
 if (isset($_GET['cpf_coord'])) {
     $cpf_coord = $_GET['cpf_coord'];
+    $_SESSION['cpf_coord'] = $_GET['cpf_coord'];
+
 
     $sql = $pdo->prepare("SELECT * FROM usuarios WHERE cpf = :cpf_coord");
     $sql->execute(array(':cpf_coord' => $cpf_coord));
@@ -37,39 +70,55 @@ if (isset($_GET['cpf_coord'])) {
     if ($sql->rowCount() > 0) {
         $dados = $sql->fetch(PDO::FETCH_ASSOC);
         $nome_coord = $dados['nome'];
-    } else {
+        $_SESSION['nome_coord'] = $nome_coord;
+
+        ?><label>Coordenação Responsável: </label> <?php
+?><p><?php echo $nome_coord; ?></p>
+
+            <form method="post" action="../../controller/salva_setor.php">
+
+<label>INSTITUIÇÃO: </label>
+<input type="text" name="instituicao" placeholder="Segmento" required>
+
+<label>NOME DA INSTITUIÇÃO: </label>
+<input type="text" name="nome_instit" placeholder="Digite o nome da instituição" required>
+
+<h4>ENDEREÇO:</h4>
+<label>Logradouro: </label>
+<input type="text" name="rua" placeholder="Rua, Avenida, rodovia..." required>
+<label>Número: </label>
+<input type="text" name="num" required>
+<label>Bairro: </label>
+<input type="text" name="bairro" required>
+<label>Código Contrato: </label>
+<input type="text" name="cod_contrato" required><br><br>
+
+<label>Código Institucional: </label>
+<input type="text" name="cod_instit " placeholder="Caso tenha..."><br>
+
+<label>Contato: </label>
+<input type="text" name="contato" placeholder="Apenas números" required>
+
+<label>E-mail Institucional: </label>
+<input type="email" name="emailInstit" required><br><br>
+
+<button type="submit">SALVAR</button>
+
+    </form>
+
+    <script src="js/scripts.js"></script>
+    <script src="../../cadunico/js/personalise.js"></script>
+
+</body>
+</html>
+        <?php
+} else {
         $nome_coord = "Esse cpf não foi localizado " . $_GET['cpf_coord'] . ". Você pode Cadastrar <a href='../../cadunico/painel-adm/cadastro_user.php'>AQUI</a>";
-    
+
     }
 
-    ?><label>Coordenação Responsável: </label> <?php
-    ?><p><?php echo $nome_coord; ?></p><?php
 } else {
-    ?> <label>Aguardando coordenador responsável</label> <?php
+    ?> <label>Informe o CPF do responsável pela a unidade.</label> <?php
 }
 
-$_SESSION['cpf_coord'] = $_GET['cpf_coord'];
-$_SESSION['nome_coord'] = $nome_coord  ;
 ?>
-
-    <form method="post" action="../controller/salvando_setor.php">
-
-    <label>INSTITUIÇÃO: </label>
-    <input type="text" name="instituicao" placeholder="Digite o nome da instituição">
-
-    <label>Endereço: </label>
-    <input type="text" name="endereco_inst" placeholder="Qual a localidade">
-
-    <label>Código do Estabelecimento: </label>
-    <input type="text" name="codigo" placeholder="Caso tenha...">
-
-
-    <button type="submit">SALVAR</button>
-
-        </form>
-
-        <script src="js/scripts.js"></script>
-        <script src="../../cadunico/js/personalise.js"></script>
-
-    </body>
-</html>

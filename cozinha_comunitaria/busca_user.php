@@ -18,6 +18,7 @@ if ($result->num_rows > 0) {
     $nom_logradouro_fam = $row["nom_logradouro_fam"];
     $num_logradouro_fam = $row["num_logradouro_fam"];
     
+
     // Verifica se o número do logradouro está vazio
     if ($num_logradouro_fam == "") {
         $num_logradouro = "S/N";
@@ -62,4 +63,5 @@ if ($result->num_rows > 0) {
 header('Content-Type: application/json');
 echo json_encode($response);
 $conn->close();
+
 ?>
