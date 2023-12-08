@@ -52,6 +52,20 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
             </nav>
         </div>  
         <footer><img src="../img/footer-cozinha.svg" alt=""></footer>
+    <div class="drop-all">
+        <div class="menu-drop">
+            <button class="logout" type="button" name="drop">
+            <span class="material-symbols-outlined">
+            Settings
+            </span> 
+        <div class="drop-content">
+            <a title="Sair" href='#';>
+            <span title="Sair" class="material-symbols-outlined">logout</span>    
+            </a>
+            <a title="Alterar Usuário" href='#';>
+            <span  class="material-symbols-outlined">manage_accounts</span>       
+            </a>
+        </div>
     </div>    
 
 </body>
