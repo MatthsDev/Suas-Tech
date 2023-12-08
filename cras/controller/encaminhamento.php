@@ -9,21 +9,3 @@ $cargo = $dados['cargo'];
 $idcargo = $dados['id_cargo'];
 
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-
-// Busca os dados, conforme o que foi selecionado no formulário
-$buscaDados = $_POST['buscar_dados'];
-$cpf_nis = $_POST['valorescolhido'];
-$encaminhamento = $_POST['direcao'];
-$texto = $_POST['texto'];
-
-// Prepara e executa a consulta SQL
-$dados = $conn->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
-$dados->execute(array(':cpf_dec' => $cpf_nis));
-
-// Verifica se a busca selecionada é por CPF
-if ($buscaDados == 'cpf_dec') {
-
-    // Verifica se foram encontrados resultados
-    var_dump($dados);
-
-}
