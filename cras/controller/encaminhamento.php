@@ -16,22 +16,18 @@ $cpf_nis = $_POST['valorescolhido'];
 $encaminhamento = $_POST['direcao'];
 $texto = $_POST['texto'];
 
-// Verifica se a busca selecionada é por CPF
-if ($cpf_nis == 'cpf_dec' ){
+ // Prepara e executa a consulta SQL
+ $dados = $conn->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
+ $dados->execute(array(':cpf_dec' => $cpf_nis));
 
-    // Prepara e executa a consulta SQL
-    $dados = $conn->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_nis");
-    $dados->execute(array(':cpf_nis' => $cpf_nis));
+// Verifica se a busca selecionada é por CPF
+if ($buscaDados == 'cpf_dec' ){
+
+   
 
     // Verifica se foram encontrados resultados
-    if ($dados->rowCount() > 0){
-        // Obtém os dados encontrados
-        $dadosEncontrados = $dados->fetch(PDO::FETCH_ASSOC);
-        // Obtém o nome da pessoa a partir dos dados
-        $nom_pessoa = $dadosEncontrados['nom_pessoa'];
+    var_dump($dados);
 
-        // Exibe o nome da pessoa
-        echo $nom_pessoa;
-    }
+    
 }
 ?>
