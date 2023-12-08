@@ -16,18 +16,14 @@ $cpf_nis = $_POST['valorescolhido'];
 $encaminhamento = $_POST['direcao'];
 $texto = $_POST['texto'];
 
- // Prepara e executa a consulta SQL
- $dados = $conn->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
- $dados->execute(array(':cpf_dec' => $cpf_nis));
+// Prepara e executa a consulta SQL
+$dados = $conn->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
+$dados->execute(array(':cpf_dec' => $cpf_nis));
 
 // Verifica se a busca selecionada é por CPF
-if ($buscaDados == 'cpf_dec' ){
-
-   
+if ($buscaDados == 'cpf_dec') {
 
     // Verifica se foram encontrados resultados
     var_dump($dados);
 
-    
 }
-?>
