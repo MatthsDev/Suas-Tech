@@ -25,6 +25,7 @@ color: #082A71;
 text-align: center;
 padding: 1px;
 padding-left: 10px;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; 
 } 
 .apelido{
 display: flex;
@@ -43,7 +44,10 @@ padding-left: 10px;
 .menu{
 display: flex;
 flex-direction: row;
-
+}
+.pagina1,.pagina2,.pagina3{
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
 }
 nav{
 display: flex;
@@ -62,7 +66,7 @@ margin: 15px;
 cursor: pointer;
 transition: 0.3s;
 font-size: 20px;
-box-shadow: 0px 5px 15px rgba(79, 26, 26, 0.4);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -71,6 +75,7 @@ justify-content: center;
 .logout:hover {
 background-color: #b5161c;
 transform: scale(1.05);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 footer {
 position: absolute;
@@ -92,12 +97,12 @@ padding: 5px;
 color: white;
 position: relative;
 border-radius: 5px;
-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .drop-content{
 display: none;
 background-color: #da2126;
-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .drop-content a{
 color: #ffffff;
