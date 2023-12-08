@@ -103,7 +103,7 @@ button[name="drop"]{
 .drop-content a:hover{
   background-color: #13294b;
   border-radius: 5px;
-  padding: 8px;
+  padding: 5px;
 }
 
 .drop-content{
