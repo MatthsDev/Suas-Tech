@@ -59,7 +59,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
             Settings
             </span> 
         <div class="drop-content">
-            <a title="Sair" href='#';>
+            <a title="Sair" href='../../config/logout.php';>
             <span title="Sair" class="material-symbols-outlined">logout</span>    
             </a>
             <a title="Alterar Usuário" href='#';>
