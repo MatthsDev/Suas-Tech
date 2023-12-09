@@ -18,6 +18,7 @@ if ($result->num_rows > 0) {
     $nom_logradouro_fam = $row["nom_logradouro_fam"];
     $num_logradouro_fam = $row["num_logradouro_fam"];
     
+    
 
     // Verifica se o número do logradouro está vazio
     if ($num_logradouro_fam == "") {
@@ -55,6 +56,7 @@ if ($result->num_rows > 0) {
     $response['bairro'] =  $nom_localidade_fam ;
     $response['log'] =  $log_nome;
     $response['numero'] =  $num_logradouro;
+    $response['referencua'] = $referencia;
     // $response['enderecoCompleto'] = $endereco_completo;
 } else {
     $response['existeUsuario'] = false;
