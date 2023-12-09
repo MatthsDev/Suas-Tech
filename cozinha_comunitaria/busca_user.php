@@ -51,12 +51,34 @@ if ($result->num_rows > 0) {
     $log_nome = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam;
 
 
+    
     $response['existeUsuario'] = true;
-    $response['nome'] = $row['nom_pessoa']; 
-    $response['bairro'] =  $nom_localidade_fam ;
-    $response['log'] =  $log_nome;
-    $response['numero'] =  $num_logradouro;
-    $response['referencua'] = $referencia;
+    $response['nome'] = $row['']; 
+    $response['bairro'] = $row[""];
+    $response['log'] = $row[""];
+    $response['numero'] = $row[""];
+    $response['nome_social'] = $row[""];
+    $response['sexo'] = $row[""];
+    $response['nome_mae'] = $row[""];
+    $response['nome_pai'] = $row[""];
+    $response['data_nasc'] = $row[""];
+    $response['nat_pessoa'] = $row[""];
+    $response['nac_pessoa'] = $row[""];
+    $response['tel_pessoa'] = $row[""];
+    $response['email_pessoa'] = $row[""];
+    $response['rg'] = $row[""];
+    $response['complemento_rg'] = $row[""];
+    $response['data_exp_rg'] = $row[""];
+    $response['sigla_rg'] = $row[""];
+    $response['estado_rg'] = $row[""];
+    $response['nis'] = $row[""];
+    $response['num_titulo'] = $row[""];
+    $response['zone_titulo'] = $row[""];
+    $response['area_titulo'] = $row[""];
+    $response['profissao'] = $row[""];
+    $response['renda_per'] = $row[""];
+    $response['referencia'] = $row[""];
+    $response['qtd_pessoa'] = $row[""];
     // $response['enderecoCompleto'] = $endereco_completo;
 } else {
     $response['existeUsuario'] = false;
