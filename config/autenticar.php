@@ -32,7 +32,10 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
     }
 
     // Redirecione com base no nível de acesso
-    if ($_SESSION['nivel_usuario'] == 'admin') {
+    if ($_SESSION['nivel_usuario'] == 'suport') {
+        header("location:../acesso_suporte/index.php");
+        exit();
+    } elseif ($_SESSION['nivel_usuario'] == 'admin') {
         header("location:../cadunico/painel-adm/adm-view.php");
         exit();
     } elseif ($_SESSION['nivel_usuario'] == 'usuario') {
