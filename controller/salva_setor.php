@@ -59,7 +59,7 @@ if (isset($_SESSION['cpf_coord']) && $_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="linha"></div>
         <?php
 // Redireciona para a página DE CADASTRAR NOVO seetor após ALGUNS segundos
-        echo '<script> setTimeout(function(){ window.location.href = "../suas/views/setores.php"; }, 1500); </script>';
+        echo '<script> setTimeout(function(){ window.location.href = "../cadunico/painel-adm/setores.php"; }, 1500); </script>';
     } else {
         echo "ERRO no envio dos DADOS: " . $query->error;
     }

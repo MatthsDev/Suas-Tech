@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/style-processo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style-processo-coz.css">
     <link rel="shortcut icon" href="../../img/logo.png" type="image/png">
     <title>Cadastro Salvo</title>
     <link rel="stylesheet" href="../css/style-processo.css">
 </head>
 <body>
-
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
 // Inicializa a mensagem como vazia
 $mensagem = "";
@@ -50,17 +51,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($smtp->execute()) {?>
 
-        <h1>DADOS ENVIADOS COM SUCESSO!</h1>
+        <h1>CADASTRO REALIZADO COM SUCESSO!</h1>
         <div class="linha"></div>
         <?php
-// Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
-        echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
+        // Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
+        //echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
     } else {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }
 
     $smtp->close();
     $conn->close();
+}
+
+function gerarNomeUsuario($user_name) {
+    // Lógica para gerar o nome de usuário (por exemplo, usando o primeiro nome e sobrenome)
+    // Implemente sua própria lógica aqui
+    // Exemplo simples: usar as iniciais do primeiro e último nome
+    $nomes = explode(" ", $user_name);
+    $nomeUsuario = strtolower($nomes[0][0] . $nomes[count($nomes) - 1]);
+    return $nomeUsuario;
+}
+
+function enviarEmail($nomeUsuario, $email) {
+    // Lógica para enviar e-mail com informações de login
+    // Implemente sua própria lógica aqui
+    // Use a função mail() do PHP ou uma biblioteca de e-mail
+
+    $assunto = "Cadastro de Usuário TECH-SUAS";
+    $mensagem = "Olá, $nomeUsuario\n\n";
+    $mensagem .= "Estamos felizes por você está conosco.\nSeu nome de usuário é: $nomeUsuario\n";
+    $mensagem .= "Sua senha é: @senha123\n";
+    $mensagem .= "Acesse o sistema através do link: http://localhost/Suas-Tech\n";
+
+    // Substitua 'seu_email@dominio.com' pelo seu endereço de e-mail
+    mail($email, $assunto, $mensagem, "From: cadunico.sbu2021@gmail.com");
 }
 ?>
 
