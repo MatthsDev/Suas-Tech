@@ -1,5 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 ?>
 
 
@@ -28,8 +29,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <div class="container">
         <form method="post" action="../controller/acesso_user/processo_cad_user.php">
             <div class="nome">
-                <label>Nome de Usuário:</label>
-                <input type="text" name="nome_user" placeholder="Ex: cad.(usuário)" required>
+                <label>Nome completo:</label>
+                <input type="text" class="nome" name="nome_user" placeholder="sem abreviação" required>
             </div>
             <div class="email">
                 <label>E-mail:</label>
@@ -44,9 +45,24 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 </select>
             </div>
             <div class="setor">
-                <label>Setor:</label>
-                <input type="text" name="setor" placeholder="De qual instância" required>
-            </div>
+    <label>Setor:</label>
+    <select name="setor" required>
+        <option value="" disabled selected hidden>Selecione</option>
+        <?php
+
+$consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
+
+// Verifica se há resultados na consulta
+if ($consultaSetores->num_rows > 0) {
+    
+    // Loop para criar as opções do select
+    while ($setor = $consultaSetores->fetch_assoc()) {
+        echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
+    }
+}
+?>
+    </select>
+</div>
             <div class="tipodeacesso">
                 <label>Função: </label>
                 <select name="funcao" required>
