@@ -121,13 +121,9 @@ button[name="drop"]{
   position: relative;
 }
 .drop-all{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  align-content: flex-end;
-  padding-right: 40px;
-  padding-top: 20px;
+  position: fixed;
+  bottom: 15px;
+  right: 25px;
 }
 .usertext{
   display: inline-block;

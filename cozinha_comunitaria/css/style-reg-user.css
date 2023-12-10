@@ -3,7 +3,7 @@
     margin-top: 0px;
 }
 body {
-    background-color: #ffffff;
+    background-image: url(../img/fundo.svg);
     overflow: auto;
     font-family: "Inter", sans-serif;
     font-weight: bold;
