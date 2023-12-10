@@ -14,6 +14,9 @@ if ($setor === "SETOR A") {
 } elseif ($setor === "CADUNICO") {
     $tituloDeAcordoComSetor = $tituloCras2;
     $imagemDeAcordoComSetor = $imgCras2;
+} elseif ($nivel === "admin") {
+    $tituloDeAcordoComSetor = $tituloCras2;
+    $imagemDeAcordoComSetor = $imgCras2;
 } else {
     $tituloDeAcordoComSetor = "SETOR NÃO IDENTIFICADO!!";
     $imagemDeAcordoComSetor = "SETOR NÃO IDENTIFICADO!!";
