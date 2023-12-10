@@ -32,7 +32,7 @@ include_once '../controller/condi-img-title.php';
                     <span class="material-symbols-outlined">
                         person_add
                     </span>
-                    Cadastrar Operadores
+                    Cadastrar Usuários
                     </a>
                 </div>
             </nav>
