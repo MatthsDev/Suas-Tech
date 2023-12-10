@@ -30,11 +30,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         <form method="post" action="../controller/acesso_user/processo_cad_user.php">
             <div class="nome">
                 <label>Nome completo:</label>
-                <input type="text" class="nome" name="nome_user" placeholder="sem abreviação" required>
+                <input type="text" class="nome" name="nome_user" placeholder="Sem Abreviação." required>
             </div>
             <div class="email">
                 <label>E-mail:</label>
-                <input type="email" name="email" placeholder="Digite aqui seu e-mail" required>
+                <input type="email" name="email" placeholder="Digite aqui seu e-mail." required>
             </div>
             <div class="tipodeacesso">
                 <label>Tipo de acesso: </label>
