@@ -25,14 +25,14 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
     <div class="container">
         <div class="menu"> 
             <nav>
-                <div class="pagina1">
+                <!--<div class="pagina1">
                     <a class="menu-button" onclick="location.href='cadastro_operadores.php';">
                     <span class="material-symbols-outlined">
                         person_add
                     </span>
                     Cadastrar Operadores
                     </a>
-                </div>
+                </div> -->
                 <div class="pagina2">
                     <a class="menu-button" onclick="location.href='#';">
                     <span class="material-symbols-outlined">

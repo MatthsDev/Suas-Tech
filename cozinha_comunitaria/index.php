@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech-Suas</title>
+    <link rel="stylesheet" href="css/index.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -12,169 +13,143 @@
 </head>
 
 <body>
+<div class="img">
+        <h1 class="titulo-com-imagem">
+            <img class="titulo-com-imagem" src="img/h1-cadusuarios.svg" alt="Titulocomimagem">
+        </h1>
+    </div>
+    <div class="container">    
+        <form id="formUsuario" action="/Suas-Tech/conzinha_comunitaria/controller/user_control.php" method="POST">
+            <div class="cpf">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o CPF">
+            </div>
 
-    <h1>CADASTRO USUARIO</h1>
-    <form id="formUsuario" action="/Suas-Tech/conzinha_comunitaria/controller/user_control.php" method="POST">
-        
-        <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o CPF">
+            <h3>IDENTIFICAÇÃO:</h3>
 
-        <br>
-        <br>
+            <div class="bloco1">
+                <label for="nome">NOME:  </label>
+                <input type="text" id="nome" name="nome">
 
-        <h3>IDENTIFICAÇÃO</h3>
+                <label for="data_nasc">DATA DE NASCIMENTO:  </label>
+                <input type="text" id="data_nasc" name="data_nasc">
+            </div>
 
-        <label for="nome">NOME:  </label>
-        <input type="text" id="nome" name="nome">
+            <div class="bloco">
+                <label for="nome_social">NOME SOCIAL:  </label>
+                <input type="text" id="nome_social" name="nome_social">
 
-        <br>
-        <br>
+                <label for="sexo">SEXO:  </label>
+                <input type="text" id="sexo" name="sexo">
+            </div>    
 
-        <label for="nome_social">NOME SOCIAL:  </label>
-        <input type="text" id="nome_social" name="nome_social">
+            <div class="bloco">
+                <label for="nome_mae">NOME MÃE:  </label>
+                <input type="text" id="nome_mae" name="nome_mae">
 
-        <br>
-        <br>
+                <label for="nome_pai">NOME PAI:  </label>
+                <input type="text" id="nome_pai" name="nome_pai">
+            </div>
+            <div class="bloco">
+                <label for="nat_pessoa">NATURALIDADE:  </label>
+                <input type="text" id="nat_pessoa" name="nat_pessoa">
 
-        <label for="sexo">SEXO:  </label>
-        <input type="text" id="sexo" name="sexo">
+                <label for="nac_pessoa">NACIONALIDADE:  </label>
+                <input type="text" id="nac_pessoa" name="nac_pessoa">
+                </div>
+            <div class="bloco">
+                <label for="tel_pessoa">TELEFONE:  </label>
+                <input type="text" id="tel_pessoa" name="tel_pessoa">
 
-        <br>
-        <br>
+                <label for="email_pessoa">EMAIL:  </label>
+                <input type="email" id="email_pessoa" name="email_pessoa">
+            </div>
 
-        <label for="nome_mae">NOME MÃE:  </label>
-        <input type="text" id="nome_mae" name="nome_mae">
+            <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
 
-        <br>
-        <br>
+            <div class="bloco1">
+                <label for="pcd">PORTADOR DE DEFICIÊNCIA:  </label>
+                <!-- <input type="text" id="pcd" name="pcd"> -->
+            </div>
+            <div class="bloco">
+                <label for="gpte">PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO:  </label>
+                <!-- <input type="text" id="gpte" name="gpte"> -->
+            </div>
+            <div class="bloco">
+                <label for="quilombo">INDIGENA OU QUILOMBOLA:  </label>
+                <!-- <input type="text" id="quilombo" name="quilombo"> -->
+            </div>
 
-        <label for="nome_pai">NOME PAI:  </label>
-        <input type="text" id="nome_pai" name="nome_pai">
+            <h3>DOCUMENTAÇÃO:</h3>
 
-        <br>
-        <br>
+            <div class="bloco1">
+                <label for="rg">RG:  </label>
+                <input type="text" id="rg" name="rg">
 
-        <label for="data_nasc">DATA DE NASCIMENTO:  </label>
-        <input type="text" id="data_nasc" name="data_nasc">
-        
-        <br>
-        <br>
+                <label for="complemento_rg">COMPLEMENTO:  </label>
+                <input type="text" id="complemento_rg" name="complemento_rg">
 
-        <label for="nat_pessoa">NATURALIDADE:  </label>
-        <input type="text" id="nat_pessoa" name="nat_pessoa">
+                <label for="data_exp_rg">DATA DE EXPEDIÇÃO:  </label>
+                <input type="date" id="data_exp_rg" name="data_exp_rg">
+            </div>
+            <div class="bloco">
+            <label for="sigla_rg">ORGÃO:  </label>
+                <input type="text" id="sigla_rg" name="sigla_rg">
 
-        <br>
-        <br>
+                <label for="estado_rg">UF:  </label>
+                <input type="text" id="estado_rg" name="estado_rg">
+            </div>
+            <div class="bloco">
+                <label for="nis">NIS:  </label>
+                <input type="text" id="nis" name="nis">
+            </div>
+            <div class="bloco">
+                <label for="num_titulo">TITULO:  </label>
+                <input type="text" id="num_titulo" name="num_titulo">
 
-        <label for="nac_pessoa">NACIONALIDADE:  </label>
-        <input type="text" id="nac_pessoa" name="nac_pessoa">
+                <label for="zone_titulo">ZONA:  </label>
+                <input type="text" id="zone_titulo" name="zone_titulo">
 
-        <br>
-        <br>
+                <label for="area_titulo">AREA:  </label>
+                <input type="text" id="area_titulo" name="area_titulo">
+            </div>
 
-        <label for="tel_pessoa">TELEFONE:  </label>
-        <input type="text" id="tel_pessoa" name="tel_pessoa">
+            <h3>RENDA E TRABALHOS:</h3>
 
-        <label for="email_pessoa">EMAIL:  </label>
-        <input type="email" id="email_pessoa" name="email_pessoa">
-        <br>
-        <br>
+            <div class="bloco1">
+                <label for="profissao">PROFISSÃO: </label>
+                <input type="text" id="profissao" name="profissao">
+            </div>
+            <div class="bloco">
+                <label for="renda_per">RENDA PER CAPITA: </label>
+                <input type="text" id="renda_per" name="renda_per">
+            </div>
 
+            <h3>RESiDÊNCIA:</h3>
 
-        <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS</h3>
+            <div class="bloco1">
+                <label for="bairro">BAIRRO: </label>
+                <input type="text" id="bairro" name="bairro">
+            </div>
+            <div class="bloco">
+                <label for="log">LOGRADOURO: </label>
+                <input type="text" id="log" name="log">
 
-        <label for="pcd">PORTADOR DE DEFICIÊNCIA:  </label>
-        <!-- <input type="text" id="pcd" name="pcd"> -->
-        <br>
-        <br>
+                <label for="numero">NUMERO: </label>
+                <input type="text" id="numero" name="numero">
+            </div>
+            
+            <div class="bloco">
+                <label for="referncia">REFERÊNCIA: </label>
+                <textarea type="text" id="referncia" name="referncia"></textarea>
+            </div>
 
-        <label for="gpte">PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO:  </label>
-        <!-- <input type="text" id="gpte" name="gpte"> -->
-        <br>
-        <br>
-
-        <label for="quilombo">INDIGENA OU QUILOMBOLA:  </label>
-        <!-- <input type="text" id="quilombo" name="quilombo"> -->
-        <br>
-        <br>
-
-    
-        <h3>DOCUMENTAÇÃO</h3>
-
-        <label for="rg">RG:  </label>
-        <input type="text" id="rg" name="rg">
-
-        <label for="complemento_rg">COMPLEMENTO:  </label>
-        <input type="text" id="complemento_rg" name="complemento_rg">
-
-        <label for="data_exp_rg">DATA DE EXPEDIÇÃO:  </label>
-        <input type="date" id="data_exp_rg" name="data_exp_rg">
-
-        <label for="sigla_rg">ORGÃO:  </label>
-        <input type="text" id="sigla_rg" name="sigla_rg">
-
-        <label for="estado_rg">UF:  </label>
-        <input type="text" id="estado_rg" name="estado_rg">
-        <br>
-        <br>
-
-        <label for="nis">NIS:  </label>
-        <input type="text" id="nis" name="nis">
-        <br>
-        <br>
-
-        <label for="num_titulo">TITULO:  </label>
-        <input type="text" id="num_titulo" name="num_titulo">
-
-        <label for="zone_titulo">ZONA:  </label>
-        <input type="text" id="zone_titulo" name="zone_titulo">
-
-        <label for="area_titulo">AREA:  </label>
-        <input type="text" id="area_titulo" name="area_titulo">
-        <br>
-        <br>
-
-       <h3>RENDA E TRABALHOS</h3>
-
-        <label for="profissao">PROFISSÃO: </label>
-        <input type="text" id="profissao" name="profissao">
-
-        <br>
-        <br>
-
-        <label for="renda_per">RENDA PER CAPITA: </label>
-        <input type="text" id="renda_per" name="renda_per">
-
-        <br>
-        <br>
-
-
-
-        <h3>RESDÊNCIA</h3>
-        <label for="bairro">BAIRRO: </label>
-        <input type="text" id="bairro" name="bairro">
-
-        <br>
-        <br>
-
-        <label for="log">LOGRADOURO: </label>
-        <input type="text" id="log" name="log">
-
-        <label for="numero">NUMERO: </label>
-        <input type="text" id="numero" name="numero">
-        <br>
-        <br>
-
-        <label for="referncia">REFERÊNCIA: </label>
-        <textarea type="text" id="referncia" name="referncia"></textarea>
-        <br>
-        <br>
-
-        <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
-        <input type="text" id="qtd_pessoa" name="qtd_pessoa">
-
-    </form>
-
+            <div class="bloco">
+                <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
+                <input type="text" id="qtd_pessoa" name="qtd_pessoa">
+            </div>
+        </form>
+    </div>
     <script>
     $(document).ready(function () {
         $('#cpf').on('input', function () {
