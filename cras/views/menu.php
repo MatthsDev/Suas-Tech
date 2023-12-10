@@ -27,17 +27,25 @@ include_once '../controller/condi-img-title.php';
     <div class="container">
         <div class="menu"> 
             <nav>
-                <div class="pagina1">
+                <div class="btn">
                     <a class="menu-button" onclick="location.href='cadastro_operadores.php';">
                     <span class="material-symbols-outlined">
-                        person_add
+                        deployed_code_account
                     </span>
-                    Cadastrar Usuários
+                    Acompanhamento de Usuários
+                    </a>
+                </div>
+                <div class="btn">
+                    <a class="menu-button" onclick="location.href='cadastro_operadores.php';">
+                    <span class="material-symbols-outlined">
+                        content_paste_go
+                    </span>
+                    Parecer Técnico 
                     </a>
                 </div>
             </nav>
         </div>  
-        <footer><img src="../img/footer-cozinha.svg" alt=""></footer>
+        <!--<footer><img src="../img/   " alt=""></footer>-->
     <div class="drop-all">
         <div class="menu-drop">
             <button class="logout" type="button" name="drop">
