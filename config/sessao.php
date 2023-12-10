@@ -6,7 +6,7 @@ session_start(); // Inicie a sessão para acessar as variáveis de sessão
 $voltar_link1 = "/Suas-tech/index.php";
 
 // Verifica se o usuário está autenticado como admin ou usuário
-if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' && $_SESSION['nivel_usuario'] != 'usuario')) {
+if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' && $_SESSION['nivel_usuario'] != 'usuario' && $_SESSION['nivel_usuario'] != 'suport')) {
     // Configurar a mensagem do SweetAlert
     $mensagem = "Você não está logado. Por favor, faça login.";
 
