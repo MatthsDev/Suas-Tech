@@ -82,7 +82,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 ?><label>Coordenação Responsável: </label> <?php
         ?><p><?php echo $nome_coord; ?></p>
 
-                    <form method="post" action="../../controller/salva_setor.php">
+                    <form method="post" action="controller/salva_setor.php">
     </div>
     <div class="bloco1">    
         <label>INSTITUIÇÃO: </label>

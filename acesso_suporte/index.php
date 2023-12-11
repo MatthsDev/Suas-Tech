@@ -1,3 +1,7 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +21,7 @@
           </a><br><hr>
 
           <div class="cadastrar">
-    <a class="menu-button" href='../cozinha_comunitaria/index.php';>
+    <a class="menu-button" href='../cozinha_comunitaria/menu.php';>
             Cozinha Comunitária
           </a><br><hr>
 
