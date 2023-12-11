@@ -50,10 +50,6 @@ if (!$result) {
 
             $log_nome = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam;
 
-            $mapeamentoProfissoes = array(
-                1 => 'Autônomo',
-                4 => 'Carteira Assinada',
-            );
 
         $response['existeUsuario'] = true;
         $response['nome'] = $row['nom_pessoa'];
@@ -85,15 +81,17 @@ if (!$result) {
         $response['num_titulo'] = $row['num_titulo_eleitor_pessoa'];
         $response['zone_titulo'] = $row['num_zona_tit_eleitor_pessoa'];
         $response['area_titulo'] = $row['num_secao_tit_eleitor_pessoa'];
-        $profissao['profissao'] = $row['cod_principal_trab_memb'];
+
+        $profissao = $row['cod_principal_trab_memb'];
 
         if ($profissao == 4) {
             $response['profissao'] = 'CARTEIRA ASSINADA';
         } elseif ($profissao == 1) {
-            $response['profissao'] = 'AUTONOMO';
+            $response['profissao'] = 'AUTÔNOMO';
         } else {
             $response['profissao'] = 'Outro';
         }
+        
         $response['renda_per'] = $row['vlr_renda_media_fam'];
         $response['referencia'] = $row['txt_referencia_local_fam'];
         $response['qtd_pessoa'] = $row['qtd_pessoas_domic_fam'];
