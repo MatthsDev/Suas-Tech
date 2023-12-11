@@ -26,8 +26,8 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
     <div class="container">
         <div class="menu"> 
             <nav>
-                <div class="btn">
-                    <a class="menu-button" onclick="location.href='cadastro_operadores.php';">
+            <div class="btn">
+                    <a class="menu-button" onclick="location.href='##';">
                     <span class="material-symbols-outlined">
                         deployed_code_account
                     </span>
@@ -35,7 +35,15 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
                     </a>
                 </div>
                 <div class="btn">
-                    <a class="menu-button" onclick="location.href='views/cadastro_usuarios.php';">
+                    <a class="menu-button" onclick="location.href='cadastro_usuarios.php';">
+                    <span class="material-symbols-outlined">
+                        deployed_code_account
+                    </span>
+                    Cadastro de Usuários
+                    </a>
+                </div>
+                <div class="btn">
+                    <a class="menu-button" onclick="location.href='declaracao.php';">
                     <span class="material-symbols-outlined">
                         content_paste_go
                     </span>
@@ -59,7 +67,15 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
             <span  class="material-symbols-outlined">manage_accounts</span>       
             </a>
         </div>
-    </div>    
+    </div>
+
+    <?php
+    if($nivel == 'suport'){
+        ?> <a href="../../acesso_suporte/index.php">SUPORTE</a> <?php
+        exit();
+    }
+    ?>
+
 
 </body>
 </html>
