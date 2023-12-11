@@ -19,12 +19,21 @@ img {
 .container{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;
     color: #13294b;
+}
+.bloco2{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.element{
+    padding-top: 20px;
+    padding-right: 10px;
 }
 .bloco{
     padding-top: 25px;

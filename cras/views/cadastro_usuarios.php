@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech-Suas</title>
-    <link rel="stylesheet" href="/Suas-Tech/cozinha_comunitaria/css/index.css">
+    <title>Cadastrar Usuários</title>
+    <link rel="stylesheet" href="/Suas-Tech/cras    /css/index.css">
     <link rel="website icon" type="png" href="/Suas-Tech/cozinha_comunitaria/img/logo.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -29,108 +29,115 @@
             </div>
 
             <h3>IDENTIFICAÇÃO:</h3>
+            <div class="bloco2">
+                <div class="bloco1">
+                    <div class="element"1>
+                        <label for="nome">NOME: </label>
+                        <input type="text" id="nome" name="nome">
+                    </div>
+                    <div class="element">
+                        <label for="nome_social">NOME SOCIAL: </label>
+                        <input type="text" id="nome_social" name="nome_social">
+                    </div>
+                    <div class="element">
+                        <label for="nome_mae">NOME MÃE: </label>
+                        <input type="text" id="nome_mae" name="nome_mae">
+                    </div>
+                    <div class="element">
+                        <label for="nac_pessoa">NACIONALIDADE: </label>
+                        <input type="text" id="nac_pessoa" name="nac_pessoa">
+                    </div>
+                    <div class="element">
+                        <label for="tel_pessoa">TELEFONE: </label>
+                        <input type="text" id="tel_pessoa" name="tel_pessoa">
+                    </div>
+                    <div class="element">
+                        <label for="email_pessoa">EMAIL: </label>
+                        <input type="email" id="email_pessoa" name="email_pessoa">
+                    </div>
 
-            <div class="bloco1">
-                <label for="nome">NOME: </label>
-                <input type="text" id="nome" name="nome">
-
-                <label for="data_nasc">DATA DE NASCIMENTO: </label>
-                <input type="date" id="data_nasc" name="data_nasc">
-            </div>
-
-            <div class="bloco">
-                <label for="nome_social">NOME SOCIAL: </label>
-                <input type="text" id="nome_social" name="nome_social">
-
-                <label for="sexo">SEXO: </label>
-                <select id="sexo" name="sexo">
-                    <option value="">SELECIONE</option>
-                    <option value="MASCULINO">MASCULINO</option>
-                    <option value="FEMININO">FEMININO</option>
-                    <option value="OUTRO">OUTRO</option>
-                </select>
-
-                <div class="bloco" id="outroSexoDiv" style="display: none;">
-                    <label for="outroSexo">ESPECIFIQUE: </label>
-                    <input type="text" id="outroSexo" name="outroSexo">
                 </div>
 
-
+                <div class="bloco1">
+                    <div class="element1">
+                        <label for="data_nasc">DATA DE NASCIMENTO: </label>
+                        <input type="date" id="data_nasc" name="data_nasc">
+                    </div>
+                    <div class="element">
+                        <label for="sexo">SEXO: </label>
+                        <select id="sexo" name="sexo">
+                            <option value="">SELECIONE</option>
+                            <option value="MASCULINO">MASCULINO</option>
+                            <option value="FEMININO">FEMININO</option>
+                            <option value="OUTRO">OUTRO</option>
+                        </select>
+                        <div class="bloco" id="outroSexoDiv" style="display: none;">
+                            <label for="outroSexo">ESPECIFIQUE: </label>
+                            <input type="text" id="outroSexo" name="outroSexo">
+                        </div>
+                    </div>
+                    <div class="element">
+                        <label for="nome_pai">NOME PAI: </label>
+                        <input type="text" id="nome_pai" name="nome_pai">
+                    </div>
+                    <div class="element">
+                        <label for="uf_pessoa">UF: </label>
+                        <select id="uf_pessoa" name="uf_pessoa">
+                            <option value="">SELECIONE</option>
+                            <option value="AC">ACRE</option>
+                            <option value="AL">ALAGOAS</option>
+                            <option value="AP">AMAPÁ</option>
+                            <option value="AM">AMAZONAS</option>
+                            <option value="BA">BAHIA</option>
+                            <option value="CE">CEARÁ</option>
+                            <option value="DF">DISTRITO FEDERAL</option>
+                            <option value="ES">ESPÍRITO SANTO</option>
+                            <option value="GO">GOIÁS</option>
+                            <option value="MA">MARANHÃO</option>
+                            <option value="MT">MATO GROSSO</option>
+                            <option value="MS">MATO GROSSO DO SUL</option>
+                            <option value="MG">MINAS GERAIS</option>
+                            <option value="PA">PARÁ</option>
+                            <option value="PB">PARAÍBA</option>
+                            <option value="PR">PARANÁ</option>
+                            <option value="PE">PERNAMBUCO</option>
+                            <option value="PI">PIAUÍ</option>
+                            <option value="RJ">RIO DE JANEIRO</option>
+                            <option value="RN">RIO GRANDE DO NORTE</option>
+                            <option value="RS">RIO GRANDE DO SUL</option>
+                            <option value="RO">RONDÔNIA</option>
+                            <option value="RR">RORAIMA</option>
+                            <option value="SC">SANTA CATARINA</option>
+                            <option value="SP">SÃO PAULO</option>
+                            <option value="SE">SERGIPE</option>
+                            <option value="TO">TOCANTINS</option>
+                        </select>
+                    </div>
+                    <div class="element">
+                        <label for="nat_pessoa">MUNICIPIO: </label>
+                        <input type="text" id="nat_pessoa" name="nat_pessoa">
+                    </div>
+                </div>
             </div>
-
-            <div class="bloco">
-                <label for="nome_mae">NOME MÃE: </label>
-                <input type="text" id="nome_mae" name="nome_mae">
-
-                <label for="nome_pai">NOME PAI: </label>
-                <input type="text" id="nome_pai" name="nome_pai">
-            </div>
-            <div class="bloco">
-
-
-                <label for="nac_pessoa">NACIONALIDADE: </label>
-                <input type="text" id="nac_pessoa" name="nac_pessoa">
-
-                <label for="uf_pessoa">UF: </label>
-                <select id="uf_pessoa" name="uf_pessoa">
-                    <option value="">SELECIONE</option>
-                    <option value="AC">ACRE</option>
-                    <option value="AL">ALAGOAS</option>
-                    <option value="AP">AMAPÁ</option>
-                    <option value="AM">AMAZONAS</option>
-                    <option value="BA">BAHIA</option>
-                    <option value="CE">CEARÁ</option>
-                    <option value="DF">DISTRITO FEDERAL</option>
-                    <option value="ES">ESPÍRITO SANTO</option>
-                    <option value="GO">GOIÁS</option>
-                    <option value="MA">MARANHÃO</option>
-                    <option value="MT">MATO GROSSO</option>
-                    <option value="MS">MATO GROSSO DO SUL</option>
-                    <option value="MG">MINAS GERAIS</option>
-                    <option value="PA">PARÁ</option>
-                    <option value="PB">PARAÍBA</option>
-                    <option value="PR">PARANÁ</option>
-                    <option value="PE">PERNAMBUCO</option>
-                    <option value="PI">PIAUÍ</option>
-                    <option value="RJ">RIO DE JANEIRO</option>
-                    <option value="RN">RIO GRANDE DO NORTE</option>
-                    <option value="RS">RIO GRANDE DO SUL</option>
-                    <option value="RO">RONDÔNIA</option>
-                    <option value="RR">RORAIMA</option>
-                    <option value="SC">SANTA CATARINA</option>
-                    <option value="SP">SÃO PAULO</option>
-                    <option value="SE">SERGIPE</option>
-                    <option value="TO">TOCANTINS</option>
-                </select>
-
-
-                <label for="nat_pessoa">MUNICIPIO: </label>
-                <input type="text" id="nat_pessoa" name="nat_pessoa">
-            </div>
-            <div class="bloco">
-                <label for="tel_pessoa">TELEFONE: </label>
-                <input type="text" id="tel_pessoa" name="tel_pessoa">
-
-                <label for="email_pessoa">EMAIL: </label>
-                <input type="email" id="email_pessoa" name="email_pessoa">
-            </div>
-
             <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
 
             <div class="bloco1">
                 <label for="pcd">PORTADOR DE DEFICIÊNCIA: </label>
-                <li class="">
-                    <input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA<br>
-                    <input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO<br>
-                    <input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA<br>
-                    <input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA<br>
-                </li>
-                <li class="">
-                    <input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA<br>
-                    <input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU INTELECTUAL<br>
-                    <input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN<br>
-                    <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL<br>
-                </li>
+                <div class="bloco">
+                    <input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA
+                    <input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO
+                </div>
+                <div class="bloco">
+                    <input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA   
+                    <input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA
+                <div class="bloco">
+                    <input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA
+                    <input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU INTELECTUAL
+                </div>
+                <div class="bloco">
+                    <input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN
+                    <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL
+                </div>
             </div>
             <div class="bloco">
                 <label for="gpte">PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </label>
