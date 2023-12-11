@@ -164,7 +164,7 @@
         var cpf = $('#cpf').val();
 
         $.ajax({
-            url: 'busca_user.php',
+            url: 'controller/busca_user.php',
             method: 'POST',
             data: { cpf: cpf },
             dataType: 'json',
