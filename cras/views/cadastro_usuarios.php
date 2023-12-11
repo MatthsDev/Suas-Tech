@@ -119,22 +119,17 @@
 
             <div class="bloco1">
                 <label for="pcd">PORTADOR DE DEFICIÊNCIA: </label>
-                <li class="colunaEsquerda metade listItem">
-                    
-                    <input type="checkbox" name="tipoDeficiencia" value="1"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;1 - CEGUEIRA<br>
-
-                    <input type="checkbox" name="tipoDeficiencia" value="2"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;2 - BAIXA VISAO<br>
-
-                    <input type="checkbox" name="tipoDeficiencia" value="3"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;3 - SURDEZ
-                    SEVERA/PROFUNDA<br>
-
-                    <input type="checkbox" name="tipoDeficiencia" value="4"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;4 - SURDEZ
-                    LEVE/MODERADA<br>
-
+                <li class="">
+                    <input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA<br>
+                </li>
+                <li class="">
+                    <input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU INTELECTUAL<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL<br>
                 </li>
             </div>
             <div class="bloco">
