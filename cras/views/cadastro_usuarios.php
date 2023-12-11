@@ -212,7 +212,7 @@
             <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
         </form>
     </div>
-    
+
     <script>
 
         $(document).ready(function () {
@@ -386,18 +386,10 @@
         }
 
         function preencherCampos(data) {
-            // Código para preencher os campos do formulário
-            // ...
-
-            // Verificar se o campo OUTRO deve ser exibido
             verificarOutroSexo();
         }
 
         function limparCampos() {
-            // Código para limpar os campos do formulário
-            // ...
-
-            // Verificar se o campo OUTRO deve ser exibido
             verificarOutroSexo();
         }
 
