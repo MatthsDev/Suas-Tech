@@ -212,6 +212,7 @@
             <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
         </form>
     </div>
+    
     <script>
 
         $(document).ready(function () {
