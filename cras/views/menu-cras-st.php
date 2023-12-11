@@ -15,7 +15,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="../img/h1-cras-antonio.svg" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="../img/h1-cras-santo.svg" alt="Titulocomimagem">
         </h1>
     </div>
     <div class="apelido">    
