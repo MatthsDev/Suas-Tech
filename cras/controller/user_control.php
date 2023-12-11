@@ -24,7 +24,7 @@ $estado_rg = ($_POST["estado_rg"]);
 $nis = ($_POST["nis"]);
 $numTitulo = ($_POST["num_titulo"]);
 $zonaTitulo = ($_POST["zone_titulo"]);
-$secaoTitulo = ($_POST["area_titulo"]);
+$area_titulo = ($_POST["area_titulo"]);
 $profissao = ($_POST["profissao"]);
 $rendaPerCapita = ($_POST["renda_per"]);
 $bairro = ($_POST["bairro"]);
@@ -33,34 +33,24 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
-$stmt = $conn->prepare("INSERT INTO cras_user (
+$stmt = $conn->prepare("INSERT INTO cras (
     cpf, nome, data_nasc, nome_social, sexo, nome_mae, nome_pai, nac_pessoa, uf_pessoa, nat_pessoa,
     tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo,
     zone_titulo, area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-
-
-");
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
 
 if ($stmt === false) {
     die("Erro na preparação da declaração: " . $conn->error);
 }
 
-$params = array(
-    $cpf, $nome, $dataNascimento, $nomeSocial, $sexo, $nomeMae, $nomePai, $nacionalidade, $uf, $municipio,
+$stmt->bind_param("ssssssssssssssssssssssssssss",$cpf, $nome, $data_nasc, $nomeSocial, $sexo, $nomeMae, $nomePai, $nacionalidade, $uf, $municipio,
     $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis, $numTitulo, $zonaTitulo,
-    $areaTitulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa
+    $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa
 
 );
-
-// Vincular os parâmetros usando chamada de usuário variável
-$paramsType = str_repeat('s', count($params));
-array_unshift($params, $paramsType);
-call_user_func_array(array($stmt, 'bind_param'), $params);
-
 if ($stmt->execute()) {
     // Redirecionar para a tela de cadastro
-    header("Location: /Suas-Tech/cras/views/cadastro_usuario.php");
+    header("Location: /Suas-Tech/cras/views/cadastro_usuarios.php");
     exit();
 } else {
     echo "Erro na inserção de dados: " . $stmt->error;
