@@ -22,7 +22,7 @@
           </a><br><hr>
 
           <div class="cadastrar">
-    <a class="menu-button" href='../cras/views/menu.php';>
+    <a class="menu-button" href='../cras/index.php';>
             CRAS
           </a><br><hr>
 
