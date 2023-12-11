@@ -57,14 +57,14 @@ if (!$result) {
         $response['log'] = $log_nome;
         $response['numero'] = $num_logradouro;
         
-        // $response['nome_social'] = $row[''];
-        // $response['sexo'] = $row[''];
-        // $response['nome_mae'] = $row[''];
-        // $response['nome_pai'] = $row[''];
-        // $response['data_nasc'] = $row[''];
-        // $response['nat_pessoa'] = $row[''];
-        // $response['nac_pessoa'] = $row[''];
-        // $response['tel_pessoa'] = $row[''];
+        // $response['nome_social'] = $row['nom_apelido_pessoa'];
+        // $response['sexo'] = $row['cod_sexo_pessoa'];
+        // $response['nome_mae'] = $row['nom_completo_mae_pessoa'];
+        // $response['nome_pai'] = $row['nom_completo_pai_pessoa'];
+        // $response['data_nasc'] = $row['dta_nasc_pessoa'];
+        // $response['nat_pessoa'] = $row['nom_ibge_munic_nasc_pessoa'];
+        // $response['nac_pessoa'] = $row['nom_pais_origem_pessoa'];
+        // $response['tel_pessoa'] = $row['num_tel_contato_1_fam'];
         // $response['email_pessoa'] = $row[''];
         // $response['rg'] = $row[''];
         // $response['complemento_rg'] = $row[''];
