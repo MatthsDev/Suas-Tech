@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="../js/cpfvalid.js"></script>
+    <script src="js/cpfvalid.js"></script>
 </head>
 
 <body>
@@ -42,8 +42,9 @@
 
                 <label for="sexo">SEXO: </label>
                 <select id="sexo" name="sexo">
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
+                    <option value="">SELECIONE</option>
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMININO">FEMININO</option>
                 </select>
 
 
@@ -57,11 +58,46 @@
                 <input type="text" id="nome_pai" name="nome_pai">
             </div>
             <div class="bloco">
-                <label for="nat_pessoa">NATURALIDADE: </label>
-                <input type="text" id="nat_pessoa" name="nat_pessoa">
+
 
                 <label for="nac_pessoa">NACIONALIDADE: </label>
                 <input type="text" id="nac_pessoa" name="nac_pessoa">
+
+                <label for="uf_pessoa">UF: </label>
+                <select id="uf_pessoa" name="uf_pessoa">
+                    <option value="">SELECIONE</option>
+                    <option value="AC">ACRE</option>
+                    <option value="AL">ALAGOAS</option>
+                    <option value="AP">AMAPÁ</option>
+                    <option value="AM">AMAZONAS</option>
+                    <option value="BA">BAHIA</option>
+                    <option value="CE">CEARÁ</option>
+                    <option value="DF">DISTRITO FEDERAL</option>
+                    <option value="ES">ESPÍRITO SANTO</option>
+                    <option value="GO">GOIÁS</option>
+                    <option value="MA">MARANHÃO</option>
+                    <option value="MT">MATO GROSSO</option>
+                    <option value="MS">MATO GROSSO DO SUL</option>
+                    <option value="MG">MINAS GERAIS</option>
+                    <option value="PA">PARÁ</option>
+                    <option value="PB">PARAÍBA</option>
+                    <option value="PR">PARANÁ</option>
+                    <option value="PE">PERNAMBUCO</option>
+                    <option value="PI">PIAUÍ</option>
+                    <option value="RJ">RIO DE JANEIRO</option>
+                    <option value="RN">RIO GRANDE DO NORTE</option>
+                    <option value="RS">RIO GRANDE DO SUL</option>
+                    <option value="RO">RONDÔNIA</option>
+                    <option value="RR">RORAIMA</option>
+                    <option value="SC">SANTA CATARINA</option>
+                    <option value="SP">SÃO PAULO</option>
+                    <option value="SE">SERGIPE</option>
+                    <option value="TO">TOCANTINS</option>
+                </select>
+
+
+                <label for="nat_pessoa">MUNICIPIO: </label>
+                <input type="text" id="nat_pessoa" name="nat_pessoa">
             </div>
             <div class="bloco">
                 <label for="tel_pessoa">TELEFONE: </label>
@@ -125,8 +161,15 @@
             <div class="bloco1">
                 <label for="profissao">PROFISSÃO: </label>
                 <select id="profissao" name="profissao">
-                    <option value="CARTEIRA ASSINADA">CARTEIRA ASSINADA</option>
-                    <option value="AUTONOMO">AUTONOMO</option>
+                    <option value="">SELECIONE</option>
+                    <option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>
+                    <option value="AUTÔNOMO">AUTÔNOMO</option>
+                    <option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>
+                    <option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>
+                    <option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>
+                    <option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>
+                    <option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>
+                    <option value="OUTRO">OUTRO</option>
                 </select>
             </div>
             <div class="bloco">
@@ -157,6 +200,8 @@
                 <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
                 <input type="text" id="qtd_pessoa" name="qtd_pessoa">
             </div>
+
+            <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
         </form>
     </div>
     <script>
@@ -190,8 +235,8 @@
 
                         var sexoSelect = $('#sexo');
                         sexoSelect.empty();
-                        sexoSelect.append('<option value="MASCULINO">Masculino</option>');
-                        sexoSelect.append('<option value="FEMININO">Feminino</option>');
+                        sexoSelect.append('<option value="MASCULINO">MASCULINO</option>');
+                        sexoSelect.append('<option value="FEMININO">FEMININO</option>');
                         if (data.sexo) {
                             sexoSelect.val(data.sexo.toUpperCase());
                         }
@@ -200,8 +245,47 @@
                         $('#nome_pai').val(data.nome_pai);
                         $('#data_nasc').val(data.data_nasc);
                         $('#nat_pessoa').val(data.nat_pessoa);
+                        var ufSelect = $('#uf_pessoa');
+                        ufSelect.empty();
+                        ufSelect.append('<option value="">SELECIONE</option>');
+                        ufSelect.append('<option value="AC">ACRE</option>');
+                        ufSelect.append('<option value="AL">ALAGOAS</option>');
+                        ufSelect.append('<option value="AP">AMAPÁ</option>');
+                        ufSelect.append('<option value="AM">AMAZONAS</option>');
+                        ufSelect.append('<option value="BA">BAHIA</option>');
+                        ufSelect.append('<option value="CE">CEARÁ</option>');
+                        ufSelect.append('<option value="DF">DISTRITO FEDERAL</option>');
+                        ufSelect.append('<option value="ES">ESPÍRITO SANTO</option>');
+                        ufSelect.append('<option value="GO">GOIÁS</option>');
+                        ufSelect.append('<option value="MA">MARANHÃO</option>');
+                        ufSelect.append('<option value="MT">MATO GROSSO</option>');
+                        ufSelect.append('<option value="MS">MATO GROSSO DO SUL</option>');
+                        ufSelect.append('<option value="MG">MINAS GERAIS</option>');
+                        ufSelect.append('<option value="PA">PARÁ</option>');
+                        ufSelect.append('<option value="PB">PARAÍBA</option>');
+                        ufSelect.append('<option value="PR">PARANÁ</option>');
+                        ufSelect.append('<option value="PE">PERNAMBUCO</option>');
+                        ufSelect.append('<option value="PI">PIAUÍ</option>');
+                        ufSelect.append('<option value="RJ">RIO DE JANEIRO</option>');
+                        ufSelect.append('<option value="RN">RIO GRANDE DO NORTE</option>');
+                        ufSelect.append('<option value="RS">RIO GRANDE DO SUL</option>');
+                        ufSelect.append('<option value="RO">RONDÔNIA</option>');
+                        ufSelect.append('<option value="RR">RORAIMA</option>');
+                        ufSelect.append('<option value="SC">SANTA CATARINA</option>');
+                        ufSelect.append('<option value="SP">SÃO PAULO</option>');
+                        ufSelect.append('<option value="SE">SERGIPE</option>');
+                        ufSelect.append('<option value="TO">TOCANTINS</option>');
+
+                        if (data.uf_pessoa) {
+                            ufSelect.val(data.uf_pessoa.toUpperCase());
+                        }
+
+
+
                         $('#nac_pessoa').val(data.nac_pessoa);
                         $('#tel_pessoa').val(data.tel_pessoa);
+                        // Aplicar máscara ao telefone
+                        $('#tel_pessoa').mask('(00) 0 0000-0000');
                         $('#email_pessoa').val(data.email_pessoa);
                         $('#rg').val(data.rg);
                         $('#complemento_rg').val(data.complemento_rg);
@@ -216,8 +300,14 @@
 
                         var profissaoSelect = $('#profissao');
                         profissaoSelect.empty();
-                        profissaoSelect.append('<option value="CARTEIRA ASSINADA">CARTEIRA ASSINADA</option>');
-                        profissaoSelect.append('<option value="AUTONOMO">AUTONOMO</option>');
+                        profissaoSelect.append('<option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>');
+                        profissaoSelect.append('<option value="AUTÔNOMO">AUTÔNOMO</option>');
+                        profissaoSelect.append('<option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>');
+                        profissaoSelect.append('<option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>');
+                        profissaoSelect.append('<option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>');
+                        profissaoSelect.append('<option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>');
+                        profissaoSelect.append('<option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>');
+                        profissaoSelect.append('<option value="OUTRO">OUTRO</option>');
                         if (data.profissao) {
                             profissaoSelect.val(data.profissao.toUpperCase());
                         }
@@ -236,6 +326,7 @@
                         $('#nome_mae').val('');
                         $('#nome_pai').val('');
                         $('#data_nasc').val('');
+                        $('#uf_pessoa').val('');
                         $('#nat_pessoa').val('');
                         $('#nac_pessoa').val('');
                         $('#tel_pessoa').val('');
@@ -260,6 +351,15 @@
                 }
             });
         }
+
+        function enviarFormulario() {
+            // Obtenha o formulário pelo ID
+            var formulario = document.getElementById('formUsuario');
+
+            // Acione o envio do formulário
+            formulario.submit();
+        }
+
     </script>
 
 </body>

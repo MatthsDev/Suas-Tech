@@ -22,33 +22,33 @@ if (!$result) {
         $nom_logradouro_fam = $row["nom_logradouro_fam"];
         $num_logradouro_fam = $row["num_logradouro_fam"];
 
-            // Verifica se o número do logradouro está vazio
-            if ($num_logradouro_fam == "") {
-                $num_logradouro = "S/N";
-            } else {
-                $num_logradouro = $num_logradouro_fam;
-            }
+        // Verifica se o número do logradouro está vazio
+        if ($num_logradouro_fam == "") {
+            $num_logradouro = "S/N";
+        } else {
+            $num_logradouro = $num_logradouro_fam;
+        }
 
-            $nom_localidade_fam = $row["nom_localidade_fam"];
-            $nom_titulo_logradouro_fam = $row["nom_titulo_logradouro_fam"];
+        $nom_localidade_fam = $row["nom_localidade_fam"];
+        $nom_titulo_logradouro_fam = $row["nom_titulo_logradouro_fam"];
 
-            // Verifica se o título do logradouro está vazio
-            if ($nom_titulo_logradouro_fam == "") {
-                $nom_tit = "";
-            } else {
-                $nom_tit = $nom_titulo_logradouro_fam;
-            }
+        // Verifica se o título do logradouro está vazio
+        if ($nom_titulo_logradouro_fam == "") {
+            $nom_tit = "";
+        } else {
+            $nom_tit = $nom_titulo_logradouro_fam;
+        }
 
         $txt_referencia_local_fam = $row["txt_referencia_local_fam"];
 
         // Verifica se a referência está vazia
-            if ($txt_referencia_local_fam == "") {
-                $referencia = "SEM REFERÊNCIA";
-            } else {
-                $referencia = $txt_referencia_local_fam;
-            }
+        if ($txt_referencia_local_fam == "") {
+            $referencia = "SEM REFERÊNCIA";
+        } else {
+            $referencia = $txt_referencia_local_fam;
+        }
 
-            $log_nome = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam;
+        $log_nome = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam;
 
 
         $response['existeUsuario'] = true;
@@ -68,8 +68,16 @@ if (!$result) {
         $response['nome_mae'] = $row['nom_completo_mae_pessoa'];
         $response['nome_pai'] = $row['nom_completo_pai_pessoa'];
         $response['data_nasc'] = $row['dta_nasc_pessoa'];
+        $response['uf_pessoa'] = $row['sig_uf_munic_nasc_pessoa'];
+
+        
         $response['nat_pessoa'] = $row['nom_ibge_munic_nasc_pessoa'];
-        $response['nac_pessoa'] = $row['nom_pais_origem_pessoa'];
+        
+        $nacionalidade = $row['nom_pais_origem_pessoa'];
+        if ($nacionalidade != 0) {
+            $response['nac_pessoa'] = 'BRASIL';
+        }
+
         $response['tel_pessoa'] = $row['num_tel_contato_1_fam'];
         // $response['email_pessoa'] = $row[''];
         $response['rg'] = $row['num_identidade_pessoa'];
@@ -83,15 +91,24 @@ if (!$result) {
         $response['area_titulo'] = $row['num_secao_tit_eleitor_pessoa'];
 
         $profissao = $row['cod_principal_trab_memb'];
-
-        if ($profissao == 4) {
-            $response['profissao'] = 'CARTEIRA ASSINADA';
+        if ($profissao == 4 || $profissao == 6) {
+            $response['profissao'] = 'EMPREGADO COM CARTEIRA ASSINADA';
         } elseif ($profissao == 1) {
             $response['profissao'] = 'AUTÔNOMO';
+        } elseif ($profissao == 2) {
+            $response['profissao'] = 'TRAB. TEMPORARIO EM AREA RURAL';
+        } elseif ($profissao == 3 || $profissao == 5) {
+            $response['profissao'] = 'EMPREGADO SEM CARTEIRA ASSINADA';
+        } elseif ($profissao == 7) {
+            $response['profissao'] = 'TRABALHADOR NÃO REMUNERADO';
+        } elseif ($profissao == 8) {
+            $response['profissao'] = 'MILITAR OU SERVIDOR PUBLICO';
+        } elseif ($profissao == 9 || $profissao == 10) {
+            $response['profissao'] = 'ESTAGIÁRIO OU APRENDIZ';
         } else {
-            $response['profissao'] = 'Outro';
+            $response['profissao'] = 'OUTRO';
         }
-        
+
         $response['renda_per'] = $row['vlr_renda_media_fam'];
         $response['referencia'] = $row['txt_referencia_local_fam'];
         $response['qtd_pessoa'] = $row['qtd_pessoas_domic_fam'];
