@@ -16,14 +16,16 @@
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg"
+                alt="Titulocomimagem">
         </h1>
     </div>
     <div class="container">
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14"  onblur="validarCPF(this)" placeholder="Digite o CPF">
+                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
+                    placeholder="Digite o CPF">
             </div>
 
             <h3>IDENTIFICAÇÃO:</h3>
@@ -45,7 +47,13 @@
                     <option value="">SELECIONE</option>
                     <option value="MASCULINO">MASCULINO</option>
                     <option value="FEMININO">FEMININO</option>
+                    <option value="OUTRO">OUTRO</option>
                 </select>
+
+                <div class="bloco" id="outroSexoDiv" style="display: none;">
+                    <label for="outroSexo">ESPECIFIQUE: </label>
+                    <input type="text" id="outroSexo" name="outroSexo">
+                </div>
 
 
             </div>
@@ -215,7 +223,17 @@
                     verificarUsuario();
                 }, 500);
             });
+
+            // Verificar se o campo OUTRO deve ser exibido ao carregar a página
+            verificarOutroSexo();
+
+            // Adicionar um evento de alteração para o campo SEXO
+            $('#sexo').on('change', function () {
+                verificarOutroSexo();
+            });
         });
+
+
 
         function verificarUsuario() {
             var cpf = $('#cpf').val();
@@ -237,9 +255,23 @@
                         sexoSelect.empty();
                         sexoSelect.append('<option value="MASCULINO">MASCULINO</option>');
                         sexoSelect.append('<option value="FEMININO">FEMININO</option>');
+                        sexoSelect.append('<option value="OUTRO">OUTRO</option>');
+
                         if (data.sexo) {
                             sexoSelect.val(data.sexo.toUpperCase());
                         }
+
+                        var outroSexoDiv = $('#outroSexoDiv');
+                        var outroSexoInput = $('#outroSexo');
+                        sexoSelect.on('change', function () {
+                            if ($(this).val().toUpperCase() === 'OUTRO') {
+                                outroSexoDiv.show();
+                                outroSexoInput.prop('disabled', false);
+                            } else {
+                                outroSexoDiv.hide();
+                                outroSexoInput.prop('disabled', true);
+                            }
+                        });
 
                         $('#nome_mae').val(data.nome_mae);
                         $('#nome_pai').val(data.nome_pai);
@@ -350,6 +382,41 @@
                     alert('Erro na requisição AJAX');
                 }
             });
+        }
+
+        function preencherCampos(data) {
+            // Código para preencher os campos do formulário
+            // ...
+
+            // Verificar se o campo OUTRO deve ser exibido
+            verificarOutroSexo();
+        }
+
+        function limparCampos() {
+            // Código para limpar os campos do formulário
+            // ...
+
+            // Verificar se o campo OUTRO deve ser exibido
+            verificarOutroSexo();
+        }
+
+        function verificarOutroSexo() {
+            var sexoSelect = $('#sexo');
+            var outroSexoDiv = $('#outroSexoDiv');
+            var outroSexoInput = $('#outroSexo');
+
+            if (sexoSelect.val().toUpperCase() === 'OUTRO') {
+                outroSexoDiv.show();
+                outroSexoInput.prop('disabled', false);
+            } else {
+                outroSexoDiv.hide();
+                outroSexoInput.prop('disabled', true);
+            }
+        }
+
+        function enviarFormulario() {
+            var formulario = document.getElementById('formUsuario');
+            formulario.submit();
         }
 
         function enviarFormulario() {
