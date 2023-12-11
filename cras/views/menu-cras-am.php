@@ -1,6 +1,5 @@
 <?php
 include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
-include_once '../controller/condi-img-title.php';
 
 ?>
 <!DOCTYPE html>
@@ -11,12 +10,12 @@ include_once '../controller/condi-img-title.php';
     <link rel="stylesheet" href="../css/style-menu.css">
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title><?php echo $tituloDeAcordoComSetor; ?></title>
+    <title>Cras Antonio Matias</title>
 </head>
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="<?php echo $imagemDeAcordoComSetor; ?>" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="../img/h1-cras-antonio.svg" alt="Titulocomimagem">
         </h1>
     </div>
     <div class="apelido">    
