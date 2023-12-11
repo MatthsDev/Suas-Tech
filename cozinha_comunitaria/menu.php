@@ -67,15 +67,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <a title="Alterar Usuário" href='views/conta.php';>
             <span  class="material-symbols-outlined">manage_accounts</span>       
             </a>
-        </div>
-    </div>
-
-    <?php
+            <?php
     if($nivel == 'suport'){
-        ?> <a href="../acesso_suporte/index.php">SUPORTE</a> <?php
+        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
+        <span  class="material-symbols-outlined">rule_settings</span>       
+        </a> <?php
         exit();
     }
-    ?>
-
+    ?>     
+        </div>
+    </div>
 </body>
 </html>

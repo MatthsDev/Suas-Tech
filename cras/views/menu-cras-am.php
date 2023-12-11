@@ -27,7 +27,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
         <div class="menu"> 
             <nav>
             <div class="btn">
-                    <a class="menu-button" onclick="location.href='##';">
+                    <a class="menu-button" onclick="location.href='acompanhamento.php';">
                     <span class="material-symbols-outlined">
                         deployed_code_account
                     </span>
@@ -60,21 +60,24 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
             Settings
             </span> 
         <div class="drop-content">
-            <a title="Sair" href='../config/logout.php';>
+            <a title="Sair" href='/Suas-Tech/config/logout.php';>
             <span title="Sair" class="material-symbols-outlined">logout</span>    
             </a>
             <a title="Alterar Usuário" href='conta.php';>
             <span  class="material-symbols-outlined">manage_accounts</span>       
             </a>
+            <?php
+    if($nivel == 'suport'){
+        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
+        <span  class="material-symbols-outlined">rule_settings</span>       
+        </a> <?php
+        exit();
+    }
+    ?>     
         </div>
     </div>
 
-    <?php
-    if($nivel == 'suport'){
-        ?> <a href="../../acesso_suporte/index.php">SUPORTE</a> <?php
-        exit();
-    }
-    ?>
+
 
 
 </body>

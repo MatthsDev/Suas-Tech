@@ -16,7 +16,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
 </head>
 <body>
-    <h1>FLUXO DIÁRO</h1>
+    <h1>FLUXO DIÁRIO</h1>
 
     <form action="">
     <label>Buscar Beneficiário: </label>
