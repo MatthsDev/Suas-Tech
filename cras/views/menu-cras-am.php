@@ -55,7 +55,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
             <a title="Sair" href='../config/logout.php';>
             <span title="Sair" class="material-symbols-outlined">logout</span>    
             </a>
-            <a title="Alterar Usuário" href='views/conta.php';>
+            <a title="Alterar Usuário" href='conta.php';>
             <span  class="material-symbols-outlined">manage_accounts</span>       
             </a>
         </div>

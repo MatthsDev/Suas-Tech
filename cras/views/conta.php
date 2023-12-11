@@ -2,6 +2,7 @@
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cras/controller/condi-menu.php';
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +97,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
 
         <button type="submit">Salvar Alterações</button>
         
-        <a href="menu.php">
+        <a href="<?php echo $caminhomenu; ?>">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
         </a>
     </form>

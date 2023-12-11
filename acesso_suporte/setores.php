@@ -113,7 +113,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <div class="btn">
         <button type="submit">SALVAR</button>
     
-        <a href="adm-view.php">
+        <a href="../cadunico/painel-adm/adm-view.php">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
         </a>
     </div>
