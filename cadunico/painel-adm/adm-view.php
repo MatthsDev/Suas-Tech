@@ -42,7 +42,7 @@ include_once '../controller/acesso_user/dados_usuario.php';
         </div>
 
         <div class="cadastrar">
-          <a class="menu-button" onclick="location.href='setores.php';">
+          <a class="menu-button" onclick="location.href='../../acesso_suporte/setores.php';">
             <span class="material-symbols-outlined">
             domain_add
             </span>
