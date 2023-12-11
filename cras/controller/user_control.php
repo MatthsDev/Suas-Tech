@@ -6,7 +6,7 @@ $nome = ($_POST["nome"]);
 $data_nasc = ($_POST["data_nasc"]);
 $nomeSocial = ($_POST["nome_social"]);
 $sexo = ($_POST["sexo"]);
-$outr_sexo = ($_POST["sexo"]);
+$outr_sexo = ($_POST["outroSexo"]);
 $nomeMae = ($_POST["nome_mae"]);
 $nomePai = ($_POST["nome_pai"]);
 $nacionalidade = ($_POST["nac_pessoa"]);
@@ -35,7 +35,7 @@ $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
 $stmt = $conn->prepare("INSERT INTO cras (
-    cpf, nome, data_nasc, nome_social, sexo, nome_mae, nome_pai, nac_pessoa, uf_pessoa, nat_pessoa,
+    cpf, nome, data_nasc, nome_social, sexo, outro_sex, nome_mae, nome_pai, nac_pessoa, uf_pessoa, nat_pessoa,
     tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo,
     zone_titulo, area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa
 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 

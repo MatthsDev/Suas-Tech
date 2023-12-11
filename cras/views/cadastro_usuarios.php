@@ -119,7 +119,23 @@
 
             <div class="bloco1">
                 <label for="pcd">PORTADOR DE DEFICIÊNCIA: </label>
-                <!-- <input type="text" id="pcd" name="pcd"> -->
+                <li class="colunaEsquerda metade listItem">
+                    
+                    <input type="checkbox" name="tipoDeficiencia" value="1"
+                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;1 - CEGUEIRA<br>
+
+                    <input type="checkbox" name="tipoDeficiencia" value="2"
+                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;2 - BAIXA VISAO<br>
+
+                    <input type="checkbox" name="tipoDeficiencia" value="3"
+                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;3 - SURDEZ
+                    SEVERA/PROFUNDA<br>
+
+                    <input type="checkbox" name="tipoDeficiencia" value="4"
+                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;4 - SURDEZ
+                    LEVE/MODERADA<br>
+
+                </li>
             </div>
             <div class="bloco">
                 <label for="gpte">PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </label>
