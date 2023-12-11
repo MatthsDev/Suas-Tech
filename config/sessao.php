@@ -54,12 +54,15 @@ if (!isset($_SESSION['nome_usuario']) || ($_SESSION['nivel_usuario'] != 'admin' 
 }
 //SALVAR LINK DO BOTÃO
 if (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'admin') {
-    // O usuário é um administrador.
+    // O operador é um administrador.
     $voltar_link = '../../painel-adm/adm-view.php';
 
 } elseif (isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'usuario') {
-    // O usuário é um usuário comum.
+    // O operador é um usuário comum.
     $voltar_link = '../../painel-usuario/user-painel.php';
+}elseif(isset($_SESSION['nivel_usuario']) && $_SESSION['nivel_usuario'] === 'suport'){
+        // O operador é do suporte.
+        $voltar_link = $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/acesso_suporte/index.php';
 }
 // Se o usuário estiver autenticado, continue com o restante do código...
 ?>
