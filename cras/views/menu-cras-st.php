@@ -66,6 +66,14 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
             <a title="Alterar Usuário" href='conta.php';>
             <span  class="material-symbols-outlined">manage_accounts</span>       
             </a>
+            <?php
+    if($nivel == 'suport'){
+        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
+        <span  class="material-symbols-outlined">rule_settings</span>       
+        </a> <?php
+        exit();
+    }
+    ?>     
         </div>
     </div>
 

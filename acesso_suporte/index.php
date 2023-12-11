@@ -55,10 +55,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 Settings
                 </span> 
             <div class="drop-content">
-                <a title="Sair" href='../config/logout.php';>
+                <a title="Sair" href='/Suas-Tech/config/logout.php';>
                 <span title="Sair" class="material-symbols-outlined">logout</span>    
                 </a>
-                <a title="Alterar Usuário" href='conta.php';>
+                <a title="Alterar Usuário" href='controller/conta.php';>
                 <span  class="material-symbols-outlined">manage_accounts</span>       
                 </a>
             </div>
