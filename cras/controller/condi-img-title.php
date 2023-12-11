@@ -10,7 +10,8 @@ $tituloCras2 = "Cras Santo Afonso";
 $imgCras1 = "../img/h1-cras-antonio.svg";
 $imgCras2 = "../img/h1-cras-santo.svg";
 
-if ($setor === "SETOR A") {
+
+if ($setor === "SUPORTE") {
     $tituloDeAcordoComSetor = $tituloCras1;
     $imagemDeAcordoComSetor = $imgCras1;
 } elseif ($setor === "CADUNICO") {
