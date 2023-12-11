@@ -32,6 +32,4 @@ if ($sql->rowCount() > 0) {
     $cargo = $dados['cargo'];
     $idcargo = $dados['id_cargo'];
 }
-
-
 ?>

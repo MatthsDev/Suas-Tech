@@ -24,7 +24,23 @@ img {
     background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;
+    color: #13294b;
 }
+.bloco{
+    padding-top: 25px;
+}
+.cpf{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+h3{
+    padding: 15px 0px 0px 0px;
+    border-radius: 4px;
+    text-decoration:underline 2px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+/*
 button,
 a {
     font-size: 14px;
@@ -45,26 +61,7 @@ a:hover{
 a{
     text-decoration: none;
     text-transform: none;
-}
-.btns{
-    padding-top: 20px;
-}
-.tipodeacesso,.setor,.email{
-    font-size: 16px;
-    padding-top: 30px;
-    color: #13294b;
-}
-.nome{
-    font-size: 14px;
-    color: #13294b;
-    text-transform: uppercase;
-    width: auto;
-
-}
-.nome::placeholder {
-    font-size: 13px;
-    text-transform: none;
-}
+}*/
 input,
 select,
 option {

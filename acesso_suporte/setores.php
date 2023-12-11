@@ -12,8 +12,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="website icon" type="png" href="../img/logo.png">
-    <link rel="stylesheet" href="../css/style-cadast-setores.css">
+    <link rel="website icon" type="png" href="../cadunico/img/logo.png">
+    <link rel="stylesheet" href="../cadunico/css/style-cadast-setores.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -55,14 +55,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <body>
 <div class="img">
     <h1 class="titulo-com-imagem">
-        <img class="titulo-com-imagem" src="../img/h1-setores.svg" alt="Titulocomimagem">
+        <img class="titulo-com-imagem" src="../cadunico/img/h1-setores.svg" alt="Titulocomimagem">
     </h1>
 </div>
 <div class="container">
     <div class="cpf">
             <form>
             <label>CPF da Coordenação: </label>
-            <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" required>
+            <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" placeholder="Usar enter após digitar." required>
             <p id="nomeCoordenador"></p>
             </form>
             <?php
@@ -82,7 +82,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 ?><label>Coordenação Responsável: </label> <?php
         ?><p><?php echo $nome_coord; ?></p>
 
-                    <form method="post" action="../../controller/salva_setor.php">
+                    <form method="post" action="controller/salva_setor.php">
     </div>
     <div class="bloco1">    
         <label>INSTITUIÇÃO: </label>
@@ -113,7 +113,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <div class="btn">
         <button type="submit">SALVAR</button>
     
-        <a href="adm-view.php">
+        <a href="../cadunico/painel-adm/adm-view.php">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
         </a>
     </div>
@@ -134,7 +134,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 } else {
     ?> <label>Informe o CPF do responsável pela a unidade.</label> 
 <div class="btns">
-    <a href="adm-view.php">
+    <a href="../cadunico/painel-adm/adm-view.php">
     <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
 </div>  
