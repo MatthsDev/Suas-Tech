@@ -9,12 +9,12 @@ $cpfLimpo = ltrim($cpfLimpo, '0');
 
 $response = array();
 
-// Check if $cpfLimpo is not empty before executing the query
+
 if (!empty($cpfLimpo)) {
     $sql = "SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = '$cpfLimpo'";
     $result = $conn->query($sql);
 
-    // Adicionando verificação de erro
+
     if (!$result) {
         $response['error'] = "Erro na query: " . $conn->error;
     } else {
@@ -26,7 +26,7 @@ if (!empty($cpfLimpo)) {
             $nom_logradouro_fam = $row["nom_logradouro_fam"];
             $num_logradouro_fam = $row["num_logradouro_fam"];
 
-            // Verifica se o número do logradouro está vazio
+
             if ($num_logradouro_fam == "") {
                 $num_logradouro = "S/N";
             } else {
@@ -36,7 +36,7 @@ if (!empty($cpfLimpo)) {
             $nom_localidade_fam = $row["nom_localidade_fam"];
             $nom_titulo_logradouro_fam = $row["nom_titulo_logradouro_fam"];
 
-            // Verifica se o título do logradouro está vazio
+          
             if ($nom_titulo_logradouro_fam == "") {
                 $nom_tit = "";
             } else {
@@ -45,7 +45,7 @@ if (!empty($cpfLimpo)) {
 
             $txt_referencia_local_fam = $row["txt_referencia_local_fam"];
 
-            // Verifica se a referência está vazia
+       
             if ($txt_referencia_local_fam == "") {
                 $referencia = "SEM REFERÊNCIA";
             } else {

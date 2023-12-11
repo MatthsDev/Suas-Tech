@@ -353,10 +353,7 @@
         }
 
         function enviarFormulario() {
-            // Obtenha o formulário pelo ID
             var formulario = document.getElementById('formUsuario');
-
-            // Acione o envio do formulário
             formulario.submit();
         }
 
