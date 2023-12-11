@@ -224,7 +224,7 @@
 
 
                         $('#renda_per').val(data.renda_per);
-                        $('#referencia').val(data.referncia);
+                        $('#referencia').val(data.referencia);
                         $('#qtd_pessoa').val(data.qtd_pessoa);
                     } else {
                         $('#nome').val('');
