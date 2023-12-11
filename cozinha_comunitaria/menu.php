@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style-menu.css">
-    <link rel="website icon" type="png" href="../img/logo.png">
+    <link rel="website icon" type="png" href="img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Cozinha Comunitária</title>
 </head>
@@ -36,7 +36,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </a>
                 </div> -->
                 <div class="pagina2">
-                    <a class="menu-button" onclick="location.href='#';">
+                    <a class="menu-button" onclick="location.href='views/fluxo_diario.php';">
                     <span class="material-symbols-outlined">
                         patient_list
                     </span>
@@ -44,7 +44,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </a>
                 </div>    
                 <div class="pagina3">
-                        <a class="menu-button" onclick="location.href='estoque.php';">
+                        <a class="menu-button" onclick="location.href='views/estoque.php';">
                         <span class="material-symbols-outlined">
                             inventory
                         </span>
@@ -61,14 +61,21 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             Settings
             </span> 
         <div class="drop-content">
-            <a title="Sair" href='../../config/logout.php';>
+            <a title="Sair" href='../config/logout.php';>
             <span title="Sair" class="material-symbols-outlined">logout</span>    
             </a>
             <a title="Alterar Usuário" href='views/conta.php';>
             <span  class="material-symbols-outlined">manage_accounts</span>       
             </a>
         </div>
-    </div>    
+    </div>
+
+    <?php
+    if($nivel == 'suport'){
+        ?> <a href="../acesso_suporte/index.php">SUPORTE</a> <?php
+        exit();
+    }
+    ?>
 
 </body>
 </html>
