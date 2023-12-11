@@ -111,8 +111,8 @@
                 <label for="zone_titulo">ZONA:  </label>
                 <input type="text" id="zone_titulo" name="zone_titulo">
 
-                <label for="area_titulo">AREA:  </label>
-                <input type="text" id="area_titulo" name="area_titulo">
+                <label for="area_titulo">SEÇÃO:  </label>
+                <input type="text" id="secao_titulo" name="area_titulo">
             </div>
 
             <h3>RENDA E TRABALHOS:</h3>
@@ -152,6 +152,8 @@
         </form>
     </div>
     <script>
+
+        // O que isso faz?
     $(document).ready(function () {
         $('#cpf').on('input', function () {
             verificarUsuario();
