@@ -23,7 +23,7 @@
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o CPF">
+                <input type="text" id="cpf" name="cpf" maxlength="14"  onblur="validarCPF(this)" placeholder="Digite o CPF">
             </div>
 
             <h3>IDENTIFICAÇÃO:</h3>
