@@ -15,7 +15,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="website icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <title>Sala do Usuário</title>
+    <title>Sala do Usuário1</title>
     <style>
         .edicao {
             display: none;
