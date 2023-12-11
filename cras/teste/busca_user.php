@@ -56,7 +56,7 @@ if (!$result) {
         $response['bairro'] = $nom_localidade_fam;
         $response['log'] = $log_nome;
         $response['numero'] = $num_logradouro;
-           // $response['nome_social'] = $row[''];
+        // $response['nome_social'] = $row[''];
         // $response['sexo'] = $row[''];
         // $response['nome_mae'] = $row[''];
         // $response['nome_pai'] = $row[''];
@@ -68,16 +68,16 @@ if (!$result) {
         // $response['rg'] = $row[''];
         // $response['complemento_rg'] = $row[''];
         // $response['data_exp_rg'] = $row[''];
-        // $response['sigla_rg'] = $row[''];
-        // $response['estado_rg'] = $row[''];
-        // $response['nis'] = $row[''];
-        // $response['num_titulo'] = $row[''];
-        // $response['zone_titulo'] = $row[''];
-        // $response['area_titulo'] = $row[''];
-        // $response['profissao'] = $row[''];
-        // $response['renda_per'] = $row[''];
-        // $response['referencia'] = $row[''];
-        // $response['qtd_pessoa'] = $row[''];
+        // $response['sigla_rg'] = $row['sig_orgao_emissor_pessoa'];
+        // $response['estado_rg'] = $row['sig_uf_ident_pessoa'];
+        // $response['nis'] = $row['num_nis_pessoa_atual'];
+        // $response['num_titulo'] = $row['num_titulo_eleitor_pessoa'];
+        // $response['zone_titulo'] = $row['num_zona_tit_eleitor_pessoa'];
+        // $response['area_titulo'] = $row['num_secao_tit_eleitor_pessoa'];
+        // $response['profissao'] = $row['cod_principal_trab_memb'];
+        // $response['renda_per'] = $row['vlr_renda_media_fam'];
+        // $response['referencia'] = $row['txt_referencia_local_fam'];
+        // $response['qtd_pessoa'] = $row['qtd_pessoas_domic_fam'];
     } else {
         $response['existeUsuario'] = false;
     }
