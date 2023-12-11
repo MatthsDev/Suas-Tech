@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Usuários</title>
+    <title>Tech-Suas</title>
     <link rel="stylesheet" href="/Suas-Tech/cozinha_comunitaria/css/index.css">
     <link rel="website icon" type="png" href="/Suas-Tech/cozinha_comunitaria/img/logo.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -119,22 +119,17 @@
 
             <div class="bloco1">
                 <label for="pcd">PORTADOR DE DEFICIÊNCIA: </label>
-                <li class="colunaEsquerda metade listItem">
-                    
-                    <input type="checkbox" name="tipoDeficiencia" value="1"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;1 - CEGUEIRA
-
-                    <input type="checkbox" name="tipoDeficiencia" value="2"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;2 - BAIXA VISAO
-
-                    <input type="checkbox" name="tipoDeficiencia" value="3"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;3 - SURDEZ
-                    SEVERA/PROFUNDA<br>
-
-                    <input type="checkbox" name="tipoDeficiencia" value="4"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;4 - SURDEZ
-                    LEVE/MODERADA<br>
-
+                <li class="">
+                    <input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA<br>
+                </li>
+                <li class="">
+                    <input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU INTELECTUAL<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN<br>
+                    <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL<br>
                 </li>
             </div>
             <div class="bloco">
