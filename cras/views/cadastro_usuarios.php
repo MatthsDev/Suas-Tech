@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="js/cpfvalid.js"></script>
+    <script src="../js/cpfvalid.js"></script>
 </head>
 
 <body>
@@ -153,18 +153,22 @@
     </div>
     <script>
 
-        // O que isso faz?
-    $(document).ready(function () {
-        $('#cpf').on('input', function () {
-            verificarUsuario();
+       $(document).ready(function () {
+            var timer;
+
+            $('#cpf').on('input', function () {
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    verificarUsuario();
+                }, 500);
+            });
         });
-    });
 
     function verificarUsuario() {
         var cpf = $('#cpf').val();
 
         $.ajax({
-            url: 'controller/busca_user.php',
+            url: '/controller/busca_user.php',
             method: 'POST',
             data: { cpf: cpf },
             dataType: 'json',
