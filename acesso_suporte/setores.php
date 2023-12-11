@@ -120,8 +120,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </div>
         </form>
 </div>
-    <script src="js/scripts.js"></script>
-    <script src="../../cadunico/js/personalise.js"></script>
+    <script src="../cadunico/js/cpfvalid.js"></script>
+    <script src="../cadunico/js/personalise.js"></script>
 
 </body>
 </html>
