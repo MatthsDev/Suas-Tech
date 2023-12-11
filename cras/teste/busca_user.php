@@ -56,8 +56,7 @@ if (!$result) {
         $response['bairro'] = $nom_localidade_fam;
         $response['log'] = $log_nome;
         $response['numero'] = $num_logradouro;
-        
-        // $response['nome_social'] = $row[''];
+           // $response['nome_social'] = $row[''];
         // $response['sexo'] = $row[''];
         // $response['nome_mae'] = $row[''];
         // $response['nome_pai'] = $row[''];
