@@ -22,34 +22,38 @@ if (!$result) {
         $nom_logradouro_fam = $row["nom_logradouro_fam"];
         $num_logradouro_fam = $row["num_logradouro_fam"];
 
-        // Verifica se o número do logradouro está vazio
-        if ($num_logradouro_fam == "") {
-            $num_logradouro = "S/N";
-        } else {
-            $num_logradouro = $num_logradouro_fam;
-        }
+            // Verifica se o número do logradouro está vazio
+            if ($num_logradouro_fam == "") {
+                $num_logradouro = "S/N";
+            } else {
+                $num_logradouro = $num_logradouro_fam;
+            }
 
-        $nom_localidade_fam = $row["nom_localidade_fam"];
-        $nom_titulo_logradouro_fam = $row["nom_titulo_logradouro_fam"];
+            $nom_localidade_fam = $row["nom_localidade_fam"];
+            $nom_titulo_logradouro_fam = $row["nom_titulo_logradouro_fam"];
 
-        // Verifica se o título do logradouro está vazio
-        if ($nom_titulo_logradouro_fam == "") {
-            $nom_tit = "";
-        } else {
-            $nom_tit = $nom_titulo_logradouro_fam;
-        }
+            // Verifica se o título do logradouro está vazio
+            if ($nom_titulo_logradouro_fam == "") {
+                $nom_tit = "";
+            } else {
+                $nom_tit = $nom_titulo_logradouro_fam;
+            }
 
         $txt_referencia_local_fam = $row["txt_referencia_local_fam"];
 
         // Verifica se a referência está vazia
-        if ($txt_referencia_local_fam == "") {
-            $referencia = "SEM REFERÊNCIA";
-        } else {
-            $referencia = $txt_referencia_local_fam;
-        }
+            if ($txt_referencia_local_fam == "") {
+                $referencia = "SEM REFERÊNCIA";
+            } else {
+                $referencia = $txt_referencia_local_fam;
+            }
 
-        // Monta o endereço completo
-        $log_nome = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam;
+            $log_nome = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam;
+
+            $mapeamentoProfissoes = array(
+                1 => 'Autônomo',
+                4 => 'Carteira Assinada',
+            );
 
         $response['existeUsuario'] = true;
         $response['nome'] = $row['nom_pessoa'];
@@ -57,7 +61,14 @@ if (!$result) {
         $response['log'] = $log_nome;
         $response['numero'] = $num_logradouro;
         $response['nome_social'] = $row['nom_apelido_pessoa'];
-        $response['sexo'] = $row['cod_sexo_pessoa'];
+        $sexo = $row['cod_sexo_pessoa'];
+        if ($sexo == 1) {
+            $response['sexo'] = 'MASCULINO';
+        } elseif ($sexo == 2) {
+            $response['sexo'] = 'FEMININO';
+        } else {
+            $response['sexo'] = 'Outro';
+        }
         $response['nome_mae'] = $row['nom_completo_mae_pessoa'];
         $response['nome_pai'] = $row['nom_completo_pai_pessoa'];
         $response['data_nasc'] = $row['dta_nasc_pessoa'];
@@ -74,7 +85,15 @@ if (!$result) {
         $response['num_titulo'] = $row['num_titulo_eleitor_pessoa'];
         $response['zone_titulo'] = $row['num_zona_tit_eleitor_pessoa'];
         $response['area_titulo'] = $row['num_secao_tit_eleitor_pessoa'];
-        $response['profissao'] = $row['cod_principal_trab_memb'];
+        $profissao['profissao'] = $row['cod_principal_trab_memb'];
+
+        if ($profissao == 4) {
+            $response['profissao'] = 'CARTEIRA ASSINADA';
+        } elseif ($profissao == 1) {
+            $response['profissao'] = 'AUTONOMO';
+        } else {
+            $response['profissao'] = 'Outro';
+        }
         $response['renda_per'] = $row['vlr_renda_media_fam'];
         $response['referencia'] = $row['txt_referencia_local_fam'];
         $response['qtd_pessoa'] = $row['qtd_pessoas_domic_fam'];
