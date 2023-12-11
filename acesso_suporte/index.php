@@ -26,10 +26,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
           </a><br><hr>
 
           <div class="cadastrar">
-    <a class="menu-button" href='../cras/index.php';>
-            CRAS
+    <a class="menu-button" href='../cras/views/menu-cras-am.php';>
+            CRAS antonio matias
           </a><br><hr>
 
+          <div class="cadastrar">
+    <a class="menu-button" href='../cras/views/menu-cras-st.php';>
+            CRAS santo afonso
+          </a><br><hr>
 
         </div>
 </body>
