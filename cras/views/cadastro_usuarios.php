@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech-Suas</title>
+    <title>Cadastrar Usuários</title>
     <link rel="stylesheet" href="/Suas-Tech/cozinha_comunitaria/css/index.css">
     <link rel="website icon" type="png" href="/Suas-Tech/cozinha_comunitaria/img/logo.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -122,10 +122,10 @@
                 <li class="colunaEsquerda metade listItem">
                     
                     <input type="checkbox" name="tipoDeficiencia" value="1"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;1 - CEGUEIRA<br>
+                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;1 - CEGUEIRA
 
                     <input type="checkbox" name="tipoDeficiencia" value="2"
-                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;2 - BAIXA VISAO<br>
+                        onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;2 - BAIXA VISAO
 
                     <input type="checkbox" name="tipoDeficiencia" value="3"
                         onclick="cadunVerificaTipoDeficiencia(this);" disabled="disabled"> &nbsp;3 - SURDEZ
