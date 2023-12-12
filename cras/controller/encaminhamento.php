@@ -19,11 +19,9 @@ if (isset($_POST['buscar_dados'])) {
         $dados = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
         $dados->execute(array(":cpf_dec" => $cpf_nis));
 
-        
     } elseif ($cpf_nis == 'nis_dec') {
         $dados = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_nis_pessoa_atual = :nis_dec");
         $dados->execute(array(":nis_dec" => $cpf_nis));
     }
- 
-}
 
+}
