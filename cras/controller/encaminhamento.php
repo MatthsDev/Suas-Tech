@@ -13,6 +13,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
 if (isset($_POST['buscar_dados'])) {
 
     $cpf_nis = $_POST['buscar_dados'];
+    $destino_enc = $_POST['nom_localidade_fam'];
 
     if ($cpf_nis == 'cpf_dec') {
         $dados = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
@@ -20,6 +21,9 @@ if (isset($_POST['buscar_dados'])) {
 
         
     } elseif ($cpf_nis == 'nis_dec') {
-
+        $dados = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_nis_pessoa_atual = :nis_dec");
+        $dados->execute(array(":nis_dec" => $cpf_nis));
     }
+ 
 }
+

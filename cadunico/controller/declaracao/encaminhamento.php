@@ -37,7 +37,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $nom_mae_rf = $dados["nom_completo_mae_pessoa"];
             $sexo_pessoa_ = $dados["cod_sexo_pessoa"];
 
-            //Define as variáveis com o Fame e Male
+            //Define as variáveis com o Female e Male
             if ($sexo_pessoa_ == "1") {
                 $sexo = " o Sr. ";
             } else {
@@ -120,7 +120,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $nom_mae_rf = $dados["nom_completo_mae_pessoa"];
             $sexo_pessoa_ = $dados["cod_sexo_pessoa"];
 
-            //Define as variáveis com o Fame e Male
+            //Define as variáveis com o Female e Male
             if ($sexo_pessoa_ == "1") {
                 $sexo = " o Sr. ";
             } else {
