@@ -46,7 +46,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 }
             }
             ?>
-    </div> 
+        </div> 
     </select>
                 <label>Texto: </label>
                 <textarea id="" name="texto" required  oninput="ajustarTextarea(this)"></textarea>
