@@ -14,12 +14,46 @@ if (isset($_POST['buscar_dados'])) {
 
     $cpf_nis = $_POST['buscar_dados'];
 
+
     if ($cpf_nis == 'cpf_dec') {
-        $dados = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
-        $dados->execute(array(":cpf_dec" => $cpf_nis));
+        $cpf = $_POST['valorescolhido'];
+        $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :valorescolhido");
+        $sql->execute(array(':valorescolhido' => $cpf));
 
-        
+            if($sql->rowCount() > 0){
+                $dados = $sql->fetch(PDO::FETCH_ASSOC);
+
+                $local = $dados['nom_pessoa'];
+                $local = $dados['nom_localidade_fam'];
+                
+
+                echo $local . $dados['nom_pessoa'];
+
+            }else{
+
+            }
+
+
     } elseif ($cpf_nis == 'nis_dec') {
+        $nis = $_POST['valorescolhido'];
+        $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_nis_pessoa_atual = :valorescolhido");
+        $sql->execute(array(':valorescolhido' => $nis));
+        
+        if($sql->rowCount() > 0){
+            $dados = $sql->fetch(PDO::FETCH_ASSOC);
+            $local = $dados['nom_localidade_fam'];
+            $local = $dados['nom_pessoa'];
+            $local = $dados['nom_localidade_fam'];
+            $local = $dados['nom_localidade_fam'];
+            $local = $dados['nom_localidade_fam'];
+            $local = $dados['nom_localidade_fam'];
+            $local = $dados['nom_localidade_fam'];
 
+            echo $local . $dados['nom_pessoa'];
+
+        }else{
+
+        }
     }
+
 }
