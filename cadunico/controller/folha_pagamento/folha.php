@@ -24,7 +24,7 @@ ini_set('memory_limit', '256M');
     <div class="container">    
         <div class="busca">    
             <form action="">
-                <input name="cod_fam" class="busca2" placeholder="Digite o CPF ou NOME do beneficiário." type="text" required>
+                <input name="cod_fam" class="busca2" placeholder="Digite o NIS ou NOME do beneficiário." type="text" required>
                 <button type="submit">Buscar</button>
             <a
             href="<?php echo $voltar_link; ?>">
@@ -56,7 +56,7 @@ ini_set('memory_limit', '256M');
         <?php
             }else{
                 $sql_cod = $conn->real_escape_string($_GET['cod_fam']);
-                $sql_dados = "SELECT * FROM folha_pag WHERE rf_cpf LIKE '%$sql_cod%' OR rf_nome LIKE '%$sql_cod%' ";
+                $sql_dados = "SELECT * FROM folha_pag WHERE rf_nis LIKE '%$sql_cod%' OR rf_nome LIKE '%$sql_cod%' ";
                 $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn-error);
 
                 if($sql_query->num_rows == 0){

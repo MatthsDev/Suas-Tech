@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var cpfInput = $("#cpf");
-    var telefoneInput = $("#telefone");
+    var telefoneInput = $("#tel_pessoa");
 
     // Aplicar máscara para CPF
     cpfInput.mask('000.000.000-00');

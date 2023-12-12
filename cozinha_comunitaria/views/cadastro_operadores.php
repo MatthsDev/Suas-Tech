@@ -28,8 +28,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <div class="container">
         <form method="post" action="../cadunico/controller/acesso_user/processo_cad_user.php">
             <div class="nome">
-                <label>Nome de Usuário:</label>
-                <input type="text" name="nome_user" placeholder="Ex: cad.(usuário)" required>
+                <label>Nome completo:</label>
+                <input type="text" class="nome" name="nome_user" placeholder="Sem Abreviação." required>
             </div>
             <div class="email">
                 <label>E-mail:</label>

@@ -4,6 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
 include_once '../controller/acesso_user/dados_usuario.php';
 
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@ include_once '../controller/acesso_user/dados_usuario.php';
         </div>
 
         <div class="cadastrar">
-          <a class="menu-button" onclick="location.href='setores.php';">
+          <a class="menu-button" onclick="location.href='../../acesso_suporte/setores.php';">
             <span class="material-symbols-outlined">
             domain_add
             </span>
@@ -115,6 +116,14 @@ include_once '../controller/acesso_user/dados_usuario.php';
         <a title="Alterar Usuário" href='../views/acessos/conta.php';>
         <span  class="material-symbols-outlined">manage_accounts</span>       
         </a>
+        <?php
+    if($nivel == 'suport'){
+        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
+        <span  class="material-symbols-outlined">rule_settings</span>       
+        </a> <?php
+        exit();
+    }
+    ?>   
       </div>
   </div>
   </body>

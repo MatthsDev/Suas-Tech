@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../css/style-processo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style-processo-coz.css">
     <link rel="shortcut icon" href="../../img/logo.png" type="image/png">
     <title>Cadastro Salvo</title>
     <link rel="stylesheet" href="../css/style-processo.css">
 </head>
 <body>
-
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
 // Inicializa a mensagem como vazia
 $mensagem = "";
@@ -22,13 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tpacesso = $_POST['nivel'];
     $senha_hashed = password_hash("@senha123", PASSWORD_DEFAULT);
     $user_name = $_POST['nome_user'];
+    $user_maiusc = strtoupper($user_name);
     $setor = $_POST['setor'];
     $funcao = $_POST['funcao'];
     $email = $_POST['email'];
+    $nomeUsuario = gerarNomeUsuario($user_name);
 
     // Verifica se o nome de usuário já existe no banco de dados
     $verifica_usuario = $conn->prepare("SELECT usuario FROM usuarios WHERE usuario = ?");
-    $verifica_usuario->bind_param("s", $user_name);
+    $verifica_usuario->bind_param("s", $nomeUsuario);
     $verifica_usuario->execute();
     $verifica_usuario->store_result();
 
@@ -39,18 +42,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Caso o Nome do Usuário seja unico será adicionado ao SQL
-    $smtp = $conn->prepare("INSERT INTO usuarios (usuario, senha, nivel, setor, funcao, email, data_registro) VALUES (?,?,?,?, ?, ?, NOW())");
+    $smtp = $conn->prepare("INSERT INTO usuarios (nome, usuario, senha, nivel, setor, funcao, email, data_registro) VALUES (?,?,?,?,?, ?, ?, NOW())");
 
     // Verifica se a preparação foi bem-sucedida
     if ($smtp === false) {
         die('Erro na preparação SQL: ' . $conn->error);
     }
 
-    $smtp->bind_param("ssssss", $user_name, $senha_hashed, $tpacesso, $setor, $funcao, $email);
+    $smtp->bind_param("sssssss", $user_maiusc, $nomeUsuario, $senha_hashed, $tpacesso, $setor, $funcao, $email);
 
     if ($smtp->execute()) {?>
 
-        <h1>DADOS ENVIADOS COM SUCESSO!</h1>
+        <h1>CADASTRO REALIZADO COM SUCESSO!</h1>
         <div class="linha"></div>
         <?php
 // Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
@@ -59,9 +62,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }
 
+    // Construir o corpo do e-mail
+    $mensagem = "<p>Nome Completo: $user_name</p>";
+    $mensagem .= "<p>E-mail: $email</p>";
+    $mensagem .= "<p>Senha: $senha_hashed</p>";
+    $mensagem .= "<p>Obrigado por usar o sistema DDV.</p>";
+
+    // Criar o comando Python
+    $comandoPython = "python3 ../../../controller/enviar_email.py '$email' '$mensagem'";
+
+    // Executar o comando
+    $saida = shell_exec($comandoPython);
+
+    echo $saida;
+
     $smtp->close();
     $conn->close();
+
+
 }
+
+function gerarNomeUsuario($user_name)
+{
+    // Lógica para gerar o nome de usuário (por exemplo, usando o primeiro nome e sobrenome)
+    // Implemente sua própria lógica aqui
+    // Exemplo simples: usar as iniciais do primeiro e último nome
+    $nomes = explode(" ", $user_name);
+    $nomeUsuario = strtolower($nomes[0] . "." . end($nomes));
+    return $nomeUsuario;
+}
+
 ?>
 
 </body>

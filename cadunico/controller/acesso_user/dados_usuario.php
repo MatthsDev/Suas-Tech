@@ -31,5 +31,8 @@ if ($sql->rowCount() > 0) {
     $email = $dados['email'];
     $cargo = $dados['cargo'];
     $idcargo = $dados['id_cargo'];
+    $nivel = $dados['nivel'];
 }
+
+
 ?>
