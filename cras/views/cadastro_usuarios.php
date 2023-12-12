@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="../js/cpfvalid.js"></script>
+    <!-- <script src="../js/cpfvalid.js"></script> -->
 </head>
 
 <body>
@@ -24,7 +24,7 @@
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
+                <input type="text" id="cpf" name="cpf" maxlength="14"
                     placeholder="Digite o CPF">
             </div>
 
@@ -196,7 +196,7 @@
                         <label>3.06 - Qual é o nome da comunidade quilombola?</label>
                         <br>
 
-                        <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
+                        <select name="comunidadeQuilambola" id="comunidadeQuilambola"
                             style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
                             <option value=""></option>
                             <option value=""></option>
@@ -392,8 +392,6 @@
                             ufSelect.val(data.uf_pessoa.toUpperCase());
                         }
 
-
-
                         $('#nac_pessoa').val(data.nac_pessoa);
                         $('#tel_pessoa').val(data.tel_pessoa);
                         // Aplicar máscara ao telefone
@@ -409,6 +407,8 @@
                         $('#zone_titulo').val(data.zone_titulo);
                         $('#area_titulo').val(data.area_titulo);
 
+                        //BLOCO QUILOMBOLA
+                        $('povoIndigena').val(data.povoIndigena);
 
                         var profissaoSelect = $('#profissao');
                         profissaoSelect.empty();
