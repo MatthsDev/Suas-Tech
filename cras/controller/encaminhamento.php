@@ -22,14 +22,10 @@ if (isset($_POST['buscar_dados'])) {
 
             if($sql->rowCount() > 0){
                 $dados = $sql->fetch(PDO::FETCH_ASSOC);
-                $dados = 
+
                 $local = $dados['nom_pessoa'];
                 $local = $dados['nom_localidade_fam'];
-                $local = $dados['nom_localidade_fam'];
-                $local = $dados['nom_localidade_fam'];
-                $local = $dados['nom_localidade_fam'];
-                $local = $dados['nom_localidade_fam'];
-                $local = $dados['nom_localidade_fam'];
+                
 
                 echo $local . $dados['nom_pessoa'];
 
