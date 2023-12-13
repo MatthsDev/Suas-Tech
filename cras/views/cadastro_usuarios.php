@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="bloco">
-<<<<<<< HEAD
+                    
                     <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
                     <div class="bloco1">
                         <h5>3.01 - A FAMILIA É INDIGENA?</h5>
@@ -178,7 +178,7 @@
                                     style="margin-left:25px;"> 2 - Não sabe 
                                 </div>
                     </div>
-=======
+
                     <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
 
                     <label>3.01 - A FAMILIA É INDIGENA?</label>
