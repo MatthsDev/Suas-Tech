@@ -189,12 +189,12 @@
             </div>
             <div class="bloco">
                 <h5> FAMILIA QUILOMBOLA </h5>
-                <input type="radio" name="familiaQuilambola" value="1">1 - Sim
-                <input type="radio" name="familiaQuilambola" value="2">2 - Não
+                <input type="radio" name="familiaQuilambola" id="reservaSIM"  value="1">1 - Sim
+                <input type="radio" name="familiaQuilambola" id="reservaNAO"  value="2">2 - Não
             </div>
             <div class="bloco">
                 <h5> Qual é o nome da comunidade quilombola?</h5>
-                <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
+                <select name="comunidadeQuilambola" id="comunidadeQuilambola"
                     style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
                     <option value=""></option>
                     <option value=""></option>

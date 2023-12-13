@@ -155,20 +155,20 @@ function verificarUsuario() {
                 }
 
 
+//================================================================================
+                var familiaQuilambola = data.familiaQuilambola;
+                if (familiaQuilambola == 1) {
+                    $('input[name="familiaQuilambola"][value="1"]').prop('checked', true);
+                    $('input[name="familiaQuilambola"][value="2"]').prop('checked', false);
 
-                var cod_fam_ind = data.cod_fam_ind;
-                if (cod_fam_ind == 1) {
-                    $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
-                    $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
-
-                    $('#povoIndigena').val(data.povoIndigena);
-                    $('#povoIndigena').prop('disabled', false);
+                    // $('#povoIndigena').val(data.povoIndigena);
+                    // $('#povoIndigena').prop('disabled', false);
                 } else {
-                    $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
-                    $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
+                    $('input[name="familiaQuilambola"][value="1"]').prop('checked', false);
+                    $('input[name="familiaQuilambola"][value="2"]').prop('checked', true);
 
-                    $('#povoIndigena').val(data.povoIndigena);
-                    $('#povoIndigena').prop('disabled', true);
+                    // $('#povoIndigena').val(data.povoIndigena);
+                    // $('#povoIndigena').prop('disabled', true);
                 }
 
 //===================================================================================================================================
