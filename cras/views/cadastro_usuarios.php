@@ -145,14 +145,14 @@
             </div>
                 <div class="bloco">
                     <div class="bloco1">
-                        <h5>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h5>
+                        <h5> PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h5>
 
-                        <h5>3.01 - A FAMILIA É INDIGENA?</h5>
+                        <h5> A FAMILIA É INDIGENA?</h5>
                         <input type="radio" name="grupoIndigena" value="1">1 - Sim
                         <input type="radio" name="grupoIndigena" value="2">2 - Não
                     </div>
                     <div class="bloco">
-                        <h5>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
+                        <h5> A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
 
                         <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
                             <option value=""></option>
@@ -160,13 +160,13 @@
                         </select>
                     </div>
                     <div class="bloco">
-                        <h5>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
+                        <h5> A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
 
                         <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
                         <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
                     </div>
                     <div class="bloco">
-                        <h5>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
+                        <h5> QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
                         <br>
                         <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
                             <option value=""></option>
@@ -177,12 +177,12 @@
                     </div>
                 </div>
                 <div class="bloco">
-                    <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
+                    <h5> FAMILIA QUILOMBOLA </h5>
                     <input type="radio" name="familiaQuilambola" value="1">1 - Sim
                     <input type="radio" name="familiaQuilambola" value="2">2 - Não
                 </div>
                 <div class="bloco">
-                    <h5>3.06 - Qual é o nome da comunidade quilombola?</h5>
+                    <h5> Qual é o nome da comunidade quilombola?</h5>
                     <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
                         style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
                         <option value=""></option>
