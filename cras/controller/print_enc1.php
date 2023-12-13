@@ -32,7 +32,7 @@
 <div class="justified-text">
 
 <?php
-require "encaminhamento.php";
+require 'encaminhamento_cras.php';
 echo $_GET['conteudo'];
 ?>
 </div>
