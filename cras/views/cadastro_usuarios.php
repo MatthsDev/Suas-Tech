@@ -27,11 +27,14 @@
                 <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
                     placeholder="Digite o CPF">
             </div>
-
-            <h3>IDENTIFICAÇÃO:</h3>
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>IDENTIFICAÇÃO:</h3>
+                </div>
+            </div>
             <div class="bloco2">
                 <div class="bloco1">
-                    <div class="element"1>
+                    <div class="element1" 1>
                         <label for="nome">NOME: </label>
                         <input type="text" id="nome" name="nome">
                     </div>
@@ -119,121 +122,218 @@
                     </div>
                 </div>
             </div>
-            <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
-
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
+                </div>
+            </div>
             <div class="bloco1">
-                <label for="pcd">PORTADOR DE DEFICIÊNCIA: </label>
-                <div class="bloco">
+                <h4>PORTADOR DE DEFICIÊNCIA: </h4>
+                <div class="bloco1">
                     <input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA
                     <input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO
                 </div>
                 <div class="bloco">
-                    <input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA   
+                    <input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA
                     <input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA
-                <div class="bloco">
-                    <input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA
-                    <input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU INTELECTUAL
+                    <div class="bloco">
+                        <input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA
+                        <input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU
+                        INTELECTUAL
+                    </div>
+                    <div class="bloco">
+                        <input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN
+                        <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL
+                    </div>
                 </div>
                 <div class="bloco">
-                    <input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN
-                    <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL
+
+                    <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
+                    <div class="bloco1">
+                        <h5>3.01 - A FAMILIA É INDIGENA?</h5>
+                        <input type="radio" name="familiaIndigena" value="1">1 - Sim
+                        <input type="radio" name="familiaIndigena" value="2">2 - Não
+                    </div>
+                    <div id="divPovoIndigena" class="bloco1">
+                                <div class="bloco">
+                                    <h5>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
+                                    <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    </select>
+                                </div>
+                                
+                                <div class="bloco">
+                                    <h5>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
+                                    <input type="radio" name="resideTerraIndigena" value="1">1 - Sim
+                                    <input type="radio" name="resideTerraIndigena" value="2">2 - Não
+                                </div>
+                                <div class="bloco">
+                                    <h5>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
+                                    <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
+                                    style="margin-left:25px;"> 2 - Não sabe 
+                                </div>
+                    </div>
+
+                    <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
+
+                    <label>3.01 - A FAMILIA É INDIGENA?</label>
+                    <br>
+                    <input type="radio" name="grupoIndigena" value="1">1 - Sim
+                    <input type="radio" name="grupoIndigena" value="2">2 - Não
+                    </li>
+
+                    <li id="divPovoIndigena" class="bloco">
+                        <ul>
+                            <li>
+                                <label>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</label>
+                                <br>
+
+                                <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </li>
+                            <li class="clear"></li>
+                            <li>
+                                <label>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</label>
+                                <br>
+                                <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
+                                <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
+                            </li>
+                            <li class="clear"></li>
+                            <li>
+
+                                <label>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</label>
+                                <br>
+                                <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+
+
+                                <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
+                                    style="margin-left:25px;"> 2 - Não sabe
+                            </li>
+                        </ul>
+                    </li>
+
+>>>>>>> de0798939871548554fb3fcd5063f7dcb962bb0b
                 </div>
-            </div>
-            <div class="bloco">
-                <label for="gpte">PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </label>
-                <!-- <input type="text" id="gpte" name="gpte"> -->
-            </div>
-            <div class="bloco">
-                <label for="quilombo">INDIGENA OU QUILOMBOLA: </label>
-                <!-- <input type="text" id="quilombo" name="quilombo"> -->
-            </div>
+                <div class="bloco">
+                    <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
+                    <input type="radio" name="familiaQuilambola" value="1">1 - Sim
+                    <input type="radio" name="familiaQuilambola" value="2">2 - Não
+                </div>
+                <div class ="bloco">
+                    <h5>3.06 - Qual é o nome da comunidade quilombola?</h5>
+                        <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
+                            style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1"
+                            id="naoSabeComunidadeQuilambola" style="margin-left:25px;">2 - Não consta no município
+                </div>
+                <div class="titulo">
+                    <div class="titulo1">
+                        <h3>DOCUMENTAÇÃO:</h3>
+                    </div>
+                </div>
+                <div class="bloco1">
+                    <label for="rg">RG: </label>
+                    <input type="text" id="rg" name="rg">
 
-            <h3>DOCUMENTAÇÃO:</h3>
+                    <label for="complemento_rg">COMPLEMENTO: </label>
+                    <input type="text" id="complemento_rg" name="complemento_rg">
 
-            <div class="bloco1">
-                <label for="rg">RG: </label>
-                <input type="text" id="rg" name="rg">
+                    <label for="data_exp_rg">DATA DE EXPEDIÇÃO: </label>
+                    <input type="date" id="data_exp_rg" name="data_exp_rg">
+                </div>
+                <div class="bloco">
+                    <label for="sigla_rg">ORGÃO: </label>
+                    <input type="text" id="sigla_rg" name="sigla_rg">
 
-                <label for="complemento_rg">COMPLEMENTO: </label>
-                <input type="text" id="complemento_rg" name="complemento_rg">
+                    <label for="estado_rg">UF: </label>
+                    <input type="text" id="estado_rg" name="estado_rg">
+                </div>
+                <div class="bloco">
+                    <label for="nis">NIS: </label>
+                    <input type="text" id="nis" name="nis">
+                </div>
+                <div class="bloco">
+                    <label for="num_titulo">TITULO: </label>
+                    <input type="text" id="num_titulo" name="num_titulo">
 
-                <label for="data_exp_rg">DATA DE EXPEDIÇÃO: </label>
-                <input type="date" id="data_exp_rg" name="data_exp_rg">
-            </div>
-            <div class="bloco">
-                <label for="sigla_rg">ORGÃO: </label>
-                <input type="text" id="sigla_rg" name="sigla_rg">
+                    <label for="zone_titulo">ZONA: </label>
+                    <input type="text" id="zone_titulo" name="zone_titulo">
 
-                <label for="estado_rg">UF: </label>
-                <input type="text" id="estado_rg" name="estado_rg">
-            </div>
-            <div class="bloco">
-                <label for="nis">NIS: </label>
-                <input type="text" id="nis" name="nis">
-            </div>
-            <div class="bloco">
-                <label for="num_titulo">TITULO: </label>
-                <input type="text" id="num_titulo" name="num_titulo">
+                    <label for="area_titulo">SEÇÃO: </label>
+                    <input type="text" id="secao_titulo" name="area_titulo">
+                </div>
+                <div class="titulo">
+                    <div class="titulo1">
+                        <h3>RENDA E TRABALHOS:</h3>
+                    </div>
+                </div>
+                <div class="bloco1">
+                    <label for="profissao">PROFISSÃO: </label>
+                    <select id="profissao" name="profissao">
+                        <option value="">SELECIONE</option>
+                        <option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>
+                        <option value="AUTÔNOMO">AUTÔNOMO</option>
+                        <option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>
+                        <option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>
+                        <option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>
+                        <option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>
+                        <option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>
+                        <option value="OUTRO">OUTRO</option>
+                    </select>
+                </div>
+                <div class="bloco">
+                    <label for="renda_per">RENDA PER CAPITA: </label>
+                    <input type="text" id="renda_per" name="renda_per">
+                </div>
+                <div class="titulo">
+                    <div class="titulo1">
+                        <h3>RESiDÊNCIA:</h3>       
+                    </div>
+                </div>
+                <div class="bloco1">
+                    <label for="bairro">BAIRRO: </label>
+                    <input type="text" id="bairro" name="bairro">
+                </div>
+                <div class="bloco">
+                    <label for="log">LOGRADOURO: </label>
+                    <input type="text" id="log" name="log">
 
-                <label for="zone_titulo">ZONA: </label>
-                <input type="text" id="zone_titulo" name="zone_titulo">
+                    <label for="numero">NUMERO: </label>
+                    <input type="text" id="numero" name="numero">
+                </div>
 
-                <label for="area_titulo">SEÇÃO: </label>
-                <input type="text" id="secao_titulo" name="area_titulo">
-            </div>
+                <div class="bloco">
+                    <label for="referencia">REFERÊNCIA: </label>
+                    <textarea type="text" id="referencia" name="referencia"></textarea>
+                </div>
 
-            <h3>RENDA E TRABALHOS:</h3>
-
-            <div class="bloco1">
-                <label for="profissao">PROFISSÃO: </label>
-                <select id="profissao" name="profissao">
-                    <option value="">SELECIONE</option>
-                    <option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>
-                    <option value="AUTÔNOMO">AUTÔNOMO</option>
-                    <option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>
-                    <option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>
-                    <option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>
-                    <option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>
-                    <option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>
-                    <option value="OUTRO">OUTRO</option>
-                </select>
-            </div>
-            <div class="bloco">
-                <label for="renda_per">RENDA PER CAPITA: </label>
-                <input type="text" id="renda_per" name="renda_per">
-            </div>
-
-            <h3>RESiDÊNCIA:</h3>
-
-            <div class="bloco1">
-                <label for="bairro">BAIRRO: </label>
-                <input type="text" id="bairro" name="bairro">
-            </div>
-            <div class="bloco">
-                <label for="log">LOGRADOURO: </label>
-                <input type="text" id="log" name="log">
-
-                <label for="numero">NUMERO: </label>
-                <input type="text" id="numero" name="numero">
-            </div>
-
-            <div class="bloco">
-                <label for="referencia">REFERÊNCIA: </label>
-                <textarea type="text" id="referencia" name="referencia"></textarea>
-            </div>
-
-            <div class="bloco">
-                <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
-                <input type="text" id="qtd_pessoa" name="qtd_pessoa">
-            </div>
-
-            <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
+                <div class="bloco">
+                    <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
+                    <input type="text" id="qtd_pessoa" name="qtd_pessoa">
+                </div>
+                <div class="btn">
+                    <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
+                </div>
         </form>
     </div>
 
     <script>
 
         $(document).ready(function () {
+       $(document).ready(function () {
             var timer;
 
             $('#cpf').on('input', function () {
@@ -292,10 +392,86 @@
                             }
                         });
 
+
+
+                        // ============== CODIGO PCD INDIGENA E QUILOMBOA ===============================
+
+                        var cod_fam_ind = data.cod_fam_ind;
+                        if (cod_fam_ind == 1) {
+                            $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
+                            $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
+
+                            $('#povoIndigena').val(data.povoIndigena);
+                            $('#povoIndigena').prop('disabled', false);
+                        } else {
+                            $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
+                            $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
+
+                            $('#povoIndigena').val(data.povoIndigena);
+                            $('#povoIndigena').prop('disabled', true);
+                        }
+
+                        var cod_indigena_res = data.cod_indigena_res;
+                        if (cod_indigena_res == 0) {
+                            $('input[name="grupoReserva"][value="1"]').prop('checked', false);
+                            $('input[name="grupoReserva"][value="2"]').prop('checked', true);
+
+                            $('#terraIndigina').val(data.terraIndigina);
+                            $('#terraIndigina').prop('disabled', true);
+                            $('#naoSabeTerraIndigina').prop('disabled', true);
+                        } else {
+                            $('input[name="grupoReserva"][value="1"]').prop('checked', true);
+                            $('input[name="grupoReserva"][value="2"]').prop('checked', false);
+
+                            $('#terraIndigina').val(data.terraIndigina);
+                            $('#terraIndigina').prop('disabled', false);
+                            $('#naoSabeTerraIndigina').prop('disabled', false);
+                        }
+
+                        // Evento quando a opção do grupoReserva é alterada
+                        $('input[name="grupoReserva"]').on('change', function () {
+                            if ($(this).val() == '1') {  // Se selecionar "Sim"
+                                $('#terraIndigina').prop('disabled', false);
+                                $('#naoSabeTerraIndigina').prop('checked', false);
+                                $('#naoSabeTerraIndigina').prop('disabled', false);
+                            } else {  // Se selecionar "Não"
+                                $('#terraIndigina').prop('disabled', true);
+                                $('#naoSabeTerraIndigina').prop('checked', true);
+                                $('#naoSabeTerraIndigina').prop('disabled', true);
+                            }
+                        });
+
+                        // Evento quando a opção do grupoIndigena é alterada
+                        $('input[name="grupoIndigena"]').on('change', function () {
+                            if ($(this).val() == '1') {  // Se selecionar "Sim"
+                                $('#povoIndigena').prop('disabled', false);
+                            } else {  // Se selecionar "Não"
+                                $('#povoIndigena').prop('disabled', true);
+                            }
+                        });
+
+
+
+
+                        var povoIndigenaSelect = $('#povoIndigena');
+                        povoIndigenaSelect.empty();
+
+
+                        var nomFamInd = data.povoIndigena;
+                        if (nomFamInd) {
+                            povoIndigenaSelect.append('<option value="' + nomFamInd + '">' + nomFamInd + '</option>');
+                        }
+
+                        //==================================================================================
+
+
+
+
                         $('#nome_mae').val(data.nome_mae);
                         $('#nome_pai').val(data.nome_pai);
                         $('#data_nasc').val(data.data_nasc);
                         $('#nat_pessoa').val(data.nat_pessoa);
+
                         var ufSelect = $('#uf_pessoa');
                         ufSelect.empty();
                         ufSelect.append('<option value="">SELECIONE</option>');
@@ -330,9 +506,6 @@
                         if (data.uf_pessoa) {
                             ufSelect.val(data.uf_pessoa.toUpperCase());
                         }
-
-
-
                         $('#nac_pessoa').val(data.nac_pessoa);
                         $('#tel_pessoa').val(data.tel_pessoa);
                         // Aplicar máscara ao telefone
@@ -367,6 +540,7 @@
                         $('#renda_per').val(data.renda_per);
                         $('#referencia').val(data.referencia);
                         $('#qtd_pessoa').val(data.qtd_pessoa);
+
                     } else {
                         $('#nome').val('');
                         $('#bairro').val('');
