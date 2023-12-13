@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuários</title>
-    <link rel="stylesheet" href="/Suas-Tech/cras    /css/index.css">
+    <link rel="stylesheet" href="/Suas-Tech/cras/css/index.css">
     <link rel="website icon" type="png" href="/Suas-Tech/cozinha_comunitaria/img/logo.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -34,9 +34,9 @@
             </div>
             <div class="bloco2">
                 <div class="bloco1">
-                    <div class="element1" 1>
+                    <div class="element1">
                         <label for="nome">NOME: </label>
-                        <input type="text" id="nome" name="nome">
+                        <input class="inpu" type="text" id="nome" name="nome">
                     </div>
                     <div class="element">
                         <label for="nome_social">NOME SOCIAL: </label>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="element">
                         <label for="nome_mae">NOME MÃE: </label>
-                        <input type="text" id="nome_mae" name="nome_mae">
+                        <input class="inpu" type="text" id="nome_mae" name="nome_mae">
                     </div>
                     <div class="element">
                         <label for="nac_pessoa">NACIONALIDADE: </label>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="element">
                         <label for="email_pessoa">EMAIL: </label>
-                        <input type="email" id="email_pessoa" name="email_pessoa">
+                        <input class="inpu" type="email" id="email_pessoa" name="email_pessoa">
                     </div>
 
                 </div>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="element">
                         <label for="nome_pai">NOME PAI: </label>
-                        <input type="text" id="nome_pai" name="nome_pai">
+                        <input class="inpu" type="text" id="nome_pai" name="nome_pai">
                     </div>
                     <div class="element">
                         <label for="uf_pessoa">UF: </label>
@@ -127,69 +127,54 @@
                     <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
                 </div>
             </div>
-            <div class="bloco1">
-                <h4>PORTADOR DE DEFICIÊNCIA: </h4>
-                <div class="bloco1">
-                    <input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA
-                    <input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO
+                <h5>PORTADOR DE DEFICIÊNCIA: </h5>
+            <div class="bloco2">    
+                <div class="pcd">
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA</div>     
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA</div>
                 </div>
+                <div class="pcd">
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU
+                    INTELECTUAL</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL</div>
+                </div>
+            </div>
                 <div class="bloco">
-                    <input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA
-                    <input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA
-                    <div class="bloco">
-                        <input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA
-                        <input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU
-                        INTELECTUAL
+                    <div class="bloco1">
+                        <h5>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h5>
+
+                        <h5>3.01 - A FAMILIA É INDIGENA?</h5>
+                        <input type="radio" name="grupoIndigena" value="1">1 - Sim
+                        <input type="radio" name="grupoIndigena" value="2">2 - Não
                     </div>
                     <div class="bloco">
-                        <input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN
-                        <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL
+                        <h5>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
+
+                        <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
                     </div>
-                </div>
-                <div class="bloco">
+                    <div class="bloco">
+                        <h5>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
 
-                    <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
-
-                    <label>3.01 - A FAMILIA É INDIGENA?</label>
-                    <br>
-                    <input type="radio" name="grupoIndigena" value="1">1 - Sim
-                    <input type="radio" name="grupoIndigena" value="2">2 - Não
-                    </li>
-
-                    <li id="divPovoIndigena" class="bloco">
-                        <ul>
-                            <li>
-                                <label>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</label>
-                                <br>
-
-                                <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-                            </li>
-                            <li class="clear"></li>
-                            <li>
-                                <label>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</label>
-                                <br>
-                                <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
-                                <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
-                            </li>
-                            <li class="clear"></li>
-                            <li>
-
-                                <label>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</label>
-                                <br>
-                                <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-
-
-                                <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
-                                    style="margin-left:25px;"> 2 - Não sabe
-                            </li>
-                        </ul>
-                    </li>
+                        <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
+                        <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
+                    </div>
+                    <div class="bloco">
+                        <h5>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
+                        <br>
+                        <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
+                            style="margin-left:25px;"> 2 - Não sabe
+                    </div>
                 </div>
                 <div class="bloco">
                     <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
