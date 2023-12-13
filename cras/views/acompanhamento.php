@@ -1,6 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -11,10 +13,119 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <link rel="stylesheet" href="">
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Fluxo Diário</title>
+    <title>Encaminhamento</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../js/cpfvalid.js"></script>
 
 </head>
 <body>
-    <h1>FLUXO DIÁRO</h1>
+    <h1>ACOMPANHAMENTO</h1>
 
+    <div class="decprefeitura">
+            <form method="" action="">
+                <h2>Informe o CPF ou NIS para buscar o usuário</h2>
+                <select name="buscar_dados" required>
+                    <option value="cpf_dec" >CPF:</option>
+                    <option value="nis_dec">NIS:</option>
+                </select>
+
+                <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
+                <button type="submit">BUSCAR</button>
+                </form>
+
+                <?php
+if (!isset($_GET['buscar_dados'])) {
+
+} else {
+    if ($_GET['buscar_dados'] == 'cpf_dec') {
+
+        $cpf = $_GET['valorescolhido'];
+        $sql = $pdo->prepare("SELECT * FROM cras WHERE cpf = :valorescolhido");
+        $sql->execute(array(':valorescolhido' => $cpf));
+
+        $data_atual = date('d/m/Y H:i:s');
+
+        if ($sql->rowCount() > 0) {
+            $dados = $sql->fetch(PDO::FETCH_ASSOC);
+            $real_br_formatado = number_format($dados['renda_per'], 2, ',', '.');
+            $dataFormatada = date("d/m/Y", strtotime($dados['data_nasc']));
+            ?>
+            <form method="POST" action="##">
+            <?php
+            echo "NOME: " . $dados['nome'] . "<br>";
+            echo "NIS: " . $dados['nis'] . "<br>";
+            echo "DATA DE NASCIMENTO: " . $dataFormatada . "<br>";
+            echo "ENDEREÇO: " . $dados['logradouro'] . ", " . $dados['numero'] . " - " . $dados['bairro'] . "<br>";
+            echo "RENDA PER-CAPITA: R$ " . $real_br_formatado . "<br>";
+            echo "NOME DE MÃE: " . $dados['nome_mae'] . "<br>";
+            echo "NATURALIDADE: " . $dados['nat_pessoa'] . "<br>";
+            echo "DATA: " . $data_atual . "<br>";
+
+            ?>
+            <hr>
+                <label>Parecer técnico: </label><br>
+                <textarea id="" name="texto" required  oninput="ajustarTextarea(this)"></textarea>
+                <div class="setor">
+    <label>Setor:</label>
+    <select name="setor" required>
+        <option value="" disabled selected hidden>Selecione</option>
+        <?php
+
+$consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
+
+// Verifica se há resultados na consulta
+if ($consultaSetores->num_rows > 0) {
     
+    // Loop para criar as opções do select
+    while ($setor = $consultaSetores->fetch_assoc()) {
+        echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
+    }
+}
+?>
+    </select>
+</div>
+
+                <button type="submit">ENVIAR</button>
+
+
+        </form>
+            <?php
+
+        } else {
+            echo '<script>alert("Não foi localizado nenhum cadastro com esse CPF"); window.location.href = "acompanhamento.php";</script>';
+        }
+
+    } elseif ($_GET['buscar_dados'] == 'nis_dec') {
+
+        $nis = $_GET['valorescolhido'];
+        $sql = $pdo->prepare("SELECT * FROM cras WHERE nis = :valorescolhido");
+        $sql->execute(array(':valorescolhido' => $nis));
+
+        $data_atual = date('d/m/Y H:i:s');
+
+        if ($sql->rowCount() > 0) {
+            $dados = $sql->fetch(PDO::FETCH_ASSOC);
+            $real_br_formatado = number_format($dados['renda_per'], 2, ',', '.');
+            $dataFormatada = date("d/m/Y", strtotime($dados['data_nasc']));
+
+            echo "NOME: " . $dados['nome'] . "<br>";
+            echo "NIS: " . $dados['nis'] . "<br>";
+            echo "DATA DE NASCIMENTO: " . $dataFormatada . "<br>";
+            echo "ENDEREÇO: " . $dados['logradouro'] . ", " . $dados['numero'] . " - " . $dados['bairro'] . "<br>";
+            echo "RENDA PER-CAPITA: R$ " . $real_br_formatado . "<br>";
+            echo "NOME DE MÃE: " . $dados['nome_mae'] . "<br>";
+            echo "NATURALIDADE: " . $dados['nat_pessoa'] . "<br>";
+            echo "DATA: " . $data_atual . "<br>";
+
+        } else {
+            echo '<script>alert("Não foi localizado nenhum cadastro com esse CPF"); window.location.href = "acompanhamento.php";</script>';
+        }
+    }
+
+}
+?>
+
+</body>
+</html>
