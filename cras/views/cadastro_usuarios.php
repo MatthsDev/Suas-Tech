@@ -122,8 +122,6 @@
                     </div>
                 </div>
             </div>
-            <div class="titulo">
-                <div class="titulo1">
                     <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
                 </div>
             </div>
@@ -178,6 +176,7 @@
                                     style="margin-left:25px;"> 2 - Não sabe 
                                 </div>
                     </div>
+
                     <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
 
                     <label>3.01 - A FAMILIA É INDIGENA?</label>
@@ -221,7 +220,7 @@
                         </ul>
                     </li>
 
-
+>>>>>>> de0798939871548554fb3fcd5063f7dcb962bb0b
                 </div>
                 <div class="bloco">
                     <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
@@ -331,7 +330,8 @@
 
     <script>
 
-$(document).ready(function () {
+        $(document).ready(function () {
+       $(document).ready(function () {
             var timer;
 
             $('#cpf').on('input', function () {
