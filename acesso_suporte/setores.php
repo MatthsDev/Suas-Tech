@@ -122,8 +122,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 </div>
     <script src="../cadunico/js/cpfvalid.js"></script>
     <script src="../cadunico/js/personalise.js"></script>
-
+    <script src='../controller/back.js'></script>
 </body>
+
 </html>
         <?php
 } else {
@@ -134,11 +135,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 } else {
     ?> <label>Informe o CPF do responsável pela a unidade.</label> 
 <div class="btns">
-    <a href="../cadunico/painel-adm/adm-view.php">
+    <a onclick="goBack()">
     <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
 </div>  
     <?php
 }
-
 ?>
+    <script src='../controller/back.js'></script>
