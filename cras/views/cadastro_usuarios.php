@@ -7,6 +7,7 @@
     <title>Cadastrar Usuários</title>
     <link rel="stylesheet" href="/Suas-Tech/cras/css/index.css">
     <link rel="website icon" type="png" href="/Suas-Tech/cozinha_comunitaria/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -24,8 +25,11 @@
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
-                    placeholder="Digite o CPF">
+                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"placeholder="Digite o CPF">
+                
+                <a  onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
             </div>
             <div class="titulo">
                 <div class="titulo1">
@@ -283,6 +287,7 @@
     </div>
 
     <script src="../js/ajax_request.js"></script>
+    <script src='../../controller/back.js'></script>
 
 </body>
 
