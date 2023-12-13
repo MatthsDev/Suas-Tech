@@ -86,8 +86,6 @@ if (!empty($cpfLimpo)) {
             $response['cod_indigena_res'] = $cod_indigena_res; //RESIDE EM RESERVA
 
             
-
-
             //==================================================================================
 
 
