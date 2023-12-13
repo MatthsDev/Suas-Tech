@@ -36,7 +36,7 @@ if (!empty($cpfLimpo)) {
             $nom_localidade_fam = $row["nom_localidade_fam"];
             $nom_titulo_logradouro_fam = $row["nom_titulo_logradouro_fam"];
 
-          
+
             if ($nom_titulo_logradouro_fam == "") {
                 $nom_tit = "";
             } else {
@@ -45,7 +45,7 @@ if (!empty($cpfLimpo)) {
 
             $txt_referencia_local_fam = $row["txt_referencia_local_fam"];
 
-       
+
             if ($txt_referencia_local_fam == "") {
                 $referencia = "SEM REFERÊNCIA";
             } else {
@@ -75,6 +75,20 @@ if (!empty($cpfLimpo)) {
             $response['uf_pessoa'] = $row['sig_uf_munic_nasc_pessoa'];
 
 
+            // ============== CODIGO PCD INDIGENA E QUILOMBOA ===============================
+            $cod_fam_ind = $row['cod_familia_indigena_fam'];
+            $response['cod_fam_ind'] = $cod_fam_ind;
+
+            $nom_fam_ind = $row['nom_povo_indigena_fam']; 
+            $response['povoIndigena'] = $nom_fam_ind;
+
+            $cod_indigena_res = $row['cod_indigena_reside_fam'];
+            $response['cod_indigena_res'] = $cod_indigena_res;
+
+
+            //==================================================================================
+
+
             $response['nat_pessoa'] = $row['nom_ibge_munic_nasc_pessoa'];
 
             $nacionalidade = $row['nom_pais_origem_pessoa'];
@@ -83,6 +97,7 @@ if (!empty($cpfLimpo)) {
             }
 
             $response['tel_pessoa'] = $row['num_tel_contato_1_fam'];
+            
             // $response['email_pessoa'] = $row[''];
             $response['rg'] = $row['num_identidade_pessoa'];
             $response['complemento_rg'] = $row['cod_complemento_pessoa'];

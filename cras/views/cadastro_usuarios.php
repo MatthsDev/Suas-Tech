@@ -145,8 +145,8 @@
 
                     <label>3.01 - A FAMILIA É INDIGENA?</label>
                     <br>
-                    <input type="radio" name="familiaIndigena" value="1">1 - Sim
-                    <input type="radio" name="familiaIndigena" value="2">2 - Não
+                    <input type="radio" name="grupoIndigena" value="1">1 - Sim
+                    <input type="radio" name="grupoIndigena" value="2">2 - Não
                     </li>
 
                     <li id="divPovoIndigena" class="bloco">
@@ -164,8 +164,8 @@
                             <li>
                                 <label>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</label>
                                 <br>
-                                <input type="radio" name="resideTerraIndigena" value="1">1 - Sim
-                                <input type="radio" name="resideTerraIndigena" value="2">2 - Não
+                                <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
+                                <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
                             </li>
                             <li class="clear"></li>
                             <li>
@@ -353,10 +353,53 @@
                             }
                         });
 
+
+
+                        // ============== CODIGO PCD INDIGENA E QUILOMBOA ===============================
+
+                        var cod_fam_ind = data.cod_fam_ind;
+                        if (cod_fam_ind == 1) {
+                            $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
+                            $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
+                        } else {
+                            $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
+                            $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
+                        }
+
+
+                        var cod_indigena_res = data.cod_indigena_res;
+                        if (cod_indigena_res == 0) {
+                            $('input[name="grupoReserva"][value="1"]').prop('checked', false);
+                            $('input[name="grupoReserva"][value="2"]').prop('checked', true);
+
+                            $('#terraIndigina').val(data.terraIndigina);
+                            $('#terraIndigina').prop('disabled', false);
+                        } else {
+                            $('input[name="grupoReserva"][value="1"]').prop('checked', true);
+                            $('input[name="grupoReserva"][value="2"]').prop('checked', false);
+                        }
+
+
+                        // Dentro da função verificarUsuario()
+                        var povoIndigenaSelect = $('#povoIndigena');
+                        povoIndigenaSelect.empty(); // Limpar opções existentes
+
+                        // Adicione a opção com o nome do povo indígena
+                        var nomFamInd = data.povoIndigena;
+                        if (nomFamInd) {
+                            povoIndigenaSelect.append('<option value="' + nomFamInd + '">' + nomFamInd + '</option>');
+                        }
+
+                        //==================================================================================
+
+
+
+
                         $('#nome_mae').val(data.nome_mae);
                         $('#nome_pai').val(data.nome_pai);
                         $('#data_nasc').val(data.data_nasc);
                         $('#nat_pessoa').val(data.nat_pessoa);
+
                         var ufSelect = $('#uf_pessoa');
                         ufSelect.empty();
                         ufSelect.append('<option value="">SELECIONE</option>');
