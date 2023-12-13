@@ -2,16 +2,16 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 $cpf = $_POST['cpf'];
-// $cpfLimpo = preg_replace('/[^0-9]/', '', $cpf);
-// $cpfLimpo = ltrim($cpfLimpo, '0');
+$cpfLimpo = preg_replace('/[^0-9]/', '', $cpf);
+$cpfLimpo = ltrim($cpfLimpo, '0');
 
 
 
 $response = array();
 
 
-if (!empty($cpf)) {
-    $sql = "SELECT * FROM tbl_tudo WHERE cod_familiar_fam = '$cpf'";
+if (!empty($cpfLimpo)) {
+    $sql = "SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = '$cpfLimpo'";
     $result = $conn->query($sql);
 
 
