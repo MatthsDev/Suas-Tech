@@ -27,11 +27,14 @@
                 <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
                     placeholder="Digite o CPF">
             </div>
-
-            <h3>IDENTIFICAÇÃO:</h3>
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>IDENTIFICAÇÃO:</h3>
+                </div>
+            </div>
             <div class="bloco2">
                 <div class="bloco1">
-                    <div class="element" 1>
+                    <div class="element1" 1>
                         <label for="nome">NOME: </label>
                         <input type="text" id="nome" name="nome">
                     </div>
@@ -119,11 +122,14 @@
                     </div>
                 </div>
             </div>
-            <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
-
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
+                </div>
+            </div>
             <div class="bloco1">
-                <h2>PORTADOR DE DEFICIÊNCIA: </h2>
-                <div class="bloco">
+                <h4>PORTADOR DE DEFICIÊNCIA: </h4>
+                <div class="bloco1">
                     <input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA
                     <input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO
                 </div>
@@ -141,76 +147,57 @@
                     </div>
                 </div>
                 <div class="bloco">
-                    <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
-
-                    <label>3.01 - A FAMILIA É INDIGENA?</label>
-                    <br>
-                    <input type="radio" name="familiaIndigena" value="1">1 - Sim
-                    <input type="radio" name="familiaIndigena" value="2">2 - Não
-                    </li>
-
-                    <li id="divPovoIndigena" class="bloco">
-                        <ul>
-                            <li>
-                                <label>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</label>
-                                <br>
-
-                                <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
+                    <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
+                    <div class="bloco1">
+                        <h5>3.01 - A FAMILIA É INDIGENA?</h5>
+                        <input type="radio" name="familiaIndigena" value="1">1 - Sim
+                        <input type="radio" name="familiaIndigena" value="2">2 - Não
+                    </div>
+                    <div id="divPovoIndigena" class="bloco1">
+                                <div class="bloco">
+                                    <h5>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
+                                    <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
                                     <option value=""></option>
                                     <option value=""></option>
-                                </select>
-                            </li>
-                            <li class="clear"></li>
-                            <li>
-                                <label>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</label>
-                                <br>
-                                <input type="radio" name="resideTerraIndigena" value="1">1 - Sim
-                                <input type="radio" name="resideTerraIndigena" value="2">2 - Não
-                            </li>
-                            <li class="clear"></li>
-                            <li>
-
-                                <label>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</label>
-                                <br>
-                                <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                </select>
-
-
-                                <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
-                                    style="margin-left:25px;"> 2 - Não sabe
-                            </li>
-                        </ul>
-                    </li>
-
+                                    </select>
+                                </div>
+                                
+                                <div class="bloco">
+                                    <h5>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
+                                    <input type="radio" name="resideTerraIndigena" value="1">1 - Sim
+                                    <input type="radio" name="resideTerraIndigena" value="2">2 - Não
+                                </div>
+                                <div class="bloco">
+                                    <h5>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
+                                    <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
+                                    style="margin-left:25px;"> 2 - Não sabe 
+                                </div>
+                    </div>
                 </div>
                 <div class="bloco">
-                    <h2> 3.05 - FAMILIA QUILOMBOLA </h2>
-                    <li>
-                        <input type="radio" name="familiaQuilambola" value="1">1 - Sim
-                        <input type="radio" name="familiaQuilambola" value="2">2 - Não
-                    </li>
-                    <br>
-                    <li>
-                        <label>3.06 - Qual é o nome da comunidade quilombola?</label>
-                        <br>
-
+                    <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
+                    <input type="radio" name="familiaQuilambola" value="1">1 - Sim
+                    <input type="radio" name="familiaQuilambola" value="2">2 - Não
+                </div>
+                <div class ="bloco">
+                    <h5>3.06 - Qual é o nome da comunidade quilombola?</h5>
                         <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
                             style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
                             <option value=""></option>
                             <option value=""></option>
                         </select>
-
-
                         <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1"
                             id="naoSabeComunidadeQuilambola" style="margin-left:25px;">2 - Não consta no município
-                    </li>
-                    <br>
                 </div>
-
-                <h3>DOCUMENTAÇÃO:</h3>
-
+                <div class="titulo">
+                    <div class="titulo1">
+                        <h3>DOCUMENTAÇÃO:</h3>
+                    </div>
+                </div>
                 <div class="bloco1">
                     <label for="rg">RG: </label>
                     <input type="text" id="rg" name="rg">
@@ -242,9 +229,11 @@
                     <label for="area_titulo">SEÇÃO: </label>
                     <input type="text" id="secao_titulo" name="area_titulo">
                 </div>
-
-                <h3>RENDA E TRABALHOS:</h3>
-
+                <div class="titulo">
+                    <div class="titulo1">
+                        <h3>RENDA E TRABALHOS:</h3>
+                    </div>
+                </div>
                 <div class="bloco1">
                     <label for="profissao">PROFISSÃO: </label>
                     <select id="profissao" name="profissao">
@@ -263,9 +252,11 @@
                     <label for="renda_per">RENDA PER CAPITA: </label>
                     <input type="text" id="renda_per" name="renda_per">
                 </div>
-
-                <h3>RESiDÊNCIA:</h3>
-
+                <div class="titulo">
+                    <div class="titulo1">
+                        <h3>RESiDÊNCIA:</h3>       
+                    </div>
+                </div>
                 <div class="bloco1">
                     <label for="bairro">BAIRRO: </label>
                     <input type="text" id="bairro" name="bairro">
@@ -287,8 +278,9 @@
                     <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
                     <input type="text" id="qtd_pessoa" name="qtd_pessoa">
                 </div>
-
-                <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
+                <div class="btn">
+                    <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
+                </div>
         </form>
     </div>
 
