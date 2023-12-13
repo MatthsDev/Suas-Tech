@@ -17,14 +17,16 @@
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg"
+                alt="Titulocomimagem">
         </h1>
     </div>
     <div class="container">
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF">
+                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
+                    placeholder="Digite o CPF">
 
                 <a onclick="goBack()">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
@@ -135,15 +137,21 @@
                 <div class="pcd">
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ
+                        SEVERA/PROFUNDA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ
+                        LEVE/MODERADA</div>
                 </div>
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA
+                        FISICA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA
+                        MENTAL OU
                         INTELECTUAL</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN
+                    </div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA
+                        MENTAL</div>
                 </div>
             </div>
             <div class="bloco">
@@ -162,11 +170,11 @@
                         <option value=""></option>
                     </select>
                 </div>
-                
+
                 <div class="bloco">
-                    <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
-                    <input type="radio" name="familiaQuilambola" value="1">1 - Sim
-                    <input type="radio" name="familiaQuilambola" value="2">2 - Não
+                    <h5> RESIDE EM RESERVA INDIGENA? </h5>
+                    <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
+                    <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
                 </div>
                 <div class="bloco">
                     <h5> QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
@@ -175,7 +183,8 @@
                         <option value=""></option>
                         <option value=""></option>
                     </select>
-                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina" style="margin-left:25px;"> 2 - Não sabe
+                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
+                        style="margin-left:25px;"> 2 - Não sabe
                 </div>
             </div>
             <div class="bloco">
@@ -185,11 +194,13 @@
             </div>
             <div class="bloco">
                 <h5> Qual é o nome da comunidade quilombola?</h5>
-                <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola" style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
+                    style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
                     <option value=""></option>
                     <option value=""></option>
                 </select>
-                <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1" id="naoSabeComunidadeQuilambola" style="margin-left:25px;">2 - Não consta no município
+                <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1" id="naoSabeComunidadeQuilambola"
+                    style="margin-left:25px;">2 - Não consta no município
             </div>
             <div class="titulo">
                 <div class="titulo1">
