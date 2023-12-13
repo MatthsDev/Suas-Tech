@@ -199,15 +199,15 @@
                     <input type="radio" name="familiaQuilambola" value="1">1 - Sim
                     <input type="radio" name="familiaQuilambola" value="2">2 - Não
                 </div>
-                <div class ="bloco">
+                <div class="bloco">
                     <h5>3.06 - Qual é o nome da comunidade quilombola?</h5>
-                        <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
-                            style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                        <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1"
-                            id="naoSabeComunidadeQuilambola" style="margin-left:25px;">2 - Não consta no município
+                    <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
+                        style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                    <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1" id="naoSabeComunidadeQuilambola"
+                        style="margin-left:25px;">2 - Não consta no município
                 </div>
                 <div class="titulo">
                     <div class="titulo1">
@@ -270,7 +270,7 @@
                 </div>
                 <div class="titulo">
                     <div class="titulo1">
-                        <h3>RESiDÊNCIA:</h3>       
+                        <h3>RESiDÊNCIA:</h3>
                     </div>
                 </div>
                 <div class="bloco1">
@@ -302,7 +302,7 @@
 
     <script>
 
-$(document).ready(function () {
+        $(document).ready(function () {
             var timer;
 
             $('#cpf').on('input', function () {
@@ -403,6 +403,13 @@ $(document).ready(function () {
                                 $('#terraIndigina').prop('disabled', false);
                                 $('#naoSabeTerraIndigina').prop('checked', false);
                                 $('#naoSabeTerraIndigina').prop('disabled', false);
+
+                                // Habilitar ou desabilitar o select com base no estado do checkbox
+                                if (!$('#naoSabeTerraIndigina').prop('checked')) {
+                                    $('#terraIndigina').prop('disabled', false);
+                                } else {
+                                    $('#terraIndigina').prop('disabled', true);
+                                }
                             } else {  // Se selecionar "Não"
                                 $('#terraIndigina').prop('disabled', true);
                                 $('#naoSabeTerraIndigina').prop('checked', true);
@@ -418,6 +425,16 @@ $(document).ready(function () {
                                 $('#povoIndigena').prop('disabled', true);
                             }
                         });
+
+                        // Evento quando o checkbox naoSeiTerraIndigina é alterado
+                        $('#naoSabeTerraIndigina').on('change', function () {
+                            if ($(this).prop('checked')) {
+                                $('#terraIndigina').prop('disabled', true);
+                            } else {
+                                $('#terraIndigina').prop('disabled', false);
+                            }
+                        });
+
 
 
 
