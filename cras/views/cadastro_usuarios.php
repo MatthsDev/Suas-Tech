@@ -122,6 +122,8 @@
                     </div>
                 </div>
             </div>
+            <div class="titulo">
+                <div class="titulo1">
                     <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
                 </div>
             </div>
@@ -144,39 +146,9 @@
                         <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL
                     </div>
                 </div>
+
+
                 <div class="bloco">
-
-                    <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
-                    <div class="bloco1">
-                        <h5>3.01 - A FAMILIA É INDIGENA?</h5>
-                        <input type="radio" name="familiaIndigena" value="1">1 - Sim
-                        <input type="radio" name="familiaIndigena" value="2">2 - Não
-                    </div>
-                    <div id="divPovoIndigena" class="bloco1">
-                                <div class="bloco">
-                                    <h5>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
-                                    <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    </select>
-                                </div>
-                                
-                                <div class="bloco">
-                                    <h5>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
-                                    <input type="radio" name="resideTerraIndigena" value="1">1 - Sim
-                                    <input type="radio" name="resideTerraIndigena" value="2">2 - Não
-                                </div>
-                                <div class="bloco">
-                                    <h5>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
-                                    <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select>
-                                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
-                                    style="margin-left:25px;"> 2 - Não sabe 
-                                </div>
-                    </div>
-
                     <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
 
                     <label>3.01 - A FAMILIA É INDIGENA?</label>
@@ -219,9 +191,9 @@
                             </li>
                         </ul>
                     </li>
-
->>>>>>> de0798939871548554fb3fcd5063f7dcb962bb0b
                 </div>
+
+
                 <div class="bloco">
                     <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
                     <input type="radio" name="familiaQuilambola" value="1">1 - Sim
@@ -330,8 +302,7 @@
 
     <script>
 
-        $(document).ready(function () {
-       $(document).ready(function () {
+$(document).ready(function () {
             var timer;
 
             $('#cpf').on('input', function () {
