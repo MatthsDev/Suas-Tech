@@ -89,10 +89,14 @@ if (!empty($cpfLimpo)) {
             $terra_indigina_fam = $row['nom_reserva_indigena_fam'];
             $response['terraIndigina'] = $terra_indigina_fam;
 
+          
+
             $cod_fam_qui = $row['ind_familia_quilombola_fam'];
             $response['familiaQuilambola'] = $cod_fam_qui;//FAMILIA INDIGINA S/N
 
-            
+            $nom_fam_quilo = $row['nom_comunidade_quilombola_fam'];
+            $response['comunidadeQuilambola'] = $nom_fam_quilo;
+
             
 
 //=================================================================================================================================
