@@ -42,15 +42,6 @@ include_once '../controller/acesso_user/dados_usuario.php';
           </a>
         </div>
 
-        <div class="cadastrar">
-          <a class="menu-button" onclick="location.href='../../acesso_suporte/setores.php';">
-            <span class="material-symbols-outlined">
-            domain_add
-            </span>
-            Cadastrar Setores
-          </a>
-        </div>
-
         <div class="formularios">
           <a class="menu-button" onclick="location.href='../views/forms/menuformulario.php';">
             <span class="material-symbols-outlined">

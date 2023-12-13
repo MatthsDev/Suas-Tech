@@ -20,33 +20,44 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     </div>
     <div class="container">
         <div class="menu"> 
-            <nav>
-                <div class="btn">
-                    <a class="menu-button" onclick="location.href='../cadunico/painel-adm/adm-view.php';">
-                    CadÚnico ADM
-                    </a>
-                </div> 
-                <div class="btn">
-                    <a class="menu-button" onclick="location.href='../cadunico/painel-usuario/user-painel.php';">
-                    CadÚnico USER
-                    </a>
+                <div class="bloco1">
+                    <div class="btn">
+                        <a class="menu-button" onclick="location.href='../cadunico/painel-adm/adm-view.php';">
+                        CadÚnico ADM
+                        </a>
+                    </div> 
+                    <div class="btn">
+                        <a class="menu-button" onclick="location.href='../cadunico/painel-usuario/user-painel.php';">
+                        CadÚnico USER
+                        </a>
+                    </div>    
+                    <div class="btn">
+                            <a class="menu-button" onclick="location.href='../cozinha_comunitaria/menu.php';">
+                            Cozinha Comunitária
+                            </a>
+                    </div>
                 </div>    
-                <div class="btn">
-                        <a class="menu-button" onclick="location.href='../cozinha_comunitaria/menu.php';">
-                        Cozinha Comunitária
-                        </a>
+                <div class="bloco2">    
+                        <div class="btn">
+                                <a class="menu-button" onclick="location.href='../cras/views/menu-cras-am.php';">
+                                CRAS Antonio Matias
+                                </a>
+                        </div>
+                        <div class="btn">
+                                <a class="menu-button" onclick="location.href='../cras/views/menu-cras-st.php';">
+                                CRAS Santo Afonso
+                                </a>
+                        </div>
+                        <div class="btn">
+                                <a class="menu-button" onclick="location.href='setores.php';">
+                                <span class="material-symbols-outlined">
+                                domain_add
+                                </span>
+                                Cadastrar Setores
+                                </a>
+                        </div>
+                    </div> 
                 </div>
-                <div class="btn">
-                        <a class="menu-button" onclick="location.href='../cras/views/menu-cras-am.php';">
-                        CRAS Antonio Matias
-                        </a>
-                </div>
-                <div class="btn">
-                        <a class="menu-button" onclick="location.href='../cras/views/menu-cras-st.php';">
-                        CRAS Santo Afonso
-                        </a>
-                </div>
-            </nav>
         </div>  
         <div class="drop-all">
             <div class="menu-drop">

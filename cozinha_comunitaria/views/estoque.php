@@ -46,7 +46,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
                         </a>
                 </div>
                 <div class="btn">
-                        <a class="menu-button" onclick="location.href='menu.php';">
+                        <a class="menu-button" onclick="goBack()">
                         <span class="material-symbols-outlined">
                         keyboard_backspace
                         </span>
@@ -55,6 +55,6 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
                 </div>
             </nav>
     </div>    
-
+    <script src='../../controller/back.js'></script>
 </body>
 </html>

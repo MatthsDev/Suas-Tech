@@ -97,7 +97,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
 
         <button type="submit">Salvar Alterações</button>
         
-        <a href="<?php echo $caminhomenu; ?>">
+        <a  onclick="goBack()">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
         </a>
     </form>
@@ -106,6 +106,9 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
 </div>
     
         <script src='../../cadunico/js/personalise.js'></script>
+        <script src='../../controller/back.js'></script>
+        
+        
 </body>
 
 </html>
