@@ -122,8 +122,6 @@
                     </div>
                 </div>
             </div>
-            <div class="titulo">
-                <div class="titulo1">
                     <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
                 </div>
             </div>
