@@ -52,7 +52,7 @@ if (!isset($_GET['buscar_dados'])) {
             $real_br_formatado = number_format($dados['renda_per'], 2, ',', '.');
             $dataFormatada = date("d/m/Y", strtotime($dados['data_nasc']));
             ?>
-            <form method="POST" action="##">
+            <form method="POST" action="../controller/processo_acompanhamento.php">
             <?php
             echo "NOME: " . $dados['nome'] . "<br>";
             echo "NIS: " . $dados['nis'] . "<br>";
@@ -66,7 +66,7 @@ if (!isset($_GET['buscar_dados'])) {
             ?>
             <hr>
                 <label>Parecer técnico: </label><br>
-                <textarea id="" name="texto" required  oninput="ajustarTextarea(this)"></textarea>
+                <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
                 <div class="setor">
     <label>Setor:</label>
     <select name="setor" required>
@@ -85,6 +85,9 @@ if ($consultaSetores->num_rows > 0) {
 }
 ?>
     </select>
+
+    <label>Itens concedidos:</label>
+    <input type="text" name="itens_conc" placeholder="Descreva o que está sendo concedido a família">
 </div>
 
                 <button type="submit">ENVIAR</button>
