@@ -147,7 +147,7 @@
                     </div>
                 </div>
                 <div class="bloco">
-                    
+
                     <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
                     <div class="bloco1">
                         <h5>3.01 - A FAMILIA É INDIGENA?</h5>
@@ -333,6 +333,7 @@
     <script>
 
         $(document).ready(function () {
+       $(document).ready(function () {
             var timer;
 
             $('#cpf').on('input', function () {
