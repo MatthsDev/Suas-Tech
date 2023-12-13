@@ -361,9 +361,13 @@
                         if (cod_fam_ind == 1) {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
+
                         } else {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
+
+                            $('#povoIndigena').val(data.povoIndigena);
+                            $('#povoIndigena').prop('disabled', true);
                         }
 
 
