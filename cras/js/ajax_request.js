@@ -82,6 +82,7 @@ function verificarUsuario() {
                     $('#terraIndigina').val(data.terraIndigina);
                     $('#terraIndigina').prop('disabled', true);
                     $('#naoSabeTerraIndigina').prop('disabled', true);
+
                 } else {
                     $('input[name="grupoReserva"][value="1"]').prop('checked', true);
                     $('input[name="grupoReserva"][value="2"]').prop('checked', false);
@@ -90,6 +91,8 @@ function verificarUsuario() {
                     $('#terraIndigina').prop('disabled', false);
                     $('#naoSabeTerraIndigina').prop('disabled', false);
                 }
+
+
                 // Evento quando a opção do grupoReserva é alterada
                 $('input[name="grupoReserva"]').on('change', function () {
                     var terraIndiginaSelect = $('#terraIndigina');
@@ -139,6 +142,7 @@ function verificarUsuario() {
                 //========== FUNCAO SELECT INDIGENA ================================================
                 var terraIndiginaSelect = $('#terraIndigina');
                 terraIndiginaSelect.empty();
+
                 var terraFam = data.terraIndigina;
                 if (terraFam) {
                     terraIndiginaSelect.append('<option value="' + terraFam + '">' + terraFam + '</option>');
@@ -161,16 +165,57 @@ function verificarUsuario() {
                     $('input[name="familiaQuilambola"][value="1"]').prop('checked', true);
                     $('input[name="familiaQuilambola"][value="2"]').prop('checked', false);
 
-                    // $('#povoIndigena').val(data.povoIndigena);
-                    // $('#povoIndigena').prop('disabled', false);
+                    $('#comunidadeQuilambola').val(data.comunidadeQuilambola);
+                    $('#comunidadeQuilambola').prop('disabled', false);
                 } else {
                     $('input[name="familiaQuilambola"][value="1"]').prop('checked', false);
                     $('input[name="familiaQuilambola"][value="2"]').prop('checked', true);
 
-                    // $('#povoIndigena').val(data.povoIndigena);
-                    // $('#povoIndigena').prop('disabled', true);
+                    $('#comunidadeQuilambola').val(data.comunidadeQuilambola);
+                    $('#comunidadeQuilambola').prop('disabled', true);
+                    $('#naoSabeTerraQuilo').prop('disabled', true);
                 }
 
+                $('input[name="familiaQuilambola"]').on('change', function () {
+                    var comunidadeQuilambolaSelect = $('#comunidadeQuilambola');
+
+                    if ($(this).val() == '1') {
+                        comunidadeQuilambolaSelect.prop('disabled', false);
+                        $('#naoSabeTerraQuilo').prop('checked', false);
+                        $('#naoSabeTerraQuilo').prop('disabled', false);
+
+                        if (!$('#naoSabeTerraQuilo').prop('checked')) {
+                            comunidadeQuilambolaSelect.prop('disabled', false);
+                        } else {
+                            comunidadeQuilambolaSelect.prop('disabled', true);
+                            comunidadeQuilambolaSelect.val('').trigger('change');
+                        }
+                    } else {
+                        comunidadeQuilambolaSelect.prop('disabled', true);
+                        $('#naoSabeTerraQuilo').prop('checked', true);
+                        $('#naoSabeTerraQuilo').prop('disabled', true);
+                        comunidadeQuilambolaSelect.val('').trigger('change'); 
+                    }
+                });
+
+                $('#naoSabeTerraQuilo').on('change', function () {
+                    var comunidadeQuilambolaSelect = $('#naoSabeTerraQuilo');
+                    if ($(this).prop('checked')) {
+                        comunidadeQuilambolaSelect.prop('disabled', true);
+                        comunidadeQuilambolaSelect.val('').trigger('change');
+                    } else {
+                        comunidadeQuilambolaSelect.prop('disabled', false);
+                    }
+                });
+
+
+
+                var comunidadeQuilambolaSelect = $('#comunidadeQuilambola');
+                comunidadeQuilambolaSelect.empty();
+                var terraQuilo = data.comunidadeQuilambola;
+                if (terraQuilo) {
+                    comunidadeQuilambolaSelect.append('<option value="' + terraQuilo + '">' + terraQuilo + '</option>');
+                }
 //===================================================================================================================================
 
 

@@ -199,7 +199,7 @@
                     <option value=""></option>
                     <option value=""></option>
                 </select>
-                <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1" id="naoSabeComunidadeQuilambola"
+                <input type="checkbox" name="naoSabeTerraQuilo" value="1" id="naoSabeTerraQuilo"
                     style="margin-left:25px;">2 - Não consta no município
             </div>
             <div class="titulo">
