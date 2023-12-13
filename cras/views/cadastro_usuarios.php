@@ -147,7 +147,6 @@
                     </div>
                 </div>
                 <div class="bloco">
-
                     <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
                     <div class="bloco1">
                         <h5>3.01 - A FAMILIA É INDIGENA?</h5>
@@ -178,10 +177,9 @@
                                     style="margin-left:25px;"> 2 - Não sabe 
                                 </div>
                     </div>
-
                     <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
 
-                    <label>3.01 - A FAMILIA É INDIGENA?</label>
+                    <labz01 - A FAMILIA É INDIGENA?</label>
                     <br>
                     <input type="radio" name="grupoIndigena" value="1">1 - Sim
                     <input type="radio" name="grupoIndigena" value="2">2 - Não
@@ -222,7 +220,6 @@
                         </ul>
                     </li>
 
->>>>>>> de0798939871548554fb3fcd5063f7dcb962bb0b
                 </div>
                 <div class="bloco">
                     <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
@@ -333,7 +330,6 @@
     <script>
 
         $(document).ready(function () {
-       $(document).ready(function () {
             var timer;
 
             $('#cpf').on('input', function () {
@@ -400,16 +396,11 @@
                         if (cod_fam_ind == 1) {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
-
-                            $('#povoIndigena').val(data.povoIndigena);
-                            $('#povoIndigena').prop('disabled', false);
                         } else {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
-
-                            $('#povoIndigena').val(data.povoIndigena);
-                            $('#povoIndigena').prop('disabled', true);
                         }
+
 
                         var cod_indigena_res = data.cod_indigena_res;
                         if (cod_indigena_res == 0) {
@@ -419,44 +410,20 @@
                             $('#terraIndigina').val(data.terraIndigina);
                             $('#terraIndigina').prop('disabled', true);
                             $('#naoSabeTerraIndigina').prop('disabled', true);
+                           
                         } else {
                             $('input[name="grupoReserva"][value="1"]').prop('checked', true);
                             $('input[name="grupoReserva"][value="2"]').prop('checked', false);
 
-                            $('#terraIndigina').val(data.terraIndigina);
-                            $('#terraIndigina').prop('disabled', false);
-                            $('#naoSabeTerraIndigina').prop('disabled', false);
+                            
                         }
 
-                        // Evento quando a opção do grupoReserva é alterada
-                        $('input[name="grupoReserva"]').on('change', function () {
-                            if ($(this).val() == '1') {  // Se selecionar "Sim"
-                                $('#terraIndigina').prop('disabled', false);
-                                $('#naoSabeTerraIndigina').prop('checked', false);
-                                $('#naoSabeTerraIndigina').prop('disabled', false);
-                            } else {  // Se selecionar "Não"
-                                $('#terraIndigina').prop('disabled', true);
-                                $('#naoSabeTerraIndigina').prop('checked', true);
-                                $('#naoSabeTerraIndigina').prop('disabled', true);
-                            }
-                        });
 
-                        // Evento quando a opção do grupoIndigena é alterada
-                        $('input[name="grupoIndigena"]').on('change', function () {
-                            if ($(this).val() == '1') {  // Se selecionar "Sim"
-                                $('#povoIndigena').prop('disabled', false);
-                            } else {  // Se selecionar "Não"
-                                $('#povoIndigena').prop('disabled', true);
-                            }
-                        });
-
-
-
-
+                        // Dentro da função verificarUsuario()
                         var povoIndigenaSelect = $('#povoIndigena');
-                        povoIndigenaSelect.empty();
+                        povoIndigenaSelect.empty(); // Limpar opções existentes
 
-
+                        // Adicione a opção com o nome do povo indígena
                         var nomFamInd = data.povoIndigena;
                         if (nomFamInd) {
                             povoIndigenaSelect.append('<option value="' + nomFamInd + '">' + nomFamInd + '</option>');
@@ -506,6 +473,9 @@
                         if (data.uf_pessoa) {
                             ufSelect.val(data.uf_pessoa.toUpperCase());
                         }
+
+
+
                         $('#nac_pessoa').val(data.nac_pessoa);
                         $('#tel_pessoa').val(data.tel_pessoa);
                         // Aplicar máscara ao telefone
@@ -540,7 +510,6 @@
                         $('#renda_per').val(data.renda_per);
                         $('#referencia').val(data.referencia);
                         $('#qtd_pessoa').val(data.qtd_pessoa);
-
                     } else {
                         $('#nome').val('');
                         $('#bairro').val('');
