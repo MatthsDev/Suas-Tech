@@ -146,10 +146,8 @@
                         <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL
                     </div>
                 </div>
-
-
                 <div class="bloco">
-<<<<<<< HEAD
+
                     <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
                     <div class="bloco1">
                         <h5>3.01 - A FAMILIA É INDIGENA?</h5>
@@ -180,11 +178,9 @@
                                     style="margin-left:25px;"> 2 - Não sabe 
                                 </div>
                     </div>
-=======
->>>>>>> 557b38e34ea238590156528c57712042b29047da
                     <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
 
-                    <labz01 - A FAMILIA É INDIGENA?</label>
+                    <label>3.01 - A FAMILIA É INDIGENA?</label>
                     <br>
                     <input type="radio" name="grupoIndigena" value="1">1 - Sim
                     <input type="radio" name="grupoIndigena" value="2">2 - Não
@@ -224,27 +220,23 @@
                             </li>
                         </ul>
                     </li>
-<<<<<<< HEAD
 
-=======
->>>>>>> 557b38e34ea238590156528c57712042b29047da
+
                 </div>
-
-
                 <div class="bloco">
                     <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
                     <input type="radio" name="familiaQuilambola" value="1">1 - Sim
                     <input type="radio" name="familiaQuilambola" value="2">2 - Não
                 </div>
-                <div class="bloco">
+                <div class ="bloco">
                     <h5>3.06 - Qual é o nome da comunidade quilombola?</h5>
-                    <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
-                        style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                    <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1" id="naoSabeComunidadeQuilambola"
-                        style="margin-left:25px;">2 - Não consta no município
+                        <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
+                            style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1"
+                            id="naoSabeComunidadeQuilambola" style="margin-left:25px;">2 - Não consta no município
                 </div>
                 <div class="titulo">
                     <div class="titulo1">
@@ -307,7 +299,7 @@
                 </div>
                 <div class="titulo">
                     <div class="titulo1">
-                        <h3>RESiDÊNCIA:</h3>
+                        <h3>RESiDÊNCIA:</h3>       
                     </div>
                 </div>
                 <div class="bloco1">
@@ -406,11 +398,16 @@ $(document).ready(function () {
                         if (cod_fam_ind == 1) {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
+
+                            $('#povoIndigena').val(data.povoIndigena);
+                            $('#povoIndigena').prop('disabled', false);
                         } else {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
-                        }
 
+                            $('#povoIndigena').val(data.povoIndigena);
+                            $('#povoIndigena').prop('disabled', true);
+                        }
 
                         var cod_indigena_res = data.cod_indigena_res;
                         if (cod_indigena_res == 0) {
@@ -420,7 +417,6 @@ $(document).ready(function () {
                             $('#terraIndigina').val(data.terraIndigina);
                             $('#terraIndigina').prop('disabled', true);
                             $('#naoSabeTerraIndigina').prop('disabled', true);
-                           
                         } else {
                             $('input[name="grupoReserva"][value="1"]').prop('checked', true);
                             $('input[name="grupoReserva"][value="2"]').prop('checked', false);
@@ -456,9 +452,9 @@ $(document).ready(function () {
 
 
                         var povoIndigenaSelect = $('#povoIndigena');
-                        povoIndigenaSelect.empty(); // Limpar opções existentes
+                        povoIndigenaSelect.empty();
 
-                        // Adicione a opção com o nome do povo indígena
+
                         var nomFamInd = data.povoIndigena;
                         if (nomFamInd) {
                             povoIndigenaSelect.append('<option value="' + nomFamInd + '">' + nomFamInd + '</option>');
@@ -508,9 +504,6 @@ $(document).ready(function () {
                         if (data.uf_pessoa) {
                             ufSelect.val(data.uf_pessoa.toUpperCase());
                         }
-
-
-
                         $('#nac_pessoa').val(data.nac_pessoa);
                         $('#tel_pessoa').val(data.tel_pessoa);
                         // Aplicar máscara ao telefone
@@ -545,6 +538,7 @@ $(document).ready(function () {
                         $('#renda_per').val(data.renda_per);
                         $('#referencia').val(data.referencia);
                         $('#qtd_pessoa').val(data.qtd_pessoa);
+
                     } else {
                         $('#nome').val('');
                         $('#bairro').val('');
