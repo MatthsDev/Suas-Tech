@@ -159,7 +159,7 @@ function verificarUsuario() {
                 }
 
 
-//================================================================================
+//==========================================  CODIGO QUILOMBOLA   ======================================
                 var familiaQuilambola = data.familiaQuilambola;
                 if (familiaQuilambola == 1) {
                     $('input[name="familiaQuilambola"][value="1"]').prop('checked', true);
