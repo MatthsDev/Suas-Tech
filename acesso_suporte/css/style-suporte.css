@@ -31,7 +31,6 @@ img {
     align-items: center;
     justify-content: center;
     align-content: flex-start;
-    padding-left: 10px;
     height: 100%;
 }
 
@@ -39,10 +38,7 @@ img {
     padding-right: 4px;
 }
 
-.bloco1,
-.bloco2 {
-    padding: 55px;
-}
+
 
 .menu {
     display: flex;
@@ -54,7 +50,7 @@ img {
 
 .btn {
     border-radius: 30px;
-    padding-top: 40px;
+    padding: 40px;
 }
 
 nav {

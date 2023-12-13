@@ -77,15 +77,15 @@ if (!empty($cpfLimpo)) {
 
             // ============== CODIGO PCD INDIGENA E QUILOMBOA ===============================
             $cod_fam_ind = $row['cod_familia_indigena_fam'];
-            $response['cod_fam_ind'] = $cod_fam_ind;
+            $response['cod_fam_ind'] = $cod_fam_ind;//FAMILIA INDIGINA S/N
 
             $nom_fam_ind = $row['nom_povo_indigena_fam']; 
-            $response['povoIndigena'] = $nom_fam_ind;
+            $response['povoIndigena'] = $nom_fam_ind; //NOME DO POVO
 
             $cod_indigena_res = $row['cod_indigena_reside_fam'];
-            $response['cod_indigena_res'] = $cod_indigena_res;
+            $response['cod_indigena_res'] = $cod_indigena_res; //RESIDE EM RESERVA
 
-
+            
             //==================================================================================
 
 
@@ -98,7 +98,7 @@ if (!empty($cpfLimpo)) {
 
             $response['tel_pessoa'] = $row['num_tel_contato_1_fam'];
             
-            // $response['email_pessoa'] = $row[''];
+            // $response['email_pessoa'] =' $row[''];
             $response['rg'] = $row['num_identidade_pessoa'];
             $response['complemento_rg'] = $row['cod_complemento_pessoa'];
             $response['data_exp_rg'] = $row['dta_emissao_ident_pessoa'];
