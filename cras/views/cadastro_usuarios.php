@@ -146,7 +146,10 @@
                         <input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL
                     </div>
                 </div>
+
+
                 <div class="bloco">
+<<<<<<< HEAD
                     <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
                     <div class="bloco1">
                         <h5>3.01 - A FAMILIA É INDIGENA?</h5>
@@ -177,6 +180,8 @@
                                     style="margin-left:25px;"> 2 - Não sabe 
                                 </div>
                     </div>
+=======
+>>>>>>> 557b38e34ea238590156528c57712042b29047da
                     <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
 
                     <labz01 - A FAMILIA É INDIGENA?</label>
@@ -219,8 +224,13 @@
                             </li>
                         </ul>
                     </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 557b38e34ea238590156528c57712042b29047da
                 </div>
+
+
                 <div class="bloco">
                     <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
                     <input type="radio" name="familiaQuilambola" value="1">1 - Sim
@@ -329,7 +339,11 @@
 
     <script>
 
+<<<<<<< HEAD
         $(document).ready(function () {
+=======
+$(document).ready(function () {
+>>>>>>> 557b38e34ea238590156528c57712042b29047da
             var timer;
 
             $('#cpf').on('input', function () {
