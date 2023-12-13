@@ -38,9 +38,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
       <i class="fas fa-user-minus icon"></i> Ficha de Exclusão de Pessoa
     </a>
 
-    <a href="<?php echo $voltar_link; ?>">
+    <a onclick="goBack()">
       <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
   </nav>  
+  <script src='../../../controller/back.js'></script>
 </body>
 </html>

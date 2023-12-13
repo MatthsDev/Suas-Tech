@@ -149,9 +149,42 @@
 
 
                 <div class="bloco">
+<<<<<<< HEAD
+                    <h4>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h4>
+                    <div class="bloco1">
+                        <h5>3.01 - A FAMILIA É INDIGENA?</h5>
+                        <input type="radio" name="familiaIndigena" value="1">1 - Sim
+                        <input type="radio" name="familiaIndigena" value="2">2 - Não
+                    </div>
+                    <div id="divPovoIndigena" class="bloco1">
+                                <div class="bloco">
+                                    <h5>3.02 - A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
+                                    <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    </select>
+                                </div>
+                                
+                                <div class="bloco">
+                                    <h5>3.03 A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
+                                    <input type="radio" name="resideTerraIndigena" value="1">1 - Sim
+                                    <input type="radio" name="resideTerraIndigena" value="2">2 - Não
+                                </div>
+                                <div class="bloco">
+                                    <h5>3.04 - QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
+                                    <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
+                                    style="margin-left:25px;"> 2 - Não sabe 
+                                </div>
+                    </div>
+=======
+>>>>>>> 557b38e34ea238590156528c57712042b29047da
                     <h2>3 - PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h2>
 
-                    <label>3.01 - A FAMILIA É INDIGENA?</label>
+                    <labz01 - A FAMILIA É INDIGENA?</label>
                     <br>
                     <input type="radio" name="grupoIndigena" value="1">1 - Sim
                     <input type="radio" name="grupoIndigena" value="2">2 - Não
@@ -191,6 +224,10 @@
                             </li>
                         </ul>
                     </li>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 557b38e34ea238590156528c57712042b29047da
                 </div>
 
 
@@ -302,7 +339,7 @@
 
     <script>
 
-        $(document).ready(function () {
+$(document).ready(function () {
             var timer;
 
             $('#cpf').on('input', function () {
@@ -369,16 +406,11 @@
                         if (cod_fam_ind == 1) {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
-
-                            $('#povoIndigena').val(data.povoIndigena);
-                            $('#povoIndigena').prop('disabled', false);
                         } else {
                             $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
                             $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
-
-                            $('#povoIndigena').val(data.povoIndigena);
-                            $('#povoIndigena').prop('disabled', true);
                         }
+
 
                         var cod_indigena_res = data.cod_indigena_res;
                         if (cod_indigena_res == 0) {
@@ -388,6 +420,7 @@
                             $('#terraIndigina').val(data.terraIndigina);
                             $('#terraIndigina').prop('disabled', true);
                             $('#naoSabeTerraIndigina').prop('disabled', true);
+                           
                         } else {
                             $('input[name="grupoReserva"][value="1"]').prop('checked', true);
                             $('input[name="grupoReserva"][value="2"]').prop('checked', false);
@@ -403,13 +436,6 @@
                                 $('#terraIndigina').prop('disabled', false);
                                 $('#naoSabeTerraIndigina').prop('checked', false);
                                 $('#naoSabeTerraIndigina').prop('disabled', false);
-
-                                // Habilitar ou desabilitar o select com base no estado do checkbox
-                                if (!$('#naoSabeTerraIndigina').prop('checked')) {
-                                    $('#terraIndigina').prop('disabled', false);
-                                } else {
-                                    $('#terraIndigina').prop('disabled', true);
-                                }
                             } else {  // Se selecionar "Não"
                                 $('#terraIndigina').prop('disabled', true);
                                 $('#naoSabeTerraIndigina').prop('checked', true);
@@ -426,23 +452,13 @@
                             }
                         });
 
-                        // Evento quando o checkbox naoSeiTerraIndigina é alterado
-                        $('#naoSabeTerraIndigina').on('change', function () {
-                            if ($(this).prop('checked')) {
-                                $('#terraIndigina').prop('disabled', true);
-                            } else {
-                                $('#terraIndigina').prop('disabled', false);
-                            }
-                        });
-
-
 
 
 
                         var povoIndigenaSelect = $('#povoIndigena');
-                        povoIndigenaSelect.empty();
+                        povoIndigenaSelect.empty(); // Limpar opções existentes
 
-
+                        // Adicione a opção com o nome do povo indígena
                         var nomFamInd = data.povoIndigena;
                         if (nomFamInd) {
                             povoIndigenaSelect.append('<option value="' + nomFamInd + '">' + nomFamInd + '</option>');
@@ -492,6 +508,9 @@
                         if (data.uf_pessoa) {
                             ufSelect.val(data.uf_pessoa.toUpperCase());
                         }
+
+
+
                         $('#nac_pessoa').val(data.nac_pessoa);
                         $('#tel_pessoa').val(data.tel_pessoa);
                         // Aplicar máscara ao telefone
@@ -526,7 +545,6 @@
                         $('#renda_per').val(data.renda_per);
                         $('#referencia').val(data.referencia);
                         $('#qtd_pessoa').val(data.qtd_pessoa);
-
                     } else {
                         $('#nome').val('');
                         $('#bairro').val('');

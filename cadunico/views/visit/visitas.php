@@ -51,7 +51,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
           </div>
 
           <div class="voltar">
-            <button class="menu-button" onclick="location.href='<?php echo $voltar_link;?>';">
+            <button class="menu-button" onclick="goBack()">
               <span class="fas fa-arrow-left">
               </span>
               Voltar ao menu
@@ -95,5 +95,6 @@ $sql = "SELECT COUNT(*) as total_fazer FROM tbl_tudo";
         options: options
       });
     </script>
+    <script src='../../../controller/back.js'></script>
   </body>
 </html>
