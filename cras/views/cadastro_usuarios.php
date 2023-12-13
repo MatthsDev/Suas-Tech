@@ -277,7 +277,7 @@
                 <input type="text" id="qtd_pessoa" name="qtd_pessoa">
             </div>
             <div class="btn">
-                <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
+                <button type="button" id="btnEnviar" onclick="enviarFormulario()">ENVIAR</button>
             </div>
         </form>
     </div>
