@@ -1,0 +1,11 @@
+
+body{
+    background-image: url(../img/marca.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+.conteudo{
+    padding-left: 100px;
+}
