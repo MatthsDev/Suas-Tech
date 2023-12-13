@@ -26,8 +26,7 @@ ini_set('memory_limit', '256M');
             <form action="">
                 <input name="cod_fam" class="busca2" placeholder="Digite o NIS ou NOME do beneficiário." type="text" required>
                 <button type="submit">Buscar</button>
-            <a
-            href="<?php echo $voltar_link; ?>">
+            <a onclick="goBack()">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
             </form>
@@ -82,5 +81,6 @@ ini_set('memory_limit', '256M');
         } ?>    
         </table>
     </div>
+    <script src='../../../controller/back.js'></script>
 </body>
 </html>
