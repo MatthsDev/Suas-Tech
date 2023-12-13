@@ -75,7 +75,8 @@ if (!empty($cpfLimpo)) {
             $response['uf_pessoa'] = $row['sig_uf_munic_nasc_pessoa'];
 
 
-            // ============== CODIGO PCD INDIGENA E QUILOMBOA ===============================
+// ====================== CODIGO PCD INDIGENA E QUILOMBOA ==========================================================================
+
             $cod_fam_ind = $row['cod_familia_indigena_fam'];
             $response['cod_fam_ind'] = $cod_fam_ind;//FAMILIA INDIGINA S/N
 
@@ -85,8 +86,16 @@ if (!empty($cpfLimpo)) {
             $cod_indigena_res = $row['cod_indigena_reside_fam'];
             $response['cod_indigena_res'] = $cod_indigena_res; //RESIDE EM RESERVA
 
+            $terra_indigina_fam = $row['nom_reserva_indigena_fam'];
+            $response['terraIndigina'] = $terra_indigina_fam;
+
+            $cod_fam_qui = $row['ind_familia_quilombola_fam'];
+            $response['familiaQuilambola'] = $cod_fam_qui;//FAMILIA INDIGINA S/N
+
             
-            //==================================================================================
+            
+
+//=================================================================================================================================
 
 
             $response['nat_pessoa'] = $row['nom_ibge_munic_nasc_pessoa'];

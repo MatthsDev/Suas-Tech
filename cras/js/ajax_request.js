@@ -57,9 +57,7 @@ function verificarUsuario() {
                     }
                 });
 
-
-
-                // ============== CODIGO PCD INDIGENA E QUILOMBOA ===============================
+// ================================== CODIGO PCD INDIGENA E QUILOMBOA =================================================
 
                 var cod_fam_ind = data.cod_fam_ind;
                 if (cod_fam_ind == 1) {
@@ -92,45 +90,59 @@ function verificarUsuario() {
                     $('#terraIndigina').prop('disabled', false);
                     $('#naoSabeTerraIndigina').prop('disabled', false);
                 }
-
+                // Evento quando a opção do grupoReserva é alterada
                 $('input[name="grupoReserva"]').on('change', function () {
-                    if ($(this).val() == '1') { 
-                        $('#terraIndigina').prop('disabled', false);
+                    var terraIndiginaSelect = $('#terraIndigina');
+
+                    if ($(this).val() == '1') {
+                        terraIndiginaSelect.prop('disabled', false);
                         $('#naoSabeTerraIndigina').prop('checked', false);
                         $('#naoSabeTerraIndigina').prop('disabled', false);
 
                         if (!$('#naoSabeTerraIndigina').prop('checked')) {
-                            $('#terraIndigina').prop('disabled', false);
+                            terraIndiginaSelect.prop('disabled', false);
                         } else {
-                            $('#terraIndigina').prop('disabled', true);
+                            terraIndiginaSelect.prop('disabled', true);
+                            terraIndiginaSelect.val('').trigger('change');
                         }
-                    } else { 
-                        $('#terraIndigina').prop('disabled', true);
+                    } else {
+                        terraIndiginaSelect.prop('disabled', true);
                         $('#naoSabeTerraIndigina').prop('checked', true);
                         $('#naoSabeTerraIndigina').prop('disabled', true);
+                        terraIndiginaSelect.val('').trigger('change'); 
                     }
                 });
 
-              
+                $('#naoSabeTerraIndigina').on('change', function () {
+                    var terraIndiginaSelect = $('#terraIndigina');
+                    if ($(this).prop('checked')) {
+                        terraIndiginaSelect.prop('disabled', true);
+                        terraIndiginaSelect.val('').trigger('change');
+                    } else {
+                        terraIndiginaSelect.prop('disabled', false);
+                    }
+                });
+
+
+
                 $('input[name="grupoIndigena"]').on('change', function () {
-                    if ($(this).val() == '1') {  
+                    if ($(this).val() == '1') {
                         $('#povoIndigena').prop('disabled', false);
-                    } else {  
+                    } else {
                         $('#povoIndigena').prop('disabled', true);
                     }
                 });
 
-               
-                $('#naoSabeTerraIndigina').on('change', function () {
-                    if ($(this).prop('checked')) {
-                        $('#terraIndigina').prop('disabled', true);
-                    } else {
-                        $('#terraIndigina').prop('disabled', false);
-                    }
-                });
 
 
 
+                //========== FUNCAO SELECT INDIGENA ================================================
+                var terraIndiginaSelect = $('#terraIndigina');
+                terraIndiginaSelect.empty();
+                var terraFam = data.terraIndigina;
+                if (terraFam) {
+                    terraIndiginaSelect.append('<option value="' + terraFam + '">' + terraFam + '</option>');
+                }
 
 
                 var povoIndigenaSelect = $('#povoIndigena');
@@ -142,7 +154,24 @@ function verificarUsuario() {
                     povoIndigenaSelect.append('<option value="' + nomFamInd + '">' + nomFamInd + '</option>');
                 }
 
-                //==================================================================================
+
+
+                var cod_fam_ind = data.cod_fam_ind;
+                if (cod_fam_ind == 1) {
+                    $('input[name="grupoIndigena"][value="1"]').prop('checked', true);
+                    $('input[name="grupoIndigena"][value="2"]').prop('checked', false);
+
+                    $('#povoIndigena').val(data.povoIndigena);
+                    $('#povoIndigena').prop('disabled', false);
+                } else {
+                    $('input[name="grupoIndigena"][value="1"]').prop('checked', false);
+                    $('input[name="grupoIndigena"][value="2"]').prop('checked', true);
+
+                    $('#povoIndigena').val(data.povoIndigena);
+                    $('#povoIndigena').prop('disabled', true);
+                }
+
+//===================================================================================================================================
 
 
 
@@ -188,7 +217,7 @@ function verificarUsuario() {
                 }
                 $('#nac_pessoa').val(data.nac_pessoa);
                 $('#tel_pessoa').val(data.tel_pessoa);
-                
+
                 // Aplicar máscara ao telefone
                 $('#tel_pessoa').mask('(00) 0 0000-0000');
                 $('#email_pessoa').val(data.email_pessoa);

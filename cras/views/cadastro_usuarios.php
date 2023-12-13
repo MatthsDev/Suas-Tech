@@ -191,10 +191,11 @@
                         </ul>
                     </li>
                 </div>
+                
                 <div class="bloco">
                     <h5> 3.05 - FAMILIA QUILOMBOLA </h5>
-                    <input type="radio" name="familiaQuilambola" value="1">1 - Sim
-                    <input type="radio" name="familiaQuilambola" value="2">2 - Não
+                    <input type="radio" name="familiaQuilambola" id="quiloSIM" value="1">1 - Sim
+                    <input type="radio" name="familiaQuilambola" id="quiloNAO" value="2">2 - Não
                 </div>
                 <div class="bloco">
                     <h5>3.06 - Qual é o nome da comunidade quilombola?</h5>
