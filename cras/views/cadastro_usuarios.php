@@ -17,18 +17,17 @@
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg"
-                alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg" alt="Titulocomimagem">
         </h1>
     </div>
     <div class="container">
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"placeholder="Digite o CPF">
-                
-                <a  onclick="goBack()">
-                <i class="fas fa-arrow-left"></i> Voltar ao menu
+                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF">
+
+                <a onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
             <div class="titulo">
@@ -131,10 +130,10 @@
                     <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
                 </div>
             </div>
-                <h5>PORTADOR DE DEFICIÊNCIA: </h5>
-            <div class="bloco2">    
+            <h5>PORTADOR DE DEFICIÊNCIA: </h5>
+            <div class="bloco2">
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA</div>     
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ SEVERA/PROFUNDA</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ LEVE/MODERADA</div>
@@ -142,147 +141,144 @@
                 <div class="pcd">
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA FISICA</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA MENTAL OU
-                    INTELECTUAL</div>
+                        INTELECTUAL</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA MENTAL</div>
                 </div>
             </div>
-                <div class="bloco">
-                    <div class="bloco1">
-                        <h5> PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h5>
+            <div class="bloco">
+                <div class="bloco1">
+                    <h5> PERTENCIMENTO DE GRUPO TRADICIONAL ESPECIFICO: </h5>
 
-                        <h5> A FAMILIA É INDIGENA?</h5>
-                        <input type="radio" name="grupoIndigena" value="1">1 - Sim
-                        <input type="radio" name="grupoIndigena" value="2">2 - Não
-                    </div>
-                    <div class="bloco">
-                        <h5> A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
-
-                        <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div class="bloco">
-                        <h5> A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
-
-                        <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
-                        <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
-                    </div>
-                    <div class="bloco">
-                        <h5> QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
-                        <br>
-                        <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                        <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
-                            style="margin-left:25px;"> 2 - Não sabe
-                    </div>
+                    <h5> A FAMILIA É INDIGENA?</h5>
+                    <input type="radio" name="grupoIndigena" value="1">1 - Sim
+                    <input type="radio" name="grupoIndigena" value="2">2 - Não
                 </div>
                 <div class="bloco">
-                    <h5> FAMILIA QUILOMBOLA </h5>
-                    <input type="radio" name="familiaQuilambola" value="1">1 - Sim
-                    <input type="radio" name="familiaQuilambola" value="2">2 - Não
-                </div>
-                <div class="bloco">
-                    <h5> Qual é o nome da comunidade quilombola?</h5>
-                    <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola"
-                        style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                    <h5> A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
+
+                    <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
                         <option value=""></option>
                         <option value=""></option>
                     </select>
-                    <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1" id="naoSabeComunidadeQuilambola"
-                        style="margin-left:25px;">2 - Não consta no município
-                </div>
-                <div class="titulo">
-                    <div class="titulo1">
-                        <h3>DOCUMENTAÇÃO:</h3>
-                    </div>
-                </div>
-                <div class="bloco1">
-                    <label for="rg">RG: </label>
-                    <input type="text" id="rg" name="rg">
-
-                    <label for="complemento_rg">COMPLEMENTO: </label>
-                    <input type="text" id="complemento_rg" name="complemento_rg">
-
-                    <label for="data_exp_rg">DATA DE EXPEDIÇÃO: </label>
-                    <input type="date" id="data_exp_rg" name="data_exp_rg">
                 </div>
                 <div class="bloco">
-                    <label for="sigla_rg">ORGÃO: </label>
-                    <input type="text" id="sigla_rg" name="sigla_rg">
+                    <h5> A FAMILIA RESIDE EM TERRA OU RESERVA INDIGENA?</h5>
 
-                    <label for="estado_rg">UF: </label>
-                    <input type="text" id="estado_rg" name="estado_rg">
+                    <input type="radio" name="grupoReserva" id="reservaSIM" value="1">1 - Sim
+                    <input type="radio" name="grupoReserva" id="reservaNAO" value="2">2 - Não
                 </div>
                 <div class="bloco">
-                    <label for="nis">NIS: </label>
-                    <input type="text" id="nis" name="nis">
-                </div>
-                <div class="bloco">
-                    <label for="num_titulo">TITULO: </label>
-                    <input type="text" id="num_titulo" name="num_titulo">
-
-                    <label for="zone_titulo">ZONA: </label>
-                    <input type="text" id="zone_titulo" name="zone_titulo">
-
-                    <label for="area_titulo">SEÇÃO: </label>
-                    <input type="text" id="secao_titulo" name="area_titulo">
-                </div>
-                <div class="titulo">
-                    <div class="titulo1">
-                        <h3>RENDA E TRABALHOS:</h3>
-                    </div>
-                </div>
-                <div class="bloco1">
-                    <label for="profissao">PROFISSÃO: </label>
-                    <select id="profissao" name="profissao">
-                        <option value="">SELECIONE</option>
-                        <option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>
-                        <option value="AUTÔNOMO">AUTÔNOMO</option>
-                        <option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>
-                        <option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>
-                        <option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>
-                        <option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>
-                        <option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>
-                        <option value="OUTRO">OUTRO</option>
+                    <h5> QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
+                    <br>
+                    <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                        <option value=""></option>
+                        <option value=""></option>
                     </select>
+                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina" style="margin-left:25px;"> 2 - Não sabe
                 </div>
-                <div class="bloco">
-                    <label for="renda_per">RENDA PER CAPITA: </label>
-                    <input type="text" id="renda_per" name="renda_per">
+            </div>
+            <div class="bloco">
+                <h5> FAMILIA QUILOMBOLA </h5>
+                <input type="radio" name="familiaQuilambola" value="1">1 - Sim
+                <input type="radio" name="familiaQuilambola" value="2">2 - Não
+            </div>
+            <div class="bloco">
+                <h5> Qual é o nome da comunidade quilombola?</h5>
+                <select name="comunidadeQuilambola" disabled="disabled" id="comunidadeQuilambola" style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+                <input type="checkbox" name="naoSabeComunidadeQuilambola" value="1" id="naoSabeComunidadeQuilambola" style="margin-left:25px;">2 - Não consta no município
+            </div>
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>DOCUMENTAÇÃO:</h3>
                 </div>
-                <div class="titulo">
-                    <div class="titulo1">
-                        <h3>RESiDÊNCIA:</h3>
-                    </div>
-                </div>
-                <div class="bloco1">
-                    <label for="bairro">BAIRRO: </label>
-                    <input type="text" id="bairro" name="bairro">
-                </div>
-                <div class="bloco">
-                    <label for="log">LOGRADOURO: </label>
-                    <input type="text" id="log" name="log">
+            </div>
+            <div class="bloco1">
+                <label for="rg">RG: </label>
+                <input type="text" id="rg" name="rg">
 
-                    <label for="numero">NUMERO: </label>
-                    <input type="text" id="numero" name="numero">
-                </div>
+                <label for="complemento_rg">COMPLEMENTO: </label>
+                <input type="text" id="complemento_rg" name="complemento_rg">
 
-                <div class="bloco">
-                    <label for="referencia">REFERÊNCIA: </label>
-                    <textarea type="text" id="referencia" name="referencia"></textarea>
-                </div>
+                <label for="data_exp_rg">DATA DE EXPEDIÇÃO: </label>
+                <input type="date" id="data_exp_rg" name="data_exp_rg">
+            </div>
+            <div class="bloco">
+                <label for="sigla_rg">ORGÃO: </label>
+                <input type="text" id="sigla_rg" name="sigla_rg">
 
-                <div class="bloco">
-                    <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
-                    <input type="text" id="qtd_pessoa" name="qtd_pessoa">
+                <label for="estado_rg">UF: </label>
+                <input type="text" id="estado_rg" name="estado_rg">
+            </div>
+            <div class="bloco">
+                <label for="nis">NIS: </label>
+                <input type="text" id="nis" name="nis">
+            </div>
+            <div class="bloco">
+                <label for="num_titulo">TITULO: </label>
+                <input type="text" id="num_titulo" name="num_titulo">
+
+                <label for="zone_titulo">ZONA: </label>
+                <input type="text" id="zone_titulo" name="zone_titulo">
+
+                <label for="area_titulo">SEÇÃO: </label>
+                <input type="text" id="secao_titulo" name="area_titulo">
+            </div>
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>RENDA E TRABALHOS:</h3>
                 </div>
-                <div class="btn">
-                    <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
+            </div>
+            <div class="bloco1">
+                <label for="profissao">PROFISSÃO: </label>
+                <select id="profissao" name="profissao">
+                    <option value="">SELECIONE</option>
+                    <option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>
+                    <option value="AUTÔNOMO">AUTÔNOMO</option>
+                    <option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>
+                    <option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>
+                    <option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>
+                    <option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>
+                    <option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>
+                    <option value="OUTRO">OUTRO</option>
+                </select>
+            </div>
+            <div class="bloco">
+                <label for="renda_per">RENDA PER CAPITA: </label>
+                <input type="text" id="renda_per" name="renda_per">
+            </div>
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>RESiDÊNCIA:</h3>
                 </div>
+            </div>
+            <div class="bloco1">
+                <label for="bairro">BAIRRO: </label>
+                <input type="text" id="bairro" name="bairro">
+            </div>
+            <div class="bloco">
+                <label for="log">LOGRADOURO: </label>
+                <input type="text" id="log" name="log">
+
+                <label for="numero">NUMERO: </label>
+                <input type="text" id="numero" name="numero">
+            </div>
+
+            <div class="bloco">
+                <label for="referencia">REFERÊNCIA: </label>
+                <textarea type="text" id="referencia" name="referencia"></textarea>
+            </div>
+
+            <div class="bloco">
+                <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
+                <input type="text" id="qtd_pessoa" name="qtd_pessoa">
+            </div>
+            <div class="btn">
+                <button type="button" id="btnEnviar" onclick="enviarFormulario()">Enviar</button>
+            </div>
         </form>
     </div>
 
