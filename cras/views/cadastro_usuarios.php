@@ -373,10 +373,14 @@
                             $('input[name="grupoReserva"][value="2"]').prop('checked', true);
 
                             $('#terraIndigina').val(data.terraIndigina);
-                            $('#terraIndigina').prop('disabled', false);
+                            $('#terraIndigina').prop('disabled', true);
+                            $('#naoSabeTerraIndigina').prop('disabled', true);
+                           
                         } else {
                             $('input[name="grupoReserva"][value="1"]').prop('checked', true);
                             $('input[name="grupoReserva"][value="2"]').prop('checked', false);
+
+                            
                         }
 
 
