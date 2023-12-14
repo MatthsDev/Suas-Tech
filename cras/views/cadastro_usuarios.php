@@ -81,7 +81,7 @@
                             <option value="OUTRO">OUTRO</option>
                         </select>
                         <div class="bloco" id="outroSexoDiv" style="display: none;">
-                            <label for="outroSexo" >ESPECIFIQUE: </label>
+                            <label for="outroSexo">ESPECIFIQUE: </label>
                             <input type="text" id="outroSexo" name="outroSexo">
                         </div>
                     </div>
@@ -167,6 +167,8 @@
                     <h5> A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
 
                     <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
+                        <option value="">SELECIONE</option>
+                        <option value="teste">teste</option>
                     </select>
                 </div>
 
@@ -179,6 +181,8 @@
                     <h5> QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
                     <br>
                     <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                        <option value="">SELECIONE</option>
+                        <option value="teste">teste</option>
                     </select>
                     <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
                         style="margin-left:25px;"> 2 - Não sabe
@@ -286,52 +290,15 @@
             </div>
             <div class="btn">
                 <button type="button" id="btnEnviar" onclick="enviarFormulario()">ENVIAR</button>
-              
+
             </div>
         </form>
     </div>
     <a onclick="goBack()">
-                    <i class="fas fa-arrow-left"></i> Voltar ao menu
-                </a>
+        <i class="fas fa-arrow-left"></i> Voltar ao menu
+    </a>
     <script src="../js/ajax_request.js"></script>
     <script src='../../controller/back.js'></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
-    <script>
-        function enviarFormulario() {
-            $.ajax({
-                type: 'POST',
-                url: '/Suas-Tech/cras/controller/user_control.php',
-                data: $('#formUsuario').serialize(),
-                success: function (data) {
-                    if (data.includes('Erro')) {
-
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: data
-                        });
-                    } else {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Sucesso',
-                            text: 'Cadastro realizado com sucesso!'
-                        }).then(function () {
-                            window.location.href = '/Suas-Tech/cras/views/cadastro_usuarios.php';
-                        });
-                    }
-                },
-                error: function (error) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Erro ao enviar o formulário. Por favor, tente novamente.'
-                    });
-                }
-            });
-        }
-    </script>
-
 
 </body>
 
