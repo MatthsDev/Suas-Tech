@@ -86,7 +86,7 @@
             $texto = $_POST['texto'];
             $direcao = $_POST['setor'];
 
-            //dados da tabela com todos os cadastros
+
 
             // Consulta preparada para evitar injeção de SQL
             $sql = $pdo->prepare("SELECT * FROM cras_test WHERE nis = :nis_dec");
@@ -100,10 +100,10 @@
 
             if ($sql->rowCount() > 0) {
                 $dados = $sql->fetch(PDO::FETCH_ASSOC);
-                $cod_familiar = $dados["cod_familiar_fam"];
+                
                 $nom_pessoa = $dados["nom_pessoa"];
-                $nom_mae_rf = $dados["nom_completo_mae_pessoa"];
-                $sexo_pessoa_ = $dados["cod_sexo_pessoa"];
+               
+                
 
                 
 
