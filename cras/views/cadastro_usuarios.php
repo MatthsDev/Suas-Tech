@@ -136,22 +136,22 @@
             <h5>PORTADOR DE DEFICIÊNCIA: </h5>
             <div class="bloco2">
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1" disabled> &nbsp;1 - CEGUEIRA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2" disabled> &nbsp;2 - BAIXA VISAO</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3" disabled> &nbsp;3 - SURDEZ
                         SEVERA/PROFUNDA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4" disabled> &nbsp;4 - SURDEZ
                         LEVE/MODERADA</div>
                 </div>
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5" disabled> &nbsp;5 - DEFICIENCIA
                         FISICA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6" disabled> &nbsp;6 - DEFICIENCIA
                         MENTAL OU
                         INTELECTUAL</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7" disabled> &nbsp;7 - SINDROME DE DOWN
                     </div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8" disabled> &nbsp;8 - TRANSTORNO/DOENCA
                         MENTAL</div>
                 </div>
             </div>
