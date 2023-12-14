@@ -28,12 +28,12 @@
             //Dados do formulário
             $cpf_dec = $_POST['valorescolhido'];
             $texto = $_POST['texto'];
-            $direcao = $_POST['direcao'];
+            $direcao = $_POST['setor'];
 
             //dados da tabela com todos os cadastros
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE cpf = :cpf_dec");
             $sql->execute(array(':cpf_dec' => $cpf_dec));
 
 
@@ -85,12 +85,12 @@
         elseif ($opcao == "nis_dec") {
             $nis_dec = $_POST['valorescolhido'];
             $texto = $_POST['texto'];
-            $direcao = $_POST['direcao'];
+            $direcao = $_POST['setor'];
 
             //dados da tabela com todos os cadastros
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_nis_pessoa_atual = :nis_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE nis = :nis_dec");
             $sql->execute(array(':nis_dec' => $nis_dec));
 
 
