@@ -13,7 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="stylesheet" href="">
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Encaminhamento</title>
+    <title>Acompanhamento</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -128,6 +128,7 @@ if (!isset($_GET['buscar_dados'])) {
             echo "NOME DE MÃE: " . $dados['nome_mae'] . "<br>";
             echo "NATURALIDADE: " . $dados['nat_pessoa'] . "<br>";
             echo "DATA: " . $data_atual . "<br>";
+            echo "Quantidade de Pessoas: " . $dados['qtd_pessoa'];
 
         } else {
             echo '<script>alert("Não foi localizado nenhum cadastro com esse CPF"); window.location.href = "acompanhamento.php";</script>';
