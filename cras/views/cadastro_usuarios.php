@@ -166,8 +166,6 @@
                     <h5> A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
 
                     <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
-                        <option value=""></option>
-                        <option value=""></option>
                     </select>
                 </div>
 
@@ -180,8 +178,6 @@
                     <h5> QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
                     <br>
                     <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
-                        <option value=""></option>
-                        <option value=""></option>
                     </select>
                     <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
                         style="margin-left:25px;"> 2 - Não sabe

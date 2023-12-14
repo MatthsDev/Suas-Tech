@@ -111,6 +111,7 @@ if (!empty($cpfLimpo)) {
 
             $response['tel_pessoa'] = $row['num_tel_contato_1_fam'];
             
+ 
             // $response['email_pessoa'] =' $row[''];
             $response['rg'] = $row['num_identidade_pessoa'];
             $response['complemento_rg'] = $row['cod_complemento_pessoa'];

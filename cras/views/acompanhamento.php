@@ -13,7 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="stylesheet" href="">
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Encaminhamento</title>
+    <title>Acompanhamento</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -27,7 +27,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <form method="" action="">
                 <h2>Informe o CPF ou NIS para buscar o usuário</h2>
                 <select name="buscar_dados" required>
-                    <option value="cpf_dec" >CPF:</option>
+                    <option value="cpf_dec">CPF:</option>
                     <option value="nis_dec">NIS:</option>
                 </select>
 
@@ -42,8 +42,12 @@ if (!isset($_GET['buscar_dados'])) {
     if ($_GET['buscar_dados'] == 'cpf_dec') {
 
         $cpf = $_GET['valorescolhido'];
+
+        $cpf_formatando = sprintf('%011s', $cpf);
+        $cpf_formatado = substr($cpf_formatando, 0, 3) . '.' . substr($cpf_formatando, 3, 3) . '.' . substr($cpf_formatando, 6, 3) . '-' . substr($cpf_formatando, 9, 2);
+
         $sql = $pdo->prepare("SELECT * FROM cras WHERE cpf = :valorescolhido");
-        $sql->execute(array(':valorescolhido' => $cpf));
+        $sql->execute(array(':valorescolhido' => $cpf_formatado));
 
         $data_atual = date('d/m/Y H:i:s');
 
@@ -52,8 +56,10 @@ if (!isset($_GET['buscar_dados'])) {
             $real_br_formatado = number_format($dados['renda_per'], 2, ',', '.');
             $dataFormatada = date("d/m/Y", strtotime($dados['data_nasc']));
             ?>
-            <form method="POST" action="##">
+            <form method="POST" action="../controller/processo_acompanhamento.php">
             <?php
+
+            //Dados apresentados
             echo "NOME: " . $dados['nome'] . "<br>";
             echo "NIS: " . $dados['nis'] . "<br>";
             echo "DATA DE NASCIMENTO: " . $dataFormatada . "<br>";
@@ -62,29 +68,33 @@ if (!isset($_GET['buscar_dados'])) {
             echo "NOME DE MÃE: " . $dados['nome_mae'] . "<br>";
             echo "NATURALIDADE: " . $dados['nat_pessoa'] . "<br>";
             echo "DATA: " . $data_atual . "<br>";
+            echo "Quantidade de Pessoas: " . $dados['qtd_pessoa'];
 
             ?>
             <hr>
                 <label>Parecer técnico: </label><br>
-                <textarea id="" name="texto" required  oninput="ajustarTextarea(this)"></textarea>
+                <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
                 <div class="setor">
-    <label>Setor:</label>
+    <label>Encaminhar para:</label>
     <select name="setor" required>
         <option value="" disabled selected hidden>Selecione</option>
         <?php
 
-$consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
+            $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
 
 // Verifica se há resultados na consulta
-if ($consultaSetores->num_rows > 0) {
-    
-    // Loop para criar as opções do select
-    while ($setor = $consultaSetores->fetch_assoc()) {
-        echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
-    }
-}
-?>
+            if ($consultaSetores->num_rows > 0) {
+
+                // Loop para criar as opções do select
+                while ($setor = $consultaSetores->fetch_assoc()) {
+                    echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
+                }
+            }
+            ?>
     </select>
+
+    <label>Itens concedidos:</label>
+    <input type="text" name="itens_conc" placeholder="Descreva o que está sendo concedido a família">
 </div>
 
                 <button type="submit">ENVIAR</button>
@@ -118,6 +128,7 @@ if ($consultaSetores->num_rows > 0) {
             echo "NOME DE MÃE: " . $dados['nome_mae'] . "<br>";
             echo "NATURALIDADE: " . $dados['nat_pessoa'] . "<br>";
             echo "DATA: " . $data_atual . "<br>";
+            echo "Quantidade de Pessoas: " . $dados['qtd_pessoa'];
 
         } else {
             echo '<script>alert("Não foi localizado nenhum cadastro com esse CPF"); window.location.href = "acompanhamento.php";</script>';
