@@ -39,32 +39,50 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
-$stmt = $conn->prepare("INSERT INTO cras (
-    cpf, nome, data_nasc, nome_social, sexo, outro_sex, cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, 
-    nom_reserva_indigena_fam, ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa, 
-    nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, area_titulo, 
-    profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
 
-if ($stmt === false) {
-    die("Erro na preparação da declaração: " . $conn->error);
+$cpfExistente = false;
+$consultaCpf = $conn->prepare("SELECT COUNT(*) FROM cras WHERE cpf = ?");
+$consultaCpf->bind_param("s", $cpf);
+$consultaCpf->execute();
+$consultaCpf->bind_result($count);
+$consultaCpf->fetch();
+
+if ($count > 0) {
+    $cpfExistente = true;
 }
 
-$stmt->bind_param("sssssssssssssssssssssssssssssssssss",$cpf, $nome, $data_nasc, $nomeSocial, $sexo, $outr_sexo, $grupoIndigena, $povoIndigena,
-$grupoReserva, $terraIndigina, $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf, $municipio,
-    $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis, $numTitulo, $zonaTitulo,
-    $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa
+$consultaCpf->close();
 
-);
-if ($stmt->execute()) {
-    // Redirecionar para a tela de cadastro
-    header("Location: /Suas-Tech/cras/views/cadastro_usuarios.php");
-    exit();
+if ($cpfExistente) {
+    echo "CPF já cadastrado. Por favor, verifique os dados.";
 } else {
-    echo "Erro na inserção de dados: " . $stmt->error;
-}
-// Fechar a declaração e a conexão
-$stmt->close();
-$conn->close();
+        $stmt = $conn->prepare("INSERT INTO cras (
+            cpf, nome, data_nasc, nome_social, sexo, outro_sex, cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, 
+            nom_reserva_indigena_fam, ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa, 
+            nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, area_titulo, 
+            profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
 
+        if ($stmt === false) {
+            die("Erro na preparação da declaração: " . $conn->error);
+        }
+
+        $stmt->bind_param("sssssssssssssssssssssssssssssssssss",$cpf, $nome, $data_nasc, $nomeSocial, $sexo, $outr_sexo, $grupoIndigena, $povoIndigena,
+        $grupoReserva, $terraIndigina, $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf, $municipio,
+            $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis, $numTitulo, $zonaTitulo,
+            $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa
+
+        );
+        if ($stmt->execute()) {
+            // Redirecionar para a tela de cadastro
+            header("Location: /Suas-Tech/cras/views/cadastro_usuarios.php");
+            exit();
+        } else {
+            echo "Erro na inserção de dados: " . $stmt->error;
+        }
+    }
+        // Fechar a declaração e a conexão
+        $stmt->close();
+        $conn->close();
+   
 ?>
