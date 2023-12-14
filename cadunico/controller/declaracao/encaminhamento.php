@@ -92,7 +92,7 @@
                 }
                 $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
 
-                $conteudo = "<div id='title'style='margin-top: 100px;'>CADASTRO ÚNICO - SÃO BENTO DO UNA</div>";
+                $conteudo = "<div id='title'style='margin-top: 100px;'>" . $setor . " - SÃO BENTO DO UNA</div>";
                 $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
                 $conteudo .= "<br><br><p>Assunto: Encaminho" . $sexo . $nom_pessoa . ", CPF: " . $cpf_formatado . $sexoo . $nom_mae_rf . ", reside em " . $endereco_conpleto . ".</p>";
                 $conteudo .= "<p>Ao(a) Coordenador(a) do " . $direcao . ",</p>";
