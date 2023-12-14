@@ -49,6 +49,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                                 </a>
                         </div>
                         <div class="btn">
+                                <a class="menu-button" onclick="location.href='../creas/views/menu-creas.php';">
+                                CREAS Gildo Soares
+                                </a>
+                        </div>
+                        <div class="btn">
                                 <a class="menu-button" onclick="location.href='setores.php';">
                                 <span class="material-symbols-outlined">
                                 domain_add
