@@ -33,7 +33,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         //dados da tabela com todos os cadastros
 
         // Consulta preparada para evitar injeção de SQL
-        $sql = $pdo->prepare("SELECT * FROM cras_test WHERE cpf = :cpf_dec");
+        $sql = $pdo->prepare("SELECT * FROM cras WHERE cpf = :cpf_dec");
         $sql->execute(array(':cpf_dec' => $cpf_dec));
 
         // Consulta preparada para evitar injeção de SQL
@@ -86,7 +86,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         //dados da tabela com todos os cadastros
 
         // Consulta preparada para evitar injeção de SQL
-        $sql = $pdo->prepare("SELECT * FROM cras_test WHERE nis = :nis_dec");
+        $sql = $pdo->prepare("SELECT * FROM cras WHERE nis = :nis_dec");
         $sql->execute(array(':nis_dec' => $nis_dec));
 
         // Consulta preparada para evitar injeção de SQL
