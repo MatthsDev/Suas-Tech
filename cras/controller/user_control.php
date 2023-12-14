@@ -42,11 +42,6 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
-$verificaStmt = $conn->prepare("SELECT cpf FROM cras WHERE cpf = ?");
-$verificaStmt->bind_param("s", $cpf);
-$verificaStmt->execute();
-$verificaStmt->store_result();
-
 
 if ($cpf != '') {
     $res_c = $pdo->query("SELECT * FROM cras WHERE cpf = '$cpf'");
@@ -54,7 +49,7 @@ if ($cpf != '') {
     $linhas_cpf = count($dados_c);
 
     if ($linhas_cpf != 0) {
-        echo "CPF já cadastrado!";
+        echo json_encode(["status" => "error", "message" => "CPF já cadastrado!"]);
         exit();
     }
 }
@@ -78,10 +73,10 @@ if ($linhas_cpf == 0) {
         $municipio, $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
         $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa);
         $stmt->execute();
-        echo "Cadastrado com Sucesso!!";
-        
+
+        echo json_encode(["status" => "success", "message" => "Cadastrado com Sucesso!!"]);
     } else {
-        echo "Pessoa já com CPF já cadastrado!";
+        echo json_encode(["status" => "error", "message" => "Erro ao cadastrar. Pessoa já cadastrada com esse CPF!"]);
     }
 
 $stmt->close();
