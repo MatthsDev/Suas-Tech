@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 13-Dez-2023 às 20:28
+-- Tempo de geração: 14-Dez-2023 às 13:52
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -35,7 +35,13 @@ CREATE TABLE IF NOT EXISTS `cras` (
   `data_nasc` date DEFAULT NULL,
   `nome_social` varchar(255) COLLATE utf8mb3_german2_ci DEFAULT NULL,
   `sexo` varchar(20) COLLATE utf8mb3_german2_ci DEFAULT NULL,
-  `outro_sex` varchar(20) COLLATE utf8mb3_german2_ci NOT NULL,
+  `outro_sex` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_german2_ci DEFAULT NULL,
+  `cod_familia_indigena_fam` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_german2_ci DEFAULT NULL,
+  `nom_povo_indigena_fam` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_german2_ci DEFAULT NULL,
+  `cod_indigena_reside_fam` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_german2_ci DEFAULT NULL,
+  `nom_reserva_indigena_fam` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_german2_ci DEFAULT NULL,
+  `ind_familia_quilombola_fam` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_german2_ci DEFAULT NULL,
+  `nom_comunidade_quilombola_fam` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_german2_ci DEFAULT NULL,
   `nome_mae` varchar(255) COLLATE utf8mb3_german2_ci DEFAULT NULL,
   `nome_pai` varchar(255) COLLATE utf8mb3_german2_ci DEFAULT NULL,
   `nac_pessoa` varchar(255) COLLATE utf8mb3_german2_ci DEFAULT NULL,
@@ -71,14 +77,14 @@ CREATE TABLE IF NOT EXISTS `cras` (
   `rua_apoio` varchar(50) COLLATE utf8mb3_german2_ci DEFAULT NULL,
   `acompanhamento` varchar(50) COLLATE utf8mb3_german2_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_german2_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_german2_ci;
 
 --
 -- Extraindo dados da tabela `cras`
 --
 
-INSERT INTO `cras` (`id`, `cpf`, `nome`, `data_nasc`, `nome_social`, `sexo`, `outro_sex`, `nome_mae`, `nome_pai`, `nac_pessoa`, `uf_pessoa`, `nat_pessoa`, `tel_pessoa`, `email_pessoa`, `rg`, `complemento_rg`, `data_exp_rg`, `sigla_rg`, `estado_rg`, `nis`, `num_titulo`, `zone_titulo`, `area_titulo`, `profissao`, `renda_per`, `bairro`, `logradouro`, `numero`, `referencia`, `qtd_pessoa`, `cras`, `dtcadastro`, `quil_nome`, `ind_nome`, `out_gpt`, `morador_de_rua`, `temp_rua`, `familia_rua`, `acesso_aliment`, `rua_apoio`, `acompanhamento`) VALUES
-(1, '078.158.234-24', 'VALTER MATHEUS DE LIMA ARAUJO', '2001-01-03', '', 'OUTRO', '1', 'PALOMA DE LIMA ARAUJO', 'VALDIR DO NASCIMENTO ARAUJO', 'BRASIL', 'PE', 'VITORIA DE SANTO ANTAO', '0993084976', '', '00000000000009315783', '', '2011-09-05', 'SDS', 'PE', '16598717184', '', '', '', 'EMPREGADO COM CARTEIRA ASSINADA', '1256.00', 'CENTRO', 'RUA  18 DE COPACABANA', '00000', 'PROXIMO A NELSON SAPATEIRO', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `cras` (`id`, `cpf`, `nome`, `data_nasc`, `nome_social`, `sexo`, `outro_sex`, `cod_familia_indigena_fam`, `nom_povo_indigena_fam`, `cod_indigena_reside_fam`, `nom_reserva_indigena_fam`, `ind_familia_quilombola_fam`, `nom_comunidade_quilombola_fam`, `nome_mae`, `nome_pai`, `nac_pessoa`, `uf_pessoa`, `nat_pessoa`, `tel_pessoa`, `email_pessoa`, `rg`, `complemento_rg`, `data_exp_rg`, `sigla_rg`, `estado_rg`, `nis`, `num_titulo`, `zone_titulo`, `area_titulo`, `profissao`, `renda_per`, `bairro`, `logradouro`, `numero`, `referencia`, `qtd_pessoa`, `cras`, `dtcadastro`, `quil_nome`, `ind_nome`, `out_gpt`, `morador_de_rua`, `temp_rua`, `familia_rua`, `acesso_aliment`, `rua_apoio`, `acompanhamento`) VALUES
+(3, '078.158.234-24', 'VALTER MATHEUS DE LIMA ARAUJO', '2001-01-03', 'VALTER', 'MASCULINO', NULL, 01, 'TABUCU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
