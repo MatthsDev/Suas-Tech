@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `cras` (
 --
 
 INSERT INTO `cras` (`id`, `cpf`, `nome`, `data_nasc`, `nome_social`, `sexo`, `outro_sex`, `cod_familia_indigena_fam`, `nom_povo_indigena_fam`, `cod_indigena_reside_fam`, `nom_reserva_indigena_fam`, `ind_familia_quilombola_fam`, `nom_comunidade_quilombola_fam`, `nome_mae`, `nome_pai`, `nac_pessoa`, `uf_pessoa`, `nat_pessoa`, `tel_pessoa`, `email_pessoa`, `rg`, `complemento_rg`, `data_exp_rg`, `sigla_rg`, `estado_rg`, `nis`, `num_titulo`, `zone_titulo`, `area_titulo`, `profissao`, `renda_per`, `bairro`, `logradouro`, `numero`, `referencia`, `qtd_pessoa`, `cras`, `dtcadastro`, `quil_nome`, `ind_nome`, `out_gpt`, `morador_de_rua`, `temp_rua`, `familia_rua`, `acesso_aliment`, `rua_apoio`, `acompanhamento`) VALUES
-(3, '078.158.234-24', 'VALTER MATHEUS DE LIMA ARAUJO', '2001-01-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(3, '078.158.234-24', 'VALTER MATHEUS DE LIMA ARAUJO', '2001-01-03', 'VALTER', 'MASCULINO', NULL, 01, 'TABUCU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
