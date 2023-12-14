@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/Suas-Tech/cras/css/index.css">
     <link rel="website icon" type="png" href="/Suas-Tech/cozinha_comunitaria/img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -22,15 +23,15 @@
         </h1>
     </div>
     <div class="container">
+
+
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
                     placeholder="Digite o CPF">
 
-                <a onclick="goBack()">
-                    <i class="fas fa-arrow-left"></i> Voltar ao menu
-                </a>
+
             </div>
             <div class="titulo">
                 <div class="titulo1">
@@ -80,7 +81,7 @@
                             <option value="OUTRO">OUTRO</option>
                         </select>
                         <div class="bloco" id="outroSexoDiv" style="display: none;">
-                            <label for="outroSexo">ESPECIFIQUE: </label>
+                            <label for="outroSexo" >ESPECIFIQUE: </label>
                             <input type="text" id="outroSexo" name="outroSexo">
                         </div>
                     </div>
@@ -185,8 +186,8 @@
             </div>
             <div class="bloco">
                 <h5> FAMILIA QUILOMBOLA </h5>
-                <input type="radio" name="familiaQuilambola" id="reservaSIM"  value="1">1 - Sim
-                <input type="radio" name="familiaQuilambola" id="reservaNAO"  value="2">2 - Não
+                <input type="radio" name="familiaQuilambola" id="reservaSIM" value="1">1 - Sim
+                <input type="radio" name="familiaQuilambola" id="reservaNAO" value="2">2 - Não
             </div>
             <div class="bloco">
                 <h5> Qual é o nome da comunidade quilombola?</h5>
@@ -285,12 +286,52 @@
             </div>
             <div class="btn">
                 <button type="button" id="btnEnviar" onclick="enviarFormulario()">ENVIAR</button>
+              
             </div>
         </form>
     </div>
-
+    <a onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
     <script src="../js/ajax_request.js"></script>
     <script src='../../controller/back.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+    <script>
+        function enviarFormulario() {
+            $.ajax({
+                type: 'POST',
+                url: '/Suas-Tech/cras/controller/user_control.php',
+                data: $('#formUsuario').serialize(),
+                success: function (data) {
+                    if (data.includes('Erro')) {
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: data
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sucesso',
+                            text: 'Cadastro realizado com sucesso!'
+                        }).then(function () {
+                            window.location.href = '/Suas-Tech/cras/views/cadastro_usuarios.php';
+                        });
+                    }
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Erro ao enviar o formulário. Por favor, tente novamente.'
+                    });
+                }
+            });
+        }
+    </script>
+
 
 </body>
 
