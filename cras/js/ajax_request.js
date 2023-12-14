@@ -57,7 +57,7 @@ function verificarUsuario() {
                     }
                 });
 
-// ================================== CODIGO PCD INDIGENA E QUILOMBOA =================================================
+                // ================================== CODIGO PCD INDIGENA E QUILOMBOA =================================================
 
                 var cod_fam_ind = data.cod_fam_ind;
                 if (cod_fam_ind == 1) {
@@ -112,7 +112,7 @@ function verificarUsuario() {
                         terraIndiginaSelect.prop('disabled', true);
                         $('#naoSabeTerraIndigina').prop('checked', true);
                         $('#naoSabeTerraIndigina').prop('disabled', true);
-                        terraIndiginaSelect.val('').trigger('change'); 
+                        terraIndiginaSelect.val('').trigger('change');
                     }
                 });
 
@@ -142,24 +142,29 @@ function verificarUsuario() {
                 //========== FUNCAO SELECT INDIGENA ================================================
                 var terraIndiginaSelect = $('#terraIndigina');
                 terraIndiginaSelect.empty();
+                terraIndiginaSelect.append('<option value="">SELECIONE</option>');
+                terraIndiginaSelect.append('<option value="teste2">teste2</option>');
 
                 var terraFam = data.terraIndigina;
                 if (terraFam) {
                     terraIndiginaSelect.append('<option value="' + terraFam + '">' + terraFam + '</option>');
+
                 }
 
 
                 var povoIndigenaSelect = $('#povoIndigena');
-                povoIndigenaSelect.empty();
-
+                povoIndigenaSelect.empty()
+                povoIndigenaSelect.append('<option value="">SELECIONE</option>');
+                povoIndigenaSelect.append('<option value="teste">teste23</option>');
 
                 var nomFamInd = data.povoIndigena;
                 if (nomFamInd) {
+
                     povoIndigenaSelect.append('<option value="' + nomFamInd + '">' + nomFamInd + '</option>');
                 }
 
 
-//==========================================  CODIGO QUILOMBOLA   ======================================
+                //==========================================  CODIGO QUILOMBOLA   ======================================
                 var familiaQuilambola = data.familiaQuilambola;
                 if (familiaQuilambola == 1) {
                     $('input[name="familiaQuilambola"][value="1"]').prop('checked', true);
@@ -194,7 +199,7 @@ function verificarUsuario() {
                         comunidadeQuilambolaSelect.prop('disabled', true);
                         $('#naoSabeTerraQuilo').prop('checked', true);
                         $('#naoSabeTerraQuilo').prop('disabled', true);
-                        comunidadeQuilambolaSelect.val('').trigger('change'); 
+                        comunidadeQuilambolaSelect.val('').trigger('change');
                     }
                 });
 
@@ -212,11 +217,13 @@ function verificarUsuario() {
 
                 var comunidadeQuilambolaSelect = $('#comunidadeQuilambola');
                 comunidadeQuilambolaSelect.empty();
+                comunidadeQuilambolaSelect.append('<option>selecione</option>');
+                comunidadeQuilambolaSelect.append('<option value="teste">teste23</option>');
                 var terraQuilo = data.comunidadeQuilambola;
                 if (terraQuilo) {
                     comunidadeQuilambolaSelect.append('<option value="' + terraQuilo + '">' + terraQuilo + '</option>');
                 }
-//===================================================================================================================================
+                //===================================================================================================================================
 
 
 

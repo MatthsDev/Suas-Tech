@@ -81,7 +81,7 @@
                             <option value="OUTRO">OUTRO</option>
                         </select>
                         <div class="bloco" id="outroSexoDiv" style="display: none;">
-                            <label for="outroSexo" >ESPECIFIQUE: </label>
+                            <label for="outroSexo">ESPECIFIQUE: </label>
                             <input type="text" id="outroSexo" name="outroSexo">
                         </div>
                     </div>
@@ -136,22 +136,22 @@
             <h5>PORTADOR DE DEFICIÊNCIA: </h5>
             <div class="bloco2">
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1"> &nbsp;1 - CEGUEIRA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2"> &nbsp;2 - BAIXA VISAO</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3"> &nbsp;3 - SURDEZ
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1" disabled> &nbsp;1 - CEGUEIRA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2" disabled> &nbsp;2 - BAIXA VISAO</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3" disabled> &nbsp;3 - SURDEZ
                         SEVERA/PROFUNDA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4"> &nbsp;4 - SURDEZ
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4" disabled> &nbsp;4 - SURDEZ
                         LEVE/MODERADA</div>
                 </div>
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5"> &nbsp;5 - DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5" disabled> &nbsp;5 - DEFICIENCIA
                         FISICA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6"> &nbsp;6 - DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6" disabled> &nbsp;6 - DEFICIENCIA
                         MENTAL OU
                         INTELECTUAL</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7"> &nbsp;7 - SINDROME DE DOWN
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7" disabled> &nbsp;7 - SINDROME DE DOWN
                     </div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8"> &nbsp;8 - TRANSTORNO/DOENCA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8" disabled> &nbsp;8 - TRANSTORNO/DOENCA
                         MENTAL</div>
                 </div>
             </div>
@@ -167,6 +167,8 @@
                     <h5> A QUE POVO INDIGENA PERTENCE A FAMILIA?</h5>
 
                     <select name="povoIndigena" id="povoIndigena" style="width: 250px;">
+                        <option value="">SELECIONE</option>
+                        <option value="teste">teste</option>
                     </select>
                 </div>
 
@@ -179,6 +181,8 @@
                     <h5> QUAL É O NOME DA TERRA OU RESERVA INDIGENA</h5>
                     <br>
                     <select name="terraIndigina" id="terraIndigina" style="width: 275px;">
+                        <option value="">SELECIONE</option>
+                        <option value="teste">teste</option>
                     </select>
                     <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
                         style="margin-left:25px;"> 2 - Não sabe
@@ -286,52 +290,54 @@
             </div>
             <div class="btn">
                 <button type="button" id="btnEnviar" onclick="enviarFormulario()">ENVIAR</button>
-              
+
             </div>
         </form>
     </div>
     <a onclick="goBack()">
-                    <i class="fas fa-arrow-left"></i> Voltar ao menu
-                </a>
+        <i class="fas fa-arrow-left"></i> Voltar ao menu
+    </a>
     <script src="../js/ajax_request.js"></script>
     <script src='../../controller/back.js'></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
     <script>
         function enviarFormulario() {
+            var formData = $("#formUsuario").serialize();
             $.ajax({
-                type: 'POST',
-                url: '/Suas-Tech/cras/controller/user_control.php',
-                data: $('#formUsuario').serialize(),
-                success: function (data) {
-                    if (data.includes('Erro')) {
+                type: "POST",
+                url: "/Suas-Tech/cras/controller/user_control.php",
+                data: formData,
+                dataType: "json",
+                success: function (response) {
+                    if (response.status === "success") {
 
                         Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: data
+                            icon: 'success',
+                            title: 'Cadastro realizado com sucesso!',
+                            showConfirmButton: false,
+                            timer: 1500
                         });
                     } else {
                         Swal.fire({
-                            icon: 'success',
-                            title: 'Sucesso',
-                            text: 'Cadastro realizado com sucesso!'
-                        }).then(function () {
-                            window.location.href = '/Suas-Tech/cras/views/cadastro_usuarios.php';
+                            icon: 'error',
+                            title: 'Erro ao cadastrar',
+                            text: response.message
                         });
                     }
                 },
-                error: function (error) {
+                error: function () {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Oops...',
-                        text: 'Erro ao enviar o formulário. Por favor, tente novamente.'
+                        title: 'Erro ao conectar ao servidor',
+                        text: 'Por favor, tente novamente mais tarde.'
                     });
                 }
             });
         }
+        function goBack() {
+            window.history.back();
+        }
     </script>
-
 
 </body>
 
