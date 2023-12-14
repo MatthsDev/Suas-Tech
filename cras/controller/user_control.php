@@ -5,84 +5,104 @@ $cpf = ($_POST["cpf"]);
 $nome = ($_POST["nome"]);
 $data_nasc = ($_POST["data_nasc"]);
 $nomeSocial = ($_POST["nome_social"]);
-$sexo = ($_POST["sexo"]);
-$outr_sexo = ($_POST["outroSexo"]);
-
-$nomeMae = ($_POST["nome_mae"]);
-$nomePai = ($_POST["nome_pai"]);
-$nacionalidade = ($_POST["nac_pessoa"]);
-$uf = ($_POST["uf_pessoa"]);
-$municipio = ($_POST["nat_pessoa"]);
-$telefone = ($_POST["tel_pessoa"]);
-$email = ($_POST["email_pessoa"]);
-$grupoIndigena = ($_POST["grupoIndigena"]);
-$povoIndigena = ($_POST["povoIndigena"]);
-$grupoReserva = ($_POST["grupoReserva"]);
-$terraIndigina = ($_POST["terraIndigina"]);
-$familiaQuilambola = ($_POST["familiaQuilambola"]);
-$comunidadeQuilambola = ($_POST["comunidadeQuilambola"]);
-
-$rg = ($_POST["rg"]);
-$complemento_rg = ($_POST["complemento_rg"]);
-$data_exp_rg = ($_POST["data_exp_rg"]);
-$sigla_rg = ($_POST["sigla_rg"]);
-$estado_rg = ($_POST["estado_rg"]);
-$nis = ($_POST["nis"]);
-$numTitulo = ($_POST["num_titulo"]);
-$zonaTitulo = ($_POST["zone_titulo"]);
-$area_titulo = ($_POST["area_titulo"]);
-$profissao = ($_POST["profissao"]);
-$rendaPerCapita = ($_POST["renda_per"]);
-$bairro = ($_POST["bairro"]);
-$logradouro = ($_POST["log"]);
-$numero = ($_POST["numero"]);
-$referencia = ($_POST["referencia"]);
-$qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
 
-$cpfExistente = false;
-$consultaCpf = $conn->prepare("SELECT COUNT(*) FROM cras WHERE cpf = ?");
-$consultaCpf->bind_param("s", $cpf);
-$consultaCpf->execute();
-$consultaCpf->bind_result($count);
-$consultaCpf->fetch();
+// $sexo = ($_POST["sexo"]);
+// $outr_sexo = isset($_POST["outroSexo"]) ? $_POST["outroSexo"] : null;
+// $nomeMae = ($_POST["nome_mae"]);
+// $nomePai = ($_POST["nome_pai"]);
+// $nacionalidade = ($_POST["nac_pessoa"]);
+// $uf = ($_POST["uf_pessoa"]);
+// $municipio = ($_POST["nat_pessoa"]);
+// $telefone = ($_POST["tel_pessoa"]);
+// $email = ($_POST["email_pessoa"]);
+// // $pcd = ($_POST["pcd"]);
+// // $gpte = ($_POST["gpte"]);
+// // $quilombo = ($_POST["quilombo"]);
 
-if ($count > 0) {
-    $cpfExistente = true;
+
+// $grupoIndigena = isset($_POST["grupoIndigena"]) ? $_POST["grupoIndigena"] : null;
+// $povoIndigena = isset($_POST["povoIndigena"]) ? $_POST["povoIndigena"] : null;
+// $grupoReserva = isset($_POST["grupoReserva"]) ? $_POST["grupoReserva"] : null;
+// $terraIndigina = isset($_POST["terraIndigina"]) ? $_POST["terraIndigina"] : null;
+// $familiaQuilambola = isset($_POST["familiaQuilambola"]) ? $_POST["familiaQuilambola"] : null;
+// $comunidadeQuilambola = isset($_POST["comunidadeQuilambola"]) ? $_POST["comunidadeQuilambola"] : null;
+
+// $rg = ($_POST["rg"]);
+// $complemento_rg = ($_POST["complemento_rg"]);
+// $data_exp_rg = ($_POST["data_exp_rg"]);
+// $sigla_rg = ($_POST["sigla_rg"]);
+// $estado_rg = ($_POST["estado_rg"]);
+// $nis = ($_POST["nis"]);
+// $numTitulo = ($_POST["num_titulo"]);
+// $zonaTitulo = ($_POST["zone_titulo"]);
+// $area_titulo = ($_POST["area_titulo"]);
+// $profissao = ($_POST["profissao"]);
+// $rendaPerCapita = ($_POST["renda_per"]);
+// $bairro = ($_POST["bairro"]);
+// $logradouro = ($_POST["log"]);
+// $numero = ($_POST["numero"]);
+// $referencia = ($_POST["referencia"]);
+// $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
+
+$verificaStmt = $conn->prepare("SELECT cpf FROM cras WHERE cpf = ?");
+$verificaStmt->bind_param("s", $cpf);
+$verificaStmt->execute();
+$verificaStmt->store_result();
+
+if ($verificaStmt->num_rows > 0) {
+    // Se o CPF já existe, exibe uma mensagem de erro
+    echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'CPF já cadastrado!'
+            }).then(function() {
+                window.location.href = '/Suas-Tech/cras/views/cadastro_usuarios.php';
+            });
+          </script>";
+    exit(); // Encerra o script para evitar a inserção após CPF duplicado
 }
 
-$consultaCpf->close();
+$stmt = $conn->prepare("INSERT INTO cras (cpf, nome, data_nasc) VALUES (?, ?, ?)");
 
-if ($cpfExistente) {
-    echo "CPF já cadastrado. Por favor, verifique os dados.";
+// nome_social, sexo, outro_sex, cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, 
+// nom_reserva_indigena_fam, ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa, 
+// nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, area_titulo, 
+// profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa
+
+// $nomeSocial, $sexo, $outr_sexo, $grupoIndigena, $povoIndigena,
+// $grupoReserva, $terraIndigina, $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf, $municipio,
+//     $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis, $numTitulo, $zonaTitulo,
+//     $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa
+
+if ($stmt === false) {
+    die("Erro na preparação da declaração: " . $conn->error);
+}
+// ssssssssssssssssssssssssssssssss
+$stmt->bind_param("sss", $cpf, $nome, $data_nasc);
+
+if ($stmt->execute()) {
+    echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso',
+                text: 'Cadastro realizado com sucesso!'
+            }).then(function() {
+                window.location.href = '/Suas-Tech/cras/views/cadastro_usuarios.php';
+            });
+          </script>";
 } else {
-        $stmt = $conn->prepare("INSERT INTO cras (
-            cpf, nome, data_nasc, nome_social, sexo, outro_sex, cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, 
-            nom_reserva_indigena_fam, ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa, 
-            nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, area_titulo, 
-            profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+    echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Erro na inserção de dados: " . $stmt->error . "'
+            });
+          </script>";
+}
 
-        if ($stmt === false) {
-            die("Erro na preparação da declaração: " . $conn->error);
-        }
-
-        $stmt->bind_param("sssssssssssssssssssssssssssssssssss",$cpf, $nome, $data_nasc, $nomeSocial, $sexo, $outr_sexo, $grupoIndigena, $povoIndigena,
-        $grupoReserva, $terraIndigina, $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf, $municipio,
-            $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis, $numTitulo, $zonaTitulo,
-            $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa
-
-        );
-        if ($stmt->execute()) {
-            // Redirecionar para a tela de cadastro
-            header("Location: /Suas-Tech/cras/views/cadastro_usuarios.php");
-            exit();
-        } else {
-            echo "Erro na inserção de dados: " . $stmt->error;
-        }
-    }
-        // Fechar a declaração e a conexão
-        $stmt->close();
-        $conn->close();
-   
+// Fechar a declaração e a conexão
+$stmt->close();
+$conn->close();
 ?>
