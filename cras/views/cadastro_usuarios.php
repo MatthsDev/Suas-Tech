@@ -302,28 +302,22 @@
 
     <script>
         function enviarFormulario() {
-            // Obter dados do formulário
             var formData = $("#formUsuario").serialize();
-
-            // Fazer solicitação AJAX para user_control.php
             $.ajax({
                 type: "POST",
                 url: "/Suas-Tech/cras/controller/user_control.php",
                 data: formData,
-                dataType: "json", // Espera uma resposta JSON
+                dataType: "json",
                 success: function (response) {
                     if (response.status === "success") {
-                        // Mostrar SweetAlert de sucesso
+
                         Swal.fire({
                             icon: 'success',
                             title: 'Cadastro realizado com sucesso!',
                             showConfirmButton: false,
                             timer: 1500
                         });
-
-                        // Você pode adicionar lógica adicional ou redirecionar o usuário, se necessário
                     } else {
-                        // Mostrar SweetAlert de erro
                         Swal.fire({
                             icon: 'error',
                             title: 'Erro ao cadastrar',
@@ -332,7 +326,6 @@
                     }
                 },
                 error: function () {
-                    // Mostrar SweetAlert de erro se a solicitação AJAX falhar
                     Swal.fire({
                         icon: 'error',
                         title: 'Erro ao conectar ao servidor',
@@ -341,8 +334,6 @@
                 }
             });
         }
-
-        // Função para voltar
         function goBack() {
             window.history.back();
         }
