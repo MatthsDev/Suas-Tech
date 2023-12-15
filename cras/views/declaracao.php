@@ -22,7 +22,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     </div>
             <!--INICIO DA DECLARAÇÃO PARA ENCAMINHAMENTO-->
         <div class="encaminhamento">
-            <form method="post" action="../controller/print_enc1.php">
+            <form method="post" action="../controller/print_enc_cras.php">
                 <h2>Encaminhamento</h2>
                 <select name="buscar_dados" required>
                     <option value="cpf_dec">CPF:</option>
