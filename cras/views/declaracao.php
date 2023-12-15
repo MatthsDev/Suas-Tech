@@ -26,10 +26,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
             if (select.value === "cpf_dec") {
                 inputCPF.style.display = "block";
+                inputCPF.querySelector('input').removeAttribute('disabled');
                 inputNIS.style.display = "none";
+                inputNIS.querySelector('input').setAttribute('disabled', 'disabled');
             } else if (select.value === "nis_dec") {
                 inputNIS.style.display = "block";
+                inputNIS.querySelector('input').removeAttribute('disabled');
                 inputCPF.style.display = "none";
+                inputCPF.querySelector('input').setAttribute('disabled', 'disabled');
             }
         }
     </script>
@@ -50,11 +54,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             </select>
 
             <div id="inputCPF">
-                <input type="text" name="valorescolhido" placeholder="Digite o CPF:" required>
+                <input type="text" name="valorescolhido" placeholder="Digite o CPF:">
             </div>
 
             <div id="inputNIS" class="hidden">
-                <input type="text" name="valorescolhido" placeholder="Digite o NIS:" required>
+                <input type="text" name="valorescolhido" placeholder="Digite o NIS:" >
             </div>
 
 
@@ -74,11 +78,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                     }
                 }
                 ?>
-    </div>
-    </select>
-    <label>Parecer: </label>
-    <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
-    <button type="submit">ENVIAR</button>
+        </div>
+        </select>
+        <label>Parecer: </label>
+        <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
+        <button type="submit">ENVIAR</button>
     </form>
     <script>
         function ajustarTextarea(textarea) {
