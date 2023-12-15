@@ -90,6 +90,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     $_SESSION['nome_mae'] = $dados['nome_mae'];
                     
                     ?>
+                    <div class="btn1">    
+                        <button  type=" ">Editar informações do usuário</button>
+                    </div>
                     <hr>
                     <div class="bloco1">
                             <div class="lab"><label>Parecer técnico: </label></div>
