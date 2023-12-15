@@ -13,6 +13,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <link rel="website icon" type="png" href="../../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Declarações</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="../js/cpfvalid.js"></script>
     <style>
         .hidden {
             display: none;
@@ -35,7 +38,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             </select>
 
             <div id="inputCPF">
-                <input type="text" name="valorescolhido_cpf" placeholder="Digite o CPF:">
+                <input type="text" name="valorescolhido_cpf" id="cpf" placeholder="Digite o CPF:" onblur="validarCPF(this)">
             </div>
 
             <div id="inputNIS" class="hidden">

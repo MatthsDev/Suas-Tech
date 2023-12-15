@@ -24,7 +24,7 @@ function formatarCPF(cpf) {
 
 function _cpf(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
-    if (!cpf) { // Se o CPF estiver vazio, retorna como válido
+    if (!cpf) {
         return true;
     }
     if (cpf.length != 11 ||
