@@ -41,7 +41,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
         </h1>
     </div>
-    <!--INICIO DA DECLARAÇÃO PARA ENCAMINHAMENTO-->
     <div class="encaminhamento">
         <form method="post" action="../controller/print_enc_cras.php">
             <h2>Encaminhamento</h2>
@@ -58,7 +57,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 <input type="text" name="valorescolhido" placeholder="Digite o NIS:" required>
             </div>
 
-            
+
             <label>Encaminhar para: </label>
             <select name="setor" required>
                 <option value="" disabled selected hidden>Selecione</option>
