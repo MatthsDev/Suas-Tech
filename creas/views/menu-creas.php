@@ -8,7 +8,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style-menu.css">
-    <link rel="website icon" type="png" href="../img/logo.png">
+    <link rel="website icon" type="png" href="../../cras/img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Creas Gildo Soares</title>
 </head>

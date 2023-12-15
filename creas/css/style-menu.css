@@ -2,6 +2,7 @@
 
 body {
     background-color: #D7E9F8;
+    background-color: linear-gradient(to bottom, #d7e9f8, #ffffff);
     overflow: hidden;
     font-family: "Inter", sans-serif;
     height: auto;
