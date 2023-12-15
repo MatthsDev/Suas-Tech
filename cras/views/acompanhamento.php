@@ -39,7 +39,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </select>
 
                 <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
-                <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
 
                 
                 <button type="submit">BUSCAR</button>
