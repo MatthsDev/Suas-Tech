@@ -39,7 +39,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </select>
 
                 <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
-                <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
 
                 
                 <button type="submit">BUSCAR</button>
@@ -94,7 +93,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     
                     ?>
                     <div class="btn1">    
-                        <button  type=" ">Editar informações do usuário</button>
+                        <button onclick="window.location.href='/Suas-Tech/cras/views/editar_usuario.php'" type="button">Editar informações do usuário</button>
                     </div>
                     <hr>
                     <div class="bloco1">
