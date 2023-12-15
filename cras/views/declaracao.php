@@ -18,25 +18,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             display: none;
         }
     </style>
-    <script>
-        function selecionarTipoInput() {
-            var select = document.getElementById("buscar_dados");
-            var inputCPF = document.getElementById("inputCPF");
-            var inputNIS = document.getElementById("inputNIS");
-
-            if (select.value === "cpf_dec") {
-                inputCPF.style.display = "block";
-                inputCPF.querySelector('input').removeAttribute('disabled');
-                inputNIS.style.display = "none";
-                inputNIS.querySelector('input').setAttribute('disabled', 'disabled');
-            } else if (select.value === "nis_dec") {
-                inputNIS.style.display = "block";
-                inputNIS.querySelector('input').removeAttribute('disabled');
-                inputCPF.style.display = "none";
-                inputCPF.querySelector('input').setAttribute('disabled', 'disabled');
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -46,20 +27,21 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </h1>
     </div>
     <div class="encaminhamento">
-        <form method="post" action="../controller/print_enc_cras.php">
-            <h2>Encaminhamento</h2>
-            <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
-                <option value="cpf_dec">CPF:</option>
-                <option value="nis_dec">NIS:</option>
-            </select>
+    <form method="post" action="../controller/print_enc_cras.php">
+        <h2>Encaminhamento</h2>
+        <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
+            <option value="cpf_dec">CPF:</option>
+            <option value="nis_dec">NIS:</option>
+        </select>
 
-            <div id="inputCPF">
-                <input type="text" name="valorescolhido" placeholder="Digite o CPF:">
-            </div>
+        <div id="inputCPF">
+            <input type="text" name="valorescolhido_cpf" placeholder="Digite o CPF:">
+        </div>
 
-            <div id="inputNIS" class="hidden">
-                <input type="text" name="valorescolhido" placeholder="Digite o NIS:" >
-            </div>
+        <div id="inputNIS" class="hidden">
+            <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:" disabled>
+        </div>
+
 
 
             <label>Encaminhar para: </label>
@@ -84,6 +66,31 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
         <button type="submit">ENVIAR</button>
     </form>
+
+    <script>
+        function selecionarTipoInput() {
+            var select = document.getElementById("buscar_dados");
+            var inputCPF = document.getElementById("inputCPF");
+            var inputNIS = document.getElementById("inputNIS");
+
+            if (select.value === "cpf_dec") {
+                inputCPF.style.display = "block";
+                inputCPF.querySelector('input').removeAttribute('disabled');
+                inputNIS.style.display = "none";
+                inputNIS.querySelector('input').setAttribute('disabled', 'disabled');
+            } else if (select.value === "nis_dec") {
+                inputNIS.style.display = "block";
+                inputNIS.querySelector('input').removeAttribute('disabled');
+                inputCPF.style.display = "none";
+                inputCPF.querySelector('input').setAttribute('disabled', 'disabled');
+            }
+        }
+
+        function ajustarTextarea(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+    </script>
     <script>
         function ajustarTextarea(textarea) {
             textarea.style.height = 'auto';
