@@ -87,12 +87,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     
                     ?>
                     <hr>
-                        <label>Parecer técnico: </label><br>
-                        <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
-                        <div class="setor">
-            <label>Encaminhar para:</label>
-            <select name="setor" required>
-                <option value="" disabled selected hidden>Selecione</option>
+                    <div class="bloco1">
+                            <div class="lab"><label>Parecer técnico: </label></div>
+                            <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
+                    </div>
+                    <div class="bloco">
+                        <label>Encaminhar para:</label>
+                        <select name="setor" required>
+                        <option value="" disabled selected hidden>Selecione</option>
+                    </div>    
                 <?php
 
                     $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
@@ -109,7 +112,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             </select>
 
             <label>Itens concedidos:</label>
-            <input type="text" name="itens_conc" placeholder="Descreva o que está sendo concedido a família">
+            <input class="inpu" type="text" name="itens_conc" placeholder="Descreva o que está sendo concedido a família">
         </div>
                     <div class="btn">    
                         <button  type="submit">ENVIAR</button>
