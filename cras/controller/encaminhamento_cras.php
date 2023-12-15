@@ -33,7 +33,7 @@
             //dados da tabela com todos os cadastros
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM cras_test WHERE cpf = :cpf_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE cpf = :cpf_dec");
             $sql->execute(array(':cpf_dec' => $cpf_dec));
 
 
@@ -62,12 +62,12 @@
                 $numero = $dados['numero'];
                 $referencia = $dados['referencia'];
 
-                $enderecoCompleto = $bairro . ", " . $logradouro . "," . "n°  $numero" . ", " . $referencia;
+                $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . " $referencia";
 
                 $conteudo = "<div id='title'style='margin-top: 100px;'> $local - SÃO BENTO DO UNA</div>";
                 $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
                 $conteudo .= "<br><br><p>Assunto: Encaminho " . $nom_pessoa . ", CPF: " . $cpf_formatado . ", reside em " . $enderecoCompleto . ".</p>";
-                $conteudo .= "<p>Ao(a) Coordenador(a) do " . $local . ",</p>";
+                $conteudo .= "<p>Ao(a) Coordenador(a) do " . $local . ", pelo seguinte motivo: </p>";
                 $conteudo .= "<p>" . $texto . "</p>";
                 $conteudo .= "<p>Permaneço à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>";
                 $conteudo .= "<p>Atenciosamente,</p>";
@@ -78,18 +78,18 @@
                 $conteudo .= "<p>_________________________________________________________________________________________________________</p>";
                 $conteudo .= "<p>ASSINATURA</p>";
                 $conteudo .= "</div>";
-                header("Location: print_enc1.php?conteudo=" . urlencode($conteudo));
+                header("Location: print_enc_cras.php?conteudo=" . urlencode($conteudo));
             }
         
         elseif ($opcao == "nis_dec") {
             $nis_dec = $_POST['valorescolhido'];
             $texto = $_POST['texto'];
-            $direcao = $_POST['setor'];
+            $local = $_POST['setor'];
 
-            //dados da tabela com todos os cadastros
+
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM cras_test WHERE nis = :nis_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE nis = :nis_dec");
             $sql->execute(array(':nis_dec' => $nis_dec));
 
 
@@ -100,12 +100,9 @@
 
             if ($sql->rowCount() > 0) {
                 $dados = $sql->fetch(PDO::FETCH_ASSOC);
-                $cod_familiar = $dados["cod_familiar_fam"];
-                $nom_pessoa = $dados["nom_pessoa"];
-                $nom_mae_rf = $dados["nom_completo_mae_pessoa"];
-                $sexo_pessoa_ = $dados["cod_sexo_pessoa"];
-
                 
+                $nom_pessoa = $dados["nom_pessoa"];
+               
 
                 //Define as variáveis com o endereço
                 $bairro = $dados['bairro'];
@@ -113,7 +110,7 @@
                 $numero = $dados['numero'];
                 $referencia = $dados['referencia'];
 
-                $enderecoCompleto = $bairro . ", " . $logradouro . ", " . $numero . ", " . $referencia;
+                $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . " $referencia";
 
                 $conteudo = "<div id='title'style='margin-top: 100px;'> $local - SÃO BENTO DO UNA</div>";
                 $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
@@ -129,7 +126,7 @@
                 $conteudo .= "<p>_________________________________________________________________________________________________________</p>";
                 $conteudo .= "<p>ASSINATURA</p>";
                 $conteudo .= "</div>";
-                header("Location: print_enc1.php?conteudo=" . urlencode($conteudo));
+                header("Location: print_enc_cras.php?conteudo=" . urlencode($conteudo));
             }
         } else {
             echo "Nâo encontrado.";

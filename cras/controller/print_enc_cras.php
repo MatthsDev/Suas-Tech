@@ -40,7 +40,7 @@ echo $_GET['conteudo'];
 
 <script>
     setTimeout(function(){
-        window.location.href = "../../views/declaracao.php";
+        window.location.href = "../views/declaracao.php";
     }, 3000);
 
     window.onload = function() {
