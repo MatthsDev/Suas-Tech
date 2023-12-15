@@ -91,7 +91,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     
                     ?>
                     <div class="btn1">    
-                        <button  type=" ">Editar informações do usuário</button>
+                        <button href="/Suas-Tech/cras/viwes/edit_usuario.php" type=" ">Editar informações do usuário</button>
                     </div>
                     <hr>
                     <div class="bloco1">
