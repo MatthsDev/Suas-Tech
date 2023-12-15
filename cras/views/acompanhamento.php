@@ -12,6 +12,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
     <link rel="website icon" type="png" href="../img/logo.png">
+    <link rel="stylesheet" href="../css/style-acompanhamento.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Acompanhamento</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -21,7 +22,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
 </head>
 <body>
-    <h1>ACOMPANHAMENTO</h1>
+<div class="img">
+        <h1 class="titulo-com-imagem">
+            <img class="titulo-com-imagem" src="../img/h1-acompanhamento.svg"
+                alt="Titulocomimagem">
+        </h1>
+    </div>
 
     <div class="decprefeitura">
             <form method="" action="">
