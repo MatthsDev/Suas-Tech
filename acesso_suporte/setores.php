@@ -35,7 +35,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         }
 
         // Função para preencher o CPF no campo após a busca
-        function preencheCPF{
+        function preencheCPF(cpf){
             $("#cpf").val(cpf);
         }
 
