@@ -62,7 +62,7 @@
                 $numero = $dados['numero'];
                 $referencia = $dados['referencia'];
 
-                $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . $referencia;
+                $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . " $referencia";
 
                 $conteudo = "<div id='title'style='margin-top: 100px;'> $local - SÃO BENTO DO UNA</div>";
                 $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
@@ -110,7 +110,7 @@
                 $numero = $dados['numero'];
                 $referencia = $dados['referencia'];
 
-                $enderecoCompleto = $bairro . ", " . $logradouro . ", " . $numero . ", " . $referencia;
+                $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . " $referencia";
 
                 $conteudo = "<div id='title'style='margin-top: 100px;'> $local - SÃO BENTO DO UNA</div>";
                 $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
