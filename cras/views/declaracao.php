@@ -13,51 +13,90 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <link rel="website icon" type="png" href="../../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Declarações</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
             <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
         </h1>
     </div>
-            <!--INICIO DA DECLARAÇÃO PARA ENCAMINHAMENTO-->
-        <div class="encaminhamento">
-            <form method="post" action="../controller/print_enc_cras.php">
-                <h2>Encaminhamento</h2>
-                <select name="buscar_dados" required>
-                    <option value="cpf_dec">CPF:</option>
-                    <option value="nis_dec">NIS:</option>
-                </select>
-                <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
+    <div class="encaminhamento">
+        <form method="post" action="../controller/print_enc_cras.php">
+            <h2>Encaminhamento</h2>
+            <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
+                <option value="cpf_dec">CPF:</option>
+                <option value="nis_dec">NIS:</option>
+            </select>
 
-                <label>Encaminhar para: </label>
-                <select name="setor" required>
-        <option value="" disabled selected hidden>Selecione</option>
-        <?php
+            <div id="inputCPF">
+                <input type="text" name="valorescolhido_cpf" placeholder="Digite o CPF:">
+            </div>
 
-            $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
+            <div id="inputNIS" class="hidden">
+                <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
+            </div>
 
-            // Verifica se há resultados na consulta
-            if ($consultaSetores->num_rows > 0) {
-                
-                // Loop para criar as opções do select
-                while ($setor = $consultaSetores->fetch_assoc()) {
-                    echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
+
+
+            <label>Encaminhar para: </label>
+            <select name="setor" required>
+                <option value="" disabled selected hidden>Selecione</option>
+                <?php
+
+                $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
+
+                // Verifica se há resultados na consulta
+                if ($consultaSetores->num_rows > 0) {
+
+                    // Loop para criar as opções do select
+                    while ($setor = $consultaSetores->fetch_assoc()) {
+                        echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
+                    }
                 }
-            }
-            ?>
-        </div> 
+                ?>
+    </div>
     </select>
-                <label>Parecer: </label>
-                <textarea id="" name="texto" required  oninput="ajustarTextarea(this)"></textarea>
-                <button type="submit">ENVIAR</button>
-            </form>
-<script>
-    function ajustarTextarea(textarea) {
-    textarea.style.height = 'auto';
-    textarea.style.height = textarea.scrollHeight + 'px';
-    }
-</script>
+    <label>Parecer: </label>
+    <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
+    <button type="submit">ENVIAR</button>
+    </form>
+
+    <script>
+        function selecionarTipoInput() {
+            var select = document.getElementById("buscar_dados");
+            var inputCPF = document.getElementById("inputCPF");
+            var inputNIS = document.getElementById("inputNIS");
+
+            if (select.value === "cpf_dec") {
+                inputCPF.style.display = "block";
+                inputCPF.querySelector('input').removeAttribute('disabled');
+                inputNIS.style.display = "none";
+                inputNIS.querySelector('input').setAttribute('disabled', 'disabled');
+            } else if (select.value === "nis_dec") {
+                inputNIS.style.display = "block";
+                inputNIS.querySelector('input').removeAttribute('disabled');
+                inputCPF.style.display = "none";
+                inputCPF.querySelector('input').setAttribute('disabled', 'disabled');
+            }
+        }
+
+        function ajustarTextarea(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+    </script>
+    <script>
+        function ajustarTextarea(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+    </script>
 </body>
 
 </html>
