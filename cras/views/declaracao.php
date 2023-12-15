@@ -27,20 +27,20 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </h1>
     </div>
     <div class="encaminhamento">
-    <form method="post" action="../controller/print_enc_cras.php">
-        <h2>Encaminhamento</h2>
-        <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
-            <option value="cpf_dec">CPF:</option>
-            <option value="nis_dec">NIS:</option>
-        </select>
+        <form method="post" action="../controller/print_enc_cras.php">
+            <h2>Encaminhamento</h2>
+            <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
+                <option value="cpf_dec">CPF:</option>
+                <option value="nis_dec">NIS:</option>
+            </select>
 
-        <div id="inputCPF">
-            <input type="text" name="valorescolhido_cpf" placeholder="Digite o CPF:">
-        </div>
+            <div id="inputCPF">
+                <input type="text" name="valorescolhido_cpf" placeholder="Digite o CPF:">
+            </div>
 
-        <div id="inputNIS" class="hidden">
-            <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:" disabled>
-        </div>
+            <div id="inputNIS" class="hidden">
+                <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
+            </div>
 
 
 
@@ -60,11 +60,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                     }
                 }
                 ?>
-        </div>
-        </select>
-        <label>Parecer: </label>
-        <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
-        <button type="submit">ENVIAR</button>
+    </div>
+    </select>
+    <label>Parecer: </label>
+    <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
+    <button type="submit">ENVIAR</button>
     </form>
 
     <script>
