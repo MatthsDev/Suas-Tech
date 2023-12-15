@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuários</title>
-    <link rel="stylesheet" href="/Suas-Tech/cras/css/index.css">
+    <link rel="stylesheet" href="/Suas-Tech/cras/css/style-cad-usuario.css">
     <link rel="website icon" type="png" href="/Suas-Tech/cozinha_comunitaria/img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.min.css">
@@ -337,7 +337,12 @@
             window.history.back();
         }
     </script>
-
+<script>
+    function ajustarTextarea(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+    }
+</script>
 </body>
 
 </html>
