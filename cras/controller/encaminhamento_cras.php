@@ -33,7 +33,7 @@
             //dados da tabela com todos os cadastros
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM cras_test WHERE cpf = :cpf_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE cpf = :cpf_dec");
             $sql->execute(array(':cpf_dec' => $cpf_dec));
 
 
@@ -62,12 +62,12 @@
                 $numero = $dados['numero'];
                 $referencia = $dados['referencia'];
 
-                $enderecoCompleto = $bairro . ", " . $logradouro . "," . "n°  $numero" . ", " . $referencia;
+                $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . $referencia;
 
                 $conteudo = "<div id='title'style='margin-top: 100px;'> $local - SÃO BENTO DO UNA</div>";
                 $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
                 $conteudo .= "<br><br><p>Assunto: Encaminho " . $nom_pessoa . ", CPF: " . $cpf_formatado . ", reside em " . $enderecoCompleto . ".</p>";
-                $conteudo .= "<p>Ao(a) Coordenador(a) do " . $local . ",</p>";
+                $conteudo .= "<p>Ao(a) Coordenador(a) do " . $local . ", pelo seguinte motivo: </p>";
                 $conteudo .= "<p>" . $texto . "</p>";
                 $conteudo .= "<p>Permaneço à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>";
                 $conteudo .= "<p>Atenciosamente,</p>";
@@ -89,7 +89,7 @@
 
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM cras_test WHERE nis = :nis_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE nis = :nis_dec");
             $sql->execute(array(':nis_dec' => $nis_dec));
 
 
