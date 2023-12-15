@@ -3,8 +3,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
-session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -72,6 +70,15 @@ if (!isset($_GET['buscar_dados'])) {
             echo "DATA: " . $data_atual . "<br>";
             echo "Quantidade de Pessoas: " . $dados['qtd_pessoa'];
 
+            //$smtp = $conn->prepare("INSERT INTO cras (num_parecer_hist, nis, nome, cpf, quant_pessoa, text_parecer, remetent, destino, cod_familia, itens_concedido, data_registro) VALUES (?,?,?,?,?,?,?,?,?,?, NOW())");
+
+
+            $_SESSION['nis'] = $dados['nis'];
+            $_SESSION['nome'] = $dados['nome'];
+            $_SESSION['cpf'] = $cpf_formatado;
+            $_SESSION['qtd_pessoa'] = $dados['qtd_pessoa'];
+            $_SESSION['nome_mae'] = $dados['nome_mae'];
+            
             ?>
             <hr>
                 <label>Parecer técnico: </label><br>
@@ -138,6 +145,7 @@ if (!isset($_GET['buscar_dados'])) {
     }
 
 }
+
 ?>
 
 </body>
