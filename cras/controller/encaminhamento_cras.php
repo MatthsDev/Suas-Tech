@@ -33,7 +33,7 @@
             //dados da tabela com todos os cadastros
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM cras_test WHERE cpf = :cpf_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE cpf = :cpf_dec");
             $sql->execute(array(':cpf_dec' => $cpf_dec));
 
 
@@ -78,18 +78,18 @@
                 $conteudo .= "<p>_________________________________________________________________________________________________________</p>";
                 $conteudo .= "<p>ASSINATURA</p>";
                 $conteudo .= "</div>";
-                header("Location: print_enc1.php?conteudo=" . urlencode($conteudo));
+                header("Location: print_enc_cras.php?conteudo=" . urlencode($conteudo));
             }
         
         elseif ($opcao == "nis_dec") {
             $nis_dec = $_POST['valorescolhido'];
             $texto = $_POST['texto'];
-            $direcao = $_POST['setor'];
+            $local = $_POST['setor'];
 
 
 
             // Consulta preparada para evitar injeção de SQL
-            $sql = $pdo->prepare("SELECT * FROM cras_test WHERE nis = :nis_dec");
+            $sql = $pdo->prepare("SELECT * FROM cras WHERE nis = :nis_dec");
             $sql->execute(array(':nis_dec' => $nis_dec));
 
 
@@ -103,9 +103,6 @@
                 
                 $nom_pessoa = $dados["nom_pessoa"];
                
-                
-
-                
 
                 //Define as variáveis com o endereço
                 $bairro = $dados['bairro'];
@@ -129,7 +126,7 @@
                 $conteudo .= "<p>_________________________________________________________________________________________________________</p>";
                 $conteudo .= "<p>ASSINATURA</p>";
                 $conteudo .= "</div>";
-                header("Location: print_enc1.php?conteudo=" . urlencode($conteudo));
+                header("Location: print_enc_cras.php?conteudo=" . urlencode($conteudo));
             }
         } else {
             echo "Nâo encontrado.";
