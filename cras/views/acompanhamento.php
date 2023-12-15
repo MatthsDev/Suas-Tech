@@ -15,6 +15,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="stylesheet" href="../css/style-acompanhamento.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Acompanhamento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -39,6 +40,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
                 <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
                 <button type="submit">BUSCAR</button>
+                <a onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
             </form>
         </div>
                 <?php
@@ -87,12 +91,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     
                     ?>
                     <hr>
-                        <label>Parecer técnico: </label><br>
-                        <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
-                        <div class="setor">
-            <label>Encaminhar para:</label>
-            <select name="setor" required>
-                <option value="" disabled selected hidden>Selecione</option>
+                    <div class="bloco1">
+                            <div class="lab"><label>Parecer técnico: </label></div>
+                            <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
+                    </div>
+                    <div class="bloco">
+                        <label>Encaminhar para:</label>
+                        <select name="setor" required>
+                        <option value="" disabled selected hidden>Selecione</option>
+                    </div>    
                 <?php
 
                     $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
@@ -109,7 +116,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             </select>
 
             <label>Itens concedidos:</label>
-            <input type="text" name="itens_conc" placeholder="Descreva o que está sendo concedido a família">
+            <input class="inpu" type="text" name="itens_conc" placeholder="Descreva o que está sendo concedido a família">
         </div>
                     <div class="btn">    
                         <button  type="submit">ENVIAR</button>
@@ -160,5 +167,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     textarea.style.height = textarea.scrollHeight + 'px';
     }
 </script>
+<script src='../../controller/back.js'></script>
 </body>
 </html>

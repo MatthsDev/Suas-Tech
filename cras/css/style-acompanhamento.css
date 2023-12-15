@@ -23,7 +23,6 @@ h2 {
     text-decoration: underline 2px;
     border-radius: 5px;
     text-align: center;
-    padding: 10px;
 }
 
 .container {
@@ -38,7 +37,20 @@ h2 {
     background-color: #FFFFFF;
     border-radius: 5px;
 }
-
+.bloco1{
+    display: flex;
+    flex-direction: column;
+}
+.lab{
+    width: auto;
+}
+.bloco{
+    padding-top: 10px;
+}
+form{
+    padding: 10px 0px 0px 10px;
+    line-height: 1.5;
+}
 input,
 select,
 option,
@@ -80,4 +92,7 @@ textarea {
     height: auto;
     border-radius: 5px;
     top: 13px;
+}
+.inpu{
+    width: 300px;
 }
