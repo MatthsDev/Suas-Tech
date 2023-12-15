@@ -307,6 +307,7 @@
                 url: "/Suas-Tech/cras/controller/user_control.php",
                 data: formData,
                 dataType: "json",
+                
                 success: function (response) {
                     if (response.status === "success") {
 
