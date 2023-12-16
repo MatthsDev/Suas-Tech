@@ -21,6 +21,9 @@
             <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg"
                 alt="Titulocomimagem">
         </h1>
+        <a onclick="goBack()">
+            <i class="fas fa-arrow-left"></i> Voltar ao menu
+        </a>
     </div>
     <div class="container">
 
@@ -30,9 +33,10 @@
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
                     placeholder="Digite o CPF">
-                    <a onclick="goBack()">
-                        <i class="fas fa-arrow-left"></i> Voltar ao menu
-                    </a>
+
+
+                <label for="codigo_familiar">Código da Familia: </label>
+                <input type="text" id="codigo_familiar" name="codigo_familiar" placeholder="Digite o código familiar">
 
             </div>
             <div class="titulo">
@@ -98,7 +102,7 @@
                             <option value="AC">ACRE</option>
                             <option value="AL">ALAGOAS</option>
                             <option value="AP">AMAPÁ</option>
-                            <option value="AM">AMAZONAS</option>
+                            <option value="AM">AMAZONAS </option>
                             <option value="BA">BAHIA</option>
                             <option value="CE">CEARÁ</option>
                             <option value="DF">DISTRITO FEDERAL</option>
@@ -138,22 +142,28 @@
             <h5>PORTADOR DE DEFICIÊNCIA: </h5>
             <div class="bloco2">
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1" disabled> &nbsp;1 - CEGUEIRA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2" disabled> &nbsp;2 - BAIXA VISAO</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1" disabled> &nbsp;1 - CEGUEIRA
+                    </div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2" disabled> &nbsp;2 - BAIXA
+                        VISAO</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3" disabled> &nbsp;3 - SURDEZ
                         SEVERA/PROFUNDA</div>
                     <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4" disabled> &nbsp;4 - SURDEZ
                         LEVE/MODERADA</div>
                 </div>
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5" disabled> &nbsp;5 - DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5" disabled> &nbsp;5 -
+                        DEFICIENCIA
                         FISICA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6" disabled> &nbsp;6 - DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6" disabled> &nbsp;6 -
+                        DEFICIENCIA
                         MENTAL OU
                         INTELECTUAL</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7" disabled> &nbsp;7 - SINDROME DE DOWN
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7" disabled> &nbsp;7 - SINDROME
+                        DE DOWN
                     </div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8" disabled> &nbsp;8 - TRANSTORNO/DOENCA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8" disabled> &nbsp;8 -
+                        TRANSTORNO/DOENCA
                         MENTAL</div>
                 </div>
             </div>
@@ -296,8 +306,15 @@
             </div>
         </form>
     </div>
+
+
     <script src="../js/ajax_request.js"></script>
+
+
+    
     <script src='../../controller/back.js'></script>
+
+
 
     <script>
         function enviarFormulario() {
@@ -307,7 +324,7 @@
                 url: "/Suas-Tech/cras/controller/user_control.php",
                 data: formData,
                 dataType: "json",
-                
+
                 success: function (response) {
                     if (response.status === "success") {
 
@@ -338,12 +355,12 @@
             window.history.back();
         }
     </script>
-<script>
-    function ajustarTextarea(textarea) {
-    textarea.style.height = 'auto';
-    textarea.style.height = textarea.scrollHeight + 'px';
-    }
-</script>
+    <script>
+        function ajustarTextarea(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+    </script>
 </body>
 
 </html>

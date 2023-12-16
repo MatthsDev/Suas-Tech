@@ -2,6 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 $cpf = ($_POST["cpf"]);
+$cod_familiar = ($_POST["codigo_familiar"]);
 $nome = ($_POST["nome"]);
 $data_nasc = ($_POST["data_nasc"]);
 $nomeSocial = ($_POST["nome_social"]);
@@ -55,19 +56,19 @@ if ($cpf != '') {
 }
 
 if ($linhas_cpf == 0) {
-    $stmt = $conn->prepare("INSERT INTO cras (cpf, nome, data_nasc, nome_social, sexo, outro_sex, 
+    $stmt = $conn->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
     nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
     area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
     if ($stmt === false) {
         die("Erro na preparação da declaração: " . $conn->error);
     }
 
-    $stmt->bind_param("sssssssssssssssssssssssssssssssssss", $cpf, $nome, $data_nasc, $nomeSocial,
+    $stmt->bind_param("ssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
         $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
         $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
         $municipio, $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
