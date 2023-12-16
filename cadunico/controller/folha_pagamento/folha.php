@@ -48,9 +48,7 @@ ini_set('memory_limit', '256M');
             if (!isset($_GET['cod_fam'])){
             ?>
 
-        <tr>    
-            <td colspan="5">Resultados da pesquisa</td>   
-        </tr>
+
 
         <?php
             }else{

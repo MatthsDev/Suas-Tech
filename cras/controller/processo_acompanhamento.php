@@ -22,8 +22,8 @@ $num_ano = $numero_parecer . "/" . $ano;
 $setor_form = $_POST['setor'];
 $texto_parecer = $_POST['texto_parecer'];
 $itens_conc = $_POST['itens_conc'];
-$nis_pessoa = $_SESSION ['nis'];
-$nome_pessoa = $_SESSION ['nome'];
+$nis_pessoa = $_SESSION['nis'];
+$nome_pessoa = $_SESSION['nome'];
 $cpf_formatado = $_SESSION['cpf'];
 $qtd = $_SESSION['qtd_pessoa'];
 $mae_pessoa = $_SESSION['nome_mae'];
@@ -37,10 +37,25 @@ if ($smtp === false) {
 
 $smtp->bind_param("sssssssssss", $num_ano, $nis_pessoa, $nome_pessoa, $cpf_formatado, $qtd, $texto_parecer, $setor, $setor_form, $ano, $itens_conc, $data_formatada_at);
 
-if($smtp->execute()){
-    echo "enviado com sucesso";
-}else{
-    echo "nada";
+if ($setor_form === "COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA") {
+
+    $stpt = $conn->prepare("INSERT INTO fluxo_diario_coz (nis_benef, num_doc, nome, cpf_benef, encaminhado_cras, qtd_pessoa) VALUES (?,?,?,?,?,?)");
+
+// Verifica se a preparação foi bem-sucedida
+    if ($stpt === false) {
+        die('Erro na preparação SQL: ' . $conn->error);
+    }
+    $stpt->bind_param("ssssss", $nis_pessoa, $num_ano, $nome_pessoa, $cpf_formatado, $setor, $qtd);
+
+    if ($stpt->execute()) {
+        echo "<br><br><br>enviado com sucesso COZINHA";
+    } else {
+        echo "nada";
+    }
 }
 
-echo "(" . $num_ano . ") <br><b>" . $data_formatada_at . "</br></b>" . "<u>" .$setor_form . "</u>" . $setor . "<br><b>" . $texto_parecer . "</b></br>" . $itens_conc . $nome . $idcargo . $cargo . $nis_pessoa . $nome_pessoa . "<br>" . $cpf_formatado . "<br>" . $qtd . $mae_pessoa;
+if ($smtp->execute()) {
+    echo "enviado com sucesso";
+} else {
+    echo "nada";
+}

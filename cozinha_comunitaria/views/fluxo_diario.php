@@ -41,10 +41,39 @@ if (!isset($_GET['nis'])) {
 
 NOME: <?php echo $dados['nome']; ?> CPF: <?php echo $dados['cpf_benef']; ?> <br>
 
+<br><br><br><br><table width="650px" border="1">
+        <tr class="titulo" >
+                
+                <th class="cabecalho">NIS</th>    
+                <th class="cabecalho">NOME</th>
+                <th class="cabecalho">CRAS</th>
+                <th class="cabecalho">QUANTIDADES</th>
+                    
+            </tr>
+
     <?php
 }
 }
 
+$tbl_fluxo = $conn->query("SELECT nis_benef, nome, encaminhado_cras, qtd_marmita FROM fluxo_diario_coz");
+
+if($tbl_fluxo->num_rows > 0){
+    while($linha = $tbl_fluxo->fetch_assoc()){
+        ?>
+        <tr class="resultado">
+        <td class="resultado"><?php echo $linha['nis_benef']; ?></td>
+        <td class="resultado"><?php echo $linha['nome']; ?></td>
+        <td class="resultado"><?php echo $linha['encaminhado_cras']; ?></td>
+        <td class="resultado"><?php echo $linha['qtd_marmita']; ?></td>
+    <?php
+    }
+}else{
+    ?>
+    <tr>    
+    <td colspan="4">Resultados da pesquisa</td>   
+</tr>
+<?php
+}
 ?>
         </form>
     <body>
