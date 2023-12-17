@@ -122,9 +122,7 @@ if (!isset($_GET['buscar_dados'])) {
                     </div>
 
                 </form>
-
 <?php
-
         } else {
             echo '<script>alert("Não foi localizado nenhum cadastro com esse CPF"); window.location.href = "acompanhamento.php";</script>';
         }
