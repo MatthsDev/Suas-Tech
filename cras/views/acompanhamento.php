@@ -20,6 +20,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../js/cpfvalid.js"></script>
+
 </head>
 <body>
 <div class="img">
@@ -78,7 +79,6 @@ if (!isset($_GET['buscar_dados'])) {
             echo "RENDA PER-CAPITA: R$ " . $real_br_formatado . "<br>";
             echo "NOME DE MÃE: " . $dados['nome_mae'] . "<br>";
             echo "NATURALIDADE: " . $dados['nat_pessoa'] . "<br>";
-            echo "DATA: " . $data_atual . "<br>";
             echo "Quantidade de Pessoas: " . $dados['qtd_pessoa'];
 
             //sessão que passa as variáveis para outra tela
@@ -93,16 +93,14 @@ if (!isset($_GET['buscar_dados'])) {
                         <button onclick="window.location.href='/Suas-Tech/cras/views/editar_usuario.php'" type="button">Editar informações do usuário</button>
                     </div>
                     <hr>
-                    <div class="bloco1">
-                            <div class="lab"><label>Parecer técnico: </label></div>
-                            <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
-                    </div>
+
+
                     <div class="bloco">
                         <label>Encaminhar para:</label>
                         <select name="setor" required>
                         <option value="" disabled selected hidden>Selecione</option>
                     </div>
-                
+
                 <?php
 
             $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
@@ -118,9 +116,7 @@ if (!isset($_GET['buscar_dados'])) {
             ?>
             </select>
 
-            <label>Itens concedidos:</label>
-            <input class="inpu" type="text" name="itens_conc" placeholder="Descreva o que está sendo concedido a família">
-        </div>
+            </div>
                     <div class="btn">
                         <button  type="submit">ENVIAR</button>
                     </div>
