@@ -74,8 +74,9 @@ if (!empty($cpfLimpo)) {
             $response['data_nasc'] = $row['dta_nasc_pessoa'];
             $response['uf_pessoa'] = $row['sig_uf_munic_nasc_pessoa'];
 
-
-// ====================== CODIGO PCD INDIGENA E QUILOMBOA ==========================================================================
+//========================================================================================================================================
+// ====================================== CODIGO PCD INDIGENA E QUILOMBOA ================================================================
+//========================================================================================================================================
 /* */ 
 /* */             $cod_fam_ind = $row['cod_familia_indigena_fam'];
 /* */             $response['cod_fam_ind'] = $cod_fam_ind;//FAMILIA INDIGINA S/N
@@ -98,7 +99,14 @@ if (!empty($cpfLimpo)) {
 /* */             $response['comunidadeQuilambola'] = $nom_fam_quilo;
 /* */ 
 /* */ 
-//=================================================================================================================================
+//========================================================================================================================================
+//========================================================================================================================================
+            
+
+            $response['codigo_familiar'] = $row['cod_familiar_fam'];
+
+
+
 
 
             $response['nat_pessoa'] = $row['nom_ibge_munic_nasc_pessoa'];
@@ -121,6 +129,7 @@ if (!empty($cpfLimpo)) {
             $response['num_titulo'] = $row['num_titulo_eleitor_pessoa'];
             $response['zone_titulo'] = $row['num_zona_tit_eleitor_pessoa'];
             $response['area_titulo'] = $row['num_secao_tit_eleitor_pessoa'];
+            
 
             $profissao = $row['cod_principal_trab_memb'];
             if ($profissao == 4 || $profissao == 6) {
