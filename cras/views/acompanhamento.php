@@ -97,7 +97,7 @@ if (!isset($_GET['buscar_dados'])) {
 
                     <div class="bloco">
                         <label>Encaminhar para:</label>
-                        <select name="setor" required>
+                        <select name="predio" required>
                         <option value="" disabled selected hidden>Selecione</option>
                     </div>
 
