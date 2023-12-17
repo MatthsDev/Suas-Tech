@@ -25,10 +25,12 @@ $nome_pessoa = $_SESSION['nome'];
 $cpf_formatado = $_SESSION['cpf'];
 $qtd = $_SESSION['qtd_pessoa'];
 $mae_pessoa = $_SESSION['nome_mae'];
+$setor = "";
 
 if ($setor_form === "COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA") {
-    echo "FAMÍLIA ENCAMINHADA PARA <b>" . $setor_form . "</b>";
+    echo "FAMÍLIA está sendo ENCAMINHADA PARA <b>" . $setor_form . "</b>";
     echo "<br>Quantidade de pessoas na família: <b>" . $qtd . "</b>";
+
     ?>
         <form>
         <input type="hidden" name="setor_form" value="<?php echo htmlspecialchars($setor_form); ?>">
