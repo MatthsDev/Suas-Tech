@@ -19,35 +19,34 @@ $numero_parecer = $totalRegistros + 1;
 $ano = date('Y');
 $num_ano = $numero_parecer . "/" . $ano;
 
-echo $data_formatada_at . "<br>";
-echo $num_ano . "<br>";
-if (isset($_POST['predio'])) {
-    echo $_POST['predio'];
+$setor_form = $_GET['predio'];
+$qtd = $_SESSION['qtd_pessoa'];
 
-    if ($_POST['predio'] == "COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA") {
-        ?>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <input type='hidden' name='setor_form' value='<?php echo htmlspecialchars($_POST['predio']); ?>'>
-            <div class="bloco1">
-                <div class="lab"><label>Parecer técnico: </label></div>
-                <textarea id="" name="texto_parecer" required oninput="ajustarTextarea(this)"></textarea>
-            </div>
-            <label>Itens concedidos:</label>
-            <input class='inpu' type='text' name='itens_conc' placeholder='Descreva o que está sendo concedido a família'>
-            <label>Quantidade de marmita: </label>
-            <input class='inpu' type='text' name='qtd_itens' placeholder='quantas'>
-            <button type="submit">Enviar</button>
-        </form>
-        <?php
-if (isset($_POST['setor_form'])) {
-            // Processar os dados do formulário aqui
-            echo $_POST['setor_form'] . "<br>";
-            echo $_POST['texto_parecer'] . "<br>";
-            echo $_POST['qtd_itens'] . "<br>";
-            echo $_POST['itens_conc'] . "<br>";
-        }
+if ($_GET['predio'] == 'COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA') {
+    echo "FAMÍLIA está sendo ENCAMINHADA PARA <b>" . $setor_form . "</b>";
+    echo "<br>Quantidade de pessoas na família: <b>" . $qtd . "</b>";
+    ?>
+            <form>
+            <input type='hidden' name='setor_form' value='<?php echo htmlspecialchars($_GET['predio']); ?>'>
+<div class="bloco1">
+    <div class="lab"><label>Parecer técnico: </label></div>
+    <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
+</div>
+<label>Itens concedidos:</label>
+<input class='inpu' type='text' name='itens_conc' placeholder='Descreva o que está sendo concedido a família'>
+
+<label>Quantidade de marmita: </label>
+<input class='inpu' type='text' name='qtd_itens' placeholder='quantas'>
+
+<button type="submit">Enviar</button>
+</form>
+    <?php
+
+    if(!isset($_GET['setor_form'])){
+        echo "";
+    }else{
+        echo "Vai salvar";
     }
 } else {
-    // Código que será executado inicialmente (antes de enviar o formulário)
+    echo "Está dando erro";
 }
-?>

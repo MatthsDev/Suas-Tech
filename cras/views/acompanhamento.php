@@ -68,7 +68,7 @@ if (!isset($_GET['buscar_dados'])) {
             $real_br_formatado = number_format($dados['renda_per'], 2, ',', '.');
             $dataFormatada = date("d/m/Y", strtotime($dados['data_nasc']));
             ?>
-                    <form method="POST" action="../controller/processo_acompanhamento.php">
+                    <form action="../controller/processo_acompanhamento.php">
                     <?php
 
             //Dados apresentados
