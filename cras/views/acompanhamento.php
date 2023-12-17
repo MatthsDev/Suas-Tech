@@ -90,7 +90,7 @@ if (!isset($_GET['buscar_dados'])) {
 
             ?>
                     <div class="btn1">
-                        <button onclick="window.location.href='/Suas-Tech/cras/views/editar_usuario.php'" type="button">Editar informações do usuário</button>
+                        <a href='/Suas-Tech/cras/views/editar_usuario.php'>Editar informações do usuário</a>
                     </div>
                     <hr>
 
