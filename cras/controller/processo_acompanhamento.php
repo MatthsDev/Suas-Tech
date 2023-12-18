@@ -53,6 +53,8 @@ if ($setor_form == 'COZINHA COMUNITÁRIA - NEUMA MARIA DA SILVA') {
 
         <label>Quantidade de marmita: </label>
         <input class='inpu' type='text' name='qtd_itens' placeholder='quantas'>
+        <label>Periodo de acompanhamento: </label>
+        <input class='inpu' type='date' name='data_periodo' placeholder='quantas'>
 
         <button type="submit">Enviar</button>
     </form>
