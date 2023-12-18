@@ -32,7 +32,7 @@ if ($setor_form == 'COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA') {
     
     <form>
         <div class="bloco1">
-            <div class="lab"><label>Parecer técnico: </label></div>
+            <div class="lab"><label>Observação: </label></div>
             <textarea id="" name="texto_parecer" required oninput="ajustarTextarea(this)"></textarea>
         </div>
         <label>Itens concedidos:</label>
