@@ -16,7 +16,8 @@ $uf = ($_POST["uf_pessoa"]);
 $municipio = ($_POST["nat_pessoa"]);
 $telefone = ($_POST["tel_pessoa"]);
 $email = ($_POST["email_pessoa"]);
-
+$cor = ($_POST["cor"]);
+$parentesco = ($_POST["parentesco"]);
 
 $grupoIndigena = isset($_POST["grupoIndigena"]) ? $_POST["grupoIndigena"] : null;
 $povoIndigena = isset($_POST["povoIndigena"]) ? $_POST["povoIndigena"] : null;
@@ -60,19 +61,19 @@ if ($linhas_cpf == 0) {
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
     nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
-    area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
     if ($stmt === false) {
         die("Erro na preparação da declaração: " . $conn->error);
     }
 
-    $stmt->bind_param("ssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
+    $stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
         $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
         $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
         $municipio, $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
-        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa);
+        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor);
         $stmt->execute();
 
         echo json_encode(["status" => "success", "message" => "Cadastrado com Sucesso!!"]);

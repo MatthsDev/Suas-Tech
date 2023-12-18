@@ -49,6 +49,21 @@
                         <label for="nome">NOME: </label>
                         <input class="inpu" type="text" id="nome" name="nome">
                     </div>
+
+                    <div class="element">
+                        <label for="parentesco">PARENTESCO FAMILIAR: </label>
+                        <select id="parentesco" name="parentesco">
+                            <option value="">SELECIONE</option>
+                            <option value="RESPONSAVEL FAMILIAR">RESPONSAVEL FAMILIAR</option>
+                            <option value="CONJUGUE OU COMPANHEIRO">CONJUGUE OU COMPANHEIRO</option>
+                            <option value="FILHO">FILHO</option>
+                            <option value="IRMAO OU IRMA">IRMAO OU IRMA</option>
+                            <option value="PAI OU MAE">PAI OU MAE</option>
+                            <option value="OUTRO PARENTE">OUTRO PARENTE</option>
+                            <option value="NAO PARENTE">NAO PARENTE</option>
+                        </select>
+                    </div>
+
                     <div class="element">
                         <label for="nome_social">NOME SOCIAL: </label>
                         <input type="text" id="nome_social" name="nome_social">
@@ -72,11 +87,26 @@
 
                 </div>
 
+
+                
                 <div class="bloco1">
                     <div class="element1">
                         <label for="data_nasc">DATA DE NASCIMENTO: </label>
                         <input type="date" id="data_nasc" name="data_nasc">
                     </div>
+
+                    <div class="element">
+                        <label for="cor">COR OU RAÇA: </label>
+                        <select id="cor" name="cor">
+                            <option value="">SELECIONE</option>
+                            <option value="BRANCO">BRANCO</option>
+                            <option value="PRETO">PRETO</option>
+                            <option value="AMARELO">AMARELO</option>
+                            <option value="PARDO">PARDO</option>
+                            <option value="INDIGENA">INDIGENA</option>
+                        </select>
+                    </div>
+
                     <div class="element">
                         <label for="sexo">SEXO: </label>
                         <select id="sexo" name="sexo">

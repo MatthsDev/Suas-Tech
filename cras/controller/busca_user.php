@@ -61,6 +61,7 @@ if (!empty($cpfLimpo)) {
             $response['log'] = $log_nome;
             $response['numero'] = $num_logradouro;
             $response['nome_social'] = $row['nom_apelido_pessoa'];
+
             $sexo = $row['cod_sexo_pessoa'];
             if ($sexo == 1) {
                 $response['sexo'] = 'MASCULINO';
@@ -69,6 +70,8 @@ if (!empty($cpfLimpo)) {
             } else {
                 $response['sexo'] = 'Outro';
             }
+
+
             $response['nome_mae'] = $row['nom_completo_mae_pessoa'];
             $response['nome_pai'] = $row['nom_completo_pai_pessoa'];
             $response['data_nasc'] = $row['dta_nasc_pessoa'];
@@ -91,7 +94,7 @@ if (!empty($cpfLimpo)) {
 /* */             $response['terraIndigina'] = $terra_indigina_fam;
 /* */ 
 /* */           
-/* */ 
+/* */
 /* */             $cod_fam_qui = $row['ind_familia_quilombola_fam'];
 /* */             $response['familiaQuilambola'] = $cod_fam_qui;//FAMILIA INDIGINA S/N
 /* */ 
@@ -101,9 +104,50 @@ if (!empty($cpfLimpo)) {
 /* */ 
 //========================================================================================================================================
 //========================================================================================================================================
-            
 
-            $response['codigo_familiar'] = $row['cod_familiar_fam'];
+
+//========================================================================================================================================
+// ====================================== CODIGO FAMILIAR, PARENTESCO e COR ==============================================================
+//========================================================================================================================================
+/* */       
+/* */  
+/* */           $response['codigo_familiar'] = $row['cod_familiar_fam'];
+/* */
+/* */
+/* */           $parentesco = $row['cod_parentesco_rf_pessoa'];
+/* */               if ($parentesco == 1) {
+/* */                   $response['parentesco']  = 'RESPONSAVEL FAMILIAR';
+/* */               } elseif ($parentesco == 2){
+/* */                   $response['parentesco']  = 'CONJUGUE OU COMPANHEIRO';
+/* */               } elseif ($parentesco == 3){
+/* */                    $response['parentesco'] = 'FILHO';
+/* */               } elseif ($parentesco == 8){
+/* */                    $response['parentesco'] = 'IRMAO OU IRMA';
+/* */               } elseif ($parentesco == 6){
+/* */                     $response['parentesco'] = 'PAI OU MAE';
+/* */               } elseif ($parentesco == 10){
+/* */                     $response['parentesco'] = 'OUTRO PARENTE';
+/* */               } elseif ($parentesco == 11){
+/* */                     $response['parentesco'] = 'NAO PARENTE';
+/* */               }
+/* */ 
+/* */                 $cor = $row['cod_raca_cor_pessoa'];
+/* */                 if ($cor == 1) {
+/* */                   $response['cor']  = 'BRANCO';
+/* */               } elseif ($cor == 2){
+/* */                   $response['cor']  = 'PRETO';
+/* */               } elseif ($cor == 3){
+/* */                    $response['cor'] = 'AMARELO';
+/* */               } elseif ($cor == 4){
+/* */                    $response['cor'] = 'PARDO';
+/* */               } elseif ($cor == 5){
+/* */                     $response['cor'] = 'INDIGENA';
+/* */               }
+/* */
+//========================================================================================================================================
+//========================================================================================================================================            
+
+           
 
 
 
