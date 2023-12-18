@@ -19,15 +19,17 @@ $numero_parecer = $totalRegistros + 1;
 $ano = date('Y');
 $num_ano = $numero_parecer . "/" . $ano;
 
-$setor_form = $_GET['predio'];
+$setor_form = $_SESSION['predio'];
 $qtd = $_SESSION['qtd_pessoa'];
+$nis_pessoa = $_SESSION['nis'];
+$nome_pessoa = $_SESSION['nome'];
+$cpf_formatado = $_SESSION['cpf'];
 
-if ($_GET['predio'] == 'COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA') {
+if ($setor_form == 'COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA') {
     echo "FAMÍLIA está sendo ENCAMINHADA PARA <b>" . $setor_form . "</b>";
     echo "<br>Quantidade de pessoas na família: <b>" . $qtd . "</b>";
     ?>
-            <form>
-            <input type='hidden' name='setor_form' value='<?php echo htmlspecialchars($_GET['predio']); ?>'>
+    <form>
 <div class="bloco1">
     <div class="lab"><label>Parecer técnico: </label></div>
     <textarea id="" name="texto_parecer" required  oninput="ajustarTextarea(this)"></textarea>
@@ -40,13 +42,42 @@ if ($_GET['predio'] == 'COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA') {
 
 <button type="submit">Enviar</button>
 </form>
-    <?php
 
-    if(!isset($_GET['setor_form'])){
-        echo "";
-    }else{
-        echo "Vai salvar";
+<?php
+if (!isset($_GET['texto_parecer'])) {
+        
+    } else {
+
+        $texto_parecer = $_GET['texto_parecer'];
+        $itens_conc = $_GET['itens_conc'];
+        $qtd_itens = $_GET['qtd_itens'];
+
+//salvamento dos dados em histórico CRAS
+$smtp = $conn->prepare("INSERT INTO cras_historico (num_parecer_hist, nis, nome, cpf, quant_pessoa, text_parecer, remetent, destino, itens_concedido, data_registro) VALUES (?,?,?,?,?,?,?,?,?,?)");
+// Verifica se a preparação foi bem-sucedida
+if ($smtp === false) {
+    die('Erro na preparação SQL: ' . $conn->error);
+}
+$smtp->bind_param("ssssssssss", $num_ano, $nis_pessoa, $nome_pessoa, $cpf_formatado, $qtd, $texto_parecer, $setor, $setor_form, $itens_conc, $data_formatada_at);
+
+//salvamento dos dados ao FLUXO DA COZINHA
+$stpt = $conn->prepare("INSERT INTO fluxo_diario_coz (nis_benef, num_doc, nome, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita) VALUES (?,?,?,?,?,?,?)");
+// Verifica se a preparação foi bem-sucedida
+    if ($stpt === false) {
+        die('Erro na preparação SQL: ' . $conn->error);
     }
+$stpt->bind_param("sssssss", $nis_pessoa, $num_ano, $nome_pessoa, $cpf_formatado, $setor, $qtd, $qtd_itens);
+
+if ($stpt->execute() && $smtp->execute()) {
+    echo '<script>alert("Salvo e encaminhado com sucesso!"); window.location.href = "../views/acompanhamento.php";</script>';
+} else {
+echo "Não salvou" . $stpt->error;
+}
+$stpt->close();
+$smtp->close();
+$conn->close();
+    }
+
 } else {
     echo "Está dando erro";
 }
