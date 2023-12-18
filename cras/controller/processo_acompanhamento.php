@@ -38,7 +38,7 @@ $nis_pessoa = $_SESSION['nis'];
 $nome_pessoa = $_SESSION['nome'];
 $cpf = $_SESSION['cpf'];
 
-if ($setor_form == 'COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA') {
+if ($setor_form == 'COZINHA COMUNITÁRIA - NEUMA MARIA DA SILVA') {
     echo "FAMÍLIA está sendo ENCAMINHADA PARA <b>" . $setor_form . "</b>";
     echo "<br>Quantidade de pessoas na família: <b>" . $qtd . "</b>";
     ?>
