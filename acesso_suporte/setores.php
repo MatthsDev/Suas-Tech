@@ -21,32 +21,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="../../cadunico/js/cpfvalid.js"></script>
 
     <script>
-        // Função para buscar os dados do coordenador
-        function buscarCoord(cpf){
-            $.ajax({
-                type: "GET",
-                url: "../../controller/salvando_setor.php", //caminho do php que busca os dados
-                data: {cpf_coord: cpf},
-                sucess: function (response){
-                    //Atualiza
-                    $("#nomeCoordenador").html(response);
-                }
-            });
-        }
 
         // Função para preencher o CPF no campo após a busca
         function preencheCPF(cpf){
             $("#cpf").val(cpf);
         }
-
-        // Função para buscar automaticamente ao perder o foco no campo
-        $(document).ready(function () {
-            $("#cpf").blur(function () {
-                var cpfCoord = $(this).val();
-                buscarCoordenador(cpfCoord);
-                preencherCPF(cpfCoord); // Preencher o CPF no campo
-            });
-        });
         </script>
 
 
@@ -60,45 +39,31 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 </div>
 <div class="container">
     <div class="cpf">
-            <form>
+        <form method="post" action="controller/salva_setor.php">
             <label>CPF da Coordenação: </label>
             <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" placeholder="Usar enter após digitar." required>
             <p id="nomeCoordenador"></p>
-            </form>
-            <?php
-        if (isset($_GET['cpf_coord'])) {
-            $cpf_coord = $_GET['cpf_coord'];
-            $_SESSION['cpf_coord'] = $_GET['cpf_coord'];
 
-
-            $sql = $pdo->prepare("SELECT * FROM usuarios WHERE cpf = :cpf_coord");
-            $sql->execute(array(':cpf_coord' => $cpf_coord));
-
-            if ($sql->rowCount() > 0) {
-                $dados = $sql->fetch(PDO::FETCH_ASSOC);
-                $nome_coord = $dados['nome'];
-                $_SESSION['nome_coord'] = $nome_coord;
-
-                ?><label>Coordenação Responsável: </label> <?php
-        ?><p><?php echo $nome_coord; ?></p>
-
-                    <form method="post" action="controller/salva_setor.php">
     </div>
-    <div class="bloco1">    
+    <div class="bloco1">
+        <label>Nome do Responsável: </label>
+        <input type="text" name="nome_coord_resp" placeholder="Nome completo do coordenador" required>
+
         <label>INSTITUIÇÃO: </label>
         <input type="text" name="instituicao" placeholder="Segmento." required>
+
         <label>NOME DA INSTITUIÇÃO: </label>
         <input type="text" name="nome_instit" placeholder="Digite o nome da instituição." required>
     </div>
-    <div class="bloco2">    
+    <div class="bloco2">
         <label>Logradouro: </label>
         <input type="text" name="rua" placeholder="Rua, Avenida, Rodovia." required>
         <label>Número: </label>
         <input type="text" name="num" required>
         <label>Bairro: </label>
         <input type="text" name="bairro" required>
-    </div>    
-    <div class="bloco3">    
+    </div>
+    <div class="bloco3">
         <label>Código Contrato: </label>
         <input type="text" name="cod_contrato" required>
         <label>Código Institucional: </label>
@@ -112,8 +77,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </div>
     <div class="btn">
         <button type="submit">SALVAR</button>
-    
-        <a href="../cadunico/painel-adm/adm-view.php">
+
+        <a href="index.php">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
         </a>
     </div>
@@ -126,20 +91,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 </body>
 
 </html>
-        <?php
-} else {
-        $nome_coord = "Esse cpf não foi localizado " . $_GET['cpf_coord'] . ". Você pode Cadastrar <a href='../../cadunico/painel-adm/cadastro_user.php'>AQUI</a>";
-
-    }
-
-} else {
-    ?> <label>Informe o CPF do responsável pela a unidade.</label> 
 <div class="btns">
     <a onclick="goBack()">
     <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
-</div>  
-    <?php
-}
-?>
+</div>
+
     <script src='../controller/back.js'></script>

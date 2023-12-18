@@ -20,7 +20,7 @@ $mensagem = "";
 // Verifica se o formulário foi enviado
 if (isset($_SESSION['cpf_coord']) && $_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf_coord = $_SESSION['cpf_coord'];
-    $nome_coord = $_SESSION['nome_coord'];
+    $nome_coord = $_POST['nome_coord_resp'];
     $instituicao = $_POST['instituicao'];
     $nome_instit = $_POST['nome_instit'];
     $rua = $_POST['rua'];
