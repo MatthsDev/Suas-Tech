@@ -15,11 +15,29 @@ $stmt->bindValue(":usuario", $usuario);
 $stmt->execute();
 
 $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+$setor_ = $dados['setor'];
 
 if ($dados && password_verify($senha_login, $dados['senha'])) {
     $_SESSION['nome_usuario'] = $dados['nome'];
     $_SESSION['user_usuario'] = $dados['usuario'];
     $_SESSION['nivel_usuario'] = $dados['nivel'];
+
+    // Redirecione com base no nível de acesso
+    if ($_SESSION['nivel_usuario'] == 'suport') {
+        header("location:../acesso_suporte/index.php");
+        exit();
+    } elseif ($setor_ == "CRAS - ANTONIO MATIAS") {
+        header("Location: ../cras/views/menu-cras-am.php");
+
+    }elseif($setor_ == "CADASTRO ÚNICO - SECRETARIS DE ASSISTÊNCIA SOCIAL"){
+        if ($_SESSION['nivel_usuario'] == 'admin') {
+            header("location:../cadunico/painel-adm/adm-view.php");
+            exit();
+        } elseif ($_SESSION['nivel_usuario'] == 'usuario') {
+            header("location:../cadunico/painel-usuario/user-painel.php");
+            exit();
+        }
+    }
 
     // Verifique se é o primeiro acesso pela senha
     if ($senha_login == "@senha123") {
@@ -28,18 +46,6 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
 
         // Redirecione para a página de conclusão do cadastro
         header("Location: ../cadunico/views/acessos/primeiro_acesso.php");
-        exit();
-    }
-
-    // Redirecione com base no nível de acesso
-    if ($_SESSION['nivel_usuario'] == 'suport') {
-        header("location:../acesso_suporte/index.php");
-        exit();
-    } elseif ($_SESSION['nivel_usuario'] == 'admin') {
-        header("location:../cadunico/painel-adm/adm-view.php");
-        exit();
-    } elseif ($_SESSION['nivel_usuario'] == 'usuario') {
-        header("location:../cadunico/painel-usuario/user-painel.php");
         exit();
     }
 } else {
