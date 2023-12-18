@@ -80,6 +80,9 @@ textarea {
     border-radius: 5px;
     top: 13px;
 }
+.inpu{
+    width: 300px;
+}
 
 /* Estilizando o checkbox */
 .urg input[type="checkbox"] {

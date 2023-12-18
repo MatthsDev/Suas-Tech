@@ -68,11 +68,11 @@
                     </div>
                     <div class="bloco1">
                         <label>Quantidade de marmita: </label>
-                        <input class='inpu' type='text' name='qtd_itens' placeholder='Digitar Números'>
+                        <input type='text' name='qtd_itens' placeholder='Digitar Números'>
                     </div>
                     <div class="bloco1">
                         <label>Periodo de acompanhamento: </label>
-                        <input class='inpu' type='date' name='data_periodo' placeholder='quantas'>
+                        <input type='date' name='data_periodo' placeholder='quantas'>
                     </div>
                 </div>
                 <div class="bloco">
