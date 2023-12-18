@@ -81,5 +81,5 @@ if ($setor_form == 'COZINHA COMUNITÁRIA - NEUZA MARIA DA SILVA') {
     }
 
 } else {
-    echo "Está dando erro";
+    echo '<script>alert("SISTEMA EM DESENVOLVIMENTO, NESTE MOMENTO SÓ ENCAMINHAMENTO PARA COZINHA!"); window.location.href = "../views/acompanhamento.php";</script>';
 }
