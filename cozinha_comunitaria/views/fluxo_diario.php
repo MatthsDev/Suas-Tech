@@ -34,22 +34,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </a>
             </div>    
             <?php
-            // Execute a query para somar os valores da coluna
-            $sql_soma = "SELECT SUM(qtd_marmita) as soma_total FROM fluxo_diario_coz";
-            $sqli_soma = "SELECT SUM(marm_entregue) as soma_total FROM fluxo_diario_coz";
-
-            $resultado_soma = $conn->query($sql_soma);
-            $resultado2_soma = $conn->query($sqli_soma);
-
-            if ($resultado_soma && $resultado2_soma) {
-                $soma_total = $resultado_soma->fetch_assoc()['soma_total'];
-                $soma2_total = $resultado2_soma->fetch_assoc()['soma_total'];
-                $faltando = $soma_total - $soma2_total;
-                echo "Total de marmita(s): " . $soma_total . " para o dia de hoje.<br>";
-                echo "Faltam entregar: " . $faltando . " marmita(s) hoje.";
-            } else {
-                echo "Erro ao calcular a soma: " . $conn->error;
-            }
+            include_once '../controller/tbl_fluxo.php'
             ?>
             <form action="">
                 <label>Buscar Beneficiário: </label>
@@ -76,11 +61,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     CPF: <?php echo $dados['cpf_benef']; ?>
                     <form method="post" action="">
                         <input type=text class="qntm" name="qtd" placeholder="Nº de marmitas">
-                        <input type="checkbox" class="check" name="ok">
+
                         <button type="submit">ENTREGAR</button>
                     </form>
                 <?php
-                    if (!isset($_POST['ok'])) {
+                    if (!isset($_POST['qtdm'])) {
                         
                     } else {
                         //data criada com formato 'DD de mmmm de YYYY'
@@ -100,42 +85,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 }
             }
 
-            $tbl_fluxo = $conn->query("SELECT nis_benef, nome, encaminhado_cras, qtd_marmita, entregue FROM fluxo_diario_coz");
-
-            if ($tbl_fluxo->num_rows > 0) {
-
-                ?>
-        </div>        
-        <div class="bloco">
-                <table width="650px" border="1">
-                    <tr class="titulo">
-
-                        <th class="cabecalho">NIS</th>
-                        <th class="cabecalho">NOME</th>
-                        <th class="cabecalho">ENCAMINHADO</th>
-                        <th class="cabecalho">QUANTIDADE</th>
-                        <th class="cabecalho">ENTREGUE</th>
-
-                    </tr>
-                    <?php
-                    while ($linha = $tbl_fluxo->fetch_assoc()) {
-                    ?>
-                        <tr class="resultado">
-                            <td class="resultado"><?php echo $linha['nis_benef']; ?></td>
-                            <td class="resultado"><?php echo $linha['nome']; ?></td>
-                            <td class="resultado"><?php echo $linha['encaminhado_cras']; ?></td>
-                            <td class="resultado"><?php echo $linha['qtd_marmita']; ?></td>
-                            <td class="resultado"><?php echo $linha['entregue']; ?></td>
-                        <?php
-                    }
-                } else {
-                        ?>
-                        <tr>
-                            <td colspan="4">Resultados da pesquisa</td>
-                        </tr>
-                    <?php
-                }
-                    ?>
+?>
                     </form>
         </div>
     </div>
