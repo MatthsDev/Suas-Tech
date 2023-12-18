@@ -36,8 +36,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </div>
 
     <div class="container">
+    <h2>Informe o CPF ou NIS do usuário</h2>
         <div class="bloco">
-            <h2>Informe o CPF ou NIS do usuário</h2>
             <form method="" action="">
                 <div class="bloco1"> 
                     <div class="bloco">
