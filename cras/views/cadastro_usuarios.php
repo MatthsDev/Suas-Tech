@@ -18,12 +18,8 @@
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg"
-                alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg" alt="Titulocomimagem">
         </h1>
-        <a onclick="goBack()">
-            <i class="fas fa-arrow-left"></i> Voltar ao menu
-        </a>
     </div>
     <div class="container">
 
@@ -31,12 +27,15 @@
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
-                    placeholder="Digite o CPF">
+                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF">
 
 
                 <label for="codigo_familiar">Código da Familia: </label>
                 <input type="text" id="codigo_familiar" name="codigo_familiar" placeholder="Digite o código familiar">
+
+                <a onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
 
             </div>
             <div class="titulo">
@@ -196,8 +195,7 @@
                         <option value="">SELECIONE</option>
                         <option value="teste">teste</option>
                     </select>
-                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
-                        style="margin-left:25px;"> 2 - Não sabe
+                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina" style="margin-left:25px;"> 2 - Não sabe
                 </div>
             </div>
             <div class="bloco">
@@ -207,13 +205,11 @@
             </div>
             <div class="bloco">
                 <h5> Qual é o nome da comunidade quilombola?</h5>
-                <select name="comunidadeQuilambola" id="comunidadeQuilambola"
-                    style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                <select name="comunidadeQuilambola" id="comunidadeQuilambola" style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
                     <option value=""></option>
                     <option value=""></option>
                 </select>
-                <input type="checkbox" name="naoSabeTerraQuilo" value="1" id="naoSabeTerraQuilo"
-                    style="margin-left:25px;">2 - Não consta no município
+                <input type="checkbox" name="naoSabeTerraQuilo" value="1" id="naoSabeTerraQuilo" style="margin-left:25px;">2 - Não consta no município
             </div>
             <div class="titulo">
                 <div class="titulo1">
@@ -311,7 +307,7 @@
     <script src="../js/ajax_request.js"></script>
 
 
-    
+
     <script src='../../controller/back.js'></script>
 
 
@@ -325,7 +321,7 @@
                 data: formData,
                 dataType: "json",
 
-                success: function (response) {
+                success: function(response) {
                     if (response.status === "success") {
 
                         Swal.fire({
@@ -342,7 +338,7 @@
                         });
                     }
                 },
-                error: function () {
+                error: function() {
                     Swal.fire({
                         icon: 'error',
                         title: 'Erro ao conectar ao servidor',
@@ -351,6 +347,7 @@
                 }
             });
         }
+
         function goBack() {
             window.history.back();
         }
