@@ -37,27 +37,32 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
     <div class="container">
         <div class="bloco">
+            <h2>Informe o CPF ou NIS do usuário</h2>
             <form method="" action="">
-                <h2>Informe o CPF ou NIS do usuário</h2>
-                <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
-                    <option value="cpf_dec">CPF:</option>
-                    <option value="nis_dec">NIS:</option>
-                </select>
+                <div class="bloco1"> 
+                    <div class="bloco">
+                        <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
+                        <option value="cpf_dec">CPF:</option>
+                        <option value="nis_dec">NIS:</option>
+                        </select>
+                    </div>
+                    <div class="bloco">
+                        <div id="inputCPF">
+                            <input type="text" name="valorescolhido_cpf" id="cpf" placeholder="Digite o CPF:" onblur="validarCPF(this)">
+                        </div>
 
-                <div id="inputCPF">
-                    <input type="text" name="valorescolhido_cpf" id="cpf" placeholder="Digite o CPF:" onblur="validarCPF(this)">
+                        <div id="inputNIS" class="hidden">
+                            <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
+                        </div>
+                    </div>
+                    <div class="bloco">
+                            <button type="submit">BUSCAR</button>
+                        </div>        
                 </div>
-
-                <div id="inputNIS" class="hidden">
-                    <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
-                </div>
-
-                <button type="submit">BUSCAR</button>
-
-                <label>Encaminhar para:</label>
-                <select name="predio" required>
+                <div class="bloco">    
+                    <label>Encaminhar para:</label>
+                    <select name="predio" required>
                     <option value="" disabled selected hidden>Selecione</option>
-
                     <?php
                     $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
                     // Verifica se há resultados na consulta
@@ -68,10 +73,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         }
                     }
                     ?>
-                </select>
-                <a onclick="goBack()">
-                    <i class="fas fa-arrow-left"></i> Voltar ao menu
-                </a>
+                    </select>
+                    <a onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> Voltar ao menu
+                    </a>
+                </div>    
 
         </div>
         </form>
@@ -135,29 +141,29 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
 <script src='../../controller/back.js'></script>
 <script>
-        function selecionarTipoInput() {
-            var select = document.getElementById("buscar_dados");
-            var inputCPF = document.getElementById("inputCPF");
-            var inputNIS = document.getElementById("inputNIS");
+    function selecionarTipoInput() {
+        var select = document.getElementById("buscar_dados");
+        var inputCPF = document.getElementById("inputCPF");
+        var inputNIS = document.getElementById("inputNIS");
 
-            if (select.value === "cpf_dec") {
-                inputCPF.style.display = "block";
-                inputCPF.querySelector('input').removeAttribute('disabled');
-                inputNIS.style.display = "none";
-                inputNIS.querySelector('input').setAttribute('disabled', 'disabled');
-            } else if (select.value === "nis_dec") {
-                inputNIS.style.display = "block";
-                inputNIS.querySelector('input').removeAttribute('disabled');
-                inputCPF.style.display = "none";
-                inputCPF.querySelector('input').setAttribute('disabled', 'disabled');
-            }
+        if (select.value === "cpf_dec") {
+            inputCPF.style.display = "block";
+            inputCPF.querySelector('input').removeAttribute('disabled');
+            inputNIS.style.display = "none";
+            inputNIS.querySelector('input').setAttribute('disabled', 'disabled');
+        } else if (select.value === "nis_dec") {
+            inputNIS.style.display = "block";
+            inputNIS.querySelector('input').removeAttribute('disabled');
+            inputCPF.style.display = "none";
+            inputCPF.querySelector('input').setAttribute('disabled', 'disabled');
         }
+    }
 
-        function ajustarTextarea(textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = textarea.scrollHeight + 'px';
-        }
-    </script>
+    function ajustarTextarea(textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+</script>
 </body>
 
 </html>
