@@ -47,7 +47,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
                     <span class="material-symbols-outlined">
                         content_paste_go
                     </span>
-                    Parecer Técnico 
+                    Encaminhamento 
                     </a>
                 </div>
             </nav>
