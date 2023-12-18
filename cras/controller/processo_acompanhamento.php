@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhamento</title>
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style-processo-acomp.css">
+</head>
+<body>
+    
+</body>
+
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
@@ -83,3 +96,5 @@ if ($setor_form == 'COZINHA COMUNITÁRIA - NEUMA MARIA DA SILVA') {
 } else {
     echo '<script>alert("SISTEMA EM DESENVOLVIMENTO, NESTE MOMENTO SÓ ENCAMINHAMENTO PARA COZINHA!"); window.location.href = "../views/acompanhamento.php";</script>';
 }
+?>
+</html>

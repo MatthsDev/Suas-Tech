@@ -41,7 +41,7 @@ echo $_GET['conteudo'];
 
 <script>
     setTimeout(function(){
-        window.location.href = "../views/declaracao.php";
+        history.go(-2);
     }, 3000);
 
     window.onload = function() {
