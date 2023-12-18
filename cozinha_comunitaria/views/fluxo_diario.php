@@ -17,11 +17,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
 </head>
 <body>
-    <h1>FLUXO DIÁRO</h1>
+    <h1>FLUXO DIÁRiO</h1>
 
     <form action="">
     <label>Buscar Beneficiário: </label>
-    <input type="text" id="nis" name="nis" placeholder="Apenas números." maxlength="11" required>
+    <input type="text" id="nis" name="nis" placeholder="Pelo NIS." maxlength="11" required>
 
     <?php
 if (!isset($_GET['nis'])) {
@@ -41,7 +41,15 @@ if (!isset($_GET['nis'])) {
 
 NOME: <?php echo $dados['nome']; ?> CPF: <?php echo $dados['cpf_benef']; ?> <br>
 
-<br><br><br><br><table width="650px" border="1">
+    <?php
+}
+}
+
+$tbl_fluxo = $conn->query("SELECT nis_benef, nome, encaminhado_cras, qtd_marmita FROM fluxo_diario_coz");
+
+if($tbl_fluxo->num_rows > 0){
+    ?>
+    <br><br><br><br><table width="650px" border="1">
         <tr class="titulo" >
                 
                 <th class="cabecalho">NIS</th>    
@@ -50,15 +58,8 @@ NOME: <?php echo $dados['nome']; ?> CPF: <?php echo $dados['cpf_benef']; ?> <br>
                 <th class="cabecalho">QUANTIDADES</th>
                     
             </tr>
-
     <?php
-}
-}
-
-$tbl_fluxo = $conn->query("SELECT nis_benef, nome, encaminhado_cras, qtd_marmita FROM fluxo_diario_coz");
-
-if($tbl_fluxo->num_rows > 0){
-    while($linha = $tbl_fluxo->fetch_assoc()){
+            while($linha = $tbl_fluxo->fetch_assoc()){
         ?>
         <tr class="resultado">
         <td class="resultado"><?php echo $linha['nis_benef']; ?></td>
