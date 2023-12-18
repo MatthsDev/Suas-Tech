@@ -1,3 +1,18 @@
+<?php
+
+require 'encaminhamento_cras.php';
+echo $_GET['conteudo'];
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
+
+    $arquivoCSS = '';
+
+    if ($setor === "CRAS - ANTONIO MATIAS" || $setor === "CRAS - SANTO AFONSO") {
+        $arquivoCSS = "../css/timbrecras.css";
+    } else if ($setor === "CREAS - GILDO SOARES") {
+        $arquivoCSS = "../css/timbrecreas.css";
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
@@ -33,27 +48,17 @@
     </head>
 <body>
 <div class="justified-text">
-
-<?php
-require 'encaminhamento_cras.php';
-echo $_GET['conteudo'];
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
-?>
 </div>
 </body>
 
-<?php
-    // Suponha que você obtém o setor usando PHP
-    $setor = "CRAS - ANTONIO MATIAS"; // Ou de alguma lógica PHP dinâmica
+<script>
+    setTimeout(function(){
+        history.go(-2);
+    }, 3000);
 
-    // Define o arquivo CSS com base no setor
-    $arquivoCSS = '';
-
-    if ($setor === "CRAS - ANTONIO MATIAS" || $setor === "CRAS - SANTO AFONSO") {
-        $arquivoCSS = "../css/timbrecras.css";
-    } else if ($setor === "CREAS - GILDO SOARES") {
-        $arquivoCSS = "../css/timbrecreas.css";
-    }
-    ?>
+    window.onload = function() {
+        window.print();
+    };
+    </script>
 
 </html>
