@@ -75,7 +75,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                     <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
                 <button type="submit">ENVIAR</button>
             </div>
-    </form>
+        </form>
     </div>
 
 
