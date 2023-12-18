@@ -37,6 +37,12 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
             header("location:../cadunico/painel-usuario/user-painel.php");
             exit();
         }
+    }elseif ($setor_ == "CRAS - SANTO AFONSO"){
+        header("Location: ../cras/views/menu-cras-st.php");
+    }elseif ($setor_ == "CREAS - GILDO SOARES"){
+        header("Location: ../creas/views/menu-creas.php");
+    }elseif($setor_ == "COZINHA COMUNITÁRIA - NEUMA MARIA DA SILVA"){
+        header("Location: ../cozinha_comunitaria/menu.php");
     }
 
     // Verifique se é o primeiro acesso pela senha
