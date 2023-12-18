@@ -77,8 +77,6 @@ if (!isset($_POST['ok'])) {
             $get_rec = "ok";
             $qtd_entregue = $_POST['qtd'];
 
-            
-
             $sqld = $conn->prepare("UPDATE fluxo_diario_coz SET data_de_entrega=?, marm_entregue=?, entregue=? WHERE nis_benef=?");
             $sqld->bind_param("ssss", $data_formatada_at, $qtd_entregue, $get_rec, $dados['nis_benef']);
             if ($sqld->execute()) {
