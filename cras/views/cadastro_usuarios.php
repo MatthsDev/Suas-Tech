@@ -360,6 +360,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         });
+
                     } else {
                         Swal.fire({
                             icon: 'error',
@@ -367,6 +368,7 @@
                             text: response.message
                         });
                     }
+
                 },
                 error: function() {
                     Swal.fire({
