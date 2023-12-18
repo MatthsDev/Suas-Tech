@@ -227,11 +227,41 @@ function verificarUsuario() {
                     comunidadeQuilambolaSelect.append('<option value="' + terraQuilo + '">' + terraQuilo + '</option>');
                 }
 //========================================================================================================================================
-//================================================== CODIGO FAMILIAR =====================================================================
+//=========================================== CODIGO FAMILIAR E PARENTESCO ===============================================================
 //========================================================================================================================================
 
                 $('#codigo_familiar').val(data.codigo_familiar);
+                
 
+
+                var parentescoSelect =  $('#parentesco');
+                parentescoSelect.empty();
+                parentescoSelect.append('<option value="">SELECIONE</option>');
+                parentescoSelect.append('<option value="RESPONSAVEL FAMILIAR">RESPONSAVEL FAMILIAR</option>');
+                parentescoSelect.append('<option value="CONJUGUE OU COMPANHEIRO">CONJUGUE OU COMPANHEIRO</option>');
+                parentescoSelect.append('<option value="FILHO">FILHO</option>');
+                parentescoSelect.append('<option value="IRMAO OU IRMA">IRMAO OU IRMA</option>');
+                parentescoSelect.append('<option value="PAI OU MAE">PAI OU MAE</option>');
+                parentescoSelect.append('<option value="OUTRO PARENTE">OUTRO PARENTE</option>');
+                parentescoSelect.append('<option value="NAO PARENTE">NAO PARENTE</option>');
+
+                if (data.parentesco) {
+                    parentescoSelect.val(data.parentesco.toUpperCase());
+                }
+
+
+                var corSelect =  $('#cor');
+                corSelect.empty();
+                corSelect.append('<option value="">SELECIONE</option>');
+                corSelect.append('<option value="BRANCO">BRANCO</option>');  
+                corSelect.append('<option value="PRETO">PRETO</option>');
+                corSelect.append('<option value="AMARELO">AMARELO</option>'); 
+                corSelect.append('<option value="PARDO">PARDO</option>'); 
+                corSelect.append('<option value="INDEGENA">INDIGENA</option>');
+                 
+                if (data.cor) {
+                    corSelect.val(data.cor.toUpperCase());
+                }
 
 //========================================================================================================================================
 //========================================================================================================================================
@@ -304,6 +334,7 @@ function verificarUsuario() {
                 if (data.profissao) {
                     profissaoSelect.val(data.profissao.toUpperCase());
                 }
+
 
 
                 $('#renda_per').val(data.renda_per);
