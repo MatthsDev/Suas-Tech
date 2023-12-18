@@ -54,10 +54,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         <div id="inputNIS" class="hidden">
                             <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
                         </div>
-                    </div>
-                    <div class="bloco">
-                            <button type="submit">BUSCAR</button>
-                        </div>        
+                    </div>      
                 </div>
                 <div class="bloco">    
                     <label>Encaminhar para:</label>
@@ -74,6 +71,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     }
                     ?>
                     </select>
+                    <button type="submit">BUSCAR</button>
                     <a onclick="goBack()">
                         <i class="fas fa-arrow-left"></i> Voltar ao menu
                     </a>

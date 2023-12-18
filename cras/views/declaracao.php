@@ -45,10 +45,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 <div id="inputNIS" class="hidden">
                     <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
                 </div>
-
-                <a onclick="goBack()">
-                    <i class="fas fa-arrow-left"></i> Voltar ao menu
-                </a>
             </div>
 
             <div class="bloco">
@@ -72,8 +68,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             </div>
             <div class="bloco">
                 <label>Parecer: </label>
-                    <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
-                <button type="submit">ENVIAR</button>
+                <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>    
+                <div class="bloco1">
+                    <button type="submit">ENVIAR</button>
+                </div>
+                <div class="bloco1">
+                    <a onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> Voltar ao menu
+                    </a>
+                </div>
             </div>
         </form>
     </div>

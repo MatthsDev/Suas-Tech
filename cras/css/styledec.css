@@ -57,6 +57,7 @@ h2 {
     align-items: flex-start;
     justify-content:flex-start;
     align-content: space-between;
+    padding-right: 10px;
 }
 .bloco{
     padding-top: 20px;
