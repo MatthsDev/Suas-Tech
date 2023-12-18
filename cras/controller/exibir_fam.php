@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo '<tr>
                         <td>' . $row['nome'] . '</td>
                         <td>' . $row['nis'] . '</td>
-                        <td>' . $row['data_nasc'] . '</td>
+                        <td>' . $row['parentesco'] . '</td>
                     </tr>';
             }
 
