@@ -45,7 +45,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         <option value="cpf_dec">CPF:</option>
                         <option value="nis_dec">NIS:</option>
                         </select>
-                    </div>
+                </div>
                     <div class="bloco">
                         <div id="inputCPF">
                             <input type="text" name="valorescolhido_cpf" id="cpf" placeholder="Digite o CPF:" onblur="validarCPF(this)">
