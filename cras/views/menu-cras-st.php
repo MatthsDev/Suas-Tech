@@ -27,7 +27,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
         <div class="menu"> 
             <nav>
             <div class="btn">
-                    <a class="menu-button" onclick="location.href='##';">
+                    <a class="menu-button" onclick="location.href='acompanhamento.php';">
                     <span class="material-symbols-outlined">
                         deployed_code_account
                     </span>
