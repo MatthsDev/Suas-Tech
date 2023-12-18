@@ -109,7 +109,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             textarea.style.height = textarea.scrollHeight + 'px';
         }
     </script>
-    <script src='../../controller/back.js'></script>
+    <script src='../../controller/back1.js'></script>
+    
 </body>
 
 
