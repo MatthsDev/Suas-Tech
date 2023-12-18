@@ -107,11 +107,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         $_SESSION['predio'] = $_GET['predio'];
 
                         ?>
-                        <div class="btn1">
-                            <a href='/Suas-Tech/cras/views/editar_usuario.php'>Editar informações do usuário</a>
-                        </div>
                         <div class="btn">
                             <button type="submit">ENVIAR</button>
+                            <a href='/Suas-Tech/cras/views/editar_usuario.php'>Editar informações do usuário</a>
                         </div>
                         <hr>
     </div>

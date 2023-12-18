@@ -18,11 +18,17 @@ img {
     max-height: 120px
 }
 
-h2 {
-    display: flex;
-    text-decoration: underline 2px;
+input,
+select,
+option,
+label {
+    background-color: #ffffff;
+    color: #13294b;
+    font-size: 13px;
+    font-family: "Inter", sans-serif;
     border-radius: 5px;
-    text-align: center;
+    padding: 1px 2px;
+    border-style: outset;
 }
 
 .container {
@@ -37,33 +43,30 @@ h2 {
     background-color: #FFFFFF;
     border-radius: 5px;
 }
+
+h2 {
+    display: flex;
+    text-decoration: underline 2px;
+    border-radius: 5px;
+    text-align: center;
+}   
+
 .bloco1{
     display: flex;
-    flex-direction: column;
-}
-.lab{
-    width: auto;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 .bloco{
-    padding-top: 10px;
-}
-form{
-    padding: 10px 0px 0px 10px;
-    line-height: 1.5;
-}
-input,
-select,
-option,
-label {
-    background-color: #ffffff;
-    color: #13294b;
-    font-size: 13px;
-    font-family: "Inter", sans-serif;
-    border-radius: 5px;
-    padding: 1px 2px;
-    border-style: outset;
+    padding-top: 15px;
 }
 
+textarea{   
+    width: 600px;
+    height: auto;
+    border-radius: 5px;
+    top: 13px;
+}
 button,
 a {
     font-size: 12px;
@@ -74,7 +77,6 @@ a {
     background-color: #13294b;
     color: white;
     cursor: pointer;
-    text-decoration: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(255, 255, 255, 0.3) 0px 30px 60px -30px, rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
 }
 
@@ -83,26 +85,4 @@ a:hover {
     background-color: #3b82f6;
     box-shadow: 0 0 0 1px #3b83f65f;
     color: #fff;
-}
-.btn{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.btn1{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    align-content: flex-end;
-    padding-bottom: 5px;
-}
-
-textarea {
-    width: 600px;
-    height: auto;
-    border-radius: 5px;
-    top: 13px;
-}
-.inpu{
-    width: 300px;
 }

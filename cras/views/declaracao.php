@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../css/styledec.css">
+    <link rel="stylesheet" type="text/css" href="../css/styledec.css">
     <link rel="website icon" type="png" href="../../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Declarações</title>
@@ -26,49 +26,58 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img src="../../img/h1-declaração.svg" alt="Titulocomimagem">
+            <img src="../img/h1-encaminhamento.svg" alt="Titulocomimagem">
         </h1>
     </div>
-    <div class="encaminhamento">
+    <div class="container">
         <form method="post" action="../controller/print_enc_cras.php">
-            <h2>Encaminhamento</h2>
-            <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
-                <option value="cpf_dec">CPF:</option>
-                <option value="nis_dec">NIS:</option>
-            </select>
+            <h2>Informe o CPF ou NIS do usuário</h2>
+            <div class="bloco1">
+                <select name="buscar_dados" id="buscar_dados" onchange="selecionarTipoInput()" required>
+                    <option value="cpf_dec">CPF:</option>
+                    <option value="nis_dec">NIS:</option>
+                </select>
 
-            <div id="inputCPF">
-                <input type="text" name="valorescolhido_cpf" id="cpf" placeholder="Digite o CPF:" onblur="validarCPF(this)">
+                <div id="inputCPF">
+                    <input type="text" name="valorescolhido_cpf" id="cpf" placeholder="Digite o CPF:" onblur="validarCPF(this)">
+                </div>
+
+                <div id="inputNIS" class="hidden">
+                    <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
+                </div>
+
+                <a onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
             </div>
 
-            <div id="inputNIS" class="hidden">
-                <input type="text" name="valorescolhido_nis" placeholder="Digite o NIS:">
-            </div>
+            <div class="bloco">
+                <label>Encaminhar para: </label>
+                <select name="setor" required>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <?php
 
+                    $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
 
+                    // Verifica se há resultados na consulta
+                    if ($consultaSetores->num_rows > 0) {
 
-            <label>Encaminhar para: </label>
-            <select name="setor" required>
-                <option value="" disabled selected hidden>Selecione</option>
-                <?php
-
-                $consultaSetores = $conn->query("SELECT instituicao, nome_instit FROM setores");
-
-                // Verifica se há resultados na consulta
-                if ($consultaSetores->num_rows > 0) {
-
-                    // Loop para criar as opções do select
-                    while ($setor = $consultaSetores->fetch_assoc()) {
-                        echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
+                        // Loop para criar as opções do select
+                        while ($setor = $consultaSetores->fetch_assoc()) {
+                            echo '<option value="' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '">' . $setor['instituicao'] . ' - ' . $setor['nome_instit'] . '</option>';
+                        }
                     }
-                }
-                ?>
-    </div>
-    </select>
-    <label>Parecer: </label>
-    <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
-    <button type="submit">ENVIAR</button>
+                    ?>
+                </select>
+            </div>
+            <div class="bloco">
+                <label>Parecer: </label>
+                    <textarea id="" name="texto" required oninput="ajustarTextarea(this)"></textarea>
+                <button type="submit">ENVIAR</button>
+            </div>
     </form>
+    </div>
+
 
     <script>
         function selecionarTipoInput() {
@@ -100,6 +109,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             textarea.style.height = textarea.scrollHeight + 'px';
         }
     </script>
+    <script src='../../controller/back.js'></script>
 </body>
+
 
 </html>
