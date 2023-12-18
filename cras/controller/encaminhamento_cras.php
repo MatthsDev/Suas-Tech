@@ -41,7 +41,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $referencia = $dados['referencia'];
             $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . " $referencia";
 
-            $conteudo = "<div id='title' style='margin-top: 100px;'> $local - SÃO BENTO DO UNA</div>";
+            $conteudo = "<div id='title' style='margin-top: 100px;'> $setor - SÃO BENTO DO UNA</div>";
             $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
             $conteudo .= "<br><br><p>Assunto: Encaminho " . $nom_pessoa . ", CPF: " . $cpf_formatado . ", reside em " . $enderecoCompleto . ".</p>";
             $conteudo .= "<p>Ao(a) Coordenador(a) do " . $local . ", pelo seguinte motivo: </p>";
@@ -81,7 +81,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $referencia = $dados['referencia'];
             $enderecoCompleto = $bairro . ", " . $logradouro . "," . " n°  $numero" . "," . " $referencia";
 
-            $conteudo = "<div id='title' style='margin-top: 100px;'> $local - SÃO BENTO DO UNA</div>";
+            $conteudo = "<div id='title' style='margin-top: 100px;'> $setor - SÃO BENTO DO UNA</div>";
             $conteudo .= "<br><br><p class='right-align'>São Bento do Una, " . $data_formatada_at . "</p>";
             $conteudo .= "<br><br><p>Assunto: Encaminho " . $nom_pessoa . ", NIS: " . $nis_dec . ", reside em " . $enderecoCompleto . ".</p>";
             $conteudo .= "<p>Ao(a) Coordenador(a) do " . $local . ", pelo seguinte motivo: </p>";
