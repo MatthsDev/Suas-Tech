@@ -14,6 +14,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="../css/style-fluxo.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Fluxo Diário</title>
 
 
@@ -27,6 +28,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </div>
     <div class="container">
         <div class="bloco">
+            <div class="bloco2">
+                <a onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
+            </div>    
             <?php
             // Execute a query para somar os valores da coluna
             $sql_soma = "SELECT SUM(qtd_marmita) as soma_total FROM fluxo_diario_coz";
@@ -134,5 +140,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </div>
 
     <body>
-
+    <script src='../../controller/back.js'></script>
 </html>
