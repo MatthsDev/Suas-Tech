@@ -73,12 +73,13 @@ if ($consultaSetores->num_rows > 0) {
                 </select>
             <div class="btns">
                 <button type="submit">Cadastrar</button>
-                <a href="adm-view.php">
-                <i class="fas fa-arrow-left"></i> Voltar ao menu
+                <a onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
             </div>
         </form>
     </div>
+    <script src='/Suas-Tech/controller/back.js'></script>
 </body>
 </html>

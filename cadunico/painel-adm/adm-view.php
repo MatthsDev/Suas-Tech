@@ -33,15 +33,6 @@ include_once '../controller/acesso_user/dados_usuario.php';
   <div class="tudo">
     <div class="container">
       <nav> 
-        <div class="cadastrar">
-          <a class="menu-button" onclick="location.href='cadastro_user.php';">
-            <span class="material-symbols-outlined">
-              person_add
-            </span>
-            Cadastrar Usuários
-          </a>
-        </div>
-
         <div class="formularios">
           <a class="menu-button" onclick="location.href='../views/forms/menuformulario.php';">
             <span class="material-symbols-outlined">
