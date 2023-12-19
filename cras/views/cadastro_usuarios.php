@@ -163,18 +163,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="titulo">
-                <div class="titulo1">
-                    <h3>MORADOR EM SITUAÇÃO DE RUA</h3>
-                </div>
-            </div>
-            <div class="bloco1">
-                    <h5> </h5>
-                    <input type="radio" name="sitRUA" value="1">1 - Sim
-                    <input type="radio" name="sitRUA" value="2">2 - Não
-            </div>
-
             <div class="titulo">
                 <div class="titulo1">
                     <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
