@@ -20,6 +20,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="../../js/cpfvalid.js"></script>
 </head>
 
@@ -30,9 +31,9 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
         </h1>
     </div>
     <div class="container">
-    <h3>Bem-vindo (a)
-        <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.
-    </h3>
+        <h3>Bem-vindo (a)
+            <?php echo $nome_user; ?>, esse é o seu primeiro acesso. Informe seus dados.
+        </h3>
         <form method="post" action="../../controller/acesso_user/dados_alterados.php">
             <div class="nome">
                 <label>Nome Completo:</label>
@@ -44,10 +45,9 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
             </div>
             <div class="cpf">
                 <label>CPF:</label>
-                <input type="text" id="cpf" name="cpf" placeholder="Apenas números." maxlength="14" required
-                    onblur="validarCPF(this)" required>
+                <input type="text" id="cpf" name="cpf" placeholder="Apenas números." maxlength="14" required onblur="validarCPF(this)" required>
             </div>
-                <div id="res" name="res"></div>
+            <div id="res" name="res"></div>
             <div class="dtnasc">
                 <label>Data de Nascimento:</label>
                 <input type="date" name="dt_nasc" required>
@@ -70,7 +70,9 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
             </div>
             <div class="senha">
                 <label>Nova Senha:</label>
-                <input type="password" name="senha" placeholder="Escolha uma nova senha." required>
+                    <input type="password" name="senha" id="senha" placeholder="Escolha uma nova senha." required>
+                    <i class="far fa-eye" id="togglePassword"></i>
+                </div>
             </div>
             <div class="btn">
                 <button type="submit">Concluir Cadastro</button>
@@ -78,7 +80,19 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
         </form>
     </div>
 
-<script src="../../js/personalise.js"></script>
+    <script src="../../js/personalise.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.getElementById('togglePassword');
+    const senhaInput = document.getElementById('senha');
+
+    togglePassword.addEventListener('click', function() {
+        const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        senhaInput.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+});
+</script>
 </body>
 
 </html>
