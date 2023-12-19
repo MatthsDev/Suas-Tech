@@ -45,7 +45,8 @@ $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
 // Verifica campos obrigatórios
-$camposObrigatorios = array("cpf", "codigo_familiar", "nome", "data_nasc", "sexo", "nac_pessoa", /* ... outros campos obrigatórios ... */);
+$camposObrigatorios = array("cpf", "codigo_familiar", "nome", "data_nasc", "sexo", "nac_pessoa", "data_nasc", "sexo", "nac_pessoa", 
+"tel_pessoa", "cor", "sitRUA", "parentesco", "nis", "profissao", "renda_per", "bairro", "log", "qtd_pessoa",);
 
 foreach ($camposObrigatorios as $campo) {
     if (empty($_POST[$campo])) {
