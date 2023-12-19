@@ -93,6 +93,16 @@ if (!isset($_GET['buscar_dados'])) {
         if ($sql->rowCount() > 0) {
             $dados = $sql->fetch(PDO::FETCH_ASSOC);
 
+            //prioridades GPTE
+            $indigena = $dados['cod_familia_indigena_fam'];
+            $quilombola = $dados['ind_familia_quilombola_fam'];
+            $sit_rua = $dados['morador_de_rua'];
+
+            if($indigena == 1 || $quilombola == 1 || $sit_rua == 1){
+                $prioridade = 2;
+            }else{
+                $prioridade = "";
+            }
             //formata moeda
             $real_br_formatado = number_format($dados['renda_per'], 2, ',', '.');
             //formata data
@@ -119,6 +129,7 @@ if (!isset($_GET['buscar_dados'])) {
             $_SESSION['qtd_pessoa'] = $dados['qtd_pessoa'];
             $_SESSION['nome_mae'] = $dados['nome_mae'];
             $_SESSION['predio'] = $_GET['predio'];
+            $_SESSION['priori'] = $prioridade;
 
             ?>
                         <div class="btn">
