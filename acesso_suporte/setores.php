@@ -13,7 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../cadunico/img/logo.png">
-    <link rel="stylesheet" href="../cadunico/css/style-cadast-setores.css">
+    <link rel="stylesheet" href="css/style-cadast-setores.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -43,11 +43,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <label>CPF da Coordenação: </label>
             <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" placeholder="Usar enter após digitar." required>
             <p id="nomeCoordenador"></p>
-
+            <label>Nome do Responsável: </label>
+            <input type="text" name="nome_coord_resp" placeholder="Nome completo do coordenador" required>
     </div>
     <div class="bloco1">
-        <label>Nome do Responsável: </label>
-        <input type="text" name="nome_coord_resp" placeholder="Nome completo do coordenador" required>
+
 
         <label>INSTITUIÇÃO: </label>
         <input type="text" name="instituicao" placeholder="Segmento." required>
