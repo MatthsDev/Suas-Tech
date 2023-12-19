@@ -47,18 +47,6 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
-// Verifica se o CPF já existe
-$stmt_verificar = $conn->prepare("SELECT cpf FROM cras WHERE cpf = ?");
-$stmt_verificar->bind_param("s", $cpf);
-$stmt_verificar->execute();
-$stmt_verificar->store_result();
-
-if ($stmt_verificar->num_rows > 0) {
-    // O CPF já está cadastrado
-    echo json_encode(array("status" => "CPF_EXISTENTE"));
-    exit(); // Encerra o script para evitar a inserção duplicada
-}
-
     $stmt = $conn->prepare("INSERT INTO creas (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
