@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../cadunico/css/style-processo.css">
-    <link rel="shortcut icon" href="../cadunico/img/logo.png" type="image/png">
+    <link rel="shortcut icon" href="../../cadunico/img/logo.png" type="image/png">
     <title>Cadastro Salvo</title>
     <link rel="stylesheet" href="../css/style-processo.css">
 </head>
@@ -18,8 +18,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 $mensagem = "";
 
 // Verifica se o formulário foi enviado
-if (isset($_SESSION['cpf_coord']) && $_SERVER["REQUEST_METHOD"] == "POST") {
-    $cpf_coord = $_SESSION['cpf_coord'];
+if (isset($_POST['cpf_coord'])) {
+    $cpf_coord = $_POST['cpf_coord'];
     $nome_coord = $_POST['nome_coord_resp'];
     $instituicao = $_POST['instituicao'];
     $nome_instit = $_POST['nome_instit'];
@@ -44,7 +44,7 @@ if (isset($_SESSION['cpf_coord']) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($nomeInst_no_repeat->num_rows > 0) {
         // Se o nome de usuário já está em uso, exibe uma mensagem ou redirecione de volta ao formulário
-        echo '<script>alert("Setor já registrado."); window.location.href = "../suas/views/setores.php";</script>';
+        echo '<script>alert("Setor já registrado."); window.location.href = "../setores.php";</script>';
         exit();
     }
 
@@ -59,7 +59,7 @@ if (isset($_SESSION['cpf_coord']) && $_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="linha"></div>
         <?php
 // Redireciona para a página DE CADASTRAR NOVO seetor após ALGUNS segundos
-        echo '<script> setTimeout(function(){ window.location.href = "../acesso_suporte/index.php"; }, 1500); </script>';
+        echo '<script> setTimeout(function(){ window.location.href = "../index.php"; }, 1500); </script>';
     } else {
         echo "ERRO no envio dos DADOS: " . $query->error;
     }
