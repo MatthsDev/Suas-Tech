@@ -46,34 +46,46 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
+$linhas_cpf = 0; // Inicializa a variável $linhas_cpf com 0
+
 if ($cpf != '') {
-    $stmt = $pdo->prepare("SELECT * FROM cras WHERE cpf = ?");
-    $stmt->execute([$cpf]);
-    $linhas_cpf = $stmt->rowCount();
+    // Verificar se o CPF já está cadastrado para outro paciente
+    $res_c = $pdo->query("SELECT * FROM cras WHERE cpf = '$cpf'");
+    $dados_c = $res_c->fetchAll(PDO::FETCH_ASSOC);
+    $linhas_cpf = count($dados_c);
 
     if ($linhas_cpf != 0) {
-        echo json_encode(["status" => "error", "message" => "CPF já cadastrado!"]);
-    } else {
-        $stmt = $conn->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
+        http_response_code(400); // Retorna código 400 (Bad Request)
+        echo json_encode(array("message" => "Pessoa com CPF já cadastrado!"));
+        exit();
+    }
+}
+
+if ($linhas_cpf == 0) {
+    $stmt = $conn->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
     nat_pessoa, tel_pessoa, email_pessoa, pcd, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
     area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        $stmt->bind_param("sssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
-            $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
-            $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
-            $municipio, $telefone, $email, $pcd, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
-            $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro,
-            $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor);
-    }
+    $stmt->bind_param("sssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
+        $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
+        $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
+        $municipio, $telefone, $email, $pcd, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
+        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro,
+        $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor);
     $stmt->execute();
-    echo json_encode(["status" => "success", "message" => "Cadastrado com Sucesso!!"]);
+
+    echo json_encode(array("message" => "Cadastrado com Sucesso!!"));
+
 } else {
-    echo json_encode(["status" => "error", "message" => "Erro ao cadastrar. CPF não informado!"]);
+    if ($linhas_cpf != 0) {
+        http_response_code(400); // Retorna código 400 (Bad Request)
+        echo json_encode(array("message" => "O CPF não foi fornecido."));
+    }
 }
-$stmt->close();
+$stmt_verifica->close();
 $conn->close();
 
 

@@ -354,16 +354,24 @@
                             text: 'O formulário foi submetido com sucesso.'
                         });
                     },
-                    error: function (error) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Erro ao enviar os dados!',
-                            text: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
-                        });
+                    error: function (xhr, status, error) {
+                        if (xhr.status === 400) {
+                            var errorMessage = JSON.parse(xhr.responseText);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Erro ao enviar os dados!',
+                                text: errorMessage.message
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Erro ao enviar os dados!',
+                                text: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
+                            });
+                        }
                     }
                 });
             } else {
-
                 var camposNaoPreenchidos = $(':input[required]').filter(function () {
                     return !this.value;
                 }).map(function () {
