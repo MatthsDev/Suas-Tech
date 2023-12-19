@@ -44,48 +44,47 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
+// Verifica campos obrigatórios
+$camposObrigatorios = array("cpf", "codigo_familiar", "nome", "data_nasc", "sexo", "nac_pessoa", /* ... outros campos obrigatórios ... */);
 
-if ($cpf != '') {
-    $res_c = $pdo->query("SELECT * FROM cras WHERE cpf = '$cpf'");
-    $dados_c = $res_c->fetchAll(PDO::FETCH_ASSOC);
-    $linhas_cpf = count($dados_c);
-
-    if ($linhas_cpf != 0) {
-        echo json_encode(["status" => "error", "message" => "CPF já cadastrado!"]);
+foreach ($camposObrigatorios as $campo) {
+    if (empty($_POST[$campo])) {
+        echo json_encode(["status" => "error", "message" => "O campo $campo é obrigatório."]);
         exit();
     }
 }
 
-if ($linhas_cpf == 0) {
-    $stmt = $conn->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
+// Verifica se CPF já está cadastrado
+$res_c = $pdo->query("SELECT * FROM cras WHERE cpf = '$cpf'");
+$dados_c = $res_c->fetchAll(PDO::FETCH_ASSOC);
+$linhas_cpf = count($dados_c);
+
+if ($linhas_cpf != 0) {
+    echo json_encode(["status" => "error", "message" => "CPF já cadastrado!"]);
+    exit();
+}
+
+// Insere no banco de dados
+$stmt = $conn->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
     nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
     area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
+if ($stmt === false) {
+    die("Erro na preparação da declaração: " . $conn->error);
+}
 
-    if ($stmt === false) {
-        die("Erro na preparação da declaração: " . $conn->error);
-    }
+$stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
+    $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
+    $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
+    $municipio, $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
+    $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor);
+$stmt->execute();
 
-    $stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
-        $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
-        $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
-        $municipio, $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
-        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor);
-        $stmt->execute();
-
-        echo json_encode(["status" => "success", "message" => "Cadastrado com Sucesso!!"]);
-    } else {
-        echo json_encode(["status" => "error", "message" => "Erro ao cadastrar. Pessoa já cadastrada com esse CPF!"]);
-    }
+echo json_encode(["status" => "success", "message" => "Cadastrado com Sucesso!!"]);
 
 $stmt->close();
 $conn->close();
-
-
-
-
-
 ?>
