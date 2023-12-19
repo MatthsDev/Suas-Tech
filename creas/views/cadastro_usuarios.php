@@ -25,7 +25,7 @@
     <div class="container">
 
 
-        <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
+        <form id="formUsuario" action="/Suas-Tech/creas/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
@@ -165,6 +165,14 @@
                         <input type="text" id="nat_pessoa" name="nat_pessoa">
                     </div>
                 </div>
+            </div>
+            <div class="titulo">
+                <div class="titulo1">
+                    <h3>PESSOA EM SITUAÇÃO DE RUA</h3>
+                </div>
+                <label for="sitRUA_Sim">EM SITUAÇÃO DE RUA</label>
+                <input type="radio" id="sitRUA_Sim" name="sitRUA" value="1" required>1 - Sim
+                <input type="radio" id="sitRUA_Nao" name="sitRUA" value="2">2 - Não
             </div>
 
             <div class="titulo">
@@ -338,14 +346,16 @@
     <script>
 
         function enviarFormulario() {
-            // Verificando se todos os campos obrigatórios estão preenchidos
             var form = document.getElementById('formUsuario');
-            if (form.checkValidity()) {
+            var situacaoRua = $('input[name="sitRUA"]:checked').val(); // Verifica o valor do radio "sitRUA"
+
+            // Verifica se o radio "sitRUA" está marcado como "Sim" (valor = 1)
+            if (situacaoRua === "1") {
                 var formData = $('#formUsuario').serialize();
-                // Enviando os dados via AJAX
+                // Enviar os dados via AJAX
                 $.ajax({
                     type: 'POST',
-                    url: '/Suas-Tech/cras/controller/user_control.php',
+                    url: '/Suas-Tech/creas/controller/user_control.php',
                     data: formData,
                     success: function (response) {
                         Swal.fire({
@@ -363,28 +373,42 @@
                     }
                 });
             } else {
-
+                // Executa a verificação dos campos obrigatórios
                 var camposNaoPreenchidos = $(':input[required]').filter(function () {
-                    return !this.value;
-                }).map(function () {
-                    return this.id;
-                }).get();
-
-                camposNaoPreenchidos.forEach(function (campo) {
-                    $('#' + campo).css('border', '1px solid red');
+                    return !this.value && this.type !== 'radio';
                 });
 
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Campos obrigatórios não preenchidos!',
-                    html: 'Por favor, preencha os campos obrigatórios:<br>' + camposNaoPreenchidos.join(', ')
+                var radios = $('input[type=radio][required]');
+                var radioGroupNames = [];
+
+                radios.each(function () {
+                    var name = $(this).attr('name');
+                    if (radioGroupNames.indexOf(name) === -1) {
+                        radioGroupNames.push(name);
+                    }
+                });
+
+                radioGroupNames.forEach(function (name) {
+                    var checked = $('input[name="' + name + '"]:checked').length;
+                    if (checked === 0) {
+                        var radioGroup = $('input[name="' + name + '"]');
+                        radioGroup.parent().css('outline', '1px solid red'); // Set outline for parent of radio buttons
+                        camposNaoPreenchidos.push(radioGroup.first());
+                    }
+                });
+
+                camposNaoPreenchidos.each(function () {
+                    $(this).css('border', '1px solid red');
+                    var campoLabel = $('label[for="' + $(this).attr('id') + '"]').text();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Campo obrigatório não preenchido!',
+                        text: 'O campo "' + campoLabel + '" é obrigatório.'
+                    });
                 });
             }
         }
-
-
     </script>
-
 
 </body>
 
