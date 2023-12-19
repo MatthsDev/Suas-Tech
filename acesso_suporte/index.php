@@ -36,6 +36,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                             Cozinha Comunitária
                             </a>
                     </div>
+                    <div class="btn">
+                                <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/painel-adm/cadastro_user';">
+                                <span class="material-symbols-outlined">
+                                person_add
+                                </span>
+                                Cadastrar Operadores
+                                </a>
+                        </div>
                 </div>    
                 <div class="bloco2">    
                         <div class="btn">
