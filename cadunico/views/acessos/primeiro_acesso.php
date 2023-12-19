@@ -13,7 +13,7 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechSUAS - Menu</title>
+    <title>TechSUAS - Primeiro acesso</title>
     <link rel="stylesheet" href="../../css/p-acesso.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../../img/logo.png">
@@ -72,12 +72,13 @@ $_SESSION['nome_user_1_acesso'] = $nome_user;
                 <label>Nova Senha:</label>
                     <input type="password" name="senha" id="senha" placeholder="Escolha uma nova senha." required>
                     <i class="far fa-eye" id="togglePassword"></i>
-                </div>
             </div>
             <div class="btn">
                 <button type="submit">Concluir Cadastro</button>
             </div>
+
         </form>
+
     </div>
 
     <script src="../../js/personalise.js"></script>
