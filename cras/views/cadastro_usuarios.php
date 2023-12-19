@@ -18,7 +18,8 @@
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="/Suas-Tech/cozinha_comunitaria/img/h1-cadusuarios.svg"
+                alt="Titulocomimagem">
         </h1>
     </div>
     <div class="container">
@@ -27,11 +28,13 @@
         <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF">
+                <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
+                    placeholder="Digite o CPF" required>
 
 
                 <label for="codigo_familiar">Código da Familia: </label>
-                <input type="text" id="codigo_familiar" name="codigo_familiar" placeholder="Digite o código familiar">
+                <input type="text" id="codigo_familiar" name="codigo_familiar" placeholder="Digite o código familiar"
+                    required>
 
                 <a onclick="goBack()">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
@@ -47,12 +50,12 @@
                 <div class="bloco1">
                     <div class="element1">
                         <label for="nome">NOME: </label>
-                        <input class="inpu" type="text" id="nome" name="nome">
+                        <input class="inpu" type="text" id="nome" name="nome" required>
                     </div>
 
                     <div class="element">
                         <label for="parentesco">PARENTESCO FAMILIAR: </label>
-                        <select id="parentesco" name="parentesco">
+                        <select id="parentesco" name="parentesco" required>
                             <option value="">SELECIONE</option>
                             <option value="RESPONSAVEL FAMILIAR">RESPONSAVEL FAMILIAR</option>
                             <option value="CONJUGUE OU COMPANHEIRO">CONJUGUE OU COMPANHEIRO</option>
@@ -70,7 +73,7 @@
                     </div>
                     <div class="element">
                         <label for="nome_mae">NOME MÃE: </label>
-                        <input class="inpu" type="text" id="nome_mae" name="nome_mae">
+                        <input class="inpu" type="text" id="nome_mae" name="nome_mae" required>
                     </div>
                     <div class="element">
                         <label for="nac_pessoa">NACIONALIDADE: </label>
@@ -78,7 +81,7 @@
                     </div>
                     <div class="element">
                         <label for="tel_pessoa">TELEFONE: </label>
-                        <input type="text" id="tel_pessoa" name="tel_pessoa">
+                        <input type="text" id="tel_pessoa" name="tel_pessoa" required>
                     </div>
                     <div class="element">
                         <label for="email_pessoa">EMAIL: </label>
@@ -88,16 +91,16 @@
                 </div>
 
 
-                
+
                 <div class="bloco1">
                     <div class="element1">
                         <label for="data_nasc">DATA DE NASCIMENTO: </label>
-                        <input type="date" id="data_nasc" name="data_nasc">
+                        <input type="date" id="data_nasc" name="data_nasc" required>
                     </div>
 
                     <div class="element">
                         <label for="cor">COR OU RAÇA: </label>
-                        <select id="cor" name="cor">
+                        <select id="cor" name="cor" required>
                             <option value="">SELECIONE</option>
                             <option value="BRANCO">BRANCO</option>
                             <option value="PRETO">PRETO</option>
@@ -109,7 +112,7 @@
 
                     <div class="element">
                         <label for="sexo">SEXO: </label>
-                        <select id="sexo" name="sexo">
+                        <select id="sexo" name="sexo" required>
                             <option value="">SELECIONE</option>
                             <option value="MASCULINO">MASCULINO</option>
                             <option value="FEMININO">FEMININO</option>
@@ -126,7 +129,7 @@
                     </div>
                     <div class="element">
                         <label for="uf_pessoa">UF: </label>
-                        <select id="uf_pessoa" name="uf_pessoa">
+                        <select id="uf_pessoa" name="uf_pessoa" required>
                             <option value="">SELECIONE</option>
                             <option value="AC">ACRE</option>
                             <option value="AL">ALAGOAS</option>
@@ -158,42 +161,35 @@
                         </select>
                     </div>
                     <div class="element">
-                        <label for="nat_pessoa">MUNICIPIO: </label>
+                        <label for="nat_pessoa">NATURALIDADE: </label>
                         <input type="text" id="nat_pessoa" name="nat_pessoa">
                     </div>
                 </div>
             </div>
+
             <div class="titulo">
                 <div class="titulo1">
                     <h3>PCD E GRUPOS TRADICIONAIS ESPECIFICOS:</h3>
                 </div>
             </div>
+
+
+
             <h5>PORTADOR DE DEFICIÊNCIA: </h5>
             <div class="bloco2">
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1" disabled> &nbsp;1 - CEGUEIRA
-                    </div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2" disabled> &nbsp;2 - BAIXA
-                        VISAO</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3" disabled> &nbsp;3 - SURDEZ
-                        SEVERA/PROFUNDA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4" disabled> &nbsp;4 - SURDEZ
-                        LEVE/MODERADA</div>
-                </div>
-                <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5" disabled> &nbsp;5 -
-                        DEFICIENCIA
-                        FISICA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6" disabled> &nbsp;6 -
-                        DEFICIENCIA
-                        MENTAL OU
-                        INTELECTUAL</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7" disabled> &nbsp;7 - SINDROME
-                        DE DOWN
-                    </div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8" disabled> &nbsp;8 -
-                        TRANSTORNO/DOENCA
-                        MENTAL</div>
+                    <select name="tipoDeficiencia">
+                        <option value="">SELECIONE</option>
+                        <option value="CEGUEIRA">1 - CEGUEIRA</option>
+                        <option value="BAIXA VISAO">2 - BAIXA VISAO</option>
+                        <option value="SURDEZ SEVERA/PROFUNDA">3 - SURDEZ SEVERA/PROFUNDA</option>
+                        <option value="SURDEZ LEVE/MODERADA">4 - SURDEZ LEVE/MODERADA</option>
+                        <option value="DEFICIENCIA FISICA">5 - DEFICIENCIA FISICA</option>
+                        <option value="DEFICIENCIA MENTAL OU INTELECTUAL">6 - DEFICIENCIA MENTAL OU INTELECTUAL</option>
+                        <option value="SINDROME DE DOWN">7 - SINDROME DE DOWN</option>
+                        <option value="TRANSTORNO/DOENCA MENTAL">8 - TRANSTORNO/DOENCA MENTAL</option>
+                    </select>
+
                 </div>
             </div>
             <div class="bloco">
@@ -225,7 +221,8 @@
                         <option value="">SELECIONE</option>
                         <option value="teste">teste</option>
                     </select>
-                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina" style="margin-left:25px;"> 2 - Não sabe
+                    <input type="checkbox" name="naoSabeTerraIndigina" value="1" id="naoSabeTerraIndigina"
+                        style="margin-left:25px;"> 2 - Não sabe
                 </div>
             </div>
             <div class="bloco">
@@ -234,12 +231,14 @@
                 <input type="radio" name="familiaQuilambola" id="reservaNAO" value="2">2 - Não
             </div>
             <div class="bloco">
-                <h5> Qual é o nome da comunidade quilombola?</h5>
-                <select name="comunidadeQuilambola" id="comunidadeQuilambola" style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
+                <h5>NOME DA COMUNIDADE </h5>
+                <select name="comunidadeQuilambola" id="comunidadeQuilambola"
+                    style="width: 270px; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #666;">
                     <option value=""></option>
                     <option value=""></option>
                 </select>
-                <input type="checkbox" name="naoSabeTerraQuilo" value="1" id="naoSabeTerraQuilo" style="margin-left:25px;">2 - Não consta no município
+                <input type="checkbox" name="naoSabeTerraQuilo" value="1" id="naoSabeTerraQuilo"
+                    style="margin-left:25px;">2 - Não consta no município
             </div>
             <div class="titulo">
                 <div class="titulo1">
@@ -265,7 +264,7 @@
             </div>
             <div class="bloco">
                 <label for="nis">NIS: </label>
-                <input type="text" id="nis" name="nis">
+                <input type="text" id="nis" name="nis" required>
             </div>
             <div class="bloco">
                 <label for="num_titulo">TITULO: </label>
@@ -284,7 +283,7 @@
             </div>
             <div class="bloco1">
                 <label for="profissao">PROFISSÃO: </label>
-                <select id="profissao" name="profissao">
+                <select id="profissao" name="profissao" required>
                     <option value="">SELECIONE</option>
                     <option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>
                     <option value="AUTÔNOMO">AUTÔNOMO</option>
@@ -298,7 +297,7 @@
             </div>
             <div class="bloco">
                 <label for="renda_per">RENDA PER CAPITA: </label>
-                <input type="text" id="renda_per" name="renda_per">
+                <input type="text" id="renda_per" name="renda_per" required>
             </div>
             <div class="titulo">
                 <div class="titulo1">
@@ -307,14 +306,14 @@
             </div>
             <div class="bloco1">
                 <label for="bairro">BAIRRO: </label>
-                <input type="text" id="bairro" name="bairro">
+                <input type="text" id="bairro" name="bairro" required>
             </div>
             <div class="bloco">
                 <label for="log">LOGRADOURO: </label>
-                <input type="text" id="log" name="log">
+                <input type="text" id="log" name="log" required>
 
                 <label for="numero">NUMERO: </label>
-                <input type="text" id="numero" name="numero">
+                <input type="text" id="numero" name="numero" required>
             </div>
 
             <div class="bloco">
@@ -324,7 +323,7 @@
 
             <div class="bloco">
                 <label for="qtd_pessoa">QUANTIDADE DE PESSOAS NA CASA: </label>
-                <input type="text" id="qtd_pessoa" name="qtd_pessoa">
+                <input type="text" id="qtd_pessoa" name="qtd_pessoa" required>
             </div>
             <div class="btn">
                 <button type="button" id="btnEnviar" onclick="enviarFormulario()">ENVIAR</button>
@@ -335,61 +334,58 @@
 
 
     <script src="../js/ajax_request.js"></script>
-
-
-
     <script src='../../controller/back.js'></script>
-
-
-
     <script>
+
         function enviarFormulario() {
-            var formData = $("#formUsuario").serialize();
-            $.ajax({
-                type: "POST",
-                url: "/Suas-Tech/cras/controller/user_control.php",
-                data: formData,
-                dataType: "json",
-
-                success: function(response) {
-                    if (response.status === "success") {
-
+            // Verificando se todos os campos obrigatórios estão preenchidos
+            var form = document.getElementById('formUsuario');
+            if (form.checkValidity()) {
+                var formData = $('#formUsuario').serialize();
+                // Enviando os dados via AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: '/Suas-Tech/cras/controller/user_control.php',
+                    data: formData,
+                    success: function (response) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'Cadastro realizado com sucesso!',
-                            showConfirmButton: false,
-                            timer: 1500
+                            title: 'Dados enviados com sucesso!',
+                            text: 'O formulário foi submetido com sucesso.'
                         });
-
-                    } else {
+                    },
+                    error: function (error) {
                         Swal.fire({
                             icon: 'error',
-                            title: 'Erro ao cadastrar',
-                            text: response.message
+                            title: 'Erro ao enviar os dados!',
+                            text: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
                         });
                     }
+                });
+            } else {
 
-                },
-                error: function() {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Erro ao conectar ao servidor',
-                        text: 'Por favor, tente novamente mais tarde.'
-                    });
-                }
-            });
+                var camposNaoPreenchidos = $(':input[required]').filter(function () {
+                    return !this.value;
+                }).map(function () {
+                    return this.id;
+                }).get();
+
+                camposNaoPreenchidos.forEach(function (campo) {
+                    $('#' + campo).css('border', '1px solid red');
+                });
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Campos obrigatórios não preenchidos!',
+                    html: 'Por favor, preencha os campos obrigatórios:<br>' + camposNaoPreenchidos.join(', ')
+                });
+            }
         }
 
-        function goBack() {
-            window.history.back();
-        }
+
     </script>
-    <script>
-        function ajustarTextarea(textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = textarea.scrollHeight + 'px';
-        }
-    </script>
+
+
 </body>
 
 </html>
