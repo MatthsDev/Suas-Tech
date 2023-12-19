@@ -354,6 +354,7 @@
                             text: 'O formulário foi submetido com sucesso.'
                         });
                     },
+                    
                     error: function (xhr, status, error) {
                         if (xhr.status === 400) {
                             var errorMessage = JSON.parse(xhr.responseText);
@@ -371,6 +372,7 @@
                         }
                     }
                 });
+
             } else {
                 var camposNaoPreenchidos = $(':input[required]').filter(function () {
                     return !this.value;
