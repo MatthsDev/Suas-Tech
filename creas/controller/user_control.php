@@ -9,6 +9,9 @@ $nomeSocial = ($_POST["nome_social"]);
 $sexo = ($_POST["sexo"]);
 $outr_sexo = isset($_POST["outroSexo"]) ? $_POST["outroSexo"] : null;
 
+$sitRUA = ($_POST["sitRUA"]);
+$pcd = ($_POST["tipoDeficiencia"]);
+
 $nomeMae = ($_POST["nome_mae"]);
 $nomePai = ($_POST["nome_pai"]);
 $nacionalidade = ($_POST["nac_pessoa"]);
@@ -44,18 +47,19 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
-    $stmt = $conn->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
+    $stmt = $conn->prepare("INSERT INTO creas (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
-    nat_pessoa, tel_pessoa, email_pessoa, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
-    area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    nat_pessoa, tel_pessoa, email_pessoa, pcd, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
+    area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca, sit_rua) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
+    $stmt->bind_param("ssssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
         $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
         $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
-        $municipio, $telefone, $email, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
-        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor);
+        $municipio, $telefone, $email, $pcd, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
+        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, 
+        $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor, $sitRUA);
         $stmt->execute();
 
 $stmt->close();
