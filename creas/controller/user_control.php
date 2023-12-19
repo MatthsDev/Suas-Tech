@@ -47,6 +47,23 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
+$linhas_cpf = 0; // Inicializa a variável $linhas_cpf com 0
+
+if ($cpf != '') {
+    // Verificar se o CPF já está cadastrado para outro paciente
+    $res_c = $pdo->query("SELECT * FROM creas WHERE cpf = '$cpf'");
+    $dados_c = $res_c->fetchAll(PDO::FETCH_ASSOC);
+    $linhas_cpf = count($dados_c);
+
+    if ($linhas_cpf != 0) {
+        http_response_code(400); // Retorna código 400 (Bad Request)
+        echo json_encode(array("message" => "Pessoa com CPF já cadastrado!"));
+        exit();
+    }
+}
+
+if ($linhas_cpf == 0) {
+
     $stmt = $conn->prepare("INSERT INTO creas (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
@@ -58,13 +75,20 @@ $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
         $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
         $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
         $municipio, $telefone, $email, $pcd, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
-        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro, 
+        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro,
         $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor, $sitRUA);
-        $stmt->execute();
+    $stmt->execute();
 
-$stmt->close();
+    echo json_encode(array("message" => "Cadastrado com Sucesso!!"));
+
+} else {
+    if ($linhas_cpf != 0) {
+        http_response_code(400); // Retorna código 400 (Bad Request)
+        echo json_encode(array("message" => "O CPF não foi fornecido."));
+    }
+}
+$stmt_verifica->close();
 $conn->close();
-
 
 
 
