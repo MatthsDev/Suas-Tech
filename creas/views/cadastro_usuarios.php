@@ -344,71 +344,84 @@
     <script src="../js/ajax_request.js"></script>
     <script src='../../controller/back.js'></script>
     <script>
-
         function enviarFormulario() {
             var form = document.getElementById('formUsuario');
+            var formData = $('#formUsuario').serialize();
             var situacaoRua = $('input[name="sitRUA"]:checked').val(); // Verifica o valor do radio "sitRUA"
 
-            // Verifica se o radio "sitRUA" está marcado como "Sim" (valor = 1)
-            if (situacaoRua === "1") {
-                var formData = $('#formUsuario').serialize();
-                // Enviar os dados via AJAX
-                $.ajax({
-                    type: 'POST',
-                    url: '/Suas-Tech/creas/controller/user_control.php',
-                    data: formData,
-                    success: function (response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Dados enviados com sucesso!',
-                            text: 'O formulário foi submetido com sucesso.'
-                        });
-                    },
-                    error: function (error) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Erro ao enviar os dados!',
-                            text: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
-                        });
-                    }
-                });
-            } else {
-                // Executa a verificação dos campos obrigatórios
-                var camposNaoPreenchidos = $(':input[required]').filter(function () {
-                    return !this.value && this.type !== 'radio';
-                });
-
-                var radios = $('input[type=radio][required]');
-                var radioGroupNames = [];
-
-                radios.each(function () {
-                    var name = $(this).attr('name');
-                    if (radioGroupNames.indexOf(name) === -1) {
-                        radioGroupNames.push(name);
-                    }
-                });
-
-                radioGroupNames.forEach(function (name) {
-                    var checked = $('input[name="' + name + '"]:checked').length;
-                    if (checked === 0) {
-                        var radioGroup = $('input[name="' + name + '"]');
-                        radioGroup.parent().css('outline', '1px solid red'); // Set outline for parent of radio buttons
-                        camposNaoPreenchidos.push(radioGroup.first());
-                    }
-                });
-
-                camposNaoPreenchidos.each(function () {
-                    $(this).css('border', '1px solid red');
-                    var campoLabel = $('label[for="' + $(this).attr('id') + '"]').text();
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Campo obrigatório não preenchido!',
-                        text: 'O campo "' + campoLabel + '" é obrigatório.'
+            // Verificar se algum radio está marcado
+            if (situacaoRua !== undefined) {
+                // Se for "SIM" (valor 1), envia o formulário sem verificar campos obrigatórios
+                if (situacaoRua === "1") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Suas-Tech/creas/controller/user_control.php',
+                        data: formData,
+                        success: function (response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Dados enviados com sucesso!',
+                                text: 'O formulário foi submetido com sucesso.'
+                            });
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Erro ao enviar os dados!',
+                                text: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
+                            });
+                        }
                     });
+                } else {
+                    // Se for "NÃO" (valor 2), verifica campos obrigatórios antes de enviar
+                    var camposNaoPreenchidos = $(':input[required]').filter(function () {
+                        return !this.value && this.type !== 'radio';
+                    });
+
+                    if (camposNaoPreenchidos.length > 0) {
+                        camposNaoPreenchidos.each(function () {
+                            $(this).css('border', '1px solid red');
+                            var campoLabel = $('label[for="' + $(this).attr('id') + '"]').text();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Campo obrigatório não preenchido!',
+                                text: 'O campo "' + campoLabel + '" é obrigatório.'
+                            });
+                        });
+                    } else {
+                        // Se todos os campos obrigatórios estiverem preenchidos, envia o formulário
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Suas-Tech/creas/controller/user_control.php',
+                            data: formData,
+                            success: function (response) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Dados enviados com sucesso!',
+                                    text: 'O formulário foi submetido com sucesso.'
+                                });
+                            },
+                            error: function (error) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Erro ao enviar os dados!',
+                                    text: 'Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.'
+                                });
+                            }
+                        });
+                    }
+                }
+            } else {
+                // Se nenhum radio foi selecionado, informar o usuário para selecionar uma opção
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Selecione uma opção para "Em situação de rua"',
+                    text: 'Por favor, selecione "Sim" ou "Não" para a situação de rua.'
                 });
             }
         }
     </script>
+
 
 </body>
 
