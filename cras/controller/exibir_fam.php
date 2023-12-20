@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <td>' . $row['parentesco'] . '</td>
                         <td>
                             <a href="##"><i class="fas fa-check-circle text-warning"></i></a>
-                            <a href="cons_fam.php?&funcao=editar&id='. $row['id'] .'"><i class="fas fa-edit text-info"></i></a>
+                            <a href="cons_fam.php?funcao=editar&id=' . $row['id'] . '"><i class="fas fa-edit text-info"></i></a>
                             <a href="##"><i class="fas fa-book text-info"></i></a>
                             <a href="##"><i class="far fa-trash-alt text-danger"></i></a>
                     </td>
