@@ -20,7 +20,7 @@
     <div class="container">
         <form action="../controller/import.php" method="POST" enctype="multipart/form-data">
 
-            <labal>Qual tabela você pretende atualizar: </label>
+            <label>Qual tabela você pretende atualizar: </label>
                 <select name="csv_tbl" required>
                     <option value="tudo">Base de Dados do Cadastro Único</option>
                     <option value="folha">Folha de Pagamento</option>
@@ -28,7 +28,7 @@
                 </select>
 
                 Selecione o arquivo CSV: <input type="file" name="arquivoCSV" id="arquivoCSV" accept=".csv">
-                <input type="submit" value="Importar">
+                <button type="submit" value="Importar"> Importar </button>
 
         </form>
     </div>
