@@ -18,146 +18,21 @@
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="../img/h1-edit.svg" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="../img/h1-edit.svg"
+                alt="Titulocomimagem">
         </h1>
     </div>
     <div class="container">
 
-        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
 
-                    <!-- BLOCO MODAL HEADER -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            <?php
-                            if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar') {
-                                $nome_botao = 'Editar';
-                                $id_reg = $_GET['id'];
-
-                                // Buscar dados do registro a ser editado
-                                $res = $pdo->query("select * from pacientes where id = '$id_reg'");
-                                $dados = $res->fetchAll(PDO::FETCH_ASSOC);
-
-                                $cpf = $dados[0][''];
-                                $cod_familiar = $dados[0][''];
-                                $nome = $dados[0][''];
-                                $data_nasc = $dados[0][''];
-                                $nomeSocial = $dados[0][''];
-                                $sexo = $dados[0][''];
-                                $outr_sexo = $dados[0][''];
-                                $grupoIndigena = $dados[0][''];
-                                $povoIndigena = $dados[0][''];
-                                $grupoReserva = $dados[0][''];
-                                $terraIndigina = $dados[0][''];
-                                $familiaQuilambola = $dados[0][''];
-                                $comunidadeQuilambola = $dados[0][''];
-                                $nomeMae = $dados[0][''];
-                                $nomePai = $dados[0][''];
-                                $nacionalidade = $dados[0][''];
-                                $uf = $dados[0][''];
-                                $municipio = $dados[0][''];
-                                $telefone = $dados[0][''];
-                                $email = $dados[0][''];
-                                $pcd = $dados[0][''];
-                                $rg = $dados[0][''];
-                                $complemento_rg = $dados[0][''];
-                                $data_exp_rg = $dados[0][''];
-                                $sigla_rg = $dados[0][''];
-                                $estado_rg = $dados[0][''];
-                                $nis = $dados[0][''];
-                                $numTitulo = $dados[0][''];
-                                $zonaTitulo = $dados[0][''];
-                                $area_titulo = $dados[0][''];
-                                $profissao = $dados[0][''];
-                                $rendaPerCapita = $dados[0][''];
-                                $bairro = $dados[0][''];
-                                $logradouro = $dados[0][''];
-                                $numero = $dados[0][''];
-                                $referencia = $dados[0][''];
-                                $qtdPessoasCasa = $dados[0][''];
-                                $parentesco = $dados[0][''];
-                                $cor = $dados[0][''];
-
-                            } else {
-
-                                $nome_botao = 'Salvar';
-                                $id_reg = '';
-                                $cpf = '';
-                                $cod_familiar = '';
-                                $nome = '';
-                                $data_nasc = '';
-                                $nomeSocial = '';
-                                $sexo = '';
-                                $outr_sexo = '';
-                                $grupoIndigena = '';
-                                $povoIndigena = '';
-                                $grupoReserva = '';
-                                $terraIndigina = '';
-                                $familiaQuilambola = '';
-                                $comunidadeQuilambola = '';
-                                $nomeMae = '';
-                                $nomePai = '';
-                                $nacionalidade = '';
-                                $uf = '';
-                                $municipio = '';
-                                $telefone = '';
-                                $email = '';
-                                $pcd = '';
-                                $rg = '';
-                                $complemento_rg = '';
-                                $data_exp_rg = '';
-                                $sigla_rg = '';
-                                $estado_rg = '';
-                                $nis = '';
-                                $numTitulo = '';
-                                $zonaTitulo = '';
-                                $area_titulo = '';
-                                $profissao = '';
-                                $rendaPerCapita = '';
-                                $bairro = '';
-                                $logradouro = '';
-                                $numero = '';
-                                $referencia = '';
-                                $qtdPessoasCasa = '';
-                                $parentesco = '';
-                                $cor = '';
-                            }
-                            ?>
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-
-                    <!--- CORPO DA MODAL --->
-                    <div class="modal-body">
-                        <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label for="nome">NOME: </label>
-                                    <input class="inpu" type="text" id="nome" name="nome">
-                                </div>
-                            </div>
-
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
+        <form id="formUsuario" action="/Suas-Tech/cras/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
                     placeholder="Digite o CPF">
-                <a onclick="goBack()">
-                    <i class="fas fa-arrow-left"></i> Voltar
-                </a>
+                    <a onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </a>
 
             </div>
             <div class="titulo">
@@ -263,33 +138,22 @@
             <h5>PORTADOR DE DEFICIÊNCIA: </h5>
             <div class="bloco2">
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1" disabled> &nbsp;1 -
-                        CEGUEIRA
-                    </div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2" disabled> &nbsp;2 -
-                        BAIXA
-                        VISAO</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3" disabled> &nbsp;3 -
-                        SURDEZ
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="1" disabled> &nbsp;1 - CEGUEIRA</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="2" disabled> &nbsp;2 - BAIXA VISAO</div>
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="3" disabled> &nbsp;3 - SURDEZ
                         SEVERA/PROFUNDA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4" disabled> &nbsp;4 -
-                        SURDEZ
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="4" disabled> &nbsp;4 - SURDEZ
                         LEVE/MODERADA</div>
                 </div>
                 <div class="pcd">
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5" disabled> &nbsp;5 -
-                        DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="5" disabled> &nbsp;5 - DEFICIENCIA
                         FISICA</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6" disabled> &nbsp;6 -
-                        DEFICIENCIA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="6" disabled> &nbsp;6 - DEFICIENCIA
                         MENTAL OU
                         INTELECTUAL</div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7" disabled> &nbsp;7 -
-                        SINDROME
-                        DE DOWN
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="7" disabled> &nbsp;7 - SINDROME DE DOWN
                     </div>
-                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8" disabled> &nbsp;8 -
-                        TRANSTORNO/DOENCA
+                    <div class=pcd2><input type="checkbox" name="tipoDeficiencia" value="8" disabled> &nbsp;8 - TRANSTORNO/DOENCA
                         MENTAL</div>
                 </div>
             </div>
@@ -430,7 +294,7 @@
                 <button type="button" id="btnEnviar" onclick="enviarFormulario()">SALVAR INFORMAÇÕES</button>
 
             </div>
-        </form> -->
+        </form>
     </div>
     <script src="../js/ajax_request.js"></script>
     <script src='../../controller/back.js'></script>
@@ -473,12 +337,12 @@
             window.history.back();
         }
     </script>
-    <script>
-        function ajustarTextarea(textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = textarea.scrollHeight + 'px';
-        }
-    </script>
+<script>
+    function ajustarTextarea(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+    }
+</script>
 </body>
 
 </html>
