@@ -46,50 +46,82 @@ $numero = ($_POST["numero"]);
 $referencia = ($_POST["referencia"]);
 $qtdPessoasCasa = ($_POST["qtd_pessoa"]);
 
-$linhas_cpf = 0; // Inicializa a variável $linhas_cpf com 0
+$linhas_cpf = 0;
 
 if ($cpf != '') {
-    // Verificar se o CPF já está cadastrado para outro paciente
     $res_c = $pdo->query("SELECT * FROM cras WHERE cpf = '$cpf'");
     $dados_c = $res_c->fetchAll(PDO::FETCH_ASSOC);
     $linhas_cpf = count($dados_c);
 
     if ($linhas_cpf != 0) {
-        http_response_code(400); // Retorna código 400 (Bad Request)
+        http_response_code(400);
         echo json_encode(array("message" => "Pessoa com CPF já cadastrado!"));
         exit();
     }
 }
 
 if ($linhas_cpf == 0) {
-    $stmt = $conn->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
+    $stmt = $pdo->prepare("INSERT INTO cras (cpf, cod_familiar_fam, nome, data_nasc, nome_social, sexo, outro_sex, 
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
     nat_pessoa, tel_pessoa, email_pessoa, pcd, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
     area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->bind_param("sssssssssssssssssssssssssssssssssssssss", $cpf, $cod_familiar, $nome, $data_nasc, $nomeSocial,
-        $sexo, $outr_sexo, $grupoIndigena, $povoIndigena, $grupoReserva, $terraIndigina,
-        $familiaQuilambola, $comunidadeQuilambola, $nomeMae, $nomePai, $nacionalidade, $uf,
-        $municipio, $telefone, $email, $pcd, $rg, $complemento_rg, $data_exp_rg, $sigla_rg, $estado_rg, $nis,
-        $numTitulo, $zonaTitulo, $area_titulo, $profissao, $rendaPerCapita, $bairro, $logradouro,
-        $numero, $referencia, $qtdPessoasCasa, $parentesco, $cor);
-    $stmt->execute();
+    // Verifique a preparação bem-sucedida da instrução
+    if ($stmt) {
+        $stmt->bindParam(1, $cpf);
+        $stmt->bindParam(2, $cod_familiar);
+        $stmt->bindParam(3, $nome);
+        $stmt->bindParam(4, $data_nasc);
+        $stmt->bindParam(5, $nomeSocial);
+        $stmt->bindParam(6, $sexo);
+        $stmt->bindParam(7, $outr_sexo);
+        $stmt->bindParam(8, $grupoIndigena);
+        $stmt->bindParam(9, $povoIndigena);
+        $stmt->bindParam(10, $grupoReserva);
+        $stmt->bindParam(11, $terraIndigina);
+        $stmt->bindParam(12, $familiaQuilambola);
+        $stmt->bindParam(13, $comunidadeQuilambola);
+        $stmt->bindParam(14, $nomeMae);
+        $stmt->bindParam(15, $nomePai);
+        $stmt->bindParam(16, $nacionalidade);
+        $stmt->bindParam(17, $uf);
+        $stmt->bindParam(18, $municipio);
+        $stmt->bindParam(19, $telefone);
+        $stmt->bindParam(20, $email);
+        $stmt->bindParam(21, $pcd);
+        $stmt->bindParam(22, $rg);
+        $stmt->bindParam(23, $complemento_rg);
+        $stmt->bindParam(24, $data_exp_rg);
+        $stmt->bindParam(25, $sigla_rg);
+        $stmt->bindParam(26, $estado_rg);
+        $stmt->bindParam(27, $nis);
+        $stmt->bindParam(28, $numTitulo);
+        $stmt->bindParam(29, $zonaTitulo);
+        $stmt->bindParam(30, $area_titulo);
+        $stmt->bindParam(31, $profissao);
+        $stmt->bindParam(32, $rendaPerCapita);
+        $stmt->bindParam(33, $bairro);
+        $stmt->bindParam(34, $logradouro);
+        $stmt->bindParam(35, $numero);
+        $stmt->bindParam(36, $referencia);
+        $stmt->bindParam(37, $qtdPessoasCasa);
+        $stmt->bindParam(38, $parentesco);
+        $stmt->bindParam(39, $cor);
 
-    echo json_encode(array("message" => "Cadastrado com Sucesso!!"));
+        $stmt->execute();
 
-} else {
-    if ($linhas_cpf != 0) {
-        http_response_code(400); // Retorna código 400 (Bad Request)
-        echo json_encode(array("message" => "O CPF não foi fornecido."));
+        echo json_encode(array("message" => "Cadastrado com Sucesso!!"));
+    } else {
+        http_response_code(500); // Erro interno do servidor
+        echo json_encode(array("message" => "Erro ao preparar a consulta SQL."));
     }
+} else {
+    http_response_code(400);
+    echo json_encode(array("message" => "O CPF não foi fornecido."));
 }
-$stmt_verifica->close();
-$conn->close();
 
-
-
-
-
+// Fechando a conexão PDO (se for necessário)
+$pdo = null;
 ?>
