@@ -1,5 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 img{
     width: 321px;
     height: 189px;
     border: 1px solid #000;
+}
+.card {
+    position: relative;
+    width: 200px; 
+    padding-top: 10px;
+}
+
+.name {
+    font-family: sans-serif;
+    position: absolute;
+    font-size: 8px;
+    top: 70px;
+    left: 60%;
+    transform: translateX(-50%);
+    text-align: end;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #13294b;
+}
+
+.nis {
+    font-family: sans-serif;
+    position: absolute;
+    bottom: 35px;
+    font-size: 9px;
+    left: 80%;
+    transform: translateX(-50%);
+    text-align: end;
+    color: #13294b;
+    font-weight: bold;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
