@@ -19,14 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <thead class="thead-light">
                         <tr>';
 
-            foreach ($result as $row) {
+                $cod_fam = $result[0]['cod_familiar_fam'];
 
-                echo '<th> CODIGO FAMÍLIA - ' . $row['cod_familiar_fam'] .'</th>
+                echo '<th> CODIGO FAMÍLIA - ' .$cod_fam.'</th>
 
                         </tr>
                            
             ';
-            }
             echo ' <tr>
                         <tr>
                             <th scope="col">NOME</th>
