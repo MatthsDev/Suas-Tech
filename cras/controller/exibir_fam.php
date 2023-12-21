@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <thead class="thead-light">
                         <tr>';
 
-                $cod_fam = $result[0]['cod_familiar_fam'];
+                        $cod_fam = $result[0]['cod_familiar_fam'];
 
-                echo '<th> CODIGO FAMÍLIA - ' .$cod_fam. '</th>
+                        echo '<th> CODIGO FAMÍLIA - ' . $cod_fam . '</th>
 
                         </tr>
                            

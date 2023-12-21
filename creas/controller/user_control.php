@@ -1,6 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
 
+$setor;
 $cpf = ($_POST["cpf"]);
 $cod_familiar = ($_POST["codigo_familiar"]);
 $nome = ($_POST["nome"]);
@@ -66,8 +68,8 @@ if ($linhas_cpf == 0) {
     cod_familia_indigena_fam, nom_povo_indigena_fam, cod_indigena_reside_fam, nom_reserva_indigena_fam, 
     ind_familia_quilombola_fam, nom_comunidade_quilombola_fam, nome_mae, nome_pai, nac_pessoa, uf_pessoa,
     nat_pessoa, tel_pessoa, email_pessoa, pcd, rg, complemento_rg, data_exp_rg, sigla_rg, estado_rg, nis, num_titulo, zone_titulo, 
-    area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca, sit_rua) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    area_titulo, profissao, renda_per, bairro, logradouro, numero, referencia, qtd_pessoa, parentesco, cor_raca, sit_rua, setor) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     // Verifique a preparação bem-sucedida da instrução
     if ($stmt) {
@@ -111,6 +113,7 @@ if ($linhas_cpf == 0) {
         $stmt->bindParam(38, $parentesco);
         $stmt->bindParam(39, $cor);
         $stmt->bindParam(40, $sitRUA);
+        $stmt->bindParam(41, $setor);
 
         $stmt->execute();
 
