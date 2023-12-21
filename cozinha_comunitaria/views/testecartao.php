@@ -16,16 +16,23 @@ $dados_cartao = $conn->query("SELECT nis_benef, nome FROM fluxo_diario_coz");
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
 </head>
 <body>
-<?php
-    if ($dados_cartao->num_rows > 0) {
-        while ($linha = $dados_cartao->fetch_assoc()) {
-            echo "<div class='card'>";
-            echo "<div class='name'>" . $linha['nome'] . "</div>";
-            echo "<img src='../img/CARTÃO COZINHA.svg' alt='cartaocozinha'>";
-            echo "<div class='nis'>" . $linha['nis_benef'] . "</div>";
-            echo "</div>";
-        }
-    }
-    ?>
+<div class="viewport">
+        <div class="container">
+            <?php
+            if ($dados_cartao->num_rows > 0) {
+                while ($linha = $dados_cartao->fetch_assoc()) {
+                    $nome = str_replace(' ', '&nbsp;', $linha['nome']);
+                    $nis = str_replace(' ', '&nbsp;', $linha['nis_benef']);
+
+                    echo "<div class='card'>";
+                    echo "<img src='../img/CARTÃO COZINHA.svg' alt='cartaocozinha'>";
+                    echo "<div class='name'>" . $nome . "</div>";
+                    echo "<div class='nis'>" . $nis . "</div>";
+                    echo "</div>";
+                }
+            }
+            ?>
+        </div>
+    </div>
     </body>
 </html>
