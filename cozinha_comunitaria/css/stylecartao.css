@@ -28,14 +28,14 @@
 .name,
 .nis {
     font-family: sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     color: #13294b;
     font-weight: bold;
     white-space: nowrap;
     text-align: end;
     position: absolute;
     width: 100%;
-    padding-right: 20px; 
+    right: 20px; 
 }  
 
 .name {
