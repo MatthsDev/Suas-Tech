@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $cod_fam = $result[0]['cod_familiar_fam'];
 
-                echo '<th> CODIGO FAMÍLIA - ' .$cod_fam.'</th>
+                echo '<th> CODIGO FAMÍLIA - ' .$cod_fam. '</th>
 
                         </tr>
                            
