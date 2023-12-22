@@ -66,6 +66,8 @@ if (isset($_POST['cpf_coord'])) {
 
     $query->close();
     $conn->close();
+}else{
+    echo "Post vazio";
 }
 ?>
 

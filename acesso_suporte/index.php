@@ -37,7 +37,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                             </a>
                     </div>
                     <div class="btn">
-                                <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/painel-adm/cadastro_user';">
+                                <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/painel-adm/cadastro_user.php';">
                                 <span class="material-symbols-outlined">
                                 person_add
                                 </span>
@@ -70,8 +70,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                                 </a>
                         </div>
                     </div> 
+                <div class="bloco2"> 
+                        <div class="btn">
+                                <a class="menu-button" onclick="location.href='/Suas-Tech/suas/views/atualizar_tabela.php';">
+                                <span class="material-symbols-outlined">
+                                library_add
+                                </span>
+                                Importar Banco de Dados
+                                </a>
+                        </div>
                 </div>
-        </div>  
+        </div>
+    </div>  
         <div class="drop-all">
             <div class="menu-drop">
                 <button class="logout" type="button" name="drop">
