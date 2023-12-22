@@ -26,20 +26,20 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
     <div class="container">
         <div class="menu"> 
             <nav>
-            <div class="btn">
-                    <a class="menu-button" onclick="location.href='acompanhamento.php';">
-                    <span class="material-symbols-outlined">
-                        deployed_code_account
-                    </span>
-                    Acompanhamento de Usuários
-                    </a>
-                </div>
                 <div class="btn">
                     <a class="menu-button" onclick="location.href='cadastro_usuarios.php';">
                     <span class="material-symbols-outlined">
                         deployed_code_account
                     </span>
                     Cadastro de Usuários
+                    </a>
+                </div>
+                <div class="btn">
+                    <a class="menu-button" onclick="location.href='acompanhamento.php';">
+                    <span class="material-symbols-outlined">
+                        deployed_code_account
+                    </span>
+                    Acompanhamento de Usuários
                     </a>
                 </div>
                 <div class="btn">
