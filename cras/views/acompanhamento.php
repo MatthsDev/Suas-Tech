@@ -81,6 +81,7 @@ if ($consultaSetores->num_rows > 0) {
         </form>
         <?php
 if (!isset($_GET['buscar_dados'])) {
+
 } else {
     if ($_GET['buscar_dados'] == 'cpf_dec') {
         $cpf = $_GET['valorescolhido_cpf'];
@@ -96,9 +97,9 @@ if (!isset($_GET['buscar_dados'])) {
             //prioridades GPTE
             $indigena = $dados['cod_familia_indigena_fam'];
             $quilombola = $dados['ind_familia_quilombola_fam'];
-            $sit_rua = $dados['morador_de_rua'];
+            //$sit_rua = $dados['morador_de_rua'];
 
-            if($indigena == 1 || $quilombola == 1 || $sit_rua == 1){
+            if($indigena == 1 || $quilombola == 1){
                 $prioridade = 2;
             }else{
                 $prioridade = "";
@@ -109,7 +110,7 @@ if (!isset($_GET['buscar_dados'])) {
             $dataFormatada = date("d/m/Y", strtotime($dados['data_nasc']));
 
             ?>
-                    <form action="../controller/processo_acompanhamento.php">
+                    <form method="POST" action="../controller/processo_acompanhamento.php">
                         <?php
 
             //Dados apresentados
@@ -145,7 +146,7 @@ if (!isset($_GET['buscar_dados'])) {
             echo '<script>alert("Não foi localizado nenhum cadastro com esse CPF"); window.location.href = "acompanhamento.php";</script>';
         }
     } elseif ($_GET['buscar_dados'] == 'nis_dec') {
-        echo "CALMA";
+        echo "A função LOCALIZAR PELO NIS ainda não está funcionando. Desculpe nos, logo em breve estará.";
     }
 }
 ?>
