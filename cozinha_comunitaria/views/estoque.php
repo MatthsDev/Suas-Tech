@@ -22,7 +22,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
         <div class="menu"> 
             <nav>
                 <div class="btn">
-                    <a class="menu-button" onclick="location.href='cadastro_operadores.php';">
+                    <a class="menu-button" onclick="location.href='#';">
                     <span class="material-symbols-outlined">
                         add
                     </span>
