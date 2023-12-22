@@ -230,7 +230,7 @@ function verificarUsuario() {
 //=========================================== CODIGO FAMILIAR E PARENTESCO ===============================================================
 //========================================================================================================================================
 
-                $('#codigo_familiar').val(data.codigo_familiar);
+                // $('#codigo_familiar').val(data.codigo_familiar);
                 
 
 
@@ -270,76 +270,79 @@ function verificarUsuario() {
                 $('#data_nasc').val(data.data_nasc);
                 $('#nat_pessoa').val(data.nat_pessoa);
 
-                var ufSelect = $('#uf_pessoa');
-                ufSelect.empty();
-                ufSelect.append('<option value="">SELECIONE</option>');
-                ufSelect.append('<option value="AC">ACRE</option>');
-                ufSelect.append('<option value="AL">ALAGOAS</option>');
-                ufSelect.append('<option value="AP">AMAPÁ</option>');
-                ufSelect.append('<option value="AM">AMAZONAS</option>');
-                ufSelect.append('<option value="BA">BAHIA</option>');
-                ufSelect.append('<option value="CE">CEARÁ</option>');
-                ufSelect.append('<option value="DF">DISTRITO FEDERAL</option>');
-                ufSelect.append('<option value="ES">ESPÍRITO SANTO</option>');
-                ufSelect.append('<option value="GO">GOIÁS</option>');
-                ufSelect.append('<option value="MA">MARANHÃO</option>');
-                ufSelect.append('<option value="MT">MATO GROSSO</option>');
-                ufSelect.append('<option value="MS">MATO GROSSO DO SUL</option>');
-                ufSelect.append('<option value="MG">MINAS GERAIS</option>');
-                ufSelect.append('<option value="PA">PARÁ</option>');
-                ufSelect.append('<option value="PB">PARAÍBA</option>');
-                ufSelect.append('<option value="PR">PARANÁ</option>');
-                ufSelect.append('<option value="PE">PERNAMBUCO</option>');
-                ufSelect.append('<option value="PI">PIAUÍ</option>');
-                ufSelect.append('<option value="RJ">RIO DE JANEIRO</option>');
-                ufSelect.append('<option value="RN">RIO GRANDE DO NORTE</option>');
-                ufSelect.append('<option value="RS">RIO GRANDE DO SUL</option>');
-                ufSelect.append('<option value="RO">RONDÔNIA</option>');
-                ufSelect.append('<option value="RR">RORAIMA</option>');
-                ufSelect.append('<option value="SC">SANTA CATARINA</option>');
-                ufSelect.append('<option value="SP">SÃO PAULO</option>');
-                ufSelect.append('<option value="SE">SERGIPE</option>');
-                ufSelect.append('<option value="TO">TOCANTINS</option>');
+                // var ufSelect = $('#uf_pessoa');
+                // ufSelect.empty();
+                // ufSelect.append('<option value="">SELECIONE</option>');
+                // ufSelect.append('<option value="AC">ACRE</option>');
+                // ufSelect.append('<option value="AL">ALAGOAS</option>');
+                // ufSelect.append('<option value="AP">AMAPÁ</option>');
+                // ufSelect.append('<option value="AM">AMAZONAS</option>');
+                // ufSelect.append('<option value="BA">BAHIA</option>');
+                // ufSelect.append('<option value="CE">CEARÁ</option>');
+                // ufSelect.append('<option value="DF">DISTRITO FEDERAL</option>');
+                // ufSelect.append('<option value="ES">ESPÍRITO SANTO</option>');
+                // ufSelect.append('<option value="GO">GOIÁS</option>');
+                // ufSelect.append('<option value="MA">MARANHÃO</option>');
+                // ufSelect.append('<option value="MT">MATO GROSSO</option>');
+                // ufSelect.append('<option value="MS">MATO GROSSO DO SUL</option>');
+                // ufSelect.append('<option value="MG">MINAS GERAIS</option>');
+                // ufSelect.append('<option value="PA">PARÁ</option>');
+                // ufSelect.append('<option value="PB">PARAÍBA</option>');
+                // ufSelect.append('<option value="PR">PARANÁ</option>');
+                // ufSelect.append('<option value="PE">PERNAMBUCO</option>');
+                // ufSelect.append('<option value="PI">PIAUÍ</option>');
+                // ufSelect.append('<option value="RJ">RIO DE JANEIRO</option>');
+                // ufSelect.append('<option value="RN">RIO GRANDE DO NORTE</option>');
+                // ufSelect.append('<option value="RS">RIO GRANDE DO SUL</option>');
+                // ufSelect.append('<option value="RO">RONDÔNIA</option>');
+                // ufSelect.append('<option value="RR">RORAIMA</option>');
+                // ufSelect.append('<option value="SC">SANTA CATARINA</option>');
+                // ufSelect.append('<option value="SP">SÃO PAULO</option>');
+                // ufSelect.append('<option value="SE">SERGIPE</option>');
+                // ufSelect.append('<option value="TO">TOCANTINS</option>');
 
-                if (data.uf_pessoa) {
-                    ufSelect.val(data.uf_pessoa.toUpperCase());
-                }
+                // if (data.uf_pessoa) {
+                //     ufSelect.val(data.uf_pessoa.toUpperCase());
+                // }
+                
+                
                 $('#nac_pessoa').val(data.nac_pessoa);
                 $('#tel_pessoa').val(data.tel_pessoa);
 
                 // Aplicar máscara ao telefone
                 $('#tel_pessoa').mask('(00) 0 0000-0000');
                 $('#email_pessoa').val(data.email_pessoa);
-                $('#rg').val(data.rg);
-                $('#complemento_rg').val(data.complemento_rg);
-                $('#data_exp_rg').val(data.data_exp_rg);
-                $('#sigla_rg').val(data.sigla_rg);
-                $('#estado_rg').val(data.estado_rg);
+                
+                // $('#rg').val(data.rg);
+                // $('#complemento_rg').val(data.complemento_rg);
+                // $('#data_exp_rg').val(data.data_exp_rg);
+                // $('#sigla_rg').val(data.sigla_rg);
+                // $('#estado_rg').val(data.estado_rg);
+                
                 $('#nis').val(data.nis);
                 $('#num_titulo').val(data.num_titulo);
                 $('#zone_titulo').val(data.zone_titulo);
                 $('#area_titulo').val(data.area_titulo);
 
 
-                var profissaoSelect = $('#profissao');
-                profissaoSelect.empty();
-                profissaoSelect.append('<option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>');
-                profissaoSelect.append('<option value="AUTÔNOMO">AUTÔNOMO</option>');
-                profissaoSelect.append('<option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>');
-                profissaoSelect.append('<option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>');
-                profissaoSelect.append('<option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>');
-                profissaoSelect.append('<option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>');
-                profissaoSelect.append('<option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>');
-                profissaoSelect.append('<option value="OUTRO">OUTRO</option>');
-                if (data.profissao) {
-                    profissaoSelect.val(data.profissao.toUpperCase());
-                }
-
-
-
-                $('#renda_per').val(data.renda_per);
+                // var profissaoSelect = $('#profissao');
+                // profissaoSelect.empty();
+                // profissaoSelect.append('<option value="EMPREGADO COM CARTEIRA ASSINADA">EMPREGADO COM CARTEIRA ASSINADA</option>');
+                // profissaoSelect.append('<option value="AUTÔNOMO">AUTÔNOMO</option>');
+                // profissaoSelect.append('<option value="TRAB. TEMPORARIO EM AREA RURAL">TRAB. TEMPORARIO EM AREA RURAL</option>');
+                // profissaoSelect.append('<option value="EMPREGADO SEM CARTEIRA ASSINADA">EMPREGADO SEM CARTEIRA ASSINADA</option>');
+                // profissaoSelect.append('<option value="TRABALHADOR NÃO REMUNERADO">TRABALHADOR NÃO REMUNERADO</option>');
+                // profissaoSelect.append('<option value="MILITAR OU SERVIDOR PUBLICO">MILITAR OU SERVIDOR PUBLICO</option>');
+                // profissaoSelect.append('<option value="ESTAGIÁRIO OU APRENDIZ">ESTAGIÁRIO OU APRENDIZ</option>');
+                // profissaoSelect.append('<option value="OUTRO">OUTRO</option>');
+                // if (data.profissao) {
+                //     profissaoSelect.val(data.profissao.toUpperCase());
+                // }
+                // $('#renda_per').val(data.renda_per);
+                // $('#qtd_pessoa').val(data.qtd_pessoa);
+                
                 $('#referencia').val(data.referencia);
-                $('#qtd_pessoa').val(data.qtd_pessoa);
+
 
             } else {
 
