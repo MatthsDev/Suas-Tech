@@ -79,6 +79,6 @@ ini_set('memory_limit', '256M');
         } ?>    
         </table>
     </div>
-    <script src='../../../controller/back.js'></script>
+    <script src='/Suas-Tech/controller/back.js'></script>
 </body>
 </html>

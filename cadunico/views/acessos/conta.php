@@ -26,7 +26,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-        <img src="../../img/h1-salaUser" alt="Titulocomimagem">
+        <img src="../../img/h1-salaUser.svg" alt="Titulocomimagem">
         </h1>
     </div>
 <div class="tudo">

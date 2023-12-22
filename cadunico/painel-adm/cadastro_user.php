@@ -80,6 +80,6 @@ if ($consultaSetores->num_rows > 0) {
             </div>
         </form>
     </div>
-    <script src='../../controller/back.js'></script>
+    <script src='../../controller/back1.js'></script>
 </body>
 </html>
