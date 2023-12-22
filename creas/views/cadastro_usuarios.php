@@ -24,7 +24,6 @@
     </div>
     <div class="container">
 
-
         <form id="formUsuario" action="/Suas-Tech/creas/controller/user_control.php" method="POST">
             <div class="cpf">
                 <label for="cpf">CPF:</label>
@@ -89,8 +88,6 @@
                     </div>
 
                 </div>
-
-
 
                 <div class="bloco1">
                     <div class="element1">
