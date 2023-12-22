@@ -6,6 +6,7 @@ $senha = '';
 $banco = 'test';
 $port = 3306;
 
+$raiz_dom= "/Suas-Tech/";
 
 date_default_timezone_set('America/Sao_Paulo');
 try {

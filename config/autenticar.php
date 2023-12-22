@@ -29,7 +29,7 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
     } elseif ($setor_ == "CRAS - ANTONIO MATIAS") {
         header("Location: ../cras/views/menu-cras-am.php");
 
-    }elseif($setor_ == "CADASTRO ÚNICO - SECRETARIS DE ASSISTÊNCIA SOCIAL"){
+    }elseif($setor_ == "CADASTRO UNICO - SECRETARIA DE ASSISTENCIA SOCIAL"){
         if ($_SESSION['nivel_usuario'] == 'admin') {
             header("location:../cadunico/painel-adm/adm-view.php");
             exit();
