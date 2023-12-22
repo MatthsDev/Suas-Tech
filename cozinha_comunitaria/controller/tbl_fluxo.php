@@ -2,12 +2,36 @@
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
+// Execute a query para somar os valores da coluna
+$sql_soma = "SELECT SUM(qtd_marmita) as soma_total FROM fluxo_diario_coz";
+$sqli_soma = "SELECT SUM(marm_entregue) as soma_total FROM fluxo_diario_coz";
+
+$resultado_soma = $conn->query($sql_soma);
+$resultado2_soma = $conn->query($sqli_soma);
+
+if ($resultado_soma && $resultado2_soma) {
+    $soma_total = $resultado_soma->fetch_assoc()['soma_total'];
+    if ($soma_total <= 0) {
+        $sum_all = 0;
+    } else {
+        $sum_all = $soma_total;
+    }
+    $soma2_total = $resultado2_soma->fetch_assoc()['soma_total'];
+    $faltando = $soma_total - $soma2_total;
+
+    echo "Total de marmita(s): <b>" . $sum_all . "</b> para o dia de hoje.<br>";
+    echo "Faltam entregar: <b>" . $faltando . "</b> marmita(s) hoje.";
+} else {
+    echo "Erro ao calcular a soma: " . $conn->error;
+}
+
+
 $tbl_fluxo = $conn->query("SELECT nis_benef, nome, encaminhado_cras, qtd_marmita, entregue FROM fluxo_diario_coz ORDER BY
     CASE 
         WHEN prioridade = 'urgente' THEN 1
         WHEN prioridade = 'prioridade' THEN 2
         ELSE 3
-    END, data_de_entrega ASC LIMIT 4");
+    END");
 
 if ($tbl_fluxo->num_rows > 0) {
     ?>
@@ -39,7 +63,7 @@ $contador = 0;
 }
 
     // Verifica se há registros excedentes para a lista de espera
-    if ($contador >= 4) {
+    if ($soma_total >= 4) {
         echo "<tr><td colspan='6'>Lista de espera para registros excedentes.</td></tr>";
     }
 
@@ -49,28 +73,4 @@ $contador = 0;
                 <td colspan="6">Resultados da pesquisa</td>
             </tr>
             <?php
-}
-
-// Execute a query para somar os valores da coluna
-
-$sql_soma = "SELECT SUM(qtd_marmita) as soma_total FROM fluxo_diario_coz";
-$sqli_soma = "SELECT SUM(marm_entregue) as soma_total FROM fluxo_diario_coz";
-
-$resultado_soma = $conn->query($sql_soma);
-$resultado2_soma = $conn->query($sqli_soma);
-
-if ($resultado_soma && $resultado2_soma) {
-    $soma_total = $resultado_soma->fetch_assoc()['soma_total'];
-    if ($soma_total <= 0) {
-        $sum_all = 0;
-    } else {
-        $sum_all = $soma_total;
-    }
-    $soma2_total = $resultado2_soma->fetch_assoc()['soma_total'];
-    $faltando = $soma_total - $soma2_total;
-
-    echo "Total de marmita(s): <b>" . $sum_all . "</b> para o dia de hoje.<br>";
-    echo "Faltam entregar: <b>" . $faltando . "</b> marmita(s) hoje.";
-} else {
-    echo "Erro ao calcular a soma: " . $conn->error;
 }
