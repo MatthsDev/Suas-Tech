@@ -18,9 +18,10 @@ if ($resultado_soma && $resultado2_soma) {
     }
     $soma2_total = $resultado2_soma->fetch_assoc()['soma_total'];
     $faltando = $soma_total - $soma2_total;
-
+    echo '<div class="bloco"'; 
     echo "Total de marmita(s): <b>" . $sum_all . "</b> para o dia de hoje.<br>";
     echo "Faltam entregar: <b>" . $faltando . "</b> marmita(s) hoje.";
+    echo '</div>';
 } else {
     echo "Erro ao calcular a soma: " . $conn->error;
 }

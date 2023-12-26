@@ -61,8 +61,8 @@ if (!isset($_GET['nis'])) {
         $dados = $sql_query->fetch_assoc();
         ?>
 
-                    <br>NOME: <?php echo $dados['nome']; ?> <br>
-                    Quantidades de marmitas: <?php echo $dados['qtd_marmita']; ?> <br>
+                    NOME: <?php echo $dados['nome']; ?> 
+                    Quantidades de marmitas: <?php echo $dados['qtd_marmita']; ?> 
                     CPF: <?php echo $dados['cpf_benef']; ?>
                     <form method="POST" action="">
                         <input type=text class="qntm" name="qtd" placeholder="Nº de marmitas">
