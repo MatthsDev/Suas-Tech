@@ -130,7 +130,7 @@ if (!empty($cpfLimpo)) {
 /* */               } elseif ($parentesco == 11){
 /* */                     $response['parentesco'] = 'NAO PARENTE';
 /* */               }
-/* */ 
+/* */
 /* */                 $cor = $row['cod_raca_cor_pessoa'];
 /* */                 if ($cor == 1) {
 /* */                   $response['cor']  = 'BRANCO';
