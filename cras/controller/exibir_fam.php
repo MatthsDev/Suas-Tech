@@ -50,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </td>
                     </tr>';
             }
-
             echo '</tbody></table>';
         } else {
             echo "<p>Nenhuma família encontrada para o código $codigoBusca.</p>";
