@@ -27,11 +27,18 @@
             <button type="button" onclick="consultarFamilias()">Buscar</button>
         </form>
         <div id="resultado"></div>
+
+
+
+        
         <div class="col-md-6">
             <div class="float-right">
                 <a id="btn-novo" data-toggle="modal" data-target="#modal"></a>
             </div>
         </div>
+
+
+
         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
