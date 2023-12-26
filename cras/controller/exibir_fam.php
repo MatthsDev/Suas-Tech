@@ -17,20 +17,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Exibir os resultados formatados
             echo '<table class="table table-sm mt-3">
                     <thead class="thead-light">
+                        <tr>';
+
+                        $cod_fam = $result[0]['cod_familiar_fam'];
+
+                        echo '<th> CODIGO FAMÍLIA - ' . $cod_fam . '</th>
+
+                        </tr>
+                           
+            ';
+            echo ' <tr>
                         <tr>
-                            <th scope="col">Nome</th>
+                            <th scope="col">NOME</th>
                             <th scope="col">NIS</th>
-                            <th scope="col">Parentesco</th>
-                            
+                            <th scope="col">PARENTESCO</th>
+                            <th scope=-"col">AÇÕES</t>
                         </tr>
                     </thead>
                     <tbody>';
 
             foreach ($result as $row) {
-                echo '<tr>
+                echo '
+                    <tr>
                         <td>' . $row['nome'] . '</td>
                         <td>' . $row['nis'] . '</td>
                         <td>' . $row['parentesco'] . '</td>
+                        <td>
+                            <a href="##"><i class="fas fa-check-circle text-warning"></i></a>
+                            <a href="cons_fam.php?funcao=editar&id=' . $row['id'] . '"><i class="fas fa-edit text-info"></i></a>
+                            <a href="##"><i class="fas fa-book text-info"></i></a>
+                            <a href="##"><i class="far fa-trash-alt text-danger"></i></a>
+                    </td>
                     </tr>';
             }
 
