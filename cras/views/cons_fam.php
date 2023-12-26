@@ -55,7 +55,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 
 
-        
+
         <div class="col-md-6">
             <div class="float-right">
                 <a id="btn-novo" data-toggle="modal" data-target="#modal"></a>
@@ -79,10 +79,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                 $cpf = $dados[0]['cpf'];
                                 $cod_familiar = $dados[0]['cod_familiar_fam'];
                                 $nome = $dados[0]['nome'];
-                                // $data_nasc = $dados[0][''];
-                                // $nomeSocial = $dados[0][''];
-                                // $sexo = $dados[0][''];
-                                // $outr_sexo = $dados[0][''];
+                                $data_nasc = $dados[0]['data_nasc'];
+                                $nomeSocial = $dados[0]['nome_social'];
+                                $sexo = $dados[0]['sexo'];
+                                $outr_sexo = $dados[0]['outro_sex'];
                                 // $grupoIndigena = $dados[0][''];
                                 // $povoIndigena = $dados[0][''];
                                 // $grupoReserva = $dados[0][''];
@@ -92,7 +92,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                 // $nomeMae = $dados[0][''];
                                 // $nomePai = $dados[0][''];
                                 // $nacionalidade = $dados[0][''];
-                                // $uf = $dados[0][''];
+                            
                                 // $municipio = $dados[0][''];
                                 // $telefone = $dados[0][''];
                                 // $email = $dados[0][''];
@@ -113,9 +113,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                 // $numero = $dados[0][''];
                                 // $referencia = $dados[0][''];
                                 // $qtdPessoasCasa = $dados[0][''];
-                                $parentesco = $dados[0]['parentesco'];
-                                // $cor = $dados[0][''];
                             
+
+                                $uf = $dados[0]['uf_pessoa'];
+                                $parentesco = $dados[0]['parentesco'];
+                                $cor = $dados[0]['cor_raca'];
+
                             } else {
 
                                 $nome_botao = 'Salvar';
@@ -184,11 +187,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                         <label for="exampleFormControlInput1">Nome *</label>
                                         <input type="text" class="form-control" id="nome" placeholder="Insira o Nome "
                                             name="nome" value="<?php echo $nome ?>" required>
-
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">CPF </label>
                                         <input type="text" class="form-control" id="cpf" placeholder="Insira o CPF "
@@ -198,29 +200,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                         <div id="res" name="res"></div>
                                     </div>
                                 </div>
-
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">COD FAMILIA: </label>
-                                        <input type="text" class="form-control" id="codfamiliar"
-                                            placeholder="Insira o Nº " name="nreg" value="<?php echo $cod_familiar ?>"
-                                            required>
-                                    </div>
-
-                                </div>
-
-                                <div id="mensagem" class="">
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="parentesco">PARENTESCO FAMILIAR: </label>
-                                        <select id="parentesco" name="parentesco" required>
+                                        <select class="form-control" id="parentesco" name="parentesco" required>
 
                                             <?php if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar'): ?>
                                                 <option value="<?php echo $parentesco ?>">
@@ -258,7 +241,174 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                         </select>
                                     </div>
                                 </div>
+
+
+                                <div id="mensagem" class="">
+
+                                </div>
+
                             </div>
+
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">COD FAMILIA: </label>
+                                        <input type="text" class="form-control" id="codfamiliar"
+                                            placeholder="Insira o Nº " name="nreg" value="<?php echo $cod_familiar ?>"
+                                            required>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="nome_social">NOME SOCIAL: </label>
+                                        <input type="text" class="form-control" id="nome_social" name="nome_social"
+                                            value="<?php echo $nomeSocial ?>">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="data_nasc">DATA DE NASCIMENTO: *</label>
+                                        <input type="date" class="form-control" id="data_nasc" name="data_nasc"
+                                            value="<?php echo $data_nasc ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="uf_pessoa">UF: </label>
+                                        <select id="uf_pessoa" class="form-control" name="uf_pessoa" required>
+                                            <?php if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar'): ?>
+                                                <option value="<?php echo $uf ?>">
+                                                    <?php echo $uf ?>
+                                                </option>
+                                            <?php endif; ?>
+                                            <?php if ($sexo != 'AC'): ?>
+                                                <option value="AC">ACRE</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($uf != 'AC'): ?>
+                                                <option value="AC">AC</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'AL'): ?>
+                                                <option value="AL">AL</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'AP'): ?>
+                                                <option value="AP">AP</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'AM'): ?>
+                                                <option value="AM">AM</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'BA'): ?>
+                                                <option value="BA">BA</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'CE'): ?>
+                                                <option value="CE">CE</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'DF'): ?>
+                                                <option value="DF">DF</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'ES'): ?>
+                                                <option value="ES">ES</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'GO'): ?>
+                                                <option value="GO">GO</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MA'): ?>
+                                                <option value="MA">MA</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MT'): ?>
+                                                <option value="MT">MT</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MS'): ?>
+                                                <option value="MS">MS</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MG'): ?>
+                                                <option value="MG">MG</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PA'): ?>
+                                                <option value="PA">PA</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PB'): ?>
+                                                <option value="PB">PB</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PR'): ?>
+                                                <option value="PR">PR</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PE'): ?>
+                                                <option value="PE">PE</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PI'): ?>
+                                                <option value="PI">PI</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RJ'): ?>
+                                                <option value="RJ">RJ</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RN'): ?>
+                                                <option value="RN">RN</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RS'): ?>
+                                                <option value="RS">RS</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RO'): ?>
+                                                <option value="RO">RO</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RR'): ?>
+                                                <option value="RR">RR</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'SC'): ?>
+                                                <option value="SC">SC</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'SP'): ?>
+                                                <option value="SP">SP</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'SE'): ?>
+                                                <option value="SE">SE</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'TO'): ?>
+                                                <option value="TO">TO</option>
+                                            <?php endif; ?>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="sexo">SEXO: </label>
+                                        <select class="form-control" id="sexo" name="sexo" required>
+
+                                            <?php if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar'): ?>
+                                                <option value="<?php echo $sexo ?>">
+                                                    <?php echo $sexo ?>
+                                                </option>
+                                            <?php endif; ?>
+
+                                            <?php if ($sexo != 'MASCULINO'): ?>
+                                                <option value="MASCULINO">MASCULINO</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($sexo != 'FEMININO'): ?>
+                                                <option value="FEMININO">FEMININO</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($sexo != 'OUTRO'): ?>
+                                                <option value="OUTRO">OUTRO</option>
+                                            <?php endif; ?>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+
 
                             <div class="modal-footer">
                                 <button id="btn-fechar" type="button" class="btn btn-secondary"
