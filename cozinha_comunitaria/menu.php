@@ -56,7 +56,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     <span class="material-symbols-outlined">
                         badge
                     </span>
-                    Cartões
+                    Cartões de retirada
                     </a>
                 </div>
             </nav>
