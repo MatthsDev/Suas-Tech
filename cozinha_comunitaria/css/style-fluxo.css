@@ -35,6 +35,9 @@ img {
 .bloco2{
     padding-bottom: 20px;
 }
+.resultado{
+    text-transform: uppercase;
+}
 input,
 select,
 option,
