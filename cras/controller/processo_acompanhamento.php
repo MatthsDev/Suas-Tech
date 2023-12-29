@@ -102,7 +102,7 @@ if ($setor_form == 'COZINHA COMUNITARIA - MARIA NEUMA DA SILVA') {
         <?php
 if (!isset($_POST['texto_parecer'])) {
     } else {
-        if ($soma_total <= 20) {
+        if ($soma_total <= 200) {
 
             $texto_parecer = $_POST['texto_parecer'];
 
