@@ -61,4 +61,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<p>O campo de busca não foi preenchido.</p>";
     }
 }
-?>
