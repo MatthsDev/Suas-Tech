@@ -297,6 +297,7 @@
                     <option value="OUTRO">OUTRO</option>
                 </select>
             </div>
+            
             <div class="bloco">
                 <label for="renda_per">RENDA PER CAPITA: </label>
                 <input type="text" id="renda_per" name="renda_per" required>
