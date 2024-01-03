@@ -37,9 +37,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body>
+
     <div class="img">
         <h1 class="titulo-com-imagem">
             <img class="titulo-com-imagem" src="../img/h1-edit.svg" alt="Titulocomimagem">
@@ -55,7 +57,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 
 
-        
+
         <div class="col-md-6">
             <div class="float-right">
                 <a id="btn-novo" data-toggle="modal" data-target="#modal"></a>
@@ -79,43 +81,53 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                 $cpf = $dados[0]['cpf'];
                                 $cod_familiar = $dados[0]['cod_familiar_fam'];
                                 $nome = $dados[0]['nome'];
-                                // $data_nasc = $dados[0][''];
-                                // $nomeSocial = $dados[0][''];
-                                // $sexo = $dados[0][''];
-                                // $outr_sexo = $dados[0][''];
+                                $data_nasc = $dados[0]['data_nasc'];
+                                $nomeSocial = $dados[0]['nome_social'];
+                                $sexo = $dados[0]['sexo'];
+                                $outr_sexo = $dados[0]['outro_sex'];
+                                $uf = $dados[0]['uf_pessoa'];
+                                $parentesco = $dados[0]['parentesco'];
+                                $cor = $dados[0]['cor_raca'];
+                                $nomeMae = $dados[0]['nome_mae'];
+                                $nomePai = $dados[0]['nome_pai'];
+                                $nacionalidade = $dados[0]['nac_pessoa'];
+                                $municipio = $dados[0]['nat_pessoa'];
+                                $telefone = $dados[0]['tel_pessoa'];
+                                $email = $dados[0]['email_pessoa'];
+                                $nis = $dados[0]['nis'];
+                                $numTitulo = $dados[0]['num_titulo'];
+                                $zonaTitulo = $dados[0]['zone_titulo'];
+                                $area_titulo = $dados[0]['area_titulo'];
+                                $rg = $dados[0]['rg'];
+                                $complemento_rg = $dados[0]['complemento_rg'];
+                                $data_exp_rg = $dados[0]['data_exp_rg'];
+                                $sigla_rg = $dados[0]['sigla_rg'];
+                                $estado_rg = $dados[0]['estado_rg'];
+                                $pcd = $dados[0]['pcd'];
+                                $profissao = $dados[0]['profissao'];
+                                $rendaPerCapita = $dados[0]['renda_per'];
+
                                 // $grupoIndigena = $dados[0][''];
                                 // $povoIndigena = $dados[0][''];
                                 // $grupoReserva = $dados[0][''];
                                 // $terraIndigina = $dados[0][''];
                                 // $familiaQuilambola = $dados[0][''];
                                 // $comunidadeQuilambola = $dados[0][''];
-                                // $nomeMae = $dados[0][''];
-                                // $nomePai = $dados[0][''];
-                                // $nacionalidade = $dados[0][''];
-                                // $uf = $dados[0][''];
-                                // $municipio = $dados[0][''];
-                                // $telefone = $dados[0][''];
-                                // $email = $dados[0][''];
-                                // $pcd = $dados[0][''];
-                                // $rg = $dados[0][''];
-                                // $complemento_rg = $dados[0][''];
-                                // $data_exp_rg = $dados[0][''];
-                                // $sigla_rg = $dados[0][''];
-                                // $estado_rg = $dados[0][''];
-                                // $nis = $dados[0][''];
-                                // $numTitulo = $dados[0][''];
-                                // $zonaTitulo = $dados[0][''];
-                                // $area_titulo = $dados[0][''];
-                                // $profissao = $dados[0][''];
-                                // $rendaPerCapita = $dados[0][''];
+                            
+
+
+
+
+
                                 // $bairro = $dados[0][''];
                                 // $logradouro = $dados[0][''];
                                 // $numero = $dados[0][''];
                                 // $referencia = $dados[0][''];
                                 // $qtdPessoasCasa = $dados[0][''];
-                                $parentesco = $dados[0]['parentesco'];
-                                // $cor = $dados[0][''];
                             
+
+
+
                             } else {
 
                                 $nome_botao = 'Salvar';
@@ -170,107 +182,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                     <div class="modal-body">
 
 
-                        <form method="post">
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-
-                                        <input type="hidden" id="id" name="id" value="<?php echo $id_reg ?>" required>
-
-                                        <input type="hidden" id="campo_antigo" name="campo_antigo"
-                                            value="<?php echo $cpf ?>" required>
-
-                                        <label for="exampleFormControlInput1">Nome *</label>
-                                        <input type="text" class="form-control" id="nome" placeholder="Insira o Nome "
-                                            name="nome" value="<?php echo $nome ?>" required>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">CPF </label>
-                                        <input type="text" class="form-control" id="cpf" placeholder="Insira o CPF "
-                                            name="cpf" maxlength="14" value="<?php echo isset($cpf) ? $cpf : ''; ?>"
-                                            onblur="validarCPF(this)" required>
-
-                                        <div id="res" name="res"></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput1">COD FAMILIA: </label>
-                                        <input type="text" class="form-control" id="codfamiliar"
-                                            placeholder="Insira o Nº " name="nreg" value="<?php echo $cod_familiar ?>"
-                                            required>
-                                    </div>
-
-                                </div>
-
-                                <div id="mensagem" class="">
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="parentesco">PARENTESCO FAMILIAR: </label>
-                                        <select id="parentesco" name="parentesco" required>
-
-                                            <?php if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar'): ?>
-                                                <option value="<?php echo $parentesco ?>">
-                                                    <?php echo $parentesco ?>
-                                                </option>
-                                            <?php endif; ?>
-
-                                            <?php if ($parentesco != 'RESPONSAVEL FAMILIAR'): ?>
-                                                <option value="RESPONSAVEL FAMILIAR">RESPONSAVEL FAMILIAR</option>
-                                            <?php endif; ?>
-
-                                            <?php if ($parentesco != 'CONJUGUE OU COMPANHEIR'): ?>
-                                                <option value="CONJUGUE OU COMPANHEIRO">CONJUGUE OU COMPANHEIRO</option>
-                                            <?php endif; ?>
-
-                                            <?php if ($parentesco != 'FILHO'): ?>
-                                                <option value="FILHO">FILHO</option>
-                                            <?php endif; ?>
-
-                                            <?php if ($parentesco != 'IRMAO OU IRMA'): ?>
-                                                <option value="IRMAO OU IRMA">IRMAO OU IRMA</option>
-                                            <?php endif; ?>
-
-                                            <?php if ($parentesco != 'PAI OU MAE'): ?>
-                                                <option value="PAI OU MAE">PAI OU MAE</option>
-                                            <?php endif; ?>
-
-                                            <?php if ($parentesco != 'OUTRO PARENTE'): ?>
-                                                <option value="OUTRO PARENTE">OUTRO PARENTE</option>
-                                            <?php endif; ?>
-
-                                            <?php if ($parentesco != 'NAO PARENTE'): ?>
-                                                <option value="NAO PARENTE">NAO PARENTE</option>
-                                            <?php endif; ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button id="btn-fechar" type="button" class="btn btn-secondary"
-                                    data-dismiss="modal">Cancelar</button>
-
-                                <button type="submit" name="<?php echo $nome_botao ?>" id="<?php echo $nome_botao ?>"
-                                    class="btn btn-primary">
-                                    <?php echo $nome_botao ?>
-                                </button>
-
-                            </div>
-                        </form>
+                        
                     </div>
                 </div>
             </div>
@@ -312,6 +224,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                     });
                 }
             </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+            <script src="../js/mascaras.js"></script>
+            <script src="../js/cpfvalid.js"></script>
 </body>
 
 </html>

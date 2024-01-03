@@ -52,7 +52,7 @@
     </div>
 
     <footer class="rodape">
-        Sistema desenvolvido por DDV &trade; &nbsp;&nbsp;&nbsp;&nbsp; Versão 2.0.0
+        Sistema desenvolvido por DDV &trade; &nbsp;&nbsp;&nbsp;&nbsp; Versão 2.1.1
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

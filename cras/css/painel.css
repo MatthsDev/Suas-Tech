@@ -170,7 +170,9 @@ body{
 	color:#dedede;
 }
 
-
+.modal-custom {
+    max-width: 1200px; /* Ajuste o valor conforme necessário */
+}
 .totalpago{
 	font-size:14px;
 	margin-top: 10px;
