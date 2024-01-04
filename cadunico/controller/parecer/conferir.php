@@ -14,7 +14,7 @@
     <h1>PARECER TÉCNICO DE VISITA DOMICILIAR</h1>
     <?php
 // Inclui o arquivo "conexao.php" que deve conter a configuração da conexão com o banco de dados
-require_once "../../../config/conexao.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 // Verifica se o formulário foi enviado via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -37,9 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $numero_parecer = $totalRegistros + 1;
 
     // Consulta SQL para buscar informações na tabela com base no Código Familiar
-    $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE cod_familiar_fam = :codfam");
+    //"SELECT * FROM sua_tabela WHERE seu_campo = LPAD('$numero', comprimento_desejado, '0')"
+    
+    // Utilizando a função LPAD na consulta SQL para adicionar zeros à esquerda
+    $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE cod_familiar_fam = LPAD(:codfam, 11, '0')");
     $sql->bindParam(':codfam', $codfam, PDO::PARAM_STR);
     $sql->execute();
+
+    //$sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE cod_familiar_fam = :codfam");
+    //$sql->bindParam(':codfam', $codfam, PDO::PARAM_STR);
+    //$sql->execute();
 
     $sqli = $pdo->prepare("SELECT * FROM visitas_feitas WHERE cod_fam = :codfamv");
     $sqli->bindParam(':codfamv', $codfamv, PDO::PARAM_STR);
