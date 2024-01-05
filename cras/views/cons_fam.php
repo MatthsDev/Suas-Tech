@@ -37,11 +37,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
 </head>
 
 <body>
-
     <div class="img">
         <h1 class="titulo-com-imagem">
             <img class="titulo-com-imagem" src="../img/h1-edit.svg" alt="Titulocomimagem">
@@ -85,40 +83,31 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                 $nomeSocial = $dados[0]['nome_social'];
                                 $sexo = $dados[0]['sexo'];
                                 $outr_sexo = $dados[0]['outro_sex'];
-                                $uf = $dados[0]['uf_pessoa'];
-                                $parentesco = $dados[0]['parentesco'];
-                                $cor = $dados[0]['cor_raca'];
-                                $nomeMae = $dados[0]['nome_mae'];
-                                $nomePai = $dados[0]['nome_pai'];
-                                $nacionalidade = $dados[0]['nac_pessoa'];
-                                $municipio = $dados[0]['nat_pessoa'];
-                                $telefone = $dados[0]['tel_pessoa'];
-                                $email = $dados[0]['email_pessoa'];
-                                $nis = $dados[0]['nis'];
-                                $numTitulo = $dados[0]['num_titulo'];
-                                $zonaTitulo = $dados[0]['zone_titulo'];
-                                $area_titulo = $dados[0]['area_titulo'];
-                                $rg = $dados[0]['rg'];
-                                $complemento_rg = $dados[0]['complemento_rg'];
-                                $data_exp_rg = $dados[0]['data_exp_rg'];
-                                $sigla_rg = $dados[0]['sigla_rg'];
-                                $estado_rg = $dados[0]['estado_rg'];
-                                $pcd = $dados[0]['pcd'];
-                                $profissao = $dados[0]['profissao'];
-                                $rendaPerCapita = $dados[0]['renda_per'];
-
                                 // $grupoIndigena = $dados[0][''];
                                 // $povoIndigena = $dados[0][''];
                                 // $grupoReserva = $dados[0][''];
                                 // $terraIndigina = $dados[0][''];
                                 // $familiaQuilambola = $dados[0][''];
                                 // $comunidadeQuilambola = $dados[0][''];
+                                // $nomeMae = $dados[0][''];
+                                // $nomePai = $dados[0][''];
+                                // $nacionalidade = $dados[0][''];
                             
-
-
-
-
-
+                                // $municipio = $dados[0][''];
+                                // $telefone = $dados[0][''];
+                                // $email = $dados[0][''];
+                                // $pcd = $dados[0][''];
+                                // $rg = $dados[0][''];
+                                // $complemento_rg = $dados[0][''];
+                                // $data_exp_rg = $dados[0][''];
+                                // $sigla_rg = $dados[0][''];
+                                // $estado_rg = $dados[0][''];
+                                // $nis = $dados[0][''];
+                                // $numTitulo = $dados[0][''];
+                                // $zonaTitulo = $dados[0][''];
+                                // $area_titulo = $dados[0][''];
+                                // $profissao = $dados[0][''];
+                                // $rendaPerCapita = $dados[0][''];
                                 // $bairro = $dados[0][''];
                                 // $logradouro = $dados[0][''];
                                 // $numero = $dados[0][''];
@@ -126,7 +115,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                                 // $qtdPessoasCasa = $dados[0][''];
                             
 
-
+                                $uf = $dados[0]['uf_pessoa'];
+                                $parentesco = $dados[0]['parentesco'];
+                                $cor = $dados[0]['cor_raca'];
 
                             } else {
 
@@ -182,7 +173,254 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
                     <div class="modal-body">
 
 
-                        
+                        <form method="post">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <input type="hidden" id="id" name="id" value="<?php echo $id_reg ?>" required>
+
+                                        <input type="hidden" id="campo_antigo" name="campo_antigo"
+                                            value="<?php echo $cpf ?>" required>
+
+                                        <label for="exampleFormControlInput1">Nome *</label>
+                                        <input type="text" class="form-control" id="nome" placeholder="Insira o Nome "
+                                            name="nome" value="<?php echo $nome ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">CPF </label>
+                                        <input type="text" class="form-control" id="cpf" placeholder="Insira o CPF "
+                                            name="cpf" maxlength="14" value="<?php echo isset($cpf) ? $cpf : ''; ?>"
+                                            onblur="validarCPF(this)" required>
+
+                                        <div id="res" name="res"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="parentesco">PARENTESCO FAMILIAR: </label>
+                                        <select class="form-control" id="parentesco" name="parentesco" required>
+
+                                            <?php if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar'): ?>
+                                                <option value="<?php echo $parentesco ?>">
+                                                    <?php echo $parentesco ?>
+                                                </option>
+                                            <?php endif; ?>
+
+                                            <?php if ($parentesco != 'RESPONSAVEL FAMILIAR'): ?>
+                                                <option value="RESPONSAVEL FAMILIAR">RESPONSAVEL FAMILIAR</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($parentesco != 'CONJUGUE OU COMPANHEIR'): ?>
+                                                <option value="CONJUGUE OU COMPANHEIRO">CONJUGUE OU COMPANHEIRO</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($parentesco != 'FILHO'): ?>
+                                                <option value="FILHO">FILHO</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($parentesco != 'IRMAO OU IRMA'): ?>
+                                                <option value="IRMAO OU IRMA">IRMAO OU IRMA</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($parentesco != 'PAI OU MAE'): ?>
+                                                <option value="PAI OU MAE">PAI OU MAE</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($parentesco != 'OUTRO PARENTE'): ?>
+                                                <option value="OUTRO PARENTE">OUTRO PARENTE</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($parentesco != 'NAO PARENTE'): ?>
+                                                <option value="NAO PARENTE">NAO PARENTE</option>
+                                            <?php endif; ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div id="mensagem" class="">
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">COD FAMILIA: </label>
+                                        <input type="text" class="form-control" id="codfamiliar"
+                                            placeholder="Insira o Nº " name="nreg" value="<?php echo $cod_familiar ?>"
+                                            required>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="nome_social">NOME SOCIAL: </label>
+                                        <input type="text" class="form-control" id="nome_social" name="nome_social"
+                                            value="<?php echo $nomeSocial ?>">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="data_nasc">DATA DE NASCIMENTO: *</label>
+                                        <input type="date" class="form-control" id="data_nasc" name="data_nasc"
+                                            value="<?php echo $data_nasc ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="uf_pessoa">UF: </label>
+                                        <select id="uf_pessoa" class="form-control" name="uf_pessoa" required>
+                                            <?php if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar'): ?>
+                                                <option value="<?php echo $uf ?>">
+                                                    <?php echo $uf ?>
+                                                </option>
+                                            <?php endif; ?>
+                                            <?php if ($sexo != 'AC'): ?>
+                                                <option value="AC">ACRE</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($uf != 'AC'): ?>
+                                                <option value="AC">AC</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'AL'): ?>
+                                                <option value="AL">AL</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'AP'): ?>
+                                                <option value="AP">AP</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'AM'): ?>
+                                                <option value="AM">AM</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'BA'): ?>
+                                                <option value="BA">BA</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'CE'): ?>
+                                                <option value="CE">CE</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'DF'): ?>
+                                                <option value="DF">DF</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'ES'): ?>
+                                                <option value="ES">ES</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'GO'): ?>
+                                                <option value="GO">GO</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MA'): ?>
+                                                <option value="MA">MA</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MT'): ?>
+                                                <option value="MT">MT</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MS'): ?>
+                                                <option value="MS">MS</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'MG'): ?>
+                                                <option value="MG">MG</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PA'): ?>
+                                                <option value="PA">PA</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PB'): ?>
+                                                <option value="PB">PB</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PR'): ?>
+                                                <option value="PR">PR</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PE'): ?>
+                                                <option value="PE">PE</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'PI'): ?>
+                                                <option value="PI">PI</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RJ'): ?>
+                                                <option value="RJ">RJ</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RN'): ?>
+                                                <option value="RN">RN</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RS'): ?>
+                                                <option value="RS">RS</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RO'): ?>
+                                                <option value="RO">RO</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'RR'): ?>
+                                                <option value="RR">RR</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'SC'): ?>
+                                                <option value="SC">SC</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'SP'): ?>
+                                                <option value="SP">SP</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'SE'): ?>
+                                                <option value="SE">SE</option>
+                                            <?php endif; ?>
+                                            <?php if ($uf != 'TO'): ?>
+                                                <option value="TO">TO</option>
+                                            <?php endif; ?>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="sexo">SEXO: </label>
+                                        <select class="form-control" id="sexo" name="sexo" required>
+
+                                            <?php if (isset($_GET['funcao']) && $_GET['funcao'] == 'editar'): ?>
+                                                <option value="<?php echo $sexo ?>">
+                                                    <?php echo $sexo ?>
+                                                </option>
+                                            <?php endif; ?>
+
+                                            <?php if ($sexo != 'MASCULINO'): ?>
+                                                <option value="MASCULINO">MASCULINO</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($sexo != 'FEMININO'): ?>
+                                                <option value="FEMININO">FEMININO</option>
+                                            <?php endif; ?>
+
+                                            <?php if ($sexo != 'OUTRO'): ?>
+                                                <option value="OUTRO">OUTRO</option>
+                                            <?php endif; ?>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+                            <div class="modal-footer">
+                                <button id="btn-fechar" type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Cancelar</button>
+
+                                <button type="submit" name="<?php echo $nome_botao ?>" id="<?php echo $nome_botao ?>"
+                                    class="btn btn-primary">
+                                    <?php echo $nome_botao ?>
+                                </button>
+
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
