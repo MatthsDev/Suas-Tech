@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../css/style-processo.css">
-    <link rel="stylesheet" type="text/css" href="../../css/style-processo-coz.css">
     <link rel="shortcut icon" href="../../img/logo.png" type="image/png">
+    <link rel="stylesheet"  type="text/css" href="../../css/style-processo.css">
     <title>Cadastro Salvo</title>
-    <link rel="stylesheet" href="../css/style-processo.css">
 </head>
 <body>
 <?php
@@ -51,34 +49,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $smtp->bind_param("sssssss", $user_maiusc, $nomeUsuario, $senha_hashed, $tpacesso, $setor, $funcao, $email);
 
-    if ($smtp->execute()) {?>
-
+    if ($smtp->execute()) {
+        ?>
         <h1>CADASTRO REALIZADO COM SUCESSO!</h1>
         <div class="linha"></div>
         <?php
 // Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
-        echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
+        //echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
     } else {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }
 
-    // Construir o corpo do e-mail
-    $mensagem = "<p>Nome Completo: $user_name</p>";
-    $mensagem .= "<p>E-mail: $email</p>";
-    $mensagem .= "<p>Senha: $senha_hashed</p>";
-    $mensagem .= "<p>Obrigado por usar o sistema DDV.</p>";
 
-    // Criar o comando Python
-    $comandoPython = "python3 ../../../controller/enviar_email.py '$email' '$mensagem'";
-
-    // Executar o comando
-    $saida = shell_exec($comandoPython);
-
-    echo $saida;
 
     $smtp->close();
     $conn->close();
-
 
 }
 
