@@ -1,5 +1,7 @@
 <?php
-include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
 ?>
 <!DOCTYPE html>
@@ -34,7 +36,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
                     Cadastro de Usuários
                     </a>
                 </div>
-                 <div class="btn">
+                <div class="btn">
                     <a class="menu-button" onclick="location.href='acompanhamento.php';">
                     <span class="material-symbols-outlined">
                         deployed_code_account
