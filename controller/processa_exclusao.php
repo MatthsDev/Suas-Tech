@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data_hoje->add(new DateInterval('P90D'));
 
             foreach ($dados_fila_espera as $dados) {
-                $sql_insercao_fluxo_diario = "INSERT INTO fluxo_diario_coz (nis_benef, num_doc, nome, dt_nasc, nome_mae, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita, prioridade, data_limite, nome_operador, data_registro) VALUES (:nis_benef, :num_doc, :nome, :dt_nasc, :nome_mae, :cpf_benef, :encaminhado_cras, :qtd_pessoa, :qtd_marmita, :prioridade, :data_limite, :nome_operador, :data_registro)";
+                $sql_insercao_fluxo_diario = "INSERT INTO fluxo_diario_coz (nis_benef, num_doc, nome, dt_nasc, nome_mae, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita, entregue, prioridade, data_limite, nome_operador, data_registro) VALUES (:nis_benef, :num_doc, :nome, :dt_nasc, :nome_mae, :cpf_benef, :encaminhado_cras, :qtd_pessoa, :qtd_marmita, :entregue, :prioridade, :data_limite, :nome_operador, :data_registro)";
                 $stmt_insercao_fluxo_diario = $pdo->prepare($sql_insercao_fluxo_diario);
                 $stmt_insercao_fluxo_diario->bindParam(':nis_benef', $dados['nis_benef']);
                 $stmt_insercao_fluxo_diario->bindParam(':nome', $dados['nome']);
@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt_insercao_fluxo_diario->bindParam(':encaminhado_cras', $dados['encaminhado_cras']);
                 $stmt_insercao_fluxo_diario->bindParam(':qtd_pessoa', $dados['qtd_pessoa']);
                 $stmt_insercao_fluxo_diario->bindParam(':qtd_marmita', $dados['qtd_marmita']);
+                $stmt_insercao_fluxo_diario->bindParam(':entregue', $dados['entregue']);
                 $stmt_insercao_fluxo_diario->bindParam(':prioridade', $dados['prioridade']);
                 $stmt_insercao_fluxo_diario->bindParam(':nome_operador', $dados['nome_operador']);
                 $stmt_insercao_fluxo_diario->bindParam(':data_registro', $dados['data_registro']);
