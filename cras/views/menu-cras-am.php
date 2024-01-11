@@ -2,7 +2,6 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,13 +19,35 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <img class="titulo-com-imagem" src="../img/h1-cras-antonio.svg" alt="Titulocomimagem">
         </h1>
     </div>
-    <div class="apelido">    
+    <div class="apelido">
         <h3>Bem-vindo (a)
             <?php echo $apelido; ?>.
-        </h3> 
-    </div>    
+        </h3>
+    </div>
+    <?php
+
+$data_corrente = date('Y-m-d');
+$table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
+$table_fluxo->execute();
+if ($table_fluxo) {
+    $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+        <div class="mural-avisos">
+    <h4>Mural de Avisos</h4>
+<?php
+foreach ($dados_table_fluxo as $linhas) {
+        if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
+            ?>
+            <p><?php echo $linhas['nome']; ?> está com prazo finalizado - Cozinha Comunitária. <a href='/Suas-Tech/controller/conexao_table.php'>VEJA MAIS AQUI</a> </p>
+
+        </div>
+    <?php
+}
+    }
+}
+?>
     <div class="container">
-        <div class="menu"> 
+        <div class="menu">
             <nav>
                 <div class="btn">
                     <a class="menu-button" onclick="location.href='cadastro_usuarios.php';">
@@ -49,37 +70,35 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     <span class="material-symbols-outlined">
                         content_paste_go
                     </span>
-                    Encaminhamento 
+                    Encaminhamento
                     </a>
                 </div>
             </nav>
-        </div>  
-        <!--<footer><img src="../img/   " alt=""></footer>-->
+        </div>
     <div class="drop-all">
         <div class="menu-drop">
             <button class="logout" type="button" name="drop">
             <span class="material-symbols-outlined">
             Settings
-            </span> 
+            </span>
         <div class="drop-content">
             <a title="Sair" href='/Suas-Tech/config/logout.php';>
-            <span title="Sair" class="material-symbols-outlined">logout</span>    
+            <span title="Sair" class="material-symbols-outlined">logout</span>
             </a>
             <a title="Alterar Usuário" href='conta.php';>
-            <span  class="material-symbols-outlined">manage_accounts</span>       
+            <span  class="material-symbols-outlined">manage_accounts</span>
             </a>
             <?php
-    if($nivel == 'suport'){
-        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
-        <span  class="material-symbols-outlined">rule_settings</span>       
+
+if ($nivel == 'suport') {
+    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
+        <span  class="material-symbols-outlined">rule_settings</span>
         </a> <?php
-        exit();
-    }
-    ?>     
+exit();
+}
+?>
         </div>
     </div>
-
-
 
 
 </body>
