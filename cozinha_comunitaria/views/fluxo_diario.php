@@ -1,4 +1,10 @@
 <?php
+// Define o tempo de atualização em segundos
+$tempo_atualizacao = 600;
+
+// Cabeçalho HTTP para a atualização automática
+header("refresh:$tempo_atualizacao;url=/Suas-Tech/cozinha_comunitaria/views/fluxo_diario.php");
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
