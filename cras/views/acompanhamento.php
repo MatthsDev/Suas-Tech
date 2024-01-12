@@ -131,6 +131,7 @@ if (!isset($_GET['buscar_dados'])) {
             $_SESSION['nome_mae'] = $dados['nome_mae'];
             $_SESSION['predio'] = $_GET['predio'];
             $_SESSION['priori'] = $prioridade;
+            $_SESSION['operador'] = $nome;
 
             ?>
                         <div class="btn">
