@@ -63,9 +63,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </div>
             </nav>
         </div>
-        <footer class="rodape">
-            <img class="rodape" src="img/footer-seg-alim.svg" alt="">
-        </footer>
+    </div>
         <div class="drop-all">
             <div class="menu-drop">
                 <button class="logout" type="button" name="drop">
