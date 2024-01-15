@@ -17,10 +17,10 @@ if ($table_fluxo) {
                 <th colspan="5" class="cabecalho"><?php echo "LISTA DAS PESSOAS COM O PRAZO VENCIDO"; ?></th>
             </tr>
             <tr>
-                <th>NOME:</th>
-                <th>DATA CADASTRADO:</th>
-                <th>DATA LIMITE:</th>
-                <th>ENCAMINHADO:</th>
+                <th>NOME</th>
+                <th>DATA CADASTRADO</th>
+                <th>DATA LIMITE</th>
+                <th>ENCAMINHADO</th>
                 <th>AÇÃO</th>
             </tr>
             <?php
