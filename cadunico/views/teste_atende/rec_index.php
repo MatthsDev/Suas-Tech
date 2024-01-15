@@ -24,8 +24,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
             <label>CPF:</label>
             <input type="text" name="cpf" id="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF" required>
         </div>
-        <p id="mensagemCpf"></p>
         <p id="nomePessoa"></p>
+
+    <div id="mensagemSucesso" class="mensagem-sucesso"></div>
+    <div id="mensagemErro" class="mensagem-erro"></div>
 
     <div id="conteiner_atendimento">
         <div id="btnCadUnico" style="display:none">
@@ -38,6 +40,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         </div>
 
         <p id="mensagemCadOptions"></p>
+
 
         <button id="btnBolsaFamilia" style="display:none">BOLSA FAMÍLIA</button>
         <div id="bolsaFamiliaOptions" style="display:none">
@@ -59,20 +62,34 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
     <div id="conteiner_prioridade">
         <div id="opcoesAtendimento" style="display: none;">
             <p>Escolha a prioridade:</p>
-            <button onclick="gerarSenha('A')">ESPECIAL</button>
-            <button onclick="gerarSenha('M')">PRIORIDADE</button>
-            <button onclick="gerarSenha('S')">RURAL</button>
-            <button onclick="gerarSenha('B')">URBANO</button>
+            <button id="alta" onclick="gerarSenha('A')">ESPECIAL</button>
+            <button id="media" onclick="gerarSenha('M')">PRIORIDADE</button>
+            <button id="medbaixa" onclick="gerarSenha('S')">RURAL</button>
+            <button id="baixa" onclick="gerarSenha('B')">URBANO</button>
             <br>
         </div>
     </div>
 
-        <p id="senhaFormatada"></p>
+    <p id="senhaFormatada"></p>
 
-    <button id="btnImprimir" onclick="imprimirTicket()">IMPRIMIR</button>
+    <button id="btnImprimir" onclick="imprimirTicket()" style="display: none;">Imprimir</button>
 
-    <button onclick="recarregarPagina()">Recarregar Página</button>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <div id="modalMensagem" class="modal-mensagem"></div>
+            <button onclick="imprimirTicket()">Imprimir</button>
+        </div>
+    </div>
+</div>
 
+<script>
+        // Limpar mensagens no início
+        $(document).ready(function () {
+            limparMensagens();
+            $('#btnImprimir').hide();
+        });
+    </script>
 
 </body>
 

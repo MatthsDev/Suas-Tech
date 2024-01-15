@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf = limparCPF($cpfInput);
 
     if (!$cpf){
-        echo '';
+        echo '?';
     }
     
     // Consulta a pessoa pelo CPF

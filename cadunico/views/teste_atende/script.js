@@ -54,13 +54,13 @@ $(document).ready(function () {
             $('#opcoesAtendimento').show();
             $('#btnAtualizacao').hide();
             $('#btnCadastro').hide();
-            $('#mensagemCadOptions').text('Atendimento para: CADASTRO ÚNICO - CADASTRO');
+            $('#mensagemCadOptions').text('Atendimento para: CADASTRO');
         });
         $('#btnAtualizacao').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnCadastro').hide();
             $('#btnAtualizacao').hide();
-            $('#mensagemCadOptions').text('Atendimento para: CADASTRO ÚNICO - ATUALIZAÇÃO');
+            $('#mensagemCadOptions').text('Atendimento para: ATUALIZAÇÃO');
         });
 
         // Esconde outras opções
@@ -161,6 +161,7 @@ $(document).ready(function () {
 });
 
 
+
 // Função para gerar senha com base nas opções escolhidas
 function gerarSenha(prioridade) {
     // Lógica para gerar senha com base na prioridade
@@ -223,14 +224,45 @@ function gerarSenha(prioridade) {
             $('#mensagemErro').text('Erro ao salvar a senha. Por favor, tente novamente.');
         }
     });
+    //function imprimirTicket() {
+    // Exibe informações no ticket
+    //window.print();
+    //location.reload(true);
+    //}
 }
 
-// Função para imprimir o ticket
+$(document).ready(function() {
+    $('#alta, #media, #medbaixa, #baixa').click(function () {
+        $('#conteiner_prioridade').hide();
+    });
+});
+
+$(document).ready(function() {
+    $('#btnImprimir').click(function () {
+        $('#btnImprimir').hide();
+    });
+});
+
+function abrirModal() {
+    document.getElementById('modal').style.display = 'block';
+}
+
+function fecharModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
 function imprimirTicket() {
     // Exibe informações no ticket
     window.print();
-    location.reload(true);
+    fecharModal();
 }
+
+// Função para imprimir o ticket
+//function imprimirTicket() {
+// Exibe informações no ticket
+//window.print();
+//location.reload(true);
+//}
 
 // Esconder o botão de impressão inicialmente
 $(document).ready(function () {
