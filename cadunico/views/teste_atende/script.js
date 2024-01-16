@@ -25,7 +25,7 @@ $(document).ready(function () {
                     $('#btnReceitaFederal').show();
                 } else {
                     // Pessoa não encontrada, pode exibir uma mensagem de erro se desejar
-                    $('#nomePessoa').text('Pessoa não encontrada.');
+                    $('#nomePessoa').text('CPF não registrado em nosso banco de dados.');
 
                     // Torna os botões visíveis
                     $('#btnCadUnico').show();
@@ -49,13 +49,14 @@ $(document).ready(function () {
         // Torna visíveis as opções do CADUNICO
         $('#cadUnicoOptions').show();
 
-        // Evento pra tornar visível as opções de prioridade
+        // Escolhendo CADASTRO todas as outras opções são escondidas
         $('#btnCadastro').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnAtualizacao').hide();
             $('#btnCadastro').hide();
             $('#mensagemCadOptions').text('Atendimento para: CADASTRO');
         });
+        // Escolhendo ATUALIZAÇÃO todas as outras opções são escondidas
         $('#btnAtualizacao').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnCadastro').hide();
@@ -80,20 +81,25 @@ $(document).ready(function () {
         $('#btnFolha').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnBloqueio').hide();
+            $('#btnFolha').hide();
             $('#btnInformacao').hide();
-
+            $('#mensagemCadOptions').text('Atendimento para pegar FOLHA.');
         });
+
         $('#btnBloqueio').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnFolha').hide();
+            $('#btnBloqueio').hide();
             $('#btnInformacao').hide();
-
+            $('#mensagemCadOptions').text('Atendimento para tratar pendência de BLOQUEIO.');
         });
+
         $('#btnInformacao').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnBloqueio').hide();
             $('#btnFolha').hide();
-
+            $('#btnInformacao').hide();
+            $('#mensagemCadOptions').text('Atendimento para sanar dúvidas.');
         });
 
         // Esconde outras opções
@@ -106,12 +112,7 @@ $(document).ready(function () {
     // Evento de clique no botão CONCESSAO
     $('#btnConcessao').click(function () {
         // Torna visíveis as opções da CONCESSAO
-        $('#concessaoOptions').show();
-
-        // Evento pra tornar visível as opções de prioridade
-        $('#concessaoOptions').click(function () {
-            $('#opcoesAtendimento').show();
-        });
+        $('#opcoesAtendimento').show();
 
         // Esconde outras opções
         $('#btnCadUnico').hide();
@@ -123,12 +124,7 @@ $(document).ready(function () {
     // Evento de clique no botão ALISTAMENTO MILITAR
     $('#btnAlistamentoMilitar').click(function () {
         // Torna visíveis as opções do ALISTAMENTO MILITAR
-        $('#alistamentoMilitarOptions').show();
-
-        // Evento pra tornar visível as opções de prioridade
-        $('#alistamentoMilitarOptions').click(function () {
-            $('#opcoesAtendimento').show();
-        });
+        $('#opcoesAtendimento').show();
 
         // Esconde outras opções
         $('#btnCadUnico').hide();
@@ -146,10 +142,14 @@ $(document).ready(function () {
         $('#btnCPF').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnCTD').hide();
+            $('#btnCPF').hide();
+            $('#mensagemCadOptions').text('Atendimento para CPF.');
         });
         $('#btnCTD').click(function () {
             $('#opcoesAtendimento').show();
             $('#btnCPF').hide();
+            $('#btnCTD').hide();
+            $('#mensagemCadOptions').text('Atendimento para CARTEIRA DE TRABALHO.');
         });
 
         // Esconde outras opções
@@ -201,7 +201,7 @@ function gerarSenha(prioridade) {
             if (response.status === 'success') {
                 var senhaFormatada = response['response.senha_formatada'];
                 // Exibe a senha formatada na tela
-                $('#senhaFormatada').text('Senha formatada: ' + senhaFormatada);
+                $('#senhaFormatada').text('Sua senha é: ' + senhaFormatada);
 
                 // Exibe informações no ticket
                 $('#ticket').text('Nome: ' + nome + '<br>' +
@@ -231,15 +231,19 @@ function gerarSenha(prioridade) {
     //}
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#alta, #media, #medbaixa, #baixa').click(function () {
         $('#conteiner_prioridade').hide();
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#btnImprimir').click(function () {
         $('#btnImprimir').hide();
+        $('#divcpf').hide();
+        setTimeout(function () {
+            location.reload(true);
+        }, 6000);
     });
 });
 
@@ -255,13 +259,13 @@ function imprimirTicket() {
     // Exibe informações no ticket
     window.print();
     fecharModal();
+
+        // Aguarde 5 segundos antes de recarregar a página
+
 }
 
 // Função para imprimir o ticket
 //function imprimirTicket() {
-// Exibe informações no ticket
-//window.print();
-//location.reload(true);
 //}
 
 // Esconder o botão de impressão inicialmente

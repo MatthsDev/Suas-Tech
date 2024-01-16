@@ -28,7 +28,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
     <div id="mensagemSucesso" class="mensagem-sucesso"></div>
     <div id="mensagemErro" class="mensagem-erro"></div>
-
     <div id="conteiner_atendimento">
         <div id="btnCadUnico" style="display:none">
             <p style="">Escolha seu atendimento</p>
@@ -38,9 +37,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
             <button id="btnCadastro">CADASTRO</button>
             <button id="btnAtualizacao">ATUALIZAÇÃO</button>
         </div>
-
-        <p id="mensagemCadOptions"></p>
-
 
         <button id="btnBolsaFamilia" style="display:none">BOLSA FAMÍLIA</button>
         <div id="bolsaFamiliaOptions" style="display:none">
@@ -59,6 +55,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
             <button id="btnCTD">CTD</button>
         </div>
     </div>
+    <div id="mensagemCadOptions" class="mensagem-Options"></div>
     <div id="conteiner_prioridade">
         <div id="opcoesAtendimento" style="display: none;">
             <p>Escolha a prioridade:</p>
