@@ -14,45 +14,56 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../../js/cpfvalid.js"></script>
     <script src="script.js"></script>
+    <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
     <title>Atendimento</title>
 
 </head>
 
 <body>
     <h1>ATENDIMENTO</h1>
-        <div id="divcpf">
-            <label>CPF:</label>
-            <input type="text" name="cpf" id="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF" required>
-        </div>
-        <p id="nomePessoa"></p>
+    <div id="divcpf">
+        <label>CPF:</label>
+        <input type="text" name="cpf" id="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF" required>
+    </div>
+    <p id="nomePessoa"></p>
+    <p>Escolha seu atendimento</p>
 
     <div id="mensagemSucesso" class="mensagem-sucesso"></div>
     <div id="mensagemErro" class="mensagem-erro"></div>
     <div id="conteiner_atendimento">
-        <div id="btnCadUnico" style="display:none">
-            <p style="">Escolha seu atendimento</p>
-            <button>CADUNICO</button>
+        <div class="opcad">
+            <div class="cadunico1" id="btnCadUnico" style="display:none">
+                <button>CADUNICO</button>
+            </div>
+            <div id="cadUnicoOptions" style="display:none">
+                <button id="btnCadastro">CADASTRO</button>
+                <button id="btnAtualizacao">ATUALIZAÇÃO</button>
+            </div>
         </div>
-        <div id="cadUnicoOptions" style="display:none">
-            <button id="btnCadastro">CADASTRO</button>
-            <button id="btnAtualizacao">ATUALIZAÇÃO</button>
+        <div class="opbolsa">
+            <div class="bolsa">
+            <button id="btnBolsaFamilia" style="display:none">BOLSA FAMÍLIA</button>
+            </div>
+            <div id="bolsaFamiliaOptions" style="display:none">
+                <button id="btnFolha">FOLHA</button>
+                <button id="btnBloqueio">BLOQUEIO</button>
+                <button id="btnInformacao">INFORMAÇÃO</button>
+            </div>
+        </div>    
+        <div class="concessao">
+            <button id="btnConcessao" style="display:none">CONCESSÃO</button>
         </div>
-
-        <button id="btnBolsaFamilia" style="display:none">BOLSA FAMÍLIA</button>
-        <div id="bolsaFamiliaOptions" style="display:none">
-            <button id="btnFolha">FOLHA</button>
-            <button id="btnBloqueio">BLOQUEIO</button>
-            <button id="btnInformacao">INFORMAÇÃO</button>
+        <div class="alistamento">
+            <button id="btnAlistamentoMilitar" style="display:none">ALISTAMENTO MILITAR</button>
         </div>
-
-        <button id="btnConcessao" style="display:none">CONCESSÃO</button>
-
-        <button id="btnAlistamentoMilitar" style="display:none">ALISTAMENTO MILITAR</button>
-
-        <button id="btnReceitaFederal" style="display:none">RECEITA FEDERAL</button>
-        <div id="receitaFederalOptions" style="display:none">
-            <button id="btnCPF">CPF</button>
-            <button id="btnCTD">CTD</button>
+        <div class="opreceita">
+            <div class="receita">
+                <button id="btnReceitaFederal" style="display:none">RECEITA FEDERAL</button>
+            </div>
+            <div id="receitaFederalOptions" style="display:none">
+                <button id="btnCPF">CPF</button>
+                <button id="btnCTD">CTD</button>
+            </div>
         </div>
     </div>
     <div id="mensagemCadOptions" class="mensagem-Options"></div>
@@ -71,18 +82,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
     <button id="btnImprimir" onclick="imprimirTicket()" style="display: none;">Imprimir</button>
 
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="fechar" onclick="fecharModal()">&times;</span>
-        <div id="modalMensagem" class="modal-mensagem"></div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+            <div id="modalMensagem" class="modal-mensagem"></div>
             <button onclick="imprimirTicket()">Imprimir</button>
         </div>
     </div>
-</div>
+    </div>
 
-<script>
+    <script>
         // Limpar mensagens no início
-        $(document).ready(function () {
+        $(document).ready(function() {
             limparMensagens();
             $('#btnImprimir').hide();
         });
