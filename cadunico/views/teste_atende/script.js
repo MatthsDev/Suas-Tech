@@ -18,6 +18,7 @@ $(document).ready(function () {
                     $('#nomePessoa').text('Nome: ' + response.nome);
 
                     // Torna os botões visíveis
+                    $('#tituloAtendimento').show();
                     $('#btnCadUnico').show();
                     $('#btnBolsaFamilia').show();
                     $('#btnConcessao').show();
@@ -28,6 +29,7 @@ $(document).ready(function () {
                     $('#nomePessoa').text('CPF não registrado em nosso banco de dados.');
 
                     // Torna os botões visíveis
+                    $('#tituloAtendimento').show();
                     $('#btnCadUnico').show();
                     $('#btnBolsaFamilia').show();
                     $('#btnConcessao').show();
@@ -241,6 +243,10 @@ $(document).ready(function () {
     $('#btnImprimir').click(function () {
         $('#btnImprimir').hide();
         $('#divcpf').hide();
+        $('#tituloAtendimento').hide();
+
+        window.print();
+
         setTimeout(function () {
             location.reload(true);
         }, 6000);
@@ -254,19 +260,6 @@ function abrirModal() {
 function fecharModal() {
     document.getElementById('modal').style.display = 'none';
 }
-
-function imprimirTicket() {
-    // Exibe informações no ticket
-    window.print();
-    fecharModal();
-
-        // Aguarde 5 segundos antes de recarregar a página
-
-}
-
-// Função para imprimir o ticket
-//function imprimirTicket() {
-//}
 
 // Esconder o botão de impressão inicialmente
 $(document).ready(function () {

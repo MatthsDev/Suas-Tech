@@ -1,5 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +28,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         <input type="text" name="cpf" id="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF" required>
     </div>
     <p id="nomePessoa"></p>
-    <p>Escolha seu atendimento</p>
+    <p id="tituloAtendimento" style="display:none">Escolha seu atendimento</p>
 
     <div id="mensagemSucesso" class="mensagem-sucesso"></div>
-    <div id="mensagemErro" class="mensagem-erro"></div>
     <div id="conteiner_atendimento">
         <div class="opcad">
             <div class="cadunico1" id="btnCadUnico" style="display:none">
@@ -78,6 +79,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         </div>
     </div>
 
+    <div id="mensagemErro" class="mensagem-erro"></div>
     <p id="senhaFormatada"></p>
 
     <button id="btnImprimir" onclick="imprimirTicket()" style="display: none;">Imprimir</button>
@@ -90,14 +92,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         </div>
     </div>
     </div>
-
-    <script>
-        // Limpar mensagens no início
-        $(document).ready(function() {
-            limparMensagens();
-            $('#btnImprimir').hide();
-        });
-    </script>
 
 </body>
 
