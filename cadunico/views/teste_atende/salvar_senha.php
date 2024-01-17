@@ -8,7 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recebe a senha, CPF e nome enviados via POST
     $senha = $_POST["senha"];
     $cpf = $_POST["cpf"];
-    $nome_pessoa = $_POST["nome"];
+
+
+    if ($_POST["nome"] == "CPF não registrado em nosso banco de dados."){
+        $nome_pessoa = "CPF desconhecido";
+    }else{
+        $nome_pessoa = $_POST["nome"];
+    }
 
 
 
@@ -26,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insere a senha no banco de dados
     $stmt = $pdo->prepare("INSERT INTO senhas (ordem_chegada, senha, cpf_atendido, nome_atendido, data_hora_registro) VALUES (:ordem_chegada, :senha, :cpf_atendido, :nome_atendido, :data_hora_registro)");
-    $stmt->bindValue(":nome_atendido", ($_POST['nome'] ?? 'NULL'), PDO::PARAM_STR);
+    $stmt->bindValue(":nome_atendido", ($nome_pessoa ?? 'NULL'), PDO::PARAM_STR);
     $stmt->bindParam(':senha', $senha);
     $stmt->bindParam(':ordem_chegada', $contagem);
     $stmt->bindParam(':data_hora_registro', $timestamp);
