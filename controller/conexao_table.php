@@ -27,21 +27,21 @@
 
 <div class="container">
 
-            <form action="processa_exclusao.php" method="post">
-                <table width="650px" border="1">
-                    <tr>
-                        <th colspan="5" class="cabecalho"><?php echo "LISTA DAS PESSOAS COM O PRAZO VENCIDO"; ?></th>
-                    </tr>
-                    <tr>
-                        <th>NOME:</th>
-                        <th>DATA CADASTRADO:</th>
-                        <th>DATA LIMITE:</th>
-                        <th>ENCAMINHADO:</th>
-                        <th>AÇÃO</th>
-                    </tr>
-                    <?php
-                    foreach ($dados_table_fluxo as $linhas) {
-                        if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
+    <form action="processa_exclusao.php" method="post">
+        <table width="650px" border="1">
+            <tr>
+                <th colspan="5" class="cabecalho"><?php echo "LISTA DAS PESSOAS COM O PRAZO VENCIDO"; ?></th>
+            </tr>
+            <tr>
+                <th>NOME:</th>
+                <th>DATA CADASTRADO:</th>
+                <th>DATA LIMITE:</th>
+                <th>ENCAMINHADO:</th>
+                <th>AÇÃO</th>
+            </tr>
+            <?php
+foreach ($dados_table_fluxo as $linhas) {
+        if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
 
                     ?>
                             <tr>
