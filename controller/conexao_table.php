@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,16 +13,16 @@
 
 
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
-    include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
-    $data_corrente = date('Y-m-d');
-    $table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
-    $table_fluxo->execute();
+$data_corrente = date('Y-m-d');
+$table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
+$table_fluxo->execute();
 
-    if ($table_fluxo) {
-        $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
+if ($table_fluxo) {
+    $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
 <div class="container">
@@ -43,7 +43,7 @@
 foreach ($dados_table_fluxo as $linhas) {
         if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
 
-                    ?>
+            ?>
                             <tr>
                                 <td> <?php echo $linhas['nome']; ?> </td>
                                 <td> <?php echo $linhas['data_registro']; ?> </td>
@@ -57,11 +57,11 @@ foreach ($dados_table_fluxo as $linhas) {
                                 </td>
                             </tr>
                     <?php
-                            // Define a variável de sessão com base na presença de valores na variável
-                            $_SESSION['fluxo_diario_coz_has_values'] = $linhas['nome'];
-                        }
-                    }
-                    ?>
+// Define a variável de sessão com base na presença de valores na variável
+            $_SESSION['fluxo_diario_coz_has_values'] = $linhas['nome'];
+        }
+    }
+    ?>
                 </table>
                 <div class="botoes">
                     <button type="button" onclick="abrirModal()">Ações</button>
@@ -80,9 +80,7 @@ foreach ($dados_table_fluxo as $linhas) {
                 }
 
                 function excluirSelecionados() {
-
                     document.forms[0].submit(); // Envia o formulário
-
                 }
 
                 function editarPrazo() {
@@ -92,14 +90,14 @@ foreach ($dados_table_fluxo as $linhas) {
                 }
             </script>
         <?php
-    } else {
-        die('Error in query: ' . implode($pdo->errorInfo()));
-    }
+} else {
+    die('Error in query: ' . implode($pdo->errorInfo()));
+}
 
-    if (empty($dados_table_fluxo)) {
-        echo "<tr><td colspan='6'>Nenhuma família fora do prazo.</td></tr>";
-    }
-        ?>
+if (empty($dados_table_fluxo)) {
+    echo "<tr><td colspan='6'>Nenhuma família fora do prazo.</td></tr>";
+}
+?>
 </div>
 </body>
 
