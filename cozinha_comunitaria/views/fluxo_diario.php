@@ -25,6 +25,12 @@ ini_set('display_errors', 1);
     <link rel="stylesheet" href="../css/style-fluxo.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../js/encerrarEntregas.js"></script>
+    
     <title>Fluxo Diário</title>
 
 </head>
@@ -57,7 +63,7 @@ if (!isset($_GET['nis'])) {
     
     $sql_cod = $conn->real_escape_string($_GET['nis']);
     $sql_dados = "SELECT * FROM fluxo_diario_coz WHERE nis_benef LIKE $sql_cod";
-    $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn - error);
+    $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn -> error);
 
     if ($sql_query->num_rows == 0) {
         ?>
@@ -82,7 +88,7 @@ if (!isset($_POST['qtd'])) {
             //data criada com formato 'DD de mmmm de YYYY'
             $data_entrega = date('Y-m-d'); // Formato: Ano-Mês-Dia
             $timestampptbr = time();
-            $data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
+            //$data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
             $get_rec = "ok";
             $qtd_entregue = $_POST['qtd'];
 
@@ -102,7 +108,9 @@ if (!isset($_POST['qtd'])) {
                     </form>
         </div>
     </div>
-
+    <button id='gerar_relatorio'>ENCERRAR AS ENTREGAS</button>
     <body>
     <script src='../../controller/back.js'></script>
 </html>
+
+<?php
