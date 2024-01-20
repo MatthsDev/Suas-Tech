@@ -27,7 +27,7 @@ $(document).ready(function () {
 function speakPassword(nome, senha, atendimento) {
     var passwordMessage = 'ATENÇÃO, PRÓXIMA SENHA, ' + senha + ', EM NOME DE, ' + nome + ', PARA ATENDIMENTO DE, ' + atendimento;
 
-    // Utilize a API de síntese de fala do navegador
+    // Utilizando a API de síntese de fala do navegador
     if ('speechSynthesis' in window) {
         var speech = new SpeechSynthesisUtterance(passwordMessage);
         speech.lang = 'pt-BR'; // Defina o idioma desejado
