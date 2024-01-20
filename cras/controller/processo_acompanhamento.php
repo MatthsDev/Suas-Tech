@@ -29,7 +29,7 @@ if ($resultado_soma && $resultado2_soma) {
 
 //data criada com formato 'DD de mmmm de YYYY'
 $timestampptbr = time();
-$data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
+//$data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
 $data_registro = date('d/m/Y');
 
 // Consulta SQL para contar os registros
