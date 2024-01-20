@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../js/scriptTelaChamada.js"></script>
-
+    <script src="script_chamar.js"></script>
     <title>Tela de Chamadas</title>
 </head>
 <body>
 
 <div id="player"></div>
 
+
 <script>
 // Substitua 'VIDEO_ID1', 'VIDEO_ID2', etc., pelos IDs dos seus vídeos do YouTube
-var videoIds = ['T80B7s7ekGo', '83FKKJXG6uI', 'y_q-LWqOHiU'];
+var videoIds = ['M1pFmh8PQqY', 'ONh5m1qH8dg', 'S4I9wO6fD4I', 'y_bwKW6V1lw', 'PX3A7GLtFqM'];
 
 // Carregar a API do YouTube
 var tag = document.createElement('script');
@@ -55,6 +56,7 @@ function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
         // Reproduzir o próximo vídeo na sequência
         playNextVideo();
+        event.target.setVolume(20);
     }
 }
 
