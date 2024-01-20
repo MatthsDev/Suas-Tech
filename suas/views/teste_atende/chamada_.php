@@ -18,4 +18,3 @@ if (isset($_POST['chamar'])) {
 $atualizarSituacao = $pdo->prepare('UPDATE senhas SET situacao_senha = 2 WHERE ordem_chegada = :ordem_chegada');
 $atualizarSituacao->bindParam(':ordem_chegada', $ordem_chegada);
 $atualizarSituacao->execute();
-?>
