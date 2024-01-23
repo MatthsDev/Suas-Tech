@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="teste_atende/style_atend.css" />
+    <link rel="shortcut icon" href="../../cadunico/img/logo.png" type="image/x-icon">
     <script src="../../js/scriptTelaChamada.js"></script>
     <script src="script_chamar.js"></script>
     <title>Tela de Chamadas</title>
 </head>
 <body>
 
-<div id="player"></div>
+<p id="mostrar_senha"></p>
+<p id="mostrar_nome"></p>
+<p id="amostra"></p>
+
+<div id="player" style="padding: right"></div>
 
 
 <script>
-// Substitua 'VIDEO_ID1', 'VIDEO_ID2', etc., pelos IDs dos seus vídeos do YouTube
+// IDs dos seus vídeos do YouTube
 var videoIds = ['M1pFmh8PQqY', 'ONh5m1qH8dg', 'S4I9wO6fD4I', 'y_bwKW6V1lw', 'PX3A7GLtFqM'];
 
 // Carregar a API do YouTube
