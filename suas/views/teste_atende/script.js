@@ -272,7 +272,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'telaOperador.php',
+            url: '../telaOperador_test.php',
             data: { servico: servico },
             dataType: 'json',
             success: function (response) {
@@ -290,21 +290,7 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    $('#acao_atendimento').click(function () {
-        var acaoBotao = $(this).val();
-        $.ajax({
-            type: 'POST',
-            url: 'chamada_.php',
-            data: { acaoBotao: acaoBotao },
-            dataType: 'json',
-            success: function (response) {
 
-
-            }
-        })
-    });
-});
 
 $(document).ready(function () {
     // Esta função será executada quando a página for carregada ou reexibida
