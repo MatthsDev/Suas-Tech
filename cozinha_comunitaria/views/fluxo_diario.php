@@ -52,63 +52,77 @@ ini_set('display_errors', 1);
 include_once '../controller/tbl_fluxo.php';
 
 ?>
+<div class="buscar">
             <form action="">
                 <label>Buscar Beneficiário: </label>
                 <input type="text" id="nis" name="nis" placeholder="Pelo NIS." maxlength="11" required>
-                <button type="submit">BUSCAR</button>
+                <button  type="submit">BUSCAR</button>
+                <button id='gerar_relatorio'>ENCERRAR AS ENTREGAS</button>
             </form>
-            <?php
-if (!isset($_GET['nis'])) {
-} else {
-    
-    $sql_cod = $conn->real_escape_string($_GET['nis']);
-    $sql_dados = "SELECT * FROM fluxo_diario_coz WHERE nis_benef LIKE $sql_cod";
-    $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn -> error);
-
-    if ($sql_query->num_rows == 0) {
-        ?>
-                    Nenhum resultado encontrado...
+</div>
+<div class="resultado">
                 <?php
-} else {
-        $dados = $sql_query->fetch_assoc();
-        ?>
-
-                    NOME: <?php echo $dados['nome']; ?> 
-                    Quantidades de marmitas: <?php echo $dados['qtd_marmita']; ?> 
-                    CPF: <?php echo $dados['cpf_benef']; ?>
-                    <form method="POST" action="">
-                        <input type=text class="qntm" name="qtd" placeholder="Nº de marmitas">
-
-                        <button type="submit">ENTREGAR</button>
-                    </form>
-                <?php
-if (!isset($_POST['qtd'])) {
-
+        if (!isset($_GET['nis'])) {
         } else {
-            //data criada com formato 'DD de mmmm de YYYY'
-            $data_entrega = date('Y-m-d'); // Formato: Ano-Mês-Dia
-            $timestampptbr = time();
-            //$data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
-            $get_rec = "ok";
-            $qtd_entregue = $_POST['qtd'];
 
+        $sql_cod = $conn->real_escape_string($_GET['nis']);
+        $sql_dados = "SELECT * FROM fluxo_diario_coz WHERE nis_benef LIKE $sql_cod";
+        $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn -> error);
 
-            $sqld = $conn->prepare("UPDATE fluxo_diario_coz SET data_de_entrega=?, marm_entregue=?, entregue=? WHERE nis_benef=?");
-            $sqld->bind_param("ssss", $data_entrega, $qtd_entregue, $get_rec, $dados['nis_benef']);
-            if ($sqld->execute()) {
-                echo '<script>alert("Entrega registrada!"); window.location.href = "fluxo_diario.php";</script>';
+        if ($sql_query->num_rows == 0) {
+            ?>
+                        Nenhum resultado encontrado...
+                    <?php
+        } else {
+            $dados = $sql_query->fetch_assoc();
+            ?>
+                        <div class="resul">
+                            NOME: <?php echo $dados['nome']; ?> 
+                        </div>
+                        <div class="resul">
+                            Quantidades de marmitas: <div class="resulmarmitas"><?php echo $dados['qtd_marmita']; ?></div>
+                        </div>
+                        <div class="blocoresultado"> 
+                            <div class="resul">
+                                CPF: <?php echo $dados['cpf_benef']; ?>
+                            </div>
+                                <div>
+                                <form method="POST" action="">
+                                    <input type=text class="qntm" name="qtd" placeholder="Nº de marmitas">
+
+                                    <button type="submit">ENTREGAR</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php
+        if (!isset($_POST['qtd'])) {
+
             } else {
-                echo "Não salvou" . $sqld->error . "contate o suporte.";
+                //data criada com formato 'DD de mmmm de YYYY'
+                $data_entrega = date('Y-m-d'); // Formato: Ano-Mês-Dia
+                $timestampptbr = time();
+                //$data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
+                $get_rec = "ok";
+                $qtd_entregue = $_POST['qtd'];
+
+
+                $sqld = $conn->prepare("UPDATE fluxo_diario_coz SET data_de_entrega=?, marm_entregue=?, entregue=? WHERE nis_benef=?");
+                $sqld->bind_param("ssss", $data_entrega, $qtd_entregue, $get_rec, $dados['nis_benef']);
+                if ($sqld->execute()) {
+                    echo '<script>alert("Entrega registrada!"); window.location.href = "fluxo_diario.php";</script>';
+                } else {
+                    echo "Não salvou" . $sqld->error . "contate o suporte.";
+                }
             }
         }
-    }
-}
+        }
 
-?>
-                    </form>
+        ?>
+        </form>
+</div>       
         </div>
     </div>
-    <button id='gerar_relatorio'>ENCERRAR AS ENTREGAS</button>
+
     <body>
     <script src='../../controller/back.js'></script>
 </html>
