@@ -21,8 +21,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <script src="/Suas-Tech/cadunico/js/custom.js"></script>
     <script src="/Suas-Tech/cadunico/js/atendimento.js"></script>
     <style>
-        @media print {
-
+       @media print {
             /* Estilos para a impressão */
             body {
                 font-size: 12pt;
@@ -30,48 +29,47 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
             /* Adicione mais estilos conforme necessário */
         }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
 
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+    input,
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
 
-        input,
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    button:hover {
+        background-color: #45a049;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #secao2,
-        #secao3 {
-            display: none;
-        }
-    </style>
+    #secao2,
+    #secao3 {
+        display: none;
+    }
+</style>
 </head>
 
 <body>
@@ -166,8 +164,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
         });
 
-        // Função para remover caracteres especiais do CPF
-        function removerCaracteresEspeciais(cpf) {
+          // Função para remover caracteres especiais do CPF
+          function removerCaracteresEspeciais(cpf) {
             return cpf.replace(/[^\d]/g, '');
         }
 
