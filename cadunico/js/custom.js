@@ -1,4 +1,4 @@
-async function gerarSenha(tipoSenha) {
+async function gerarSenhaImprimir(tipoSenha) {
     try {
         // Obtenha o nome da pessoa do campo de entrada
         const nomePessoa = document.getElementById("nome").value;
@@ -20,11 +20,14 @@ async function gerarSenha(tipoSenha) {
         } else {
             document.getElementById("senhaGerada").innerHTML = resposta.nome_senha;
             document.getElementById("msgAlerta").innerHTML = "";
-            
+
             // Limpar o campo do nome após a geração da senha
             document.getElementById("nome").value = "";
             // Limpar o campo do nome após a geração da senha
             document.getElementById("cpf_pess").value = "";
+
+            // Chamar a função de exibição do ticket
+            exibirTicket(nomePessoa, resposta.nome_senha);
         }
     } catch (error) {
         console.error('Erro:', error.message);
@@ -32,6 +35,34 @@ async function gerarSenha(tipoSenha) {
         document.getElementById("senhaGerada").innerHTML = "";
     }
 }
+
+function exibirTicket(nome, senha) {
+    // Criar uma string HTML para o ticket personalizado
+    const ticketHTML = `
+        <div>
+            <p>Nome:  ${nome}</p>
+            <p>Hora:  ${new Date().toLocaleTimeString()}</p>
+            <p>Senha: ${senha}</p>
+        </div>
+    `;
+
+    // Abrir uma nova janela ou popup para exibir o ticket
+    const ticketWindow = window.open('', '_blank', 'width=300,height=200');
+    ticketWindow.document.write('<html><head><title>Ticket</title></head><body>');
+    ticketWindow.document.write(ticketHTML);
+    ticketWindow.document.write('</body></html>');
+    
+    // Chamar a função de impressão após a janela ser carregada
+    ticketWindow.onload = function () {
+        ticketWindow.print();
+        ticketWindow.onafterprint = function () {
+            ticketWindow.close();
+        };
+    };
+}
+
+
+
 
 
 
