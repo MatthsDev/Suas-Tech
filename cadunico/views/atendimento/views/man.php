@@ -13,7 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 <body>
     <h2>Formulário de Senhas</h2>
-    <form method="POST" action="controller/processar_dados.php">
+    <form method="POST" action="/Suas-Tech/cadunico/views/atendimento/models/processar_dados.php">
         <label for="nomeSenha">Nome da Senha:</label>
         <input type="text" id="nomeSenha" name="nomeSenha" required>
 
@@ -41,7 +41,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         // Função para carregar opções de Setor
         function carregarSetores() {
             $.ajax({
-                url: 'controller/carregar_atendimento.php', // Substitua pelo caminho real do arquivo PHP
+                url: '/Suas-Tech/cadunico/views/atendimento/controller/ajax_request/carregar_atendimento.php', // Substitua pelo caminho real do arquivo PHP
                 type: 'GET',
                 success: function (data) {
                     $('#setorSelect').html(data);
@@ -51,7 +51,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
         function carregarTiposAtendimentos(nomeSetor) {
             $.ajax({
-                url: 'controller/carregar_tiposAtendimento.php',
+                url: '/Suas-Tech/cadunico/views/atendimento/controller/ajax_request/carregar_tiposAtendimento.php',
                 type: 'GET',
                 data: { nomeSetor: nomeSetor },
                 success: function (data) {

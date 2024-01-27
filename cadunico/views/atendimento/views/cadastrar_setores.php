@@ -12,7 +12,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 <body>
     <h2>Formulário de Senhas</h2>
-    <form method="POST" action="controller/processar_atend.php">
+    <form method="POST" action="/Suas-Tech/cadunico/views/atendimento/models/processar_atend.php">
 
         <label for="Setor">Setor de Atendimento</label>
         <input type="text" id="tipoSenhaSetor" name="tipoSenhaSetor" required>

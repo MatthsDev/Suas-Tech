@@ -1,3 +1,54 @@
+function exibirTicket(nome, senha) {
+    // Criar uma string HTML para o ticket personalizado
+    const ticketHTML = `
+        <div>
+            <p>Nome: ${nome}</p>
+            <p>Hora: ${new Date().toLocaleTimeString()}</p>
+            <p>Senha: ${senha}</p>
+            <button id="imprimirBtn" hidden>Imprimir</button>
+        </div>
+    `;
+
+    // Abrir uma nova janela para exibir o ticket em tela cheia
+    const ticketWindow = window.open('', '_blank', 'width=' + screen.width + ',height=' + screen.height + ',fullscreen=yes');
+    ticketWindow.document.write('<html><head><title>Ticket</title></head><body>');
+    ticketWindow.document.write(ticketHTML);
+    ticketWindow.document.write('</body></html>');
+
+    // Adicionar um ouvinte de evento ao evento onload da janela
+    ticketWindow.onload = function () {
+        // Adicionar o botão de imprimir ao DOM da nova janela
+        const imprimirBtn = ticketWindow.document.createElement('button'); 
+        imprimirBtn.id = 'imprimirBtn';
+        imprimirBtn.textContent = 'Imprimir';
+        ticketWindow.document.body.appendChild(imprimirBtn);
+
+        // Adicionar um ouvinte de evento ao botão Imprimir na nova janela
+        imprimirBtn.addEventListener('click', function () {
+            // Chamar a função de impressão ao clicar no botão Imprimir
+            ticketWindow.print();
+
+            // Redirecionar após a impressão
+            ticketWindow.close();
+
+        });
+    };
+
+    // Adicionar um ouvinte de evento ao evento onbeforeunload da janela
+    ticketWindow.onbeforeunload = function () {
+        // Redirecionar após o fechamento da janela
+        window.location.href = "/Suas-Tech/cadunico/views/atendimento/views/gerar_atend.php";
+    };
+    // Chamar a função de impressão diretamente ao abrir a janela
+    ticketWindow.print();
+    // Fechar a janela após a impressão
+    ticketWindow.close();
+}
+
+
+
+
+
 async function gerarSenhaImprimir(tipoSenha) {
     try {
         // Obtenha o nome da pessoa do campo de entrada
@@ -6,7 +57,7 @@ async function gerarSenhaImprimir(tipoSenha) {
         const cpfPessoa = document.getElementById("cpf_pess").value;
 
         // Adicione o nome da pessoa à URL da requisição
-        const dados = await fetch(`/Suas-Tech/cadunico/controller/atendimento/gerar_senha.php?tipo=${tipoSenha}&nome=${nomePessoa}&cpf_pess=${cpfPessoa}`);
+        const dados = await fetch(`/Suas-Tech/cadunico/views/atendimento/models/gerar_senha.php?tipo=${tipoSenha}&nome=${nomePessoa}&cpf_pess=${cpfPessoa}`);
 
         if (!dados.ok) {
             throw new Error('Erro na requisição: ' + dados.status);
@@ -36,30 +87,6 @@ async function gerarSenhaImprimir(tipoSenha) {
     }
 }
 
-function exibirTicket(nome, senha) {
-    // Criar uma string HTML para o ticket personalizado
-    const ticketHTML = `
-        <div>
-            <p>Nome:  ${nome}</p>
-            <p>Hora:  ${new Date().toLocaleTimeString()}</p>
-            <p>Senha: ${senha}</p>
-        </div>
-    `;
-
-    // Abrir uma nova janela ou popup para exibir o ticket
-    const ticketWindow = window.open('', '_blank', 'width=300,height=200');
-    ticketWindow.document.write('<html><head><title>Ticket</title></head><body>');
-    ticketWindow.document.write(ticketHTML);
-    ticketWindow.document.write('</body></html>');
-    
-    // Chamar a função de impressão após a janela ser carregada
-    ticketWindow.onload = function () {
-        ticketWindow.print();
-        ticketWindow.onafterprint = function () {
-            ticketWindow.close();
-        };
-    };
-}
 
 
 
@@ -71,7 +98,7 @@ async function chamarSenha(tipoSenha) {
     //console.log("Chamar senha, tipo de senha: " + tipoSenha);
 
     // Chamar o arquivo PHP para chamar a senha
-    const dados = await fetch('../../controller/atendimento/chamar_senha.php?tipo=' + tipoSenha);
+    const dados = await fetch('/Suas-Tech/cadunico/views/atendimento/models/chamar_senha.php?tipo=' + tipoSenha);
 
     // Ler os dados retornado pelo PHP
     const resposta = await dados.json();

@@ -23,6 +23,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
 <body>
     <h1>ATENDIMENTO</h1>
+    
     <div id="divcpf">
         <label>CPF:</label>
         <input type="text" name="cpf" id="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF" required>
@@ -31,6 +32,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <p id="tituloAtendimento" style="display:none">Escolha seu atendimento</p>
 
     <div id="mensagemSucesso" class="mensagem-sucesso"></div>
+
     <div id="conteiner_atendimento">
         <div class="opcad">
             <div class="cadunico1" id="btnCadUnico" style="display:none">
@@ -68,6 +70,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </div>
     </div>
     <div id="mensagemCadOptions" class="mensagem-Options"></div>
+
     <div id="conteiner_prioridade">
         <div id="opcoesAtendimento" style="display: none;">
             <p>Escolha a prioridade:</p>

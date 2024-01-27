@@ -27,7 +27,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
     </div>
 
-    <script src="../../js/custom.js"></script>
+    <script src="/Suas-Tech/cadunico/views/atendimento/js/custom.js"></script>
 
     <!--AJAX PARA LISTAR OS DADOS -->
     <script type="text/javascript">
@@ -35,7 +35,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             // Função para obter as últimas senhas e atualizar dinamicamente a lista
             function obterUltimasSenhas() {
                 $.ajax({
-                    url: "ajax/listar_tela.php",
+                    url: "/Suas-Tech/cadunico/views/atendimento/ajax/listar_tela.php",
                     method: "post",
                     dataType: "html",
                     success: function (result) {
@@ -58,7 +58,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             // Função para obter as últimas senhas e atualizar dinamicamente a lista
             function obterUltimasSenhas() {
                 $.ajax({
-                    url: "ajax/listar_ultimas.php",
+                    url: "/Suas-Tech/cadunico/views/atendimento/ajax/listar_ultimas.php",
                     method: "post",
                     dataType: "html",
                     success: function (result) {
