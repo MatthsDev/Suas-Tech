@@ -1,9 +1,11 @@
 <?php
-include_once '../../../config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Suas-Tech/config/sessao.php';
 
-$tipo = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_NUMBER_INT);
-$nomePessoa = filter_input(INPUT_GET, 'nome', FILTER_SANITIZE_STRING);
-$cpfPessoa = filter_input(INPUT_GET, 'cpf_pess', FILTER_SANITIZE_STRING);
+$tipo = filter_input(INPUT_GET, 'tipo');
+$nomePessoa = filter_input(INPUT_GET, 'nome');
+$cpfPessoa = $_GET['cpf_pess'];
+
 
 $retorna = [];
 

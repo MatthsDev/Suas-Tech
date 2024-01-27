@@ -6,7 +6,7 @@ async function gerarSenha(tipoSenha) {
         const cpfPessoa = document.getElementById("cpf_pess").value;
 
         // Adicione o nome da pessoa à URL da requisição
-        const dados = await fetch(`../../controller/atendimento/gerar_senha.php?tipo=${tipoSenha}&nome=${nomePessoa}&cpf_pess=${cpfPessoa}`);
+        const dados = await fetch(`/Suas-Tech/cadunico/controller/atendimento/gerar_senha.php?tipo=${tipoSenha}&nome=${nomePessoa}&cpf_pess=${cpfPessoa}`);
 
         if (!dados.ok) {
             throw new Error('Erro na requisição: ' + dados.status);
@@ -32,6 +32,7 @@ async function gerarSenha(tipoSenha) {
         document.getElementById("senhaGerada").innerHTML = "";
     }
 }
+
 
 
 // Funcao chamar senha conforme o tipo de senha recebido

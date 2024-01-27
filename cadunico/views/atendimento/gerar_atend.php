@@ -1,34 +1,7 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/Suas-Tech/config/conexao.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
-function formatarCPF($cpf) {
-    // Remove caracteres especiais (pontos e traço)
-    $cpfFormatado = preg_replace('/[^0-9]/', '', $cpf);
-
-    // Remove o zero à frente, se existir
-    $cpfFormatado = ltrim($cpfFormatado, '0');
-
-    return $cpfFormatado;
-}
-
-$cpf_dec_formatado = null;
-$nom_pessoa = null;
-
-if(isset($_GET['cpf'])) {
-    $cpf_dec = $_GET['cpf'];
-
-    // Formata o CPF antes de consultar no banco de dados
-    $cpf_dec_formatado = formatarCPF($cpf_dec);
-
-    $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec_formatado");
-    $sql->execute(array(':cpf_dec_formatado' => $cpf_dec_formatado));
-
-    if($sql->rowCount() > 0) {
-        $dados = $sql->fetch(PDO::FETCH_ASSOC);
-        $nom_pessoa = $dados["nom_pessoa"];
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +11,15 @@ if(isset($_GET['cpf'])) {
     <meta charset="UTF-8" />
     <title>Tech-Suas</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="../../js/cpfvalid.js"></script>
-    <script src="../../js/custom.js"></script>
-    <script src="../../js/atendimento.js"></script>
+
+    <script src="/Suas-Tech/cadunico/js/cpfvalid.js"></script>
+    <script src="/Suas-Tech/cadunico/js/custom.js"></script>
+    <script src="/Suas-Tech/cadunico/js/atendimento.js"></script>
 </head>
 
 <body>
@@ -53,46 +30,97 @@ if(isset($_GET['cpf'])) {
     <h2>GERAR SENHA DE ATENDIMENTO </h2>
     <br>
 
+    <br>
+    <br>
+
+    <form>
+        <label>INFORME O CPF DO USUARIO: </label>
+        <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)" placeholder="Digite o CPF"
+            required>
+    </form>
+    <br>
+    <br>
+    <label for="nome">Nome:</label>
+    <input class="inpu" type="text" id="nome" name="nome" required>
+    <br>
+    <input type="hidden" id="cpf_pess" name="cpf_pess">
+
+
+    <br>
+    <br>
+
     <label for="nome">SELECIONE O ATENDIMENTO: </label>
-    <select name="atendimentos" id="atendimentos">
-        <option value="">Selecione...</option>
-        <option value="CADUNICO">CADUNICO</option>
-        <option value="IDENTIDADE">IDENTIDADE</option>
-        <option value="CPF">CPF</option>
-        <option value="CONCESSÃO">CONCESSÃO</option>
+    <select name="atendimentos" id="setorSelect">
+        <!-- Opções do Setor serão carregadas dinamicamente aqui -->
     </select>
 
 
     <br>
     <br>
-    <form method="GET">
-        <label>INFORME O CPF DO USUARIO: </label>
-        <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF para consultar..." onblur="validarCPF(this)">
-        <button type="submit">BUSCAR</button>
-    </form>
-    <br>
-    <br>
 
-    <input type="hidden" id="cpf_pess" name="cpf_pess" value="<?php echo $cpf_dec_formatado; ?>">
+    <div id="botoesTiposAtendimento">
+        <!-- Botões com os tipos de atendimento serão carregados dinamicamente aqui -->
+    </div>
 
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" placeholder="Digite o nome" value="<?php echo $nom_pessoa; ?>">
+
+
     <span id="msgAlerta"></span>
     <p>Senha: <span id="senhaGerada"></span></p>
 
-    <h3>SELECIONE A PRIORIDADE</h3>
-    <!-- SELECT CADUNICO -->
-    <p><button id="btnCADUNICO1" onclick="gerarSenha(1)">PBF NORMAL</button></p>
-    <p><button id="btnCADUNICO2" onclick="gerarSenha(2)">PBF PRIORIDADE</button></p>
-    <p><button id="btnCADUNICO3" onclick="gerarSenha(3)">PBF SITIO</button></p>
-    <p><button id="btnCADUNICO4" onclick="gerarSenha(4)">PBF ESPECIAL</button></p>
 
-    <!-- SELECT IDENTIDADE-->
-    <p><button id="btnIDENTIDADE5" onclick="gerarSenha(5)">IDENTIDADE NORMAL</button></p>
-    <p><button id="btnIDENTIDADE6" onclick="gerarSenha(6)">IDENTIDADE PRIORIDADE</button></p>
-    <p><button id="btnIDENTIDADE7" onclick="gerarSenha(7)">IDENTIDADE SITIO</button></p>
-    <p><button id="btnIDENTIDADE8" onclick="gerarSenha(8)">IDENTIDADE ESPECIAL</button></p>
 
-    <p><h4 id="btnAlert" style="color: red;">SELECIONE O TIPO DE ATENDIMENTO</h4></p>
+    <script src="ajax/ajax_request.js"></script>
+
+    <script>
+
+        // Função para carregar opções de Setor de atendimento
+        function carregarSetores() {
+            $.ajax({
+                url: 'controller/carregar_atendimento.php',
+                type: 'GET',
+                success: function (data) {
+                    $('#setorSelect').html(data);
+                }
+            });
+        }
+
+        // Função para carregar tipos de atendimento com base no setor selecionado
+        function carregarTiposAtendimentos(setorSelecionado) {
+            $.ajax({
+                url: 'controller/carregar_btnSenha.php',
+                type: 'GET',
+                data: { nomeSetor: setorSelecionado },
+                success: function (data) {
+                    $('#botoesTiposAtendimento').html(data);
+                }
+            });
+        }
+
+
+        // Carregar opções de Setor no carregamento da página
+        $(document).ready(function () {
+            carregarSetores();
+
+            // Atualizar opções de Tipo de Atendimento quando o Setor for alterado
+            $('#setorSelect').change(function () {
+                var setorSelecionado = $(this).val();
+                carregarTiposAtendimentos(setorSelecionado);
+            });
+
+            // Manipular o clique nos botões de tipos de atendimento
+            $('#botoesTiposAtendimento').on('click', '.btnTipoAtendimento', function () {
+                var idTipoAtendimento = $(this).data('id');
+            });
+
+        });
+
+          // Função para remover caracteres especiais do CPF
+          function removerCaracteresEspeciais(cpf) {
+            return cpf.replace(/[^\d]/g, '');
+        }
+
+
+    </script>
 </body>
+
 </html>
