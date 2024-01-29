@@ -58,25 +58,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         <div class="mural">
             <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
             <?php
-            $data_corrente = date('Y-m-d');
-            $table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
-            $table_fluxo->execute();
-            if ($table_fluxo) {
-                $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
-            ?>
+$data_corrente = date('Y-m-d');
+$table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
+$table_fluxo->execute();
+if ($table_fluxo) {
+    $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
+    ?>
 
                 <?php
-                foreach ($dados_table_fluxo as $linhas) {
-                    if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
-                ?>
-                        <p><?php echo $linhas['nome']; ?> está com prazo finalizado - Cozinha Comunitária. <a class="veja" href='/Suas-Tech/controller/conexao_table.php'>Veja aqui</a> </p>
-
-
-            <?php
-                    }
-                }
-            }
+foreach ($dados_table_fluxo as $linhas) {
+        if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
             ?>
+                        <p><?php echo $linhas['nome']; ?> está com prazo finalizado - Cozinha Comunitária. <a class="veja" href='/Suas-Tech/controller/conexao_table.php'>Veja aqui</a> </p>
+            <?php
+}
+    }
+}
+?>
         </div>
         <div class="drop-all">
             <div class="menu-drop">
@@ -92,18 +90,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             <span class="material-symbols-outlined">manage_accounts</span>
                         </a>
                         <?php
-
-                        if ($nivel == 'suport') {
-                        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
+if ($nivel == 'suport') {
+    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
                                 <span class="material-symbols-outlined">rule_settings</span>
                             </a> <?php
-                                    exit();
-                                }
-                                    ?>
+exit();
+}
+?>
                     </div>
             </div>
 
-
 </body>
-
 </html>
