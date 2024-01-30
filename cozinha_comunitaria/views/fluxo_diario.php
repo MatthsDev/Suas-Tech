@@ -123,12 +123,8 @@ if (!isset($_GET['nis'])) {
     <p id="mensagem_bloqueio"></p>
     
         <button id='gerar_relatorio' type="submit" name="gerar_relatorio">ENCERRAR AS ENTREGAS</button>
-<<<<<<< HEAD
     </form>
     </div>
-=======
-
->>>>>>> b3808156966fe0ba850b071073d496ecf9c117b5
     <script src='../../controller/back.js'></script>
 </body>
 </html>
