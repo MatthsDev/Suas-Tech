@@ -5,22 +5,7 @@ $(document).ready(function () {
 
         if (confirmarAcao) {
 
-            $.ajax({
-                type: 'POST',
-                url: '../gerar_relatorio_diario.php',
-                data: {
-                    gerar_relatorio: gerar_relatorio
-                },
-                dataType: 'json',
-                success: function (response) {
-                    if (response.encontrado) {
-                        alert('Relatório diário gerado com sucesso!');
-                    } else {
-                        alert('Erro ao gerar relatório diário!');
-                    }
-
-                }
-            })
+            window.location.href = "../views/gerar_relatorio_diario.php";
             $('#buscar').hide();
             $('#gerar_relatorio').hide();
 

@@ -4,7 +4,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
-if (isset($_POST['gerar_relatorio'])) {
     $sql_csv = 'SELECT nis_benef, nome, nome_mae, cpf_benef, data_de_entrega, encaminhado_cras, qtd_pessoa, qtd_marmita, marm_entregue, data_limite, entregue_por, data_registro FROM fluxo_diario_coz';
     $resultado_csv = $conn->query($sql_csv);
 
@@ -55,7 +54,3 @@ if (isset($_POST['gerar_relatorio'])) {
     // Fecha a conexão com o banco de dados
     $conn->close();
     echo '<script>alert("Relatório gerado com sucesso!"); window.location.href = "fluxo_diario.php";</script>';
-} else {
-    // Resposta para outras ações ou nenhum parâmetro 'acao'
-    echo 'Ação desconhecida.';
-}
