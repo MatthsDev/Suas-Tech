@@ -42,7 +42,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         // Atualiza os dados na tabela
         $editar_sql = "UPDATE fluxo_diario_coz SET data_de_entrega = NULL, marm_entregue = 0, entregue = 'não', entregue_por = NULL";
         if ($conn->query($editar_sql) === true) {
-            echo json_encode(array('encontrado' => true));
+            echo '<script>alert("Relatório gerado com sucesso!"); window.location.href = "fluxo_diario.php";</script>';
         } else {
             echo 'Falha na atualização de dados' . $conn->error;
         }
