@@ -119,10 +119,12 @@ if (!isset($_GET['nis'])) {
             </div>
         </div>
     </div>
+    <div class="encerrar">
     <p id="mensagem_bloqueio"></p>
     <form action="gerar_relatorio_diario.php" method="POST">
         <button id='gerar_relatorio' type="submit" name="gerar_relatorio">ENCERRAR AS ENTREGAS</button>
     </form>
+    </div>
     <script src='../../controller/back.js'></script>
 </body>
 </html>
