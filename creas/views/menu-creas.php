@@ -24,28 +24,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <?php echo $apelido; ?>.
             </h3>
     </div>
-    <?php
-
-$data_corrente = date('Y-m-d');
-$table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
-$table_fluxo->execute();
-if ($table_fluxo) {
-    $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
-    ?>
-        <div class="mural-avisos">
-    <h4>Mural de Avisos</h4>
-<?php
-foreach ($dados_table_fluxo as $linhas) {
-        if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
-            ?>
-            <p><?php echo $linhas['nome']; ?> está com prazo finalizado Cozinha Comunitária. <a href='/Suas-Tech/controller/conexao_table.php'>VEJA MAIS AQUI</a> </p>
-
-        </div>
-    <?php
-}
-    }
-}
-?>    </div>    
     <div class="container">
         <div class="menu"> 
             <nav>
@@ -75,33 +53,50 @@ foreach ($dados_table_fluxo as $linhas) {
                 </div>
             </nav>
         </div>  
-        <!--<footer><img src="../img/   " alt=""></footer>-->
-    <div class="drop-all">
-        <div class="menu-drop">
-            <button class="logout" type="button" name="drop">
-            <span class="material-symbols-outlined">
-            Settings
-            </span> 
-        <div class="drop-content">
-            <a title="Sair" href='/Suas-Tech/config/logout.php';>
-            <span title="Sair" class="material-symbols-outlined">logout</span>    
-            </a>
-            <a title="Alterar Usuário" href='../../cras/views/conta.php';>
-            <span  class="material-symbols-outlined">manage_accounts</span>       
-            </a>
+        <div class="mural">
+        <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
             <?php
-    if($nivel == 'suport'){
-        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
-        <span  class="material-symbols-outlined">rule_settings</span>       
-        </a> <?php
-        exit();
+$data_corrente = date('Y-m-d');
+$table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
+$table_fluxo->execute();
+if ($table_fluxo) {
+    $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+
+                <?php
+foreach ($dados_table_fluxo as $linhas) {
+        if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
+            ?>
+                        <p><?php echo $linhas['nome']; ?> está com prazo finalizado - Cozinha Comunitária. <a class="veja" href='/Suas-Tech/controller/conexao_table.php'>Veja aqui</a> </p>
+            <?php
+}
     }
-    ?>     
+}
+?>
         </div>
-    </div>
-
-
-
+        <div class="drop-all">
+            <div class="menu-drop">
+                <button class="logout" type="button" name="drop">
+                    <span class="material-symbols-outlined">
+                        Settings
+                    </span>
+                    <div class="drop-content">
+                        <a title="Sair" href='../../config/logout.php' ;>
+                            <span title="Sair" class="material-symbols-outlined">logout</span>
+                        </a>
+                        <a title="Alterar Usuário" href='conta.php' ;>
+                            <span class="material-symbols-outlined">manage_accounts</span>
+                        </a>
+                        <?php
+if ($nivel == 'suport') {
+    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
+                                <span class="material-symbols-outlined">rule_settings</span>
+                            </a> <?php
+exit();
+}
+?>
+                    </div>
+            </div>
 
 </body>
 </html>
