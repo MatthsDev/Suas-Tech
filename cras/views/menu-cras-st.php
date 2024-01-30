@@ -57,23 +57,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         </div>
         <div class="mural">
         <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
-            <?php
-$data_corrente = date('Y-m-d');
-$table_fluxo = $pdo->prepare('SELECT * FROM fluxo_diario_coz');
-$table_fluxo->execute();
-if ($table_fluxo) {
-    $dados_table_fluxo = $table_fluxo->fetchAll(PDO::FETCH_ASSOC);
-    ?>
-
-                <?php
-foreach ($dados_table_fluxo as $linhas) {
-        if ($linhas['data_limite'] <= $data_corrente && $linhas['encaminhado_cras'] == $setor) {
-            ?>
-                        <p><?php echo $linhas['nome']; ?> está com prazo finalizado - Cozinha Comunitária. <a class="veja" href='/Suas-Tech/controller/conexao_table.php'>Veja aqui</a> </p>
-            <?php
-}
-    }
-}
+<?php
+include_once '../../controller/aviso_prazo.php';
 ?>
         </div>
         <div class="drop-all">
