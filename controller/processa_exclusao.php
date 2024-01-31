@@ -49,31 +49,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Move a linha para a tabela fluxo_diario_coz
             $sql_move_para_fluxo = "INSERT INTO fluxo_diario_coz (nis_benef, num_doc, nome, dt_nasc, nome_mae, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita, entregue, prioridade, data_limite, nome_operador, data_registro) VALUES (:nis_benef, :num_doc, :nome, :dt_nasc, :nome_mae, :cpf_benef, :encaminhado_cras, :qtd_pessoa, :qtd_marmita, :entregue, :prioridade, :data_limite, :nome_operador, :data_registro)";
             $stmt_move_para_fluxo = $pdo->prepare($sql_move_para_fluxo);
-            $stmt_move_para_fluxo->bindParam(':nis_benef', $dados_fila_espera['nis_benef']);
-            $stmt_move_para_fluxo->bindParam(':num_doc', $dados_fila_espera['num_doc']);
-            $stmt_move_para_fluxo->bindParam(':nome', $dados_fila_espera['nome']);
-            $stmt_move_para_fluxo->bindParam(':dt_nasc', $dados_fila_espera['dt_nasc']);
-            $stmt_move_para_fluxo->bindParam(':nome_mae', $dados_fila_espera['nome_mae']);
-            $stmt_move_para_fluxo->bindParam(':cpf_benef', $dados_fila_espera['cpf_benef']);
-            $stmt_move_para_fluxo->bindParam(':encaminhado_cras', $dados_fila_espera['encaminhado_cras']);
-            $stmt_move_para_fluxo->bindParam(':qtd_pessoa', $dados_fila_espera['qtd_pessoa']);
-            $stmt_move_para_fluxo->bindParam(':qtd_marmita', $dados_fila_espera['qtd_marmita']);
-            $stmt_move_para_fluxo->bindParam(':prioridade', $dados_fila_espera['prioridade']);
-            $stmt_move_para_fluxo->bindParam(':nome_operador', $dados_fila_espera['nome_operador']);
-            $stmt_move_para_fluxo->bindParam(':data_registro', $dados_fila_espera['data_registro']);
-            $stmt_move_para_fluxo->bindParam(':entregue', $entregue);
-            $stmt_move_para_fluxo->bindParam(':data_limite', $data_formatada);
 
-            $stmt_move_para_fluxo->execute();
+            if (!empty($dados_fila_espera)) {
+                $stmt_move_para_fluxo->bindParam(':nis_benef', $dados_fila_espera['nis_benef']);
+                $stmt_move_para_fluxo->bindParam(':num_doc', $dados_fila_espera['num_doc']);
+                $stmt_move_para_fluxo->bindParam(':nome', $dados_fila_espera['nome']);
+                $stmt_move_para_fluxo->bindParam(':dt_nasc', $dados_fila_espera['dt_nasc']);
+                $stmt_move_para_fluxo->bindParam(':nome_mae', $dados_fila_espera['nome_mae']);
+                $stmt_move_para_fluxo->bindParam(':cpf_benef', $dados_fila_espera['cpf_benef']);
+                $stmt_move_para_fluxo->bindParam(':encaminhado_cras', $dados_fila_espera['encaminhado_cras']);
+                $stmt_move_para_fluxo->bindParam(':qtd_pessoa', $dados_fila_espera['qtd_pessoa']);
+                $stmt_move_para_fluxo->bindParam(':qtd_marmita', $dados_fila_espera['qtd_marmita']);
+                $stmt_move_para_fluxo->bindParam(':prioridade', $dados_fila_espera['prioridade']);
+                $stmt_move_para_fluxo->bindParam(':nome_operador', $dados_fila_espera['nome_operador']);
+                $stmt_move_para_fluxo->bindParam(':data_registro', $dados_fila_espera['data_registro']);
+                $stmt_move_para_fluxo->bindParam(':entregue', $entregue);
+                $stmt_move_para_fluxo->bindParam(':data_limite', $data_formatada);
 
-            // Exclui a linha da tabela fila_cozinha
-            $sql_excluir_fila = "DELETE FROM fila_cozinha WHERE id = :id";
-            $stmt_excluir_fila = $pdo->prepare($sql_excluir_fila);
-            $stmt_excluir_fila->bindParam(':id', $dados_fila_espera['id']);
-            $stmt_excluir_fila->execute();
+                $stmt_move_para_fluxo->execute();
 
-            // Atualiza a soma total
-            $soma_total += $dados_fila_espera['qtd_marmita'];
+                // Exclui a linha da tabela fila_cozinha
+                $sql_excluir_fila = "DELETE FROM fila_cozinha WHERE id = :id";
+                $stmt_excluir_fila = $pdo->prepare($sql_excluir_fila);
+                $stmt_excluir_fila->bindParam(':id', $dados_fila_espera['id']);
+                $stmt_excluir_fila->execute();
+
+                // Atualiza a soma total
+                $soma_total += $dados_fila_espera['qtd_marmita'];
+            } else {
+                echo "<script>alert('A fila de espera está vazia.')</script>";
+                break;
+            }
+
         }
 
         // Exibe as mensagens em um modal
