@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 11, 2024 at 02:13 AM
+-- Generation Time: Feb 04, 2024 at 07:10 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -47,14 +47,7 @@ CREATE TABLE IF NOT EXISTS `fila_cozinha` (
   `nome_operador` varchar(70) NOT NULL,
   `data_registro` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `fila_cozinha`
---
-
-INSERT INTO `fila_cozinha` (`id`, `nis_benef`, `num_doc`, `nome`, `dt_nasc`, `nome_mae`, `cpf_benef`, `data_de_entrega`, `encaminhado_cras`, `qtd_pessoa`, `qtd_marmita`, `marm_entregue`, `limiter`, `entregue`, `prioridade`, `nome_operador`, `data_registro`) VALUES
-(11, '23753939826', '35/2024', 'MARIA KAROLINA DE LIMA MARTINS', '', '', '107.467.854-02', '', 'SUPORTE', 3, 3, 0, '', 'não', 1, 'AGENTE TECNICO', '10/01/2024');
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
