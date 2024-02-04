@@ -114,7 +114,20 @@ if ($dados['entregue'] == 'ok') {
                 $sqld->bind_param("sssss", $data_entrega, $qtd_entregue, $get_rec, $nomeOperador, $dados['nis_benef']);
 
                 if ($sqld->execute()) {
-                    echo '<script>alert("Entrega registrada!"); window.location.href = "fluxo_diario.php";</script>';
+                    // Inserção no histórico mensal
+                    if ($get_rec == 'ok') {
+                        $get_rec1 = 'SIM';
+                    }else{
+                        $get_rec1 = 'NÃO';
+                    }
+                    $sql_insert_historico = $conn->prepare("INSERT INTO historico_mensal (id_beneficiario, data, entregue, quantidade_dia) VALUES (?, ?, ?, ?)");
+                    $sql_insert_historico->bind_param("ssss", $dados['id'], $data_entrega, $get_rec1, $qtd_entregue);
+
+                    if ($sql_insert_historico->execute()) {
+                        echo '<script>alert("Entrega registrada!"); window.location.href = "fluxo_diario.php";</script>';
+                    } else {
+                        echo "Erro ao inserir no histórico mensal: " . $sql_insert_historico->error;
+                    }
                 } else {
                     echo "Não salvou" . $sqld->error . "contate o suporte.";
                 }
