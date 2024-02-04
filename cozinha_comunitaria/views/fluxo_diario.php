@@ -70,6 +70,13 @@ if (!isset($_GET['nis'])) {
     } else {
         $dados = $sql_query->fetch_assoc();
         ?>
+<b><?php
+if ($dados['entregue'] == 'ok') {
+            echo '<div class="resul">Essa família já recebeu hoje.</div>';
+        } else {
+        }
+        ?></b>
+
                         <div class="resul">
                             NOME: <?php echo $dados['nome']; ?>
                         </div>
@@ -95,7 +102,7 @@ if (!isset($_GET['nis'])) {
             $sql_dados = "SELECT * FROM fluxo_diario_coz WHERE nis_benef LIKE $sql_cod";
             $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn->error);
             $dados = $sql_query->fetch_assoc();
-            if ($dados['entregue'] == 'OK') {
+            if ($dados['entregue'] == 'ok') {
                 echo '<script>alert("Já foi entregue hoje para esta família!"); window.location.href = "fluxo_diario.php";</script>';
             } else {
                 $data_entrega = date('Y-m-d H:i');
@@ -121,7 +128,6 @@ if (!isset($_GET['nis'])) {
     </div>
     <div class="encerrar">
     <p id="mensagem_bloqueio"></p>
-    
         <button id='gerar_relatorio' type="submit" name="gerar_relatorio">ENCERRAR AS ENTREGAS</button>
     </form>
     </div>
