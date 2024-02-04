@@ -51,13 +51,13 @@ foreach ($dados_table_fluxo as $linhas) {
 
             ?>
                             <tr>
-                                <td> <?php echo $linhas['cpf_benef']; ?> </td>
+                                <td> <?php echo $linhas['nis_benef']; ?> </td>
                                 <td> <?php echo $linhas['nome']; ?> </td>
                                 <td> <?php echo $linhas['data_registro']; ?> </td>
                                 <td> <?php echo $linhas['data_limite']; ?> </td>
                                 <td> <?php echo $linhas['encaminhado_cras']; ?> </td>
                                 <td> FORA DO PRAZO </td>
-                                <td class="check" >
+                                <td class="check">
                                 <label class="urg">
                                 <input type="checkbox" name="excluir[]" value="<?php echo $linhas['id']; ?>">
                                 <span class="checkmark"></span>
@@ -72,22 +72,17 @@ foreach ($dados_table_fluxo as $linhas) {
         if ($linhas['limiter'] >= 3) {
             ?>
             <tr>
-            <td> <?php echo $linhas['cpf_benef']; ?> </td>
+            <td> <?php echo $linhas['nis_benef']; ?> </td>
             <td> <?php echo $linhas['nome']; ?> </td>
             <td> <?php echo $linhas['data_registro']; ?> </td>
             <td> <?php echo $linhas['data_limite']; ?> </td>
             <td> <?php echo $linhas['encaminhado_cras']; ?> </td>
             <td> <?php echo $linhas['limiter']; ?> FALTAS </td>
-            <td class="check" >
-            <label class="urg">
-            <input type="checkbox" name="excluir[]" value="<?php echo $linhas['id']; ?>">
-            <span class="checkmark"></span>
-            </label>
-            </td>
+            <td> SEM AÇÃO </td>
         </tr>
         <?php
-    }
 }
+    }
     ?>
                 </table>
                 <div class="botoes">
@@ -95,7 +90,7 @@ foreach ($dados_table_fluxo as $linhas) {
                     <!-- Modal -->
                     <div id="modal" class="modal" style="display: none;">
                         <button type="button" onclick="excluirSelecionados()">Excluir</button>
-                        <button type="button" onclick="editarPrazo(<?php echo $linhas['id']; ?>)">Editar Prazo</button>
+                        <button type="button" onclick="editarPrazo()">Editar Prazo</button>
                     </div>
                 </div>
                 <!-- Fim Modal -->
@@ -110,32 +105,53 @@ foreach ($dados_table_fluxo as $linhas) {
                     document.forms[0].submit(); // Envia o formulário
                 }
 
-                function editarPrazo(id) {
-    var novoPrazo = window.prompt('Informe o novo prazo para esta família (Formato: DD/MM/AAAA)');
+                function editarPrazo() {
+                    var idsSelecionados = [];
 
-    // Utiliza o moment.js para formatar a data
-    var dataFormatada = moment(novoPrazo, 'DD/MM/YYYY').format('YYYY-MM-DD');
+                    // Percorre todas as checkboxes marcadas e adiciona os IDs ao array
+                    $('input[name="excluir[]"]:checked').each(function() {
+                        idsSelecionados.push($(this).val());
+                    });
 
-    $.ajax({
-        url: 'editarPrazo.php',
-        method: 'POST',
-        data: {
-            id: id,
-            novoPrazo: dataFormatada
-        },
-        dataType: 'json',
-        success: function(response) {
-            if (response.encontrado) {
-                alert('Data alterada com sucesso!');
-                location.reload();
-            } else {
-                alert('Erro ao salvar a data! Consulte o SUPORTE DDV.');
-            }
-        },
-        error: function(error) {
-            console.error('Erro ao enviar dados: ' + error);
+    // Verifica se há IDs selecionados
+    if (idsSelecionados.length > 0) {
+        // Solicita a nova data ao usuário usando window.prompt()
+        var novaData = prompt('Informe a nova data (Formato: DD/MM/AAAA)');
+
+        // Verifica se o usuário forneceu uma nova data
+        if (novaData !== null) {
+            // Aqui você pode ajustar a URL conforme necessário
+            var url = 'editarPrazo.php';
+
+            // Aqui você pode adicionar outros dados que deseja enviar ao servidor
+            var dados = {
+                ids: idsSelecionados,
+                novaData: novaData
+            };
+
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: dados,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.encontrado) {
+                        alert('Data alterada com sucesso!')
+                        location.reload()
+                    } else {
+                        alert('Não houve uma conexão válida, acione o suporte!')
+                    }
+                },
+                error: function(error) {
+                    console.error('Erro ao enviar dados: ' + error);
+                }
+            });
+        } else {
+            alert('Você cancelou a operação. Nenhuma alteração será feita.');
         }
-    });
+    } else {
+        alert('Nenhum item selecionado. Selecione pelo menos um item para editar.');
+    }
 }
 
             </script>
