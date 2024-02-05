@@ -2,7 +2,7 @@
 //inicia a sessão
 
 // Inclui o arquivo "conexao.php" que deve conter a configuração da conexão com o banco de dados
-require_once ('../../../config/conexao.php');
+require_once '../../../config/conexao.php';
 ini_set('memory_limit', '256M');
 
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
@@ -23,7 +23,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         if ($sql->rowCount() > 0) {
 
             $dados = $sql->fetch(PDO::FETCH_ASSOC);
-            $dt_atualizacao = $dados['dat_atual_fam'];
+            //$dt_atualizacao = $dados['dat_atual_fam'];
             $cod_familiar = $dados["cod_familiar_fam"];
             $nom_pessoa = $dados["nom_pessoa"];
             $nom_mae_rf = $dados["nom_completo_mae_pessoa"];
@@ -35,7 +35,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             $real_br_formatado = number_format($renba_media, 2, ',', '.');
 
             // Supondo que $dt_atualizacao é uma data válida
-            $dt_atualizacao = DateTime::createFromFormat('d/m/Y', $dt_atualizacao);
+            $dt_atualizacao = DateTime::createFromFormat('Y-m-d', $data_atualizada);
             $data_atual = new DateTime(); // Obtém a data atual
 
             // Verificar se $dt_atualizacao é uma instância de DateTime
@@ -184,7 +184,7 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
             } else {
                 $recebendo = ".";
             }
-    
+
         } else {
             echo "<script>
             alert('NIS não encontrado.');
@@ -203,4 +203,3 @@ if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
         }
     }
 }
-?>

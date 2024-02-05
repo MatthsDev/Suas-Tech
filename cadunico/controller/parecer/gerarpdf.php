@@ -21,7 +21,7 @@ setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
 
 $data_atual = date('d, m, Y');
 $ano_atual = date('Y');
-//PEGANDO OS DADOS DO FORMULÁRIO
+// PEGANDO OS DADOS DO FORMULÁRIO
 // Verifique se o array da sessão existe e obtenha os valores dele
 session_start();
 
@@ -74,16 +74,13 @@ echo "<label>NIS do Responsável pela(o) Unidade Familiar (RUF): " . $nis_respon
 echo "<br><p style='text-align:justify; text-indent: 50px;'>De acordo com o art. 18 da PORTARIA N° 177, DE 16 DE JUNHO DE 2011 DO MINISTÉRIO DE ESTADO DO DESENVOLVIMENTO SOCIAL E COMBATE À FOME, o município apenas efetuará a exclusão lógica do cadastro da família da base do CadÚnico quando ocorrer *falecimento de toda a família, *recusa da família em prestar informações, *omissões ou prestação de informações inverídicas pela família, *solicitação da família, *decisão judicial ou *não localização da família para atualização ou revisão cadastral, por período igual ou superior a quatro anos contados da inclusão ou da última atualização cadastral.</p>";
 echo "<p style='text-align:justify; text-indent: 50px;'>Foi realizado no dia " . $data_formatada . ", no endereço " . $endereco_conpleto . " declarado por " . $nom_pessoa . ", CPF: " . $cpf_formatado . ", " . $sexo . " " . $nom_mae_rf . ", mas " . $sexo1 . " " . $acao . ". Em busca ativa obteve a seguinte informação " . $parecer_tec . "</p>";
 echo "<br><br><p style='text-align:right;'>São Bento do Una - PE, " . $data_formatada_at . ".</p>";
-echo "<br><p style='text-align:center;'>_____________________________________________________________________________<br> ENTREVISTADOR DO CADASTRO ÚNICO</p><br>";
-echo "<br><p style='text-align:center;'>_____________________________________________________________________________<br> COORDENAÇÃO CADASTRO ÚNICO E BOLSA FAMÍLIA</p>";
+echo "<br><br><p style='text-align:center;'>_____________________________________________________________________________<br> ENTREVISTADOR DO CADASTRO ÚNICO</p><br>";
+echo "<br><br><p style='text-align:center;'>_____________________________________________________________________________<br> COORDENAÇÃO CADASTRO ÚNICO E BOLSA FAMÍLIA</p>";
 echo "</body>";
 echo "</html>";
 
 echo '<script> setTimeout(function(){ window.location.href = "../../views/visit/buscarvisita.php"; }, 3000); </script>';
 ?>
 </div>
-    <script>
-    window.onload = function() {
-        window.print();
-    };
+    <script> window.onload = function() { window.print();};
     </script>

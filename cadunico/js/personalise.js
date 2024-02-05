@@ -8,3 +8,4 @@ function sempre_maiusculo(elemento) {
         document.getElementById(campo + 'Visual').style.display = 'none';
         document.getElementById(campo + 'Edicao').style.display = 'block';
     }
+    

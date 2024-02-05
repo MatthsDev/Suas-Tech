@@ -27,12 +27,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
     echo "<p><button type='button' onclick='chamarSenha(3)'>PREFERENCIAL SITIO</button></p>";
 
-    echo "<p><button type='button' onclick='chamarSenha(3)'>PREFERENCIAL ESPECIAL </button></p>";
+    echo "<p><button type='button' onclick='chamarSenha(15)'>PREFERENCIAL ESPECIAL </button></p>";
 
     // Recuperar a senhas geradas que estao salva na tabela "senhas_geradas", com a situacao 2 "Emitida"
     $query_senhas_geradas = "SELECT senger.id,
                     sen.nome_senha,
-                    tip.nome
+                    tip.nomeSetor
                     FROM senhas_geradas AS senger
                     INNER JOIN senhas AS sen ON sen.id=senger.senha_id
                     INNER JOIN tipos_senhas AS tip ON tip.id=sen.tipos_senha_id
@@ -71,7 +71,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     echo "</div>";
     ?>
 
-    <script src="../../js/custom.js"></script>
+    <script src="/Suas-Tech/cadunico/views/atendimento/js/custom.js"></script>
 
 </body>
 

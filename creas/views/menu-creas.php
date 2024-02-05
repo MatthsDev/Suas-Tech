@@ -1,6 +1,7 @@
 <?php
-include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
-
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,8 +22,8 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
     <div class="apelido">    
         <h3>Bem-vindo (a)
             <?php echo $apelido; ?>.
-        </h3> 
-    </div>    
+            </h3>
+    </div>
     <div class="container">
         <div class="menu"> 
             <nav>
@@ -52,33 +53,35 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
                 </div>
             </nav>
         </div>  
-        <!--<footer><img src="../img/   " alt=""></footer>-->
-    <div class="drop-all">
-        <div class="menu-drop">
-            <button class="logout" type="button" name="drop">
-            <span class="material-symbols-outlined">
-            Settings
-            </span> 
-        <div class="drop-content">
-            <a title="Sair" href='/Suas-Tech/config/logout.php';>
-            <span title="Sair" class="material-symbols-outlined">logout</span>    
-            </a>
-            <a title="Alterar Usuário" href='../../cras/views/conta.php';>
-            <span  class="material-symbols-outlined">manage_accounts</span>       
-            </a>
-            <?php
-    if($nivel == 'suport'){
-        ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php';>
-        <span  class="material-symbols-outlined">rule_settings</span>       
-        </a> <?php
-        exit();
-    }
-    ?>     
+        <div class="mural">
+        <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
+        <?php
+include_once '../../controller/aviso_prazo.php';
+        ?>
         </div>
-    </div>
-
-
-
+        <div class="drop-all">
+            <div class="menu-drop">
+                <button class="logout" type="button" name="drop">
+                    <span class="material-symbols-outlined">
+                        Settings
+                    </span>
+                    <div class="drop-content">
+                        <a title="Sair" href='../../config/logout.php' ;>
+                            <span title="Sair" class="material-symbols-outlined">logout</span>
+                        </a>
+                        <a title="Alterar Usuário" href='conta.php' ;>
+                            <span class="material-symbols-outlined">manage_accounts</span>
+                        </a>
+                        <?php
+if ($nivel == 'suport') {
+    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
+                                <span class="material-symbols-outlined">rule_settings</span>
+                            </a> <?php
+exit();
+}
+?>
+                    </div>
+            </div>
 
 </body>
 </html>

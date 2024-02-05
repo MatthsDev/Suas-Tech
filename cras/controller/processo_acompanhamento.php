@@ -29,7 +29,8 @@ if ($resultado_soma && $resultado2_soma) {
 
 //data criada com formato 'DD de mmmm de YYYY'
 $timestampptbr = time();
-$data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
+//$data_formatada_at = strftime('%d de %B de %Y', $timestampptbr);
+$data_registro = date('d/m/Y');
 
 // Consulta SQL para contar os registros
 $sqlr = "SELECT COUNT(*) as total_registros FROM cras_historico";
@@ -66,9 +67,9 @@ $gpte = $_SESSION['priori'];
     <div class="container">
 <?php
 if ($setor_form == 'COZINHA COMUNITARIA - MARIA NEUMA DA SILVA') {
-    echo "FAMÍLIA de <u>". $nome_pessoa . "</u> está sendo ENCAMINHADA PARA: <b>" . $setor_form . "</b>";
+    echo "FAMÍLIA de <u>" . $nome_pessoa . "</u> está sendo ENCAMINHADA PARA: <b>" . $setor_form . "</b>";
     echo "<br>Quantidade de pessoas na família: <b>" . $qtd . "</b>";
-        ?>
+    ?>
 
             <form method="POST">
                 <div class="bloco">
@@ -102,7 +103,7 @@ if ($setor_form == 'COZINHA COMUNITARIA - MARIA NEUMA DA SILVA') {
         <?php
 if (!isset($_POST['texto_parecer'])) {
     } else {
-        if ($soma_total <= 200) {
+        if ($soma_total < 200) {
 
             $texto_parecer = $_POST['texto_parecer'];
 
@@ -125,15 +126,27 @@ if (!isset($_POST['texto_parecer'])) {
             if ($smtp === false) {
                 die('Erro na preparação SQL: ' . $conn->error);
             }
-            $smtp->bind_param("sssssssss", $num_ano, $nis_pessoa, $nome_pessoa, $cpf, $qtd, $texto_parecer, $setor, $setor_form, $data_formatada_at);
+            $smtp->bind_param("sssssssss", $num_ano, $nis_pessoa, $nome_pessoa, $cpf, $qtd, $texto_parecer, $setor, $setor_form, $data_registro);
+
+            // Verifica se o CPF já existe no banco de dados
+            $verifica_usuario = $conn->prepare("SELECT cpf_benef FROM fluxo_diario_coz WHERE cpf_benef = ?");
+            $verifica_usuario->bind_param("s", $cpf);
+            $verifica_usuario->execute();
+            $verifica_usuario->store_result();
+
+            if ($verifica_usuario->num_rows > 0) {
+                // Se o CPF já estiver cadastrado, exibe uma mensagem ou redirecione de volta ao formulário
+                echo '<script>alert("CPF já cadastrado!"); window.location.href = "processo_acompanhamento.php";</script>';
+                exit();
+            }
 
             //salvamento dos dados ao FLUXO DA COZINHA
-            $stpt = $conn->prepare("INSERT INTO fluxo_diario_coz (nis_benef, num_doc, nome, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita, entregue, prioridade, data_limite) VALUES (?,?,?,?,?,?,?,?,?,?)");
+            $stpt = $conn->prepare("INSERT INTO fluxo_diario_coz (nis_benef, num_doc, nome, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita, entregue, prioridade, data_limite, nome_operador, data_registro) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
             // Verifica se a preparação foi bem-sucedida
             if ($stpt === false) {
                 die('Erro na preparação SQL: ' . $conn->error);
             }
-            $stpt->bind_param("ssssssssss", $nis_pessoa, $num_ano, $nome_pessoa, $cpf, $setor, $qtd, $qtd_itens, $nao, $priori, $data_periodo);
+            $stpt->bind_param("ssssssssssss", $nis_pessoa, $num_ano, $nome_pessoa, $cpf, $setor, $qtd, $qtd_itens, $nao, $priori, $data_periodo, $nome, $data_registro);
 
             if ($stpt->execute() && $smtp->execute()) {
                 echo '<script>alert("Salvo e encaminhado com sucesso!"); window.location.href = "../views/acompanhamento.php";</script>';
@@ -164,21 +177,44 @@ if (!isset($_POST['texto_parecer'])) {
             if ($smtp === false) {
                 die('Erro na preparação SQL: ' . $conn->error);
             }
-            $smtp->bind_param("sssssssss", $num_ano, $nis_pessoa, $nome_pessoa, $cpf, $qtd, $texto_parecer, $setor, $setor_form, $data_formatada_at);
+            $smtp->bind_param("sssssssss", $num_ano, $nis_pessoa, $nome_pessoa, $cpf, $qtd, $texto_parecer, $setor, $setor_form, $data_registro);
+
+            // Verifica se o CPF já existe no banco de dados
+            $verifica_usuario = $conn->prepare("SELECT cpf_benef FROM fluxo_diario_coz WHERE cpf_benef = ?");
+            $verifica_usuario->bind_param("s", $cpf);
+            $verifica_usuario->execute();
+            $verifica_usuario->store_result();
+
+            if ($verifica_usuario->num_rows > 0) {
+                // Se o CPF já estiver cadastrado, exibe uma mensagem ou redirecione de volta ao formulário
+                echo '<script>alert("CPF já cadastrado!"); window.location.href = "processo_acompanhamento.php";</script>';
+                exit();
+            }
+            // Verifica se o CPF já existe no banco de dados
+            $verifica_usuario = $conn->prepare("SELECT cpf_benef FROM fila_cozinha WHERE cpf_benef = ?");
+            $verifica_usuario->bind_param("s", $cpf);
+            $verifica_usuario->execute();
+            $verifica_usuario->store_result();
+
+            if ($verifica_usuario->num_rows > 0) {
+                // Se o CPF já estiver cadastrado, exibe uma mensagem ou redirecione de volta ao formulário
+                echo '<script>alert("CPF já cadastrado!"); window.location.href = "processo_acompanhamento.php";</script>';
+                exit();
+            }
 
             //salvamento dos dados ao FLUXO DA COZINHA
-            $stpt = $conn->prepare("INSERT INTO fila_cozinha (nis_benef, num_doc, nome, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita, entregue, prioridade) VALUES (?,?,?,?,?,?,?,?,?)");
+            $stpt = $conn->prepare("INSERT INTO fila_cozinha (nis_benef, num_doc, nome, cpf_benef, encaminhado_cras, qtd_pessoa, qtd_marmita, entregue, prioridade, nome_operador, data_registro) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             // Verifica se a preparação foi bem-sucedida
             if ($stpt === false) {
                 die('Erro na preparação SQL: ' . $conn->error);
             }
-            $stpt->bind_param("sssssssss", $nis_pessoa, $num_ano, $nome_pessoa, $cpf, $setor, $qtd, $qtd_itens, $nao, $priori);
+            $stpt->bind_param("sssssssssss", $nis_pessoa, $num_ano, $nome_pessoa, $cpf, $setor, $qtd, $qtd_itens, $nao, $priori, $nome, $data_registro);
 
             if ($stpt->execute() && $smtp->execute()) {
                 if ($setor == "CREAS - GILDO SOARES") {
-                echo '<script>alert("Salvo e encaminhado com sucesso! Essa família está na fila de espera."); window.location.href = "../../creas/views/acompanhamento.php";</script>';
-                }else{
-                echo '<script>alert("Salvo e encaminhado com sucesso! Essa família está na fila de espera."); window.location.href = "../views/acompanhamento.php";</script>';
+                    echo '<script>alert("Salvo e encaminhado com sucesso! Essa família está na fila de espera."); window.location.href = "../../creas/views/acompanhamento.php";</script>';
+                } else {
+                    echo '<script>alert("Salvo e encaminhado com sucesso! Essa família está na fila de espera."); window.location.href = "../views/acompanhamento.php";</script>';
                 }
             } else {
                 echo "Não salvou" . $stpt->error;
@@ -190,7 +226,7 @@ if (!isset($_POST['texto_parecer'])) {
     }
 
 } else {
-        echo '<script>alert("SISTEMA EM DESENVOLVIMENTO, NESTE MOMENTO SÓ ENCAMINHAMENTO PARA COZINHA!"); window.location.href = "../views/acompanhamento.php";</script>';
+    echo '<script>alert("SISTEMA EM DESENVOLVIMENTO, NESTE MOMENTO SÓ ENCAMINHAMENTO PARA COZINHA!"); window.location.href = "../views/acompanhamento.php";</script>';
 
 }
 ?>

@@ -28,10 +28,11 @@ if ($resultado_soma && $resultado2_soma) {
 
 
 $tbl_fluxo = $conn->query("SELECT nis_benef, nome, encaminhado_cras, qtd_marmita, entregue FROM fluxo_diario_coz ORDER BY
-    CASE 
-        WHEN prioridade = 'urgente' THEN 1
-        WHEN prioridade = 'prioridade' THEN 2
-        ELSE 3
+    CASE
+        WHEN entregue = 'não' THEN 1
+        WHEN prioridade = '1' THEN 2
+        WHEN prioridade = '2' THEN 3
+        ELSE 4
     END");
 
 if ($tbl_fluxo->num_rows > 0) {
@@ -64,7 +65,7 @@ $contador = 0;
 }
 
     // Verifica se há registros excedentes para a lista de espera
-    if ($soma_total >= 4) {
+    if ($soma_total >= 200) {
         echo "<tr><td colspan='6'>Lista de espera para registros excedentes.</td></tr>";
     }
 

@@ -51,6 +51,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         Controle de Estoque
                         </a>
                 </div>
+                <div class="pagina3">
+                    <a class="menu-button" onclick="location.href='views/testecartao.php';">
+                    <span class="material-symbols-outlined">
+                        badge
+                    </span>
+                    Cartões de retirada
+                    </a>
+                </div>
             </nav>
         </div>  
         <footer><img src="../img/footer-cozinha.svg" alt=""></footer>

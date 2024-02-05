@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obter dados do formulário
     $nomeBase = htmlspecialchars($_POST['nomeSenha']);
     $quantidade = intval($_POST['quantidade']);
-    $tipoSenha = intval($_POST['tipoSenha']);
-    $situacaoSenha = intval($_POST['situacaoSenha']);
+    $tipoSenha = ($_POST['tipoAtendimento']);
+    $situacaoSenha = 1;
 
     try {
         $pdo->beginTransaction();

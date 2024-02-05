@@ -19,11 +19,11 @@ foreach ($dados_total as $row) {
     $user_id = $row['user_id'];
 
     // Consulta para obter o guiche associado ao usuário que gerou a senha
-    $stmt = $pdo->prepare("SELECT guiche FROM usuarios WHERE id = :user_id");
+    $stmt = $pdo->prepare("SELECT guinche FROM usuarios WHERE id = :user_id");
     $stmt->bindValue(':user_id', $user_id);
     $stmt->execute();
     $guiche_result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $guiche = $guiche_result['guiche'];
+    $guiche = $guiche_result['guinche'];
 
 
     echo '
