@@ -37,7 +37,7 @@ if ($table_fluxo) {
                 <th colspan="7" class="cabecalho"><?php echo "LISTA DAS PESSOAS COM DIVERGENCIAS NA COZINHA COMUNITÁRIA"; ?></th>
             </tr>
             <tr>
-                <th>CPF:</th>
+                <th>NIS:</th>
                 <th>NOME:</th>
                 <th>DATA CADASTRADO:</th>
                 <th>DATA LIMITE:</th>
