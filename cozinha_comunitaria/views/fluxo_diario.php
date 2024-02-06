@@ -70,6 +70,13 @@ if (!isset($_GET['nis'])) {
     } else {
         $dados = $sql_query->fetch_assoc();
         ?>
+<b><?php
+if ($dados['entregue'] == 'ok') {
+            echo '<div class="resul">Essa família já recebeu hoje.</div>';
+        } else {
+        }
+        ?></b>
+
                         <div class="resul">
                             NOME: <?php echo $dados['nome']; ?>
                         </div>
@@ -95,7 +102,7 @@ if (!isset($_GET['nis'])) {
             $sql_dados = "SELECT * FROM fluxo_diario_coz WHERE nis_benef LIKE $sql_cod";
             $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn->error);
             $dados = $sql_query->fetch_assoc();
-            if ($dados['entregue'] == 'OK') {
+            if ($dados['entregue'] == 'ok') {
                 echo '<script>alert("Já foi entregue hoje para esta família!"); window.location.href = "fluxo_diario.php";</script>';
             } else {
                 $data_entrega = date('Y-m-d H:i');
@@ -107,7 +114,20 @@ if (!isset($_GET['nis'])) {
                 $sqld->bind_param("sssss", $data_entrega, $qtd_entregue, $get_rec, $nomeOperador, $dados['nis_benef']);
 
                 if ($sqld->execute()) {
-                    echo '<script>alert("Entrega registrada!"); window.location.href = "fluxo_diario.php";</script>';
+                    // Inserção no histórico mensal
+                    if ($get_rec == 'ok') {
+                        $get_rec1 = 'SIM';
+                    }else{
+                        $get_rec1 = 'NÃO';
+                    }
+                    $sql_insert_historico = $conn->prepare("INSERT INTO historico_mensal (id_beneficiario, data, entregue, quantidade_dia) VALUES (?, ?, ?, ?)");
+                    $sql_insert_historico->bind_param("ssss", $dados['id'], $data_entrega, $get_rec1, $qtd_entregue);
+
+                    if ($sql_insert_historico->execute()) {
+                        echo '<script>alert("Entrega registrada!"); window.location.href = "fluxo_diario.php";</script>';
+                    } else {
+                        echo "Erro ao inserir no histórico mensal: " . $sql_insert_historico->error;
+                    }
                 } else {
                     echo "Não salvou" . $sqld->error . "contate o suporte.";
                 }
@@ -121,7 +141,6 @@ if (!isset($_GET['nis'])) {
     </div>
     <div class="encerrar">
     <p id="mensagem_bloqueio"></p>
-    
         <button id='gerar_relatorio' type="submit" name="gerar_relatorio">ENCERRAR AS ENTREGAS</button>
     </form>
     </div>

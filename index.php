@@ -46,7 +46,7 @@
                     <input type="checkbox">
                     Lembrar-me
                 </label>
-                <a data-toggle="modal" data-target="#modal-senha" class="float-right">Recuperar Senha</a>
+                <!--<a data-toggle="modal" data-target="#modal-senha" class="float-right">Recuperar Senha</a>-->
             </div>
         </form>
     </div>
