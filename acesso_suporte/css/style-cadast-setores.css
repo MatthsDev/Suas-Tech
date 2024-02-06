@@ -31,16 +31,30 @@ img {
 
 .bloco {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items:center;
     justify-content: space-between;
     align-content: space-between;
     padding-top: 20px;
 }
+.blocob{
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.btns{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
 .bloco1{
     padding-right: 10px;
 }
-
+.blocott{
+    display: flex;
+    justify-content: space-between;
+    line-height: 2.5;
+    
+}
 .inpu{
     width: 300px;
 }

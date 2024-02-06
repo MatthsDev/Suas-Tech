@@ -38,70 +38,66 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </h1>
 </div>
 <div class="container">
-    <div class="bloco">
+    <div class="blocott">
         <div class="bloco1">
-            <form method="post" action="controller/salva_setor.php">
-            <label>CPF da Coordenação: </label>
-            <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" placeholder="Usar enter após digitar." required >
-        </div>    
+                <div>
+                    <form method="post" action="controller/salva_setor.php">
+                    <label>CPF da Coordenação: </label>
+                    <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" placeholder="Usar enter após digitar." required >
+                </div>
+                <div>
+                    <label>INSTITUIÇÃO: </label>
+                    <input type="text" name="instituicao" placeholder="Segmento." required>
+                </div>
+                <div >
+                    <label>Logradouro: </label>
+                    <input class="inpu" type="text" name="rua" placeholder="Rua, Avenida, Rodovia." required>
+                </div>   
+                <div>
+                    <label>Código Contrato: </label>
+                    <input type="text" name="cod_contrato" required>
+                </div>
+                <div>
+                    <label>Contato: </label>
+                    <input type="text" name="contato" placeholder="Apenas números." required>
+                </div> 
+        </div>
         <div class="bloco1">
-            <label>Nome do Responsável: </label>
-            <input type="text" class="inpu"  id="nomeCoordenador" name="nome_coord_resp" placeholder="Nome completo do coordenador" required>
+            <div>
+                <label>Nome do Responsável: </label>
+                <input type="text" class="inpu"  id="nomeCoordenador" name="nome_coord_resp" placeholder="Nome completo do coordenador" required>
+            </div>
+            <div>    
+                <label>NOME DA INSTITUIÇÃO: </label>
+                <input type="text" name="nome_instit" placeholder="Digite o nome da instituição." required>
+            </div>
+            <div>   
+                <label>Número: </label>
+                <input type="text" name="num" required>
+                <label>Bairro: </label>
+                <input type="text" name="bairro" required>
+            </div>
+            <div> 
+                <label>E-mail Institucional: </label>
+                <input class="inpu" type="email" name="emailInstit" required>
+            </div>  
+            <div>    
+                <label>Código Institucional: </label>
+                <input type="text" name="cod_instit " placeholder="Caso tenha..">
+            </div>   
         </div>
     </div>
-    <div class="bloco">
-        <div class="bloco1">
-            <label>INSTITUIÇÃO: </label>
-            <input type="text" name="instituicao" placeholder="Segmento." required>
-        </div>
-        <div class="bloco1">    
-            <label>NOME DA INSTITUIÇÃO: </label>
-            <input type="text" name="nome_instit" placeholder="Digite o nome da instituição." required>
-        </div>
+    <div class="btns">
+            <div class="blocob">
+                <button type="submit">SALVAR</button>
+            </div>
+            <div class="bloco">
+                <a href="index.php">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
+                </form>
+            </div>
     </div>
-    <div class="bloco">
-        <div class="bloco1">
-            <label>Logradouro: </label>
-            <input class="inpu" type="text" name="rua" placeholder="Rua, Avenida, Rodovia." required>
-        </div>
-        <div class="bloco1">   
-            <label>Número: </label>
-            <input type="text" name="num" required>
-        </div>
-        <div class="bloco1">    
-            <label>Bairro: </label>
-            <input type="text" name="bairro" required>
-        </div>    
-    </div>
-    <div class="bloco">
-        <div class="bloco1">
-            <label>Código Contrato: </label>
-            <input type="text" name="cod_contrato" required>
-        </div>
-        <div class="bloco1">    
-            <label>Código Institucional: </label>
-            <input type="text" name="cod_instit " placeholder="Caso tenha..">
-        </div>    
-    </div>
-    <div class="bloco">
-        <div class="bloco1">
-            <label>Contato: </label>
-            <input type="text" name="contato" placeholder="Apenas números." required>
-        </div>   
-        <div class="bloco1"> 
-            <label>E-mail Institucional: </label>
-            <input class="inpu" type="email" name="emailInstit" required>
-        </div>    
-    </div>
-    <div class="btn">
-        <button type="submit">SALVAR</button>
-
-    <a onclick="goBack()">
-        <i class="fas fa-arrow-left"></i> Voltar ao menu
-    </a>
-    </div>
-    </div>
-        </form>
 </div>
     <script src="../cadunico/js/cpfvalid.js"></script>
     <script src="../cadunico/js/personalise.js"></script>
@@ -109,8 +105,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 </body>
 
 </html>
-<div class="btns">
-
-</div>
 
     <script src='../controller/back.js'></script>
