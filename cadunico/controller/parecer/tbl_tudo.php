@@ -9,19 +9,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
 <tr class="titulo" >
 
-    <th class="cabecalho">CÓDIGO FAMILIAR</th>
-    <th class="cabecalho">NOME</th>
-    <th class="cabecalho">NIS</th>
-    <th class="cabecalho">NOME MÃE</th>
-    <th class="cabecalho">DATA ATUALIZAÇÃO</th>
-    <th class="cabecalho">DATA DE NASCIMENTO</th>
-    <th class="cabecalho">ENDEREÇO</th>
-    <th class="check">
+<th class="check">
                 <label class="urg">
                         <input type="checkbox" id="selecionarTodos">
                     <span class="checkmark"></span>
                 </label>
             </th>
+    <th class="cabecalho">NOME</th>
+    <th class="cabecalho">DATA ATUALIZAÇÃO</th>
+    <th class="cabecalho">ENDEREÇO</th>
 </tr>
 
     <?php
@@ -29,7 +25,7 @@ if (!isset($_GET['ano_select'])) {
 } else {
     $sql_cod = $conn->real_escape_string($_GET['ano_select']);
     $sqli_cod = $conn->real_escape_string($_GET['localidade']);
-    $sql_dados = "SELECT * FROM tbl_tudo WHERE dat_atual_fam LIKE '%$sql_cod%' AND nom_localidade_fam LIKE '%$sqli_cod%' AND cod_parentesco_rf_pessoa = 1";
+    $sql_dados = "SELECT * FROM tbl_tudo  WHERE dat_atual_fam LIKE '%$sql_cod%' AND nom_localidade_fam LIKE '%$sqli_cod%' AND cod_parentesco_rf_pessoa = 1";
     $sql_query = $conn->query($sql_dados) or die("ERRO ao consultar !" . $conn - error);
 
     if ($sql_query->num_rows == 0) {
@@ -43,12 +39,14 @@ if (!isset($_GET['ano_select'])) {
         while ($dados = $sql_query->fetch_assoc()) {
             ?>
         <tr class="resultado">
-            <td class="resultado"><?php echo $dados['cod_familiar_fam']; ?></td>
+        <td class="check">
+                <label class="urg">
+                        <input type="checkbox" name="excluir[]" value="<?php echo $dados['num_nis_pessoa_atual']; ?>">
+                    <span class="checkmark"></span>
+                </label>
+            </td>
             <td class="resultado"><?php echo $dados['nom_pessoa']; ?></td>
-            <td class="resultado"><?php echo $dados['num_nis_pessoa_atual']; ?></td>
-            <td class="resultado"><?php echo $dados['nom_completo_mae_pessoa']; ?></td>
             <td class="resultado"><?php echo $dados['dat_atual_fam']; ?></td>
-            <td class="resultado"><?php echo $dados['dta_nasc_pessoa']; ?></td>
             <td class="resultado"><?php
 //construindo o endereço
             $tipo_logradouro = $dados["nom_tip_logradouro_fam"];
@@ -73,15 +71,8 @@ if (!isset($_GET['ano_select'])) {
                 $referencia = $dados["txt_referencia_local_fam"];
             }
 
-            $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
-
+            $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam ;
             echo $endereco_conpleto;?></td>
-            <td class="check">
-                <label class="urg">
-                        <input type="checkbox" name="excluir[]" value="<?php echo $dados['num_nis_pessoa_atual']; ?>">
-                    <span class="checkmark"></span>
-                </label>
-            </td>
         </tr>
 <?php
 }

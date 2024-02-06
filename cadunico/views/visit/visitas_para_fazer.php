@@ -20,14 +20,14 @@ $data9 = $data1 - 1;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechSUAS - Visitas para fazer</title>
-    <link rel="stylesheet" href="../../css/visitas.css">
+    <link rel="stylesheet" href="../../css/visitas_pend.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <p>Olá, <?php echo $nome; ?>! Você está autenticado para essa operação.</p>
+    <h3>Olá, <?php echo $nome; ?>! Você está autenticado para essa operação.</h3>
 
     <form action=''>
         <select id="ano_select" name="ano_select">
