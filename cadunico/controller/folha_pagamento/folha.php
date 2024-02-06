@@ -46,11 +46,6 @@ ini_set('memory_limit', '256M');
         
                 <?php
             if (!isset($_GET['cod_fam'])){
-            ?>
-
-
-
-        <?php
             }else{
                 $sql_cod = $conn->real_escape_string($_GET['cod_fam']);
                 $sql_dados = "SELECT * FROM folha_pag WHERE rf_nis LIKE '%$sql_cod%' OR rf_nome LIKE '%$sql_cod%' ";
@@ -74,7 +69,7 @@ ini_set('memory_limit', '256M');
                         <td class="resultado"><?php echo $dados['tp_benef']; ?></td>
                     </tr>
     <?php
-                }
+                } 
             }
         } ?>    
         </table>

@@ -33,7 +33,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             </button>
           </div>
           <div class="visitas_n">
-            <button class="menu-button" onclick="location.href='#';">
+            <button class="menu-button" onclick="location.href='visitas_para_fazer.php';">
               <span class="material-symbols-outlined">
                 person_search
               </span>
@@ -64,6 +64,24 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
       </div>
     </nav>
     <?php
+
+// Consulta SQL
+$sql_ano = 'SELECT YEAR(dat_atual_fam) AS ano, COUNT(*) AS quantidade
+FROM tbl_tudo
+WHERE cod_parentesco_rf_pessoa = 1
+GROUP BY YEAR(dat_atual_fam)
+ORDER BY ano DESC';
+$resultado_p_ano = $conn->query($sql_ano);
+
+// Crie arrays para armazenar os anos e quantidades
+$anos = [];
+$quantidades = [];
+
+while ($linha = $resultado_p_ano->fetch_assoc()) {
+    $anos[] = $linha['ano'];
+    $quantidades[] = $linha['quantidade'];
+}
+
 //dados totais dos registros de visitas
 $sqlr = "SELECT COUNT(*) as total_visitas FROM visitas_feitas";
 $result = $pdo->query($sqlr);
@@ -71,29 +89,40 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 $totalRegistros = $row['total_visitas'];
 $numero_parecer = $totalRegistros;
 
-$sql = "SELECT COUNT(*) as total_fazer FROM tbl_tudo";
+//$sql = "SELECT * FROM tbl_tudo WHERE dat_atual_fam LIKE '%$sql_ano%'";
 ?>
     <script>
     // Dados para o gráfico de pizza
+    var anos = <?php echo json_encode($anos); ?>;
+    var quantidades = <?php echo json_encode($quantidades); ?>;
     var volaroe = <?php echo $totalRegistros; ?>;
-    var data = {
-        labels: ['Visitas realizadas', 'Visitas não realizadas'],
-        datasets: [{
-            data: [volaroe, 100 - volaroe],
-            backgroundColor: ['#13294b', '#065f33']
-        }]
-    };
-      // Opções do gráfico (pode ser personalizado conforme necessário)
-      var options = {
-        responsive: true
-      };
-      // Crie o gráfico de pizza
-      var ctx = document.getElementById('graficoPizza').getContext('2d');
-      var myPieChart = new Chart(ctx, {
+
+    // Adiciona volaroe às quantidades
+    quantidades.push(volaroe);
+
+    // Crie o gráfico de pizza
+    var ctx = document.getElementById('graficoPizza').getContext('2d');
+    var myPieChart = new Chart(ctx, {
         type: 'pie',
-        data: data,
-        options: options
-      });
+        data: {
+            labels: anos.concat(['Visitas Feitas']),
+            datasets: [{
+                data: quantidades,
+                backgroundColor: ['#13294b', '#065f33', '#8b0000', '#cd5c5c', '#008080', '#2e8b57', '#00ff00', '#ff9900']
+            }]
+        },
+        options: {
+        responsive: true,
+        legend: {
+            display: true, // Exibe a legenda
+            position: 'bottom', // Posição da legenda (pode ser 'top', 'bottom', 'left', 'right')
+            labels: {
+                fontColor: 'black', // Cor do texto da legenda
+                fontSize: 12 // Tamanho do texto da legenda
+            }
+        }
+    }
+    });
     </script>
     <script src='../../../controller/back.js'></script>
   </body>
