@@ -7,13 +7,17 @@
     <link rel="shortcut icon" href="../cadunico/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../cras/css/style-tabela.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
-    <title>Tabela</title>
+    <title>Tabela de Usuário</title>
 </head>
 
 <body>
+<div class="img">
+        <h1 class="titulo-com-imagem">
+            <img class="titulo-com-imagem" src="../cras/img/h1-tabela.svg" alt="Titulocomimagem">
+        </h1>
+    </div>
 
 
     <?php
@@ -87,6 +91,9 @@ foreach ($dados_table_fluxo as $linhas) {
                 </table>
                 <div class="botoes">
                     <button type="button" onclick="abrirModal()">Ações</button>
+                    <a onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                    </a>
                     <!-- Modal -->
                     <div id="modal" class="modal" style="display: none;">
                         <button type="button" onclick="excluirSelecionados()">Excluir</button>
@@ -166,5 +173,6 @@ if (empty($dados_table_fluxo)) {
 ?>
 </div>
 </body>
+<script src='back.js'></script>
 
 </html>
