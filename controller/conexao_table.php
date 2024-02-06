@@ -91,10 +91,9 @@ foreach ($dados_table_fluxo as $linhas) {
                 </table>
                 <div class="botoes">
                     <button type="button" onclick="abrirModal()">Ações</button>
-                    <a onclick="goBack()">
-                        <i class="fas fa-arrow-left"></i> Voltar ao menu
-                    </a>
-                    <!-- Modal -->
+
+                    <button type="button" id="voltarAoMenu"><i class="fas fa-arrow-left"></i> Voltar ao menu</button>
+
                     <div id="modal" class="modal" style="display: none;">
                         <button type="button" onclick="excluirSelecionados()">Excluir</button>
                         <button type="button" onclick="editarPrazo()">Editar Prazo</button>
@@ -160,7 +159,6 @@ foreach ($dados_table_fluxo as $linhas) {
         alert('Nenhum item selecionado. Selecione pelo menos um item para editar.');
     }
 }
-
             </script>
         <?php
 } else {
@@ -173,5 +171,22 @@ if (empty($dados_table_fluxo)) {
 ?>
 </div>
 </body>
-<script>src='back.js'</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('voltarAoMenu').addEventListener('click', function () {
+        if (setor == 'CRAS - ANTONIO MATIAS') {
+            window.location.href = "/Suas-Tech/cras/views/menu-cras-am.php";
+        } else if (setor == 'SUPORTE') {
+            var resposta = window.confirm('Voltar para menu de acesso para o SUPORTE?')
+            if (resposta){
+                window.location.href = "/Suas-Tech/acesso_suporte/index.php";
+            } else {
+                window.history.back();
+            }
+        } else if (setor == 'CREAS - GILDO SOARES') {
+            window.location.href = "/Suas-Tech/cras/views/menu-cras-am.php";
+        }
+    });
+});
+</script>
 </html>
