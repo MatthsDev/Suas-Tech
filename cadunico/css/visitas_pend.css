@@ -62,3 +62,43 @@ label {
     padding: 1px 2px;
     border-style: outset;
 }
+
+.check{
+  text-align: center;
+}
+
+/* Estilizando o checkbox */
+.urg input[type="checkbox"] {
+  display: none;
+}
+
+/* Estilizando o contêiner */
+
+
+/* Estilizando o visual do checkbox */
+.urg .checkmark {
+  display: inline-block;
+  width: 16px;
+  /* Tamanho do checkbox */
+  height: 16px;
+  /* Tamanho do checkbox */
+  border-radius: 50%;
+  /* Deixa o checkbox redondo */
+  border: 2px solid #13294b;
+  /* Borda do checkbox */
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Altera o visual quando marcado */
+.urg input[type="checkbox"]:checked+.checkmark::after {
+  content: "X";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: red;
+}

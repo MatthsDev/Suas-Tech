@@ -42,7 +42,7 @@ if (!isset($_GET['ano_select'])) {
         <td class="check">
                 <label class="urg">
                         <input type="checkbox" name="excluir[]" value="<?php echo $dados['num_nis_pessoa_atual']; ?>">
-                    <span class="checkmark"></span>
+                        <span class="checkmark"></span>
                 </label>
             </td>
             <td class="resultado"><?php echo $dados['nom_pessoa']; ?></td>
