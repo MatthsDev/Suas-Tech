@@ -73,7 +73,7 @@ if ($consultaSetores->num_rows > 0) {
                 </select>
             <div class="btns">
                 <button type="submit">Cadastrar</button>
-                <a onclick="goBack()">
+                <a href="../../acesso_suporte/index.php">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
