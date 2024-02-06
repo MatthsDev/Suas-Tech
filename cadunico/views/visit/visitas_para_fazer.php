@@ -19,7 +19,7 @@ $data9 = $data1 - 1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechSUAS - Visitas para fazer</title>
+    <title>Visitas pendentes</title>
     <link rel="stylesheet" href="../../css/visitas_pend.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="../../img/logo.png">
@@ -27,25 +27,30 @@ $data9 = $data1 - 1;
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h3>Olá, <?php echo $nome; ?>! Você está autenticado para essa operação.</h3>
-
-    <form action=''>
-        <select id="ano_select" name="ano_select">
-        <option value="" disabled selected hidden>Selecione</option>
-        <option value="<?php echo $data2; ?>"><?php echo $data2; ?></option>
-        <option value="<?php echo $data3; ?>"><?php echo $data3; ?></option>
-        <option value="<?php echo $data4; ?>"><?php echo $data4; ?></option>
-        <option value="<?php echo $data5; ?>"><?php echo $data5; ?></option>
-        <option value="<?php echo $data6; ?>"><?php echo $data6; ?></option>
-        <option value="<?php echo $data7; ?>"><?php echo $data7; ?></option>
-        <option value="<?php echo $data8; ?>"><?php echo $data8; ?></option>
-        <option value="<?php echo $data9; ?>"><?php echo $data9; ?></option>
-        <option value="<?php echo $data1; ?>"><?php echo $data1; ?></option>
-    </select>
-        <label>Fitre a localidade:</label>
-            <input name="localidade" class="busca2" placeholder="Qual localdade" type="text">
-            <button type="submit">Buscar</button>
-    </form>
+    <div class="img">
+        <h1 class="titulo-com-imagem">
+            <img src="../../img/h1-visitas_pend.svg" alt="NoImage">
+        </h1>
+    </div>
+    <div class="bloco">
+        <form action=''>
+            <select id="ano_select" name="ano_select">
+            <option value="" disabled selected hidden>Selecione</option>
+            <option value="<?php echo $data2; ?>"><?php echo $data2; ?></option>
+            <option value="<?php echo $data3; ?>"><?php echo $data3; ?></option>
+            <option value="<?php echo $data4; ?>"><?php echo $data4; ?></option>
+            <option value="<?php echo $data5; ?>"><?php echo $data5; ?></option>
+            <option value="<?php echo $data6; ?>"><?php echo $data6; ?></option>
+            <option value="<?php echo $data7; ?>"><?php echo $data7; ?></option>
+            <option value="<?php echo $data8; ?>"><?php echo $data8; ?></option>
+            <option value="<?php echo $data9; ?>"><?php echo $data9; ?></option>
+            <option value="<?php echo $data1; ?>"><?php echo $data1; ?></option>
+        </select>
+            <label>Fitre a localidade:</label>
+                <input name="localidade" class="busca2" placeholder="Qual localdade" type="text">
+                <button type="submit">Buscar</button>
+        </form>
+    </div>
     <?php include '../../controller/parecer/tbl_tudo.php';?>
 </body>
 </html>
