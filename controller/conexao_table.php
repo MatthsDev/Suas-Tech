@@ -92,7 +92,7 @@ foreach ($dados_table_fluxo as $linhas) {
                 <div class="botoes">
                     <button type="button" onclick="abrirModal()">Ações</button>
                     <a onclick="goBack()">
-                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                        <i class="fas fa-arrow-left"></i> Voltar ao menu
                     </a>
                     <!-- Modal -->
                     <div id="modal" class="modal" style="display: none;">
@@ -173,6 +173,5 @@ if (empty($dados_table_fluxo)) {
 ?>
 </div>
 </body>
-<script src='back.js'></script>
-
+<script>src='back.js'</script>
 </html>
