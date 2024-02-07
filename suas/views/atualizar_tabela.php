@@ -34,7 +34,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
             Selecione o arquivo CSV: <input type="file" name="arquivoCSV" id="arquivoCSV" accept=".csv">
             <button type="submit" value="Importar"> Importar </button>
             <div class="btn">
-                <a onclick="goBack()">
+                <a href="/Suas-Tech/acesso_suporte/index.php">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
