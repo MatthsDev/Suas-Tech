@@ -28,18 +28,14 @@ foreach ($dados_total as $row) {
 
 
     echo '
-       
                 <div class="senhaAtual">
 
                     <div class="row sencham">
                     
                         <div class="senhatxt">
                             <div class="" id="nome_sen" style="text-align: center;">
-                                <span class="senhaAtualTexto">SENHA</span>
-                            </div>
-
-                            <div class="" id="num_sen" style="text-align: center;">
-                                <span id="senhaAtualNumero">' . $nome_senha . '</span>
+                                <span class="senhaAtualTexto">SENHA:</span>
+                                <span class="senhaAtualNumero" id="senhaAtualNumero">' . $nome_senha . '</span>
                             </div>
 
                             <div class="" id="num_sen" style="text-align: center;">
@@ -50,16 +46,12 @@ foreach ($dados_total as $row) {
 
                         <div class="senhaguiche">
                             <div class="" id="nome_sen">
-                                <span class="senhaAtualTexto"> MESA </span>
-                            </div>
-                            <div class=""  id="nome_sen">
+                                <span class="senhaAtualTexto">GUINCHÊ</span>
                                 <span class="senhaAtualTexto">' . $guiche . '</span>
                             </div>
                         </div>
                     </div>
 
-
                 </div>
             </div>';
 }
-?>
