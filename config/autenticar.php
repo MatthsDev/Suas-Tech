@@ -29,7 +29,7 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
     } elseif ($setor_ == "CRAS - ANTONIO MATIAS") {
         header("Location: ../cras/views/menu-cras-am.php");
 
-    }elseif($setor_ == "CADASTRO UNICO - SECRETARIA DE ASSISTENCIA SOCIAL"){
+    } elseif ($setor_ == "CADASTRO UNICO - SECRETARIA DE ASSISTENCIA SOCIAL") {
         if ($_SESSION['nivel_usuario'] == 'admin') {
             header("location:../cadunico/painel-adm/adm-view.php");
             exit();
@@ -37,11 +37,11 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
             header("location:../cadunico/painel-usuario/user-painel.php");
             exit();
         }
-    }elseif ($setor_ == "CRAS - SANTO AFONSO"){
+    } elseif ($setor_ == "CRAS - SANTO AFONSO") {
         header("Location: ../cras/views/menu-cras-st.php");
-    }elseif ($setor_ == "CREAS - GILDO SOARES"){
+    } elseif ($setor_ == "CREAS - GILDO SOARES") {
         header("Location: ../creas/views/menu-creas.php");
-    }elseif($setor_ == "COZINHA COMUNITÁRIA - NEUMA MARIA DA SILVA"){
+    } elseif ($setor_ == "COZINHA COMUNITARIA - MARIA NEUMA DA SILVA") {
         header("Location: ../cozinha_comunitaria/menu.php");
     }
 
