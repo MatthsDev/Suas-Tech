@@ -22,13 +22,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         <div class="menu"> 
                 <div class="bloco1">
                     <div class="btn">
-                        <a class="menu-button" onclick="location.href='../cadunico/painel-adm/adm-view.php';">
-                        CadÚnico ADM
+                        <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/views/atendimento/views/index.php';">
+                        Sistema de Atendimento
                         </a>
                     </div> 
                     <div class="btn">
-                        <a class="menu-button" onclick="location.href='../cadunico/painel-usuario/user-painel.php';">
-                        CadÚnico USER
+                        <a class="menu-button" onclick="location.href='../cadunico/painel-adm/adm-view.php';">
+                        Cadastro único
                         </a>
                     </div>    
                     <div class="btn">
