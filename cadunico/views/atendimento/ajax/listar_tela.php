@@ -3,7 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
 // Execute a consulta SQL
-$res_todos = $pdo->query("SELECT senger.id, senger.user_id, sen.nome_senha
+$res_todos = $pdo->query("SELECT senger.id, senger.user_id, sen.nome_senha, senger.nome_pess
 FROM senhas_geradas AS senger
 INNER JOIN senhas AS sen ON sen.id = senger.senha_id
 WHERE senger.sits_senha_id = 4
@@ -17,6 +17,7 @@ foreach ($dados_total as $row) {
     $id = $row['id'];
     $nome_senha = $row['nome_senha'];
     $user_id = $row['user_id'];
+    $nome_pess = $row['nome_pess'];
 
     // Consulta para obter o guiche associado ao usuário que gerou a senha
     $stmt = $pdo->prepare("SELECT guinche FROM usuarios WHERE id = :user_id");
@@ -40,6 +41,11 @@ foreach ($dados_total as $row) {
                             <div class="" id="num_sen" style="text-align: center;">
                                 <span id="senhaAtualNumero">' . $nome_senha . '</span>
                             </div>
+
+                            <div class="" id="num_sen" style="text-align: center;">
+                                <span id="senhaAtualNumero">' . $nome_pess . '</span>
+                            </div>
+
                         </div>
 
                         <div class="senhaguiche">
