@@ -63,7 +63,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 <label>NIS:</label>
                 <input type="text" name="nis_dec" placeholder="Digite aqui:" required>
                 <button type="submit">BUSCAR</button>
-                <a onclick="goBack()">
+                <a href="/Suas-Tech/controller/back.php">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </form>
@@ -77,7 +77,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     textarea.style.height = textarea.scrollHeight + 'px';
     }
 </script>
-<script src='../../../controller/back.js'></script>
 </body>
 
 </html>

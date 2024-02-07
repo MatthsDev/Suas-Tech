@@ -38,7 +38,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
       <i class="fas fa-user-minus icon"></i> Ficha de Exclusão de Pessoa
     </a>
 
-    <a onclick="goBack()">
+    <a href="/Suas-Tech/controller/back.php">
       <i class="fas fa-arrow-left"></i> Voltar ao menu
     </a>
   </nav>  
