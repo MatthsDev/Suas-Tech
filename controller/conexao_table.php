@@ -92,7 +92,7 @@ foreach ($dados_table_fluxo as $linhas) {
                 <div class="botoes">
                     <button type="button" onclick="abrirModal()">Ações</button>
 
-                    <button type="button" id="voltarAoMenu"><i class="fas fa-arrow-left"></i> Voltar ao menu</button>
+                    <a href='/Suas-Tech/controller/back.php'><i class="fas fa-arrow-left"></i> Voltar ao menu</a>
 
                     <div id="modal" class="modal" style="display: none;">
                         <button type="button" onclick="excluirSelecionados()">Excluir</button>
@@ -171,22 +171,6 @@ if (empty($dados_table_fluxo)) {
 ?>
 </div>
 </body>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('voltarAoMenu').addEventListener('click', function () {
-        if (setor == 'CRAS - ANTONIO MATIAS') {
-            window.location.href = "/Suas-Tech/cras/views/menu-cras-am.php";
-        } else if (setor == 'SUPORTE') {
-            var resposta = window.confirm('Voltar para menu de acesso para o SUPORTE?')
-            if (resposta){
-                window.location.href = "/Suas-Tech/acesso_suporte/index.php";
-            } else {
-                window.history.back();
-            }
-        } else if (setor == 'CREAS - GILDO SOARES') {
-            window.location.href = "/Suas-Tech/cras/views/menu-cras-am.php";
-        }
-    });
-});
-</script>
+
+
 </html>
