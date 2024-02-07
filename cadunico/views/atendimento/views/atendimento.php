@@ -21,7 +21,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
     <?php
     // Botao para chamar a funcao "chamarSenha". Funcao que chama a senha 
-    echo "<p><button type='button' onclick='chamarSenha(1)'>CONVENCIONAL</button></p>";
+    echo "<p><button type='button' onclick='chamarSenha(17)'>CONVENCIONAL</button></p>";
 
     echo "<p><button type='button' onclick='chamarSenha(2)'>PREFERENCIAL CONVENCIONAL</button></p>";
 
