@@ -46,7 +46,7 @@ include_once '../../cadunico/controller/acesso_user/dados_usuario.php';
                         </a>
                 </div>
                 <div class="btn">
-                        <a class="menu-button" onclick="goBack()">
+                        <a class="menu-button" href="/Suas-Tech/controller/back.php">
                         <span class="material-symbols-outlined">
                         keyboard_backspace
                         </span>

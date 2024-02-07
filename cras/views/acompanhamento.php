@@ -72,7 +72,7 @@ if ($consultaSetores->num_rows > 0) {
 ?>
                     </select>
                     <button type="submit">BUSCAR</button>
-                    <a onclick="goBack()">
+                    <a href="/Suas-Tech/controller/back.php">
                         <i class="fas fa-arrow-left"></i> Voltar ao menu
                     </a>
                 </div>

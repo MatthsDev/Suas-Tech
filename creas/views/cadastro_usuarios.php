@@ -36,7 +36,7 @@
                 <input type="text" id="codigo_familiar" name="codigo_familiar" placeholder="Digite o código familiar"
                     required>
 
-                <a onclick="goBack()">
+                <a href="/Suas-Tech/controller/back.php">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
 

@@ -25,6 +25,7 @@ $data9 = $data1 - 1;
     <link rel="website icon" type="png" href="../../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="img">
@@ -49,6 +50,10 @@ $data9 = $data1 - 1;
             <label>Fitre a localidade:</label>
                 <input name="localidade" class="busca2" placeholder="Qual localdade" type="text">
                 <button type="submit">Buscar</button>
+                <a href="visitas.php">
+                    <span class="fas fa-arrow-left"></span>
+                Voltar 
+                </a>
         </form>
     </div>
     <?php include '../../controller/parecer/tbl_tudo.php';?>

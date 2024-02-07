@@ -30,7 +30,7 @@
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" maxlength="14" onblur="validarCPF(this)"
                     placeholder="Digite o CPF">
-                    <a onclick="goBack()">
+                    <a href="/Suas-Tech/controller/back.php">
                         <i class="fas fa-arrow-left"></i> Voltar
                     </a>
 

@@ -73,7 +73,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                     <button type="submit">ENVIAR</button>
                 </div>
                 <div class="bloco1">
-                    <a onclick="goBack()">
+                    <a href="/Suas-Tech/controller/back.php">
                         <i class="fas fa-arrow-left"></i> Voltar ao menu
                     </a>
                 </div>

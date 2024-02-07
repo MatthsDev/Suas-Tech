@@ -44,7 +44,7 @@ ini_set('display_errors', 1);
     <div class="container">
         <div class="bloco">
             <div class="bloco2">
-                <a onclick="goBack()">
+                <a href="/Suas-Tech/controller/back.php">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>

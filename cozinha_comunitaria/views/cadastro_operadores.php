@@ -57,7 +57,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 </select>
             <div class="btns">
                 <button type="submit">Cadastrar</button>
-                <a onclick="goBack()">
+                <a href="/Suas-Tech/controller/back.php">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>

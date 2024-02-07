@@ -51,11 +51,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
           </div>
 
           <div class="voltar">
-            <button class="menu-button" onclick="goBack()">
+            <a href="/Suas-Tech/controller/back.php" class="menu-button">
               <span class="fas fa-arrow-left">
               </span>
               Voltar ao menu
-            </button>
+            </a>
           </div>
         </div>
         <div class="grafico">

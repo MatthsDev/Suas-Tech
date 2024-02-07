@@ -97,7 +97,7 @@ echo "Data de Nascimento: " . $dtNasc . "<br>"; ?>
 
         <button type="submit">Salvar Alterações</button>
         
-        <a  onclick="goBack()">
+        <a  href="/Suas-Tech/controller/back.php">
         <i class="fas fa-arrow-left"></i> Voltar ao menu
         </a>
     </form>
