@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="linha"></div>
         <?php
 // Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
-        //echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
+        echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
     } else {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }
