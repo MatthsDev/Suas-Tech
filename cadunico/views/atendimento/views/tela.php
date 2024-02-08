@@ -85,7 +85,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     </script>
 <script>
 // IDs dos seus vídeos do YouTube
-var videoIds = ['M1pFmh8PQqY', 'ONh5m1qH8dg', 'S4I9wO6fD4I', 'y_bwKW6V1lw', 'PX3A7GLtFqM'];
+var videoIds = ['k2PpvT9MzkY', 'EQGtKQQX0ho'];
 
 // Carregar a API do YouTube
 var tag = document.createElement('script');
