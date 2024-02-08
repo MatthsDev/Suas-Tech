@@ -31,7 +31,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 
     </div>
     <div class="yt">
-        <div id="player" style="padding: right"></div>
+        <div id="player"></div>
     </div>
 </div>
 
