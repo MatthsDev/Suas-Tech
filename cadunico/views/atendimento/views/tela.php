@@ -12,7 +12,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <title>Tech-Suas - Atendimento</title>
     <!-- Inclua o jQuery antes de qualquer outro script que dependa dele -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="/Suas-Tech/cadunico/css/atend/style_tela.css">
+    <link rel="stylesheet" href="../css/style_tela.css">
     <link rel="shortcut icon" href="../../../../cadunico/img/logo.png" type="image/x-icon">
 
 </head>
