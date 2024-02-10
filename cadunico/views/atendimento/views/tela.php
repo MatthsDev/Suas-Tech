@@ -13,6 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <!-- Inclua o jQuery antes de qualquer outro script que dependa dele -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="/Suas-Tech/cadunico/css/atend/style_tela.css">
+    <link rel="shortcut icon" href="../../../../cadunico/img/logo.png" type="image/x-icon">
 
 </head>
 
@@ -99,8 +100,8 @@ var player;
 // Função chamada quando a API do YouTube estiver pronta
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '315',
-        width: '560',
+        height: '900',
+        width: '1830',
         playerVars: {
             'autoplay': 1,  // Iniciar a reprodução automática
             'controls': 0,  // Ocultar os controles do player
