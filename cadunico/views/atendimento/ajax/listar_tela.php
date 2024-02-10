@@ -34,16 +34,16 @@ foreach ($dados_total as $row) {
 
                         <div class="senhanome">
                             <div class="" style="text-align: center;">
-                                <span class="senhaAtualTexto">SENHA:</span>
+                                <span class="senhaAtualTexto">SENHA</span>
                             </div>
-                            <div class="senhanome"  style="text-align: center;">
+                            <div class  style="text-align: center;">
                                 <span class="senhaAtualNumero" id="senhaAtualNumero">' . $nome_senha . '</span>
                             </div>
                         </div>
 
                         <div class="senhanome">
                             <div class="" style="text-align: center;">
-                                <span id="senhaAtualNumero">NOME:</span>
+                                <span id="senhaAtualNumero">NOME</span>
                             </div>
                             <div class="">
                                 <span id="senhaAtualNumero">' . $nome_pess . '</span>
@@ -53,7 +53,7 @@ foreach ($dados_total as $row) {
                         <div class="senhanome">
                             <div class="" id="nome_sen"  style="text-align: center;">
                                 <div>
-                                    <span class="senhaAtualTexto">GUINCHÊ:</span>
+                                    <span class="senhaAtualTexto">GUINCHÊ</span>
                                 </div>
                                 <div>
                                     <span class="senhaAtualTexto">' . $guiche . '</span>
