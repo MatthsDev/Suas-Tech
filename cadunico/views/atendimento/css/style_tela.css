@@ -18,25 +18,28 @@ body {
 	max-height: 248px;
 }
 
-.container{
+.container {
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-content: flex-start;
 	padding: 10px;
 	height: 100%;
 	color: #ffffff;
 	font-size: 18px;
+
 }
-.barramedia{
+
+.barramedia {
 	background-color: #13294b;
 	padding: 10px;
 	border-radius: 10px;
-	
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
 }
 
-.senha_guinche{
+.senha_guinche {
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
@@ -46,7 +49,8 @@ body {
 	border: 1px solid #ffffff;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.cont_ult1{
+
+.cont_ult1 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -57,24 +61,27 @@ body {
 	line-height: 2;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.cont-num{
+
+.cont-num {
 	padding-top: 5px;
 	text-align: center;
 }
+
 .nome,
 .senha,
-.guinche{
+.guinche {
 	border: 1px solid #ffffff;
 	padding: 10px;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .senha,
-.guinche{
+.guinche {
 	border-radius: 10px;
 	line-height: 1.5;
 }
-#player{
+
+#player {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -83,17 +90,36 @@ body {
 	height: 440px;
 	width: 870px;
 	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
+
 .senhanum,
-.ultnum{
+.ultnum {
 	color: rgb(193, 0, 0);
 	background-color: #ffffff;
 	border-radius: 5px;
 	padding: 2px;
 	font-weight: bold;
-	font-size:large;
+	font-size: large;
 }
 
-.senhaAtual{
+.senhaAtual {
 	line-height: 1.5;
+}
+
+@media screen and (min-width: 1440px) {
+	#player {
+		height: 648px;
+		width: 1152px;
+	}
+
+	.container {
+		font-size: 30px;
+	}
+
+	.senhanum,
+	.ultnum {
+		font-size: 33px;
+	}
+
 }
