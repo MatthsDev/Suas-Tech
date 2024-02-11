@@ -16,7 +16,7 @@ FROM senhas_geradas AS senger
 INNER JOIN senhas AS sen ON sen.id = senger.senha_id
 WHERE senger.sits_senha_id = 4
 ORDER BY senger.modified DESC
-LIMIT 5;");
+LIMIT 4;");
 
 // Fetch os resultados
 $dados_total = $res_todos->fetchAll(PDO::FETCH_ASSOC);
@@ -26,7 +26,7 @@ foreach ($dados_total as $row) {
     $nome_senha = $row['nome_senha'];
 
     echo '
-            <span class="ultnum">' . $nome_senha . '</span><br>
+            <span class="ultnum">' . $nome_senha . '</span>
        ';
 }
 

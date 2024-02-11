@@ -32,16 +32,7 @@ foreach ($dados_total as $row) {
 
                     <div id="tudo1" class="row sencham">
 
-                        <div class="senhanome">
-                            <div class="" style="text-align: center;">
-                                <span class="senhaAtualTexto">SENHA</span>
-                            </div>
-                            <div class  style="text-align: center;">
-                                <span class="senhaAtualNumero" id="senhaAtualNumero">' . $nome_senha . '</span>
-                            </div>
-                        </div>
-
-                        <div class="senhanome">
+                        <div class="nome">
                             <div class="" style="text-align: center;">
                                 <span id="senhaAtualNumero">NOME</span>
                             </div>
@@ -49,14 +40,39 @@ foreach ($dados_total as $row) {
                                 <span id="senhaAtualNumero">' . $nome_pess . '</span>
                             </div>
                         </div>
-
-                        <div class="senhanome">
-                            <div class="" id="nome_sen"  style="text-align: center;">
-                                <div>
-                                    <span class="senhaAtualTexto">GUINCHÊ</span>
+                        <div class="nome">
+                            <div class="" style="text-align: center;">
+                                <span id="senhaAtualNumero">ATENDIMENTO</span>
+                            </div>
+                        <div class=""style="text-align: center;">
+                            <span id="senhaAtualNumero">CADASTRO ÚNICO</span>
+                        </div>
+                        </div>
+                        <div class="nome">
+                            <div class="" style="text-align: center;">
+                                <span id="senhaAtualNumero">PRIORIDADE</span>
+                            </div>
+                            <div class=""style="text-align: center;">
+                                <span id="senhaAtualNumero">ZONA RURAL</span>
+                            </div>
+                        </div> 
+                        <div class="senha_guinche">    
+                            <div class="senha">
+                                <div class="" style="text-align: center;">
+                                    <span class="senhaAtualTexto">SENHA</span>
                                 </div>
-                                <div>
-                                    <span class="senhaAtualTexto">' . $guiche . '</span>
+                                <div class  style="text-align: center;">
+                                    <span class="senhanum" id="senhaAtualNumero">' . $nome_senha . '</span>
+                                </div>
+                            </div>
+                            <div class="guinche">
+                                <div class="" id="nome_sen"  style="text-align: center;">
+                                    <div>
+                                        <span class="senhaAtualTexto">GUINCHÊ</span>
+                                    </div>
+                                    <div>
+                                        <span class="senhaAtualTexto">' . $guiche . '</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

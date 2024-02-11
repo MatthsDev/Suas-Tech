@@ -100,8 +100,8 @@ var player;
 // Função chamada quando a API do YouTube estiver pronta
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: '900',
-        width: '1830',
+        height: '100%',
+        width: '100%',
         playerVars: {
             'autoplay': 1,  // Iniciar a reprodução automática
             'controls': 0,  // Ocultar os controles do player
