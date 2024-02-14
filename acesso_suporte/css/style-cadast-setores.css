@@ -24,7 +24,7 @@ img {
     align-items: flex-start;
     justify-content: flex-start;
     background-color: #ffffff;
-    padding: 15px;
+    padding: 20px 15px 15px 15px;
     border-radius: 10px;
     color: #13294b;
 }
