@@ -28,16 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt_contrato->execute()) {
             ?>
             <script>
-Swal.fire({
-icon: "success",
-title: "SALVO",
-text: "Dados do contrato salvo com sucesso!",
-confirmButtonText: 'OK',
-}).then((result) => {
-    if (result.isConfirmed) {
-        window.location.href = "/Suas-Tech/suas/views/adm/cadastro_contrato.php";
-    }
-});
+            Swal.fire({
+            icon: "success",
+            title: "SALVO",
+            text: "Dados do contrato salvo com sucesso!",
+            confirmButtonText: 'OK',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/Suas-Tech/suas/views/adm/cadastro_contrato.php";
+                }
+            });
 </script>
 <?php
         } else {
