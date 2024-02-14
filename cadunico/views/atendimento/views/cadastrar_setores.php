@@ -41,7 +41,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
         <button type="submit">Salvar</button>
     </form>
-
-    <script>
 </body >
 </html >
