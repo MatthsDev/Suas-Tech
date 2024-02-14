@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $verifica_usuario->store_result();
 
     if ($verifica_usuario->num_rows > 0) {
-        // Se o nome de usuário já está em uso, exibe uma mensagem ou redirecione de volta ao formulário
+        // Se o nome de usuário já está em uso, exibe uma mensagem e redirecione de volta ao login
         echo '<script>alert("Nome de usuário já em uso. Por favor, escolha outro."); window.location.href = "../../painel-adm/cadastro_user.php";</script>';
         exit();
     }
