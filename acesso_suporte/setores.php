@@ -40,8 +40,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <div class="container">
     <div class="blocott">
         <div class="bloco1">
+                <form method="post" action="controller/salva_setor.php">
                 <div>
-                    <form method="post" action="controller/salva_setor.php">
                     <label>CPF da Coordenação: </label>
                     <input type="text" name="cpf_coord" onblur="validarCPF(this)" maxlength="14" id="cpf" placeholder="Usar enter após digitar." required >
                 </div>
