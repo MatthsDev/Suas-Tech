@@ -19,7 +19,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <!-- Formulário de busca -->
 <form method="">
 <label>Buscar contrato:</label>
-<input type="text" name="buscar" placeholder="Buscar por qualquer informação do contrato...">
+<input type="text" name="buscar" placeholder="Buscar por qualquer informação do contrato..." required>
 <p id="info_paragrafo">caso sua busca seja feita por cnpj lembre-se de colocar os caracter (. / -) para a busca retornar com sucesso.</p>
 <button id="btn_busca">BUSCAR</button>
 </form>
