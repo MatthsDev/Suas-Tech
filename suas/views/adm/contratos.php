@@ -38,7 +38,7 @@ if (!isset($_GET['buscar'])) {
     // Verifica se nenhum contrato foi encontrado
     if ($contrato_query->num_rows == 0) {
         ?>
-                    <script>
+        <script>
             Swal.fire({
             icon: "error",
             title: "NÃO ENCONTRADO",
@@ -49,7 +49,7 @@ if (!isset($_GET['buscar'])) {
                     window.location.href = "/Suas-Tech/suas/views/adm/contratos.php";
                 }
             });
-</script>
+        </script>
         <?php
     } else {
         // Exibe informações do contrato encontrado
