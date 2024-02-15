@@ -5,7 +5,20 @@ session_start();
 
 // Verifique se a sessão foi iniciada
 if (!isset($_SESSION['nome_user_1_acesso'])) {
-    echo "Erro: A variável de sessão 'nome_user_1_acesso' não está definida.";
+    ?>
+    <script>
+    Swal.fire({
+    icon: "error",
+    title: "ERRO",
+    text: "A variável de sessão 'nome_user_1_acesso' não está definida.",
+    confirmButtonText: 'OK',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "../../../index.php";
+        }
+    });
+    </script>
+    <?php
     exit();
 }
 
@@ -44,10 +57,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //echo "Nome de Usuário: " . $nome_user . "<br>";
 
     if ($smtp->execute()) {
-
-        // Atualização bem-sucedida, redirecione para a página de Login
-        echo "<script language='javascript'>window.alert('Dados alterados com sucesso.'); </script>";
-        header("Location: ../../../index.php");
+        ?>
+        <script>
+        Swal.fire({
+        icon: "success",
+        title: "SALVO",
+        text: "Dados alterados com sucesso!",
+        confirmButtonText: 'OK',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "../../../index.php";
+            }
+        });
+        </script>
+        <?php
         exit();
     } else {
         echo "Erro na atualização das informações: " . $smtp->error;
