@@ -10,6 +10,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <meta charset="UTF-8" />
     <title>Tech-Suas</title>
     <link rel="stylesheet" href="../css/style_atend.css">
+    <link rel="shortcut icon" href="../../../../cadunico/img/logo.png" type="image/x-icon">
 </head>
 
 <body>
