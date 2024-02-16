@@ -18,7 +18,6 @@ body {
     max-height: 248px;
 }
 
-
 .container {
     display: flex;
     flex-direction: column;

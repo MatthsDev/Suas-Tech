@@ -20,26 +20,28 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
         </h1>
 </div> 
 <div class="container">
-    <nav>
-        <div>    
-            <a href="gerar_atend.php">Gerar Senha</a>
-        </div>
-        <div>
-            <a href="atendimento.php">Chamar Senha</a>
-        </div>
-        <div>
-            <a href="liberar_senha.php">Liberar Senha</a>
-        </div>
-        <div>
-            <a href="tela.php">Tela</a>
-        </div>
-        <div>
-            <a href="man.php">cadastrar senha</a>
-        </div>
-        <div>
-            <a href="cadastrar_setores.php">cadastrar Atendimento</a>
-        </div>
-    </nav>
+    <div class="menu">    
+        <nav>
+            <div>    
+                <a href="gerar_atend.php">Gerar Senha</a>
+            </div>
+            <div>
+                <a href="atendimento.php">Chamar Senha</a>
+            </div>
+            <div>
+                <a href="liberar_senha.php">Liberar Senha</a>
+            </div>
+            <div>
+                <a href="tela.php">Tela</a>
+            </div>
+            <div>
+                <a href="man.php">cadastrar senha</a>
+            </div>
+            <div>
+                <a href="cadastrar_setores.php">cadastrar Atendimento</a>
+            </div>
+        </nav>
+    </div>
 </div>
 </body>
 </html>
