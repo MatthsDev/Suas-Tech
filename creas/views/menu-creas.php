@@ -77,7 +77,7 @@ include_once '../../controller/aviso_prazo.php';
                         <a title="Sair" href='../../config/logout.php' ;>
                             <span title="Sair" class="material-symbols-outlined">logout</span>
                         </a>
-                        <a title="Alterar Usuário" href='conta.php' ;>
+                        <a title="Alterar Usuário" href='/Suas-Tech/cras/views/conta.php' ;>
                             <span class="material-symbols-outlined">manage_accounts</span>
                         </a>
                         <?php
