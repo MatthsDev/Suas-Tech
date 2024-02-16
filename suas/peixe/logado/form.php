@@ -15,10 +15,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="shortcut icon" href="/Suas-Tech/cadunico/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/style_peixe.css">
-    <title>TechSUAS - Cadastro Peixe</title>
+    <title>techSUAS - Cadastro Peixe</title>
 
 </head>
-
 
 <body>
 <div class="img">
@@ -34,7 +33,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
     <div class="corpo">
         <div id="cardF">
 
-            <form method="POST" id="formCont" action=''>
+            <form method="POST" id="formCont" action='conferir.php'>
 
                 <div class="cont-form">
                     <label for="estado">Local de Cadastramento</label>
@@ -90,7 +89,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                             <option value="cpf_dec">CPF:</option>
                             <option value="nis_dec">NIS:</option>
                         </select>
-                        <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
+                        <input type="text" name="valorescolhido" placeholder="Digite aqui:" maxlength="14" required>
 
                         <div class="cont-form">
                             <label for="estado">Local de Entrega</label>
@@ -143,133 +142,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
     <div>
     <footer><img src="../img/footer-peixe.svg" alt=""></footer>
     </div>
-            <?php
-            if (!isset($_POST['buscar_dados'])) {
-            } else {
-                if ($_POST['buscar_dados'] == 'cpf_dec') {
-                    $cpf1 = $_POST['valorescolhido'];
-                    if ($cpf1 = '0') {
-                        $cpf = "12345";
-                    } else {
-                        $cpf = $_POST['valorescolhido'];
-                    }
-                    $sql_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf");
-                    $sql_peixe->execute(array(':cpf' => $cpf));
-
-                    $data_atual = date('d/m/Y H:i:s');
-
-                    if ($sql_peixe->rowCount() > 0) {
-                        $dados = $sql_peixe->fetch(PDO::FETCH_ASSOC);
-
-                        echo $dados['nom_pessoa'];
-                        echo $cpf1;
-                        echo $dados['num_nis_pessoa_atual'];
-                        echo $_POST['entrega'];
-                        $cod_familiar = $dados['cod_familiar_fam'];
-                        $sql_cod_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cod");
-                        $sql_cod_peixe->execute(array(':cod' => $cod_familiar));
-
-                        if ($sql_cod_peixe->rowCount() < 5) {
-                            $dados_cod = $sql_cod_peixe->fetch(PDO::FETCH_ASSOC);
-                            $qtd_peixe = "2 kg ";
-                        } else {
-                            $qtd_peixe = "1 kg ";
-                        }
-                        echo $qtd_peixe;
-                        echo $data_atual;
-                        $texto = $dados['num_nis_pessoa_atual'] . " texto dos comprovantes " . $dados['nom_pessoa'];
-                    }
-                } else {
-                    $cpf1 = $_POST['valorescolhido'];
-                    if ($cpf1 = '0') {
-                        $cpf = "12345";
-                    } else {
-                        $cpf = $_POST['valorescolhido'];
-                    }
-                    $sql_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_nis_pessoa_atual = :cpf");
-                    $sql_peixe->execute(array(':cpf' => $cpf));
-
-                    $data_atual = date('d/m/Y H:i:s');
-
-                    if ($sql_peixe->rowCount() > 0) {
-                        $dados = $sql_peixe->fetch(PDO::FETCH_ASSOC);
-
-                        echo $dados['nom_pessoa'];
-                        echo $dados['num_cpf_pessoa'];
-                        echo $_POST['entrega'];
-                        $cod_familiar = $dados['cod_familiar_fam'];
-                        $sql_cod_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cod");
-                        $sql_cod_peixe->execute(array(':cod' => $cod_familiar));
-
-                        if ($sql_cod_peixe->rowCount() < 5) {
-                            $dados_cod = $sql_cod_peixe->fetch(PDO::FETCH_ASSOC);
-                            $qtd_peixe = "2 kg ";
-                        } else {
-                            $qtd_peixe = "1 kg ";
-                        }
-                        echo $qtd_peixe;
-                        echo $data_atual;
-                        $texto = $dados['num_nis_pessoa_atual'] . " texto dos comprovantes " . $dados['nom_pessoa'];
-                    }
-                }
-                // Verifica se o CPF já existe no banco de dados
-                $verifica_cod = $conn->prepare("SELECT cod_fam FROM peixe WHERE cod_fam = ?");
-                $verifica_cod->bind_param("s", $cod_familiar);
-                $verifica_cod->execute();
-                $verifica_cod->store_result();
-
-                if ($verifica_cod->num_rows > 0) {
-                    // Se o CPF já estiver cadastrado, exibe uma mensagem ou redirecione de volta ao formulário
-            ?>
-                    <script>
-                        Swal.fire({
-                            icon: "error",
-                            title: "JÁ CADASTRADO",
-                            text: "Essa família já fez cadastro!",
-                            confirmButtonText: 'OK',
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = "/Suas-Tech/suas/peixe/logado/form.php";
-                            }
-                        });
-                    </script>
-                <?php
-                    exit();
-                }
-                ?>
-                <script>
-                    window.print()
-                </script>
-                <?php
-                //salvamento dos dados ao FLUXO DA COZINHA
-                $stpt = $conn->prepare("INSERT INTO peixe (cod_fam, texto, data_registro, operador, local_entrega) VALUES (?, ?, ?, ?, ?)");
-                // Verifica se a preparação foi bem-sucedida
-                if ($stpt === false) {
-                    die('Erro na preparação SQL: ' . $conn->error);
-                }
-                $stpt->bind_param("sssss", $cod_familiar, $texto, $data_atual, $nome, $_POST['entrega']);
-
-                if ($stpt->execute()) {
-                ?>
-                    <script>
-                        Swal.fire({
-                            icon: "success",
-                            title: "SALVO",
-                            text: "Cadastro Realizado Com Sucesso!",
-                            confirmButtonText: 'OK',
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = "/Suas-Tech/suas/peixe/logado/form.php";
-                            }
-                        });
-                    </script>
-            <?php
-                } else {
-                    echo "Não salvou" . $stpt->error;
-                }
-            }
-            ?>
 
 </body>
-
 </html>
