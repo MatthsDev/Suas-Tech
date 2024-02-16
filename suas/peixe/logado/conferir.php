@@ -143,7 +143,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                     window.print()
                 </script>
                 <?php
-                /*
+                
                 //salvamento dos dados ao FLUXO DA COZINHA
                 $stpt = $conn->prepare("INSERT INTO peixe (cod_fam, texto, data_registro, operador, local_entrega) VALUES (?, ?, ?, ?, ?)");
                 // Verifica se a preparação foi bem-sucedida
@@ -170,7 +170,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                 } else {
                     echo "Não salvou" . $stpt->error;
                 }
-                */
+                
             }
             ?>
 </body>
