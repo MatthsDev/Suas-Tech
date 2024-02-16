@@ -54,7 +54,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                     </div>
                     <div class="btn">
-                        <a class="menu-button" onclick="location.href='declaracao.php';">
+                        <a class="menu-button" target="_blank" onclick="location.href='/Suas-Tech/suas/peixe/logado/form.php';">
                             <span class="material-symbols-outlined">
                                 set_meal
                             </span>
@@ -79,7 +79,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             <a title="Sair" href='/Suas-Tech/config/logout.php' ;>
                                 <span title="Sair" class="material-symbols-outlined">logout</span>
                             </a>
-                            <a title="Alterar Usuário" href='conta.php' ;>
+                            <a title="Alterar Usuário" href='../../cras/views/conta.php' ;>
                                 <span class="material-symbols-outlined">manage_accounts</span>
                             </a>
                             <?php
