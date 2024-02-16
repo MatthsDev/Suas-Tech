@@ -76,6 +76,14 @@ include_once '../controller/acesso_user/dados_usuario.php';
             </span>
             Atendimento
           </a>
+          <div class="peixe">
+          <a class="menu-button" target="_blank" href='../views/atendimento/index.php';">
+            <span class="material-symbols-outlined">
+              set_meal
+            </span>
+            Cadastro Peixe
+          </a>
+        </div>
         </div>
       <nav>   
     </div>
