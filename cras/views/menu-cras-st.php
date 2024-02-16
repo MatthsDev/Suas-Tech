@@ -12,7 +12,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="stylesheet" href="../css/style-menu.css">
     <link rel="website icon" type="png" href="../img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Cras Santo Afonso</title>
+    <title>TechSUAS - Cras Santo Afonso</title>
 </head>
 
 <body>
@@ -53,6 +53,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         Encaminhamento
                     </a>
                 </div>
+                <div class="btn">
+                        <a class="menu-button" target="_blank" href='/Suas-Tech/suas/peixe/logado/form.php';">
+                            <span class="material-symbols-outlined">
+                                set_meal
+                            </span>
+                            Cadastro Peixe
+                        </a>
+                    </div>
             </nav>
         </div>
         <div class="mural">

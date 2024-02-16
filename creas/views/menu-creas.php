@@ -11,7 +11,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="stylesheet" href="../css/style-menu.css">
     <link rel="website icon" type="png" href="../../cras/img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Creas Gildo Soares</title>
+    <title>TechSUAS - Creas Gildo Soares</title>
 </head>
 <body>
     <div class="img">
@@ -51,6 +51,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     Encaminhamento 
                     </a>
                 </div>
+                <div class="btn">
+                        <a class="menu-button" target="_blank" href='/Suas-Tech/suas/peixe/logado/form.php';">
+                            <span class="material-symbols-outlined">
+                                set_meal
+                            </span>
+                            Cadastro Peixe
+                        </a>
+                    </div>
             </nav>
         </div>  
         <div class="mural">
@@ -69,7 +77,7 @@ include_once '../../controller/aviso_prazo.php';
                         <a title="Sair" href='../../config/logout.php' ;>
                             <span title="Sair" class="material-symbols-outlined">logout</span>
                         </a>
-                        <a title="Alterar Usuário" href='conta.php' ;>
+                        <a title="Alterar Usuário" href='/Suas-Tech/cras/views/conta.php' ;>
                             <span class="material-symbols-outlined">manage_accounts</span>
                         </a>
                         <?php
