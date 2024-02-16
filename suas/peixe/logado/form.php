@@ -15,7 +15,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="shortcut icon" href="/Suas-Tech/cadunico/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/style_peixe.css">
-    <title>techSUAS - Cadastro Peixe</title>
+    <title>TechSUAS - Cadastro Peixe</title>
 
 </head>
 
@@ -33,7 +33,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
     <div class="corpo">
         <div id="cardF">
 
-            <form method="POST" id="formCont" action='conferir.php'>
+            <form method="POST" target="_blank" id="formCont" action='conferir.php'>
 
                 <div class="cont-form">
                     <label for="estado">Local de Cadastramento</label>
