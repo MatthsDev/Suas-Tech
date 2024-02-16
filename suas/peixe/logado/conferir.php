@@ -43,6 +43,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                     if ($sql_peixe->rowCount() > 0) {
                         $dados = $sql_peixe->fetch(PDO::FETCH_ASSOC);
 
+                        if ($dados['vlr_renda_media_fam'] >= 218) {
+                            ?>
+                            <script>
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "SEM PERFIL",
+                                    text: "Essa família não tem perfil!",
+                                    confirmButtonText: 'OK',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "/Suas-Tech/suas/peixe/logado/form.php";
+                                    }
+                                });
+                            </script>
+                        <?php
+                        }
+
                         echo $dados['nom_pessoa'];
                         echo $cpf1;
                         echo $dados['num_nis_pessoa_atual'];
