@@ -20,11 +20,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
 <body>
     <div class="corpo">
         <div id="cardF">
-            <div class="cont-titulo">
-                <h1 class="mt-3">
-                    Novo Cadastro
-                </h1>
-            </div>
+
             <form method="POST" id="formCont" action=''>
 
             <div class="cont-form">
