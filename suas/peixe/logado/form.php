@@ -13,6 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="shortcut icon" href="/Suas-Tech/cadunico/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/style_peixe.css">
     <title>Cadastro Peixe</title>
 
@@ -254,7 +255,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                         Swal.fire({
                             icon: "success",
                             title: "SALVO",
-                            text: "cadastro realizado com sucesso!",
+                            text: "Cadastro Realizado Com Sucesso!",
                             confirmButtonText: 'OK',
                         }).then((result) => {
                             if (result.isConfirmed) {
