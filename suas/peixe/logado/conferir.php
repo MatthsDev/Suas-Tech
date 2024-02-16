@@ -112,7 +112,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                     }
                 }
                 
-                /*
+                
                 // Verifica se o CPF já existe no banco de dados
                 $verifica_cod = $conn->prepare("SELECT cod_fam FROM peixe WHERE cod_fam = ?");
                 $verifica_cod->bind_param("s", $cod_familiar);
@@ -137,8 +137,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                 <?php
                     exit();
                 }
-                ?>
-                */
+                
                 ?>
                 <script>
                     window.print()
