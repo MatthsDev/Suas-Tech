@@ -42,6 +42,30 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </a>
                 </div>
             </nav>
+            
+        </div>
+        <footer><img src="img/footer-adm.svg" alt=""></footer>
+        <div class="drop-all">
+            <div class="menu-drop">
+                <button class="logout" type="button" name="drop">
+                    <span class="material-symbols-outlined">
+                        Settings
+                    </span>
+                    <div class="drop-content">
+                        <a title="Sair" href='../../../config/logout.php' ;>
+                            <span title="Sair" class="material-symbols-outlined">logout</span>
+                        </a>
+                        <a title="Alterar Usuário" href='../../../cras/views/conta.php' ;>
+                            <span class="material-symbols-outlined">manage_accounts</span>
+                        </a>
+                        <?php
+if ($nivel == 'suport') {
+    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
+                                <span class="material-symbols-outlined">rule_settings</span>
+                            </a> <?php
+exit();
+}
+?>
         </div>
 <footer><img src="img/footer-adm.svg" alt=""></footer>
 </body>
