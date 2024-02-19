@@ -60,6 +60,31 @@ if (!isset($_POST['buscar_dados'])) {
             }
 
             $cod_familiar = $dados['cod_familiar_fam'];
+            $nome_pessoa = $dados['nom_pessoa'];
+
+            if ($dados['cod_parentesco_rf_pessoa'] = 1) {
+                $parentesco = 'Responsável famíliar';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 2) {
+                $parentesco = 'Cônjuge';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 3) {
+                $parentesco = 'Filho(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 4) {
+                $parentesco = 'Enteado(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 5) {
+                $parentesco = 'Neto(a) ou Bisneto(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 6) {
+                $parentesco = 'Pai ou Mãe';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 7) {
+                $parentesco = 'Sogro(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 8) {
+                $parentesco = 'Irmão(ã)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 9) {
+                $parentesco = 'Genro ou Nora';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 10) {
+                $parentesco = 'Outro parente';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 11) {
+                $parentesco = 'Não parente';
+            }
             $sql_cod_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cod");
             $sql_cod_peixe->execute(array(':cod' => $cod_familiar));
 
@@ -102,14 +127,39 @@ if (!isset($_POST['buscar_dados'])) {
             $dados = $sql_peixe->fetch(PDO::FETCH_ASSOC);
 
             $cod_familiar = $dados['cod_familiar_fam'];
+            $nome_pessoa = $dados['nom_pessoa'];
+
+            if ($dados['cod_parentesco_rf_pessoa'] = 1) {
+                $parentesco = 'Responsável famíliar';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 2) {
+                $parentesco = 'Cônjuge';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 3) {
+                $parentesco = 'Filho(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 4) {
+                $parentesco = 'Enteado(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 5) {
+                $parentesco = 'Neto(a) ou Bisneto(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 6) {
+                $parentesco = 'Pai ou Mãe';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 7) {
+                $parentesco = 'Sogro(a)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 8) {
+                $parentesco = 'Irmão(ã)';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 9) {
+                $parentesco = 'Genro ou Nora';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 10) {
+                $parentesco = 'Outro parente';
+            } else if ($dados['cod_parentesco_rf_pessoa'] = 11) {
+                $parentesco = 'Não parente';
+            }
             $sql_cod_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cod");
             $sql_cod_peixe->execute(array(':cod' => $cod_familiar));
 
-            if ($sql_cod_peixe->rowCount() < 5) {
+            if ($sql_cod_peixe->rowCount() <= 4) {
                 $dados_cod = $sql_cod_peixe->fetch(PDO::FETCH_ASSOC);
-                $qtd_peixe = "2 kg ";
+                $qtd_peixe = "1 kg";
             } else {
-                $qtd_peixe = "1 kg ";
+                $qtd_peixe = "2 kg";
             }
         } else {
             ?>
@@ -129,6 +179,7 @@ if (!isset($_POST['buscar_dados'])) {
         exit();
         }
     }
+
 
     // Verifica se o CPF já existe no banco de dados
     $verifica_cod = $conn->prepare("SELECT cod_fam FROM peixe WHERE cod_fam = ?");
@@ -156,12 +207,12 @@ exit();
     }
     
     //salvamento dos dados ao FLUXO DA COZINHA
-    $stpt = $conn->prepare("INSERT INTO peixe (codigo_talao, cod_fam, texto, data_registro, operador, local_entrega) VALUES (?, ?, ?, ?, ?, ?)");
+    $stpt = $conn->prepare("INSERT INTO peixe (codigo_talao, cod_fam, data_registro, operador, local_entrega, local_cadastro, nome_pessoa, parentesco, quant_kg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     // Verifica se a preparação foi bem-sucedida
     if ($stpt === false) {
         die('Erro na preparação SQL: ' . $conn->error);
     }
-    $stpt->bind_param("ssssss", $_POST['comprova'], $cod_familiar, $texto, $data_atual, $nome, $_POST['entrega']);
+    $stpt->bind_param("sssssssss", $_POST['comprova'], $cod_familiar, $data_atual, $nome, $_POST['entrega'], $_POST['lc_cadastro'], $nome_pessoa, $parentesco, $qtd_peixe);
 
     if ($stpt->execute()) {
         ?>
