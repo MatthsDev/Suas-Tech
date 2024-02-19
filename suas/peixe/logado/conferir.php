@@ -68,8 +68,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                         $sql_cod_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cod");
                         $sql_cod_peixe->execute(array(':cod' => $cod_familiar));
 
-                        if ($sql_cod_peixe->rowCount() < 5) {
+                        if ($sql_cod_peixe->rowCount() > 5) {
                             $dados_cod = $sql_cod_peixe->fetch(PDO::FETCH_ASSOC);
+
                             $qtd_peixe = "2 kg ";
                         } else {
                             $qtd_peixe = "1 kg ";
