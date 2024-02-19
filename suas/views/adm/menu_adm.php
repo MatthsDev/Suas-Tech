@@ -41,6 +41,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         Consultar Contratos
                     </a>
                 </div>
+                <div class="btn">
+                    <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='#'">
+                        <span class="material-symbols-outlined">
+                        move_up
+                        </span>
+                        Apostilamento
+                    </a>
+                </div>
             </nav>
             
         </div>

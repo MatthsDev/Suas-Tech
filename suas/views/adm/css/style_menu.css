@@ -180,6 +180,6 @@ button[name="drop"] {
 
 .drop-all {
     position: fixed;
-    bottom: 20px;
+    bottom: 25px;
     opacity: 80%;
 }
