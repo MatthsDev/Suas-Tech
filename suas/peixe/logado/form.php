@@ -37,15 +37,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
 
                 <div class="cont-form">
                     <label for="estado">Local de Cadastramento</label>
-                    <select id="" class="form-select" name="entrega" autocomplete="off" required>
+                    <select id="" class="form-select" name="lc_cadastro" autocomplete="off" required>
                         <option value="" data-default disabled selected></option>
                         <option value="CRAS ANTONIO MATIAS">CRAS - ANTONIO MATIAS</option>
-                        <option value="ESTER SIQUEIRA">ESTER SIQUEIRA</option>
-                        <option value="ODETE COSTA">ODETE COSTA</option>
                         <option value="PAULO CORDEIRO">PAULO CORDEIRO</option>
                         <option value="CRAS SANTO AFONSO">CRAS - SANTO AFONSO</option>
                         <option value="MONICA BRAGA">MONICA BRAGA</option>
-                        <option value="SEDE">SEDE</option>
                         <option value="MANICOBA SOARES">MANICOBA SOARES</option>
                         <option value="MINADOR">MINADOR</option>
                         <option value="UNA DO SIMAO">UNA DO SIMAO</option>
@@ -82,7 +79,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                     <div class="cont-input1">
                         <div class="cont-formSus">
                             <label> Codigo </label>
-                            <input type="text" class="form-control" name="comprova" maxLength="04" autocomplete="off">
+                            <input type="text" class="form-control" name="comprova" maxLength="04" autocomplete="off" required>
                         </div>
 
                         <select name="buscar_dados" required>
