@@ -27,7 +27,7 @@ img {
     justify-content: space-between;
     align-content: space-between;
     padding: 10px;
-    line-height: 3;
+    line-height: 2.6;
     background-color: #ffffff;
     border-radius: 10px;
 }
@@ -35,7 +35,8 @@ img {
 input,
 select,
 option,
-label {
+label,
+span {
     font-size: 14px;
     font-weight: 700;
     background-color: #ffffff;
@@ -43,4 +44,51 @@ label {
     border-radius: 5px;
     padding: 1px 2px;
     border-style: outset;
+}
+
+button,
+a {
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #13294b;
+    color: white;
+    cursor: pointer;
+}
+button:hover,
+a:hover{
+    background-color: #3b82f6;
+    box-shadow: 0 0 0 1px #3b83f65f;
+    color: #fff;
+}   
+a{
+    text-decoration: none;
+    text-transform: none;
+}
+.inpu {
+    width: 300px;
+}
+.inpu1{
+    width: 400px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #ffffff;
+    color: #13294b;
+    border-radius: 5px;
+    padding: 1px 2px;
+    border-style: outset;
+}
+.back{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
+p,
+label{
+    color: #13294b;
+    text-transform: capitalize;
 }
