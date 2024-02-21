@@ -60,7 +60,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </form>
     </div>
     <div class="back">             
-        <button type="button" href="/Suas-Tech/suas/views/adm/menu_adm.php">
+        <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
             <i class="fas fa-arrow-left"></i>
             Voltar ao menu
         </button>
