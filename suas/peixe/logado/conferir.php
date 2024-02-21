@@ -57,34 +57,35 @@ if (!isset($_POST['buscar_dados'])) {
                                 });
                             </script>
                         <?php
-            }
+}
 
             $cod_familiar = $dados['cod_familiar_fam'];
             $nome_pessoa = $dados['nom_pessoa'];
 
-            if ($dados['cod_parentesco_rf_pessoa'] = 1) {
+            if ($dados['cod_parentesco_rf_pessoa'] == 1) {
                 $parentesco = 'Responsável famíliar';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 2) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 2) {
                 $parentesco = 'Cônjuge';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 3) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 3) {
                 $parentesco = 'Filho(a)';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 4) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 4) {
                 $parentesco = 'Enteado(a)';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 5) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 5) {
                 $parentesco = 'Neto(a) ou Bisneto(a)';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 6) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 6) {
                 $parentesco = 'Pai ou Mãe';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 7) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 7) {
                 $parentesco = 'Sogro(a)';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 8) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 8) {
                 $parentesco = 'Irmão(ã)';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 9) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 9) {
                 $parentesco = 'Genro ou Nora';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 10) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 10) {
                 $parentesco = 'Outro parente';
-            } else if ($dados['cod_parentesco_rf_pessoa'] = 11) {
+            } else if ($dados['cod_parentesco_rf_pessoa'] == 11) {
                 $parentesco = 'Não parente';
             }
+
             $sql_cod_peixe = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cod");
             $sql_cod_peixe->execute(array(':cod' => $cod_familiar));
 
@@ -109,7 +110,7 @@ if (!isset($_POST['buscar_dados'])) {
             });
         </script>
         <?php
-        exit();
+exit();
         }
     } else {
         $cpf1 = $_POST['valorescolhido'];
@@ -176,10 +177,9 @@ if (!isset($_POST['buscar_dados'])) {
             });
         </script>
         <?php
-        exit();
+exit();
         }
     }
-
 
     // Verifica se o CPF já existe no banco de dados
     $verifica_cod = $conn->prepare("SELECT cod_fam FROM peixe WHERE cod_fam = ?");
@@ -205,7 +205,7 @@ if (!isset($_POST['buscar_dados'])) {
         <?php
 exit();
     }
-    
+
     //salvamento dos dados ao FLUXO DA COZINHA
     $stpt = $conn->prepare("INSERT INTO peixe (codigo_talao, cod_fam, data_registro, operador, local_entrega, local_cadastro, nome_pessoa, parentesco, quant_kg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     // Verifica se a preparação foi bem-sucedida
@@ -234,6 +234,7 @@ exit();
     }
 
 }
+
 ?>
 </body>
 </html>
