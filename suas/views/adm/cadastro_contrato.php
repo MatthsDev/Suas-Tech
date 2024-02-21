@@ -30,11 +30,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             </div>
             <div>
                 <label>Nome empresa:</label>
-                <input type="text" name="nome_empresa">
+                <input type="text" name="nome_empresa" class="inpu">
             </div>
             <div>
                 <label>Razão social:</label>
-                <input type="text" name="razao_social">
+                <input type="text" name="razao_social" class="inpu">
             </div>
             <div>
                 <label>CNPJ:</label>
