@@ -69,3 +69,10 @@ a{
 .inpu {
     width: 300px;
 }
+.back{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
