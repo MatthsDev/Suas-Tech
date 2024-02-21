@@ -52,12 +52,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </div>
                 <div>
                     <label>E-mail:</label>
-                    <input type="text" name="#" class="inpu">
+                    <input type="email" name="email_emp" class="inpu">
                 </div>
                 <div>
                     <label for="valor_contrato">Valor do contrato:</label>
                     <span>R$</span>
-                    <input type="text" name="valor" id="valor_contrato" />
+                    <input type="text" name="valor_contrato" id="valor_contrato" />
                 </div>
                 <div>
                     <label>Data Assinatura:</label>
@@ -69,11 +69,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </div>
                 <div class="btns">
                     <button type="submit" name="btn_contrato">Salvar Contrato</button>
-                    <button id='btn_salva_contrato'>Cadastrar Itens</button>
+                    <button type="button" id='btn_salva_contrato'>Cadastrar Itens</button>
                 </div>
             </form>
         </div>
-        <div class="back">
+        <div id="voltar1" class="back">
             <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
                 <i class="fas fa-arrow-left"></i>
                 Voltar ao menu
@@ -108,6 +108,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <button type="button" onclick="adicionarLinha()">Adicionar Linha</button>
                 <button type="submit" name="btn_itens">Salvar Itens</button>
             </form>
+            <div id="voltar1" class="back">
+            <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao menu
+            </button>
+        </div>
         </div>
 
     </div>
