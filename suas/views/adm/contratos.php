@@ -165,7 +165,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         </button>
     </div>
 </div>
-
+<?php
+include '../../controller/tbl_contrato.php';
+?>
 </body>
     
 </html>
