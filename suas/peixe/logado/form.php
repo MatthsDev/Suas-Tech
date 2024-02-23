@@ -162,7 +162,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                         </div>
                         <div class="consul2">
                                 <div class="camp">
-                                    <input  type="text" name="valorescolhido">
+                                    <input  type="text" placeholder="Familias Cadastradas (CPF)" name="valorescolhido">
                                 </div>
                         </div>
                     </form>
