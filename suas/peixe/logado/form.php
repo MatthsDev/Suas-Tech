@@ -53,7 +53,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
             <form method="POST" id="formCont" action='conferir.php'>
 
                 <div class="cont-form">
-                    <label for="estado">Local de Cadastramento</label>
+                    <label for="estado">Local de Cadastramento:</label>
                     <select id="" class="form-select" name="lc_cadastro" autocomplete="off" required>
                         <option value="" data-default disabled selected></option>
                         <option value="CRAS ANTONIO MATIAS">CRAS - ANTONIO MATIAS</option>
@@ -95,7 +95,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                     <!-- ========= DIVISORIA DO FORMULARIO ============== -->
                     <div class="cont-input1">
                         <div class="cont-formSus">
-                            <label> Codigo </label>
+                            <label>Codigo:</label>
                             <input type="text" class="form-control" name="comprova" maxLength="04" autocomplete="off" required>
                         </div>
 
@@ -106,7 +106,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                         <input type="text" name="valorescolhido" placeholder="Digite aqui:" maxlength="14" required>
 
                         <div class="cont-form">
-                            <label for="estado">Local de Entrega</label>
+                            <label for="estado">Local de Entrega:</label>
                             <select id="" class="form-select" name="entrega" autocomplete="off" required>
                                 <option value="" data-default disabled selected></option>
                                 <option value="CRAS ANTONIO MATIAS">CRAS - ANTONIO MATIAS</option>
