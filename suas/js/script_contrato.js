@@ -17,6 +17,7 @@ $(document).ready(function () {
         $('#form_itens').show()
         $('#btn_salva_contrato').hide()
         $('#form_contrato').hide()
+        $('#voltar1').hide()
     })
 })
 

@@ -11,19 +11,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 
 <?php
 
-$data_registro = date('d-m-Y H:i');
+$data_registro = date('d-m-Y');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['btn_contrato'])) {
-        $stmt_contrato = $conn->prepare("INSERT INTO tabela_contrato (data_assinatura, vigencia, num_contrato, nome_empresa, razao_social, cnpj, num_contato, data_registro) VALUES(?,?,?,?,?,?,?,?)");
-        $stmt_contrato->bind_param('ssssssss', $_POST['data_assinatura'], $_POST['vigencia'], $_POST['num_contrato'], $_POST['nome_empresa'], $_POST['razao_social'], $_POST['cnpj'], $_POST['num_contato'], $data_registro);
+        $stmt_contrato = $conn->prepare("INSERT INTO tabela_contrato (data_assinatura, vigencia, num_contrato, nome_empresa, razao_social, cnpj, num_contato, data_registro, email_emp, valor_contrato) VALUES(?,?,?,?,?,?,?,?,?,?)");
+        $stmt_contrato->bind_param('ssssssssss', $_POST['data_assinatura'], $_POST['vigencia'], $_POST['num_contrato'], $_POST['nome_empresa'], $_POST['razao_social'], $_POST['cnpj'], $_POST['num_contato'], $data_registro, $_POST['email_emp'], $_POST['valor_contrato']);
 
         if ($stmt_contrato->execute()) {
             ?>

@@ -198,3 +198,6 @@ button[name="drop"] {
     bottom: 15px;
     opacity: 80%;
 }
+a{
+    text-decoration: none;
+}

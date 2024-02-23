@@ -10,7 +10,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
     <link rel="stylesheet" href="css/style-suporte.css">
     <link rel="website icon" type="png" href="../cadunico/img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Suporte - DDV</title>
+    <title>TechSUAS - Suporte - DDV</title>
 </head>
 <body>
 <div class="img">
@@ -30,20 +30,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                         <a class="menu-button" onclick="location.href='../cadunico/painel-adm/adm-view.php';">
                         Cadastro único
                         </a>
-                    </div>    
+                    </div>   
+                    <div class="btn">
+                        <a class="menu-button" onclick="location.href='../suas/views/adm/menu_adm.php';">
+                        Administrativo
+                        </a>
+                    </div> 
                     <div class="btn">
                             <a class="menu-button" onclick="location.href='../cozinha_comunitaria/menu.php';">
                             Cozinha Comunitária
                             </a>
                     </div>
-                    <div class="btn">
-                                <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/painel-adm/cadastro_user.php';">
-                                <span class="material-symbols-outlined">
-                                person_add
-                                </span>
-                                Cadastrar Operadores
-                                </a>
-                        </div>
+
                 </div>    
                 <div class="bloco2">    
                         <div class="btn">
@@ -61,6 +59,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                                 CREAS Gildo Soares
                                 </a>
                         </div>
+
+                    </div> 
+                <div class="bloco2"> 
                         <div class="btn">
                                 <a class="menu-button" onclick="location.href='setores.php';">
                                 <span class="material-symbols-outlined">
@@ -69,8 +70,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                                 Cadastrar Setores
                                 </a>
                         </div>
-                    </div> 
-                <div class="bloco2"> 
+                        <div class="btn">
+                                <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/painel-adm/cadastro_user.php';">
+                                <span class="material-symbols-outlined">
+                                person_add
+                                </span>
+                                Cadastrar Operadores
+                                </a>
+                        </div>
                         <div class="btn">
                                 <a class="menu-button" onclick="location.href='/Suas-Tech/suas/views/atualizar_tabela.php';">
                                 <span class="material-symbols-outlined">

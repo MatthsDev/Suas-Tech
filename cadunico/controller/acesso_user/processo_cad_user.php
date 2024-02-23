@@ -23,7 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_name = $_POST['nome_user'];
     $user_maiusc = strtoupper($user_name);
     $setor = $_POST['setor'];
-    $funcao = $_POST['funcao'];
+
+    if ($_POST['funcao'] == '3') {
+        $funcao = $_POST['funcao_outros'];
+    } else if ($_POST['funcao'] == '2') {
+        $funcao = "Tecnico(a)";
+    } else {
+        $funcao = "Coordenação";
+    }
+
     $email = $_POST['email'];
     $nomeUsuario = gerarNomeUsuario($user_name);
 
@@ -59,8 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }
-
-
 
     $smtp->close();
     $conn->close();
