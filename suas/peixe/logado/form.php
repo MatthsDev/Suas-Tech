@@ -20,7 +20,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
     <style>
         /* Altera a cor de fundo do modal */
 .swal2-popup {
-    background-color: #ff0;
+    background-color: #ffffff;
 }
 
 /* Altera a cor do título */
@@ -151,11 +151,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                     </div>
                 </div>
             </form>
-        <form method="POST" action="">
-            <input type="text" name="valorescolhido">
-            <button class="menu-button" onclick="consultar_familia()">CONSULTAR</button>
-        </form>
-        </div>
+        </div>    
+            <div class="consul">
+                <div class="cansult">
+                    <form method="POST" action="">
+                        <div class="consul1">
+                                <div>
+                                    <button class="menu-button" onclick="consultar_familia()">CONSULTAR</button>
+                                </div>
+                        </div>
+                        <div class="consul2">
+                                <div class="camp">
+                                    <input  type="text" name="valorescolhido">
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
     </div>
     <div>
     <footer><img src="../img/footer-peixe.svg" alt=""></footer>
