@@ -15,6 +15,7 @@ if(isset($_GET['nomeSetor'])) {
     if ($result->num_rows > 0) {
         // Loop para criar as opções do select
         while ($row = $result->fetch_assoc()) {
+           
             echo '<option value="' . $row['id'] . '">' . $row['tipos_atendimentos'] . '</option>';
         }
     } else {

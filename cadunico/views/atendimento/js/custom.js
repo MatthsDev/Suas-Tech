@@ -18,7 +18,7 @@ function exibirTicket(nome, senha) {
     // Adicionar um ouvinte de evento ao evento onload da janela
     ticketWindow.onload = function () {
         // Adicionar o botão de imprimir ao DOM da nova janela
-        const imprimirBtn = ticketWindow.document.createElement('button'); 
+        const imprimirBtn = ticketWindow.document.createElement('button');
         imprimirBtn.id = 'imprimirBtn';
         imprimirBtn.textContent = 'Imprimir';
         ticketWindow.document.body.appendChild(imprimirBtn);
@@ -84,6 +84,28 @@ async function gerarSenhaImprimir(tipoSenha) {
         console.error('Erro:', error.message);
         document.getElementById("msgAlerta").innerHTML = 'Erro na requisição. Verifique o console para mais detalhes.';
         document.getElementById("senhaGerada").innerHTML = "";
+    }
+}
+async function chamarSenhaNovamente(idSenhaGerada) {
+    const dados = await fetch('/Suas-Tech/cadunico/views/atendimento/models/chamar_senha_novamente.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'id_senha_gerada=' + idSenhaGerada // Dados de corpo contendo o ID da senha
+    });
+    const resposta = await dados.json();
+    console.log(resposta);
+
+    if (!resposta['status']) {
+        document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+    } else {
+        document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+
+        var listaSenha = document.getElementById("lista-senha-gerada");
+        var senha = document.getElementById("senha-gerada-" + resposta['id_senha_gerada']);
+
+        listaSenha.removeChild(senha);
     }
 }
 

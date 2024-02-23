@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
-$sql = "SELECT DISTINCT nomeSetor FROM tipos_senhas";
+$sql = "SELECT DISTINCT setor FROM usuarios";
 $result = $conn->query($sql);
 
 // Verifica se há resultados
@@ -9,7 +9,7 @@ if ($result->num_rows > 0) {
     // Loop para criar as opções do select
     while ($row = $result->fetch_assoc()) {
         echo '<option value="">SELECIONE.. </option>';
-        echo '<option value="' . $row['nomeSetor'] . '">' . $row['nomeSetor'] . '</option>';
+        echo '<option value="' . $row['setor'] . '">' . $row['setor'] . '</option>';
     }
 } else {
     // Se não houver setores, ainda assim, mostra uma opção padrão

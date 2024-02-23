@@ -6,11 +6,10 @@ $tipo = filter_input(INPUT_GET, 'tipo');
 $nomePessoa = filter_input(INPUT_GET, 'nome');
 $cpfPessoa = $_GET['cpf_pess'];
 
-
 $retorna = [];
 
 if (!empty($tipo) && !empty($nomePessoa)) {
-    $query_senha = "SELECT id, nome_senha 
+    $query_senha = "SELECT id, nome_senha, tipos_senha_id 
                     FROM senhas
                     WHERE sits_senha_id = 1
                     AND tipos_senha_id = ?
@@ -25,15 +24,15 @@ if (!empty($tipo) && !empty($nomePessoa)) {
         $result_senha->store_result();
 
         if ($result_senha->num_rows > 0) {
-            $result_senha->bind_result($id, $nome_senha);
+            $result_senha->bind_result($id, $nome_senha, $tipos_senha_id);
             $result_senha->fetch();
 
-            $query_senha_gerada = "INSERT INTO senhas_geradas (senha_id, nome_pess, cpf_pess, sits_senha_id, created) VALUES (?, ?, ?, 2, NOW())";
+            $query_senha_gerada = "INSERT INTO senhas_geradas (senha_id, nome_pess, cpf_pess, tip_senha_id, sits_senha_id, created) VALUES (?, ?, ?, ?, 2, NOW())";
 
             $cad_senha_gerada = $conn->prepare($query_senha_gerada);
 
             if ($cad_senha_gerada) {
-                $cad_senha_gerada->bind_param('isi', $id, $nomePessoa, $cpfPessoa);
+                $cad_senha_gerada->bind_param('isis', $id, $nomePessoa, $cpfPessoa, $tipos_senha_id);
                 $cad_senha_gerada->execute();
 
                 if ($cad_senha_gerada->affected_rows > 0) {

@@ -1,79 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400;500&display=swap');
 
-body {
-    background-color: #d7e9f8;
-    overflow: auto;
-    font-family: "Inter", sans-serif;
-    overflow: hidden;
-}
 
-* {
-    margin-top: 0px;
-}
-
-.titulo-com-imagem {
+.block{
     display: flex;
+    flex-flow: nowrap;
+    justify-content: space-between;
+}
+
+.tabela_senha {
     width: 100%;
-    max-height: 248px;
+    border-collapse: collapse;
 }
 
-h2 {
-    color: #13294b;
-    text-align: center;
-}
-.senha{
-    text-align: center;
+.titulo_senha {
+    background-color: #f2f2f2;
 }
 
-.btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: space-around;
-    text-transform: uppercase;
-    width: 100%;
-    padding: 20px 0px 20px 0px;
-}
-.tudo{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: space-around;
-    text-transform: uppercase;
-    color: #13294b;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px 10px 20px 10px;
+.tabela_senha th,
+.tabela_senha td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
 }
 
-a,
-button {
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 5px 25px;
-    border: none;
-    font-weight: 500;
-    background-color: #13294b;
-    color: white;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 5px;
+.tabela_senha tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-button:hover,
-a:hover {
-    background-color: #3b82f6;
-    box-shadow: 0 0 0 1px #3b83f65f;
-    color: #fff;
+.tabela_senha tr:hover {
+    background-color: #ddd;
 }
-.gerada{
-    color: rgb(193, 0, 0);
-	background-color: #ffffff;
-	border-radius: 5px;
-	padding: 2px;
-	font-weight: bold;
-	font-size: large;
-}
-
