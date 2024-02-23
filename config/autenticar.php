@@ -1,5 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+</head>
+<body>
 <?php
-
 require_once "conexao.php";
 session_start();
 
@@ -15,6 +24,7 @@ $stmt->bindValue(":usuario", $usuario);
 $stmt->execute();
 
 $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+if ($dados && is_array($dados) && array_key_exists('setor', $dados)) {
 $setor_ = $dados['setor'];
 
 if ($dados && password_verify($senha_login, $dados['senha'])) {
@@ -28,7 +38,7 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
         exit();
     } elseif ($setor_ == "CRAS - ANTONIO MATIAS") {
         header("Location: ../cras/views/menu-cras-am.php");
-
+        exit();
     } elseif ($setor_ == "CADASTRO UNICO - SECRETARIA DE ASSISTENCIA SOCIAL") {
         if ($_SESSION['nivel_usuario'] == 'admin') {
             header("location:../cadunico/painel-adm/adm-view.php");
@@ -43,6 +53,21 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
         header("Location: ../creas/views/menu-creas.php");
     } elseif ($setor_ == "COZINHA COMUNITARIA - MARIA NEUMA DA SILVA") {
         header("Location: ../cozinha_comunitaria/menu.php");
+    }else{
+        ?>
+        <script>
+            Swal.fire({
+            icon: "error",
+            title: "SENHA INCORRETA",
+            text: "Usuário ou senha não condiz com a base de dados.",
+            confirmButtonText: 'OK',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/Suas-Tech/index.php";
+                }
+            });
+        </script>
+            <?php
     }
 
     // Verifique se é o primeiro acesso pela senha
@@ -54,7 +79,40 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
         header("Location: ../cadunico/views/acessos/primeiro_acesso.php");
         exit();
     }
+    } else {
+
+    ?>
+<script>
+    Swal.fire({
+    icon: "error",
+    title: "SENHA INCORRETA",
+    text: "Usuário ou senha não condiz com a base de dados.",
+    confirmButtonText: 'OK',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "/Suas-Tech/index.php";
+        }
+    });
+</script>
+    <?php
+    }
 } else {
-    echo "<script language='javascript'>window.alert('Senha incorreta!'); </script>";
-    echo "<script language='javascript'>window.location='../index.php'; </script>";
+    ?>
+<script>
+    Swal.fire({
+    icon: "error",
+    title: "SENHA INCORRETA",
+    text: "Usuário ou senha não condiz com a base de dados.",
+    confirmButtonText: 'OK',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "/Suas-Tech/index.php";
+        }
+    });
+</script>
+    <?php
+
 }
+?>
+    </body>
+</html>
