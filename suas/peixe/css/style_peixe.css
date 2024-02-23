@@ -62,7 +62,7 @@ h3 {
     align-content: space-between;
     background-color: #ffffff;
     border-radius: 10px;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 10px 10px 20px;
     line-height: 3;
     font-size: 18px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
@@ -82,7 +82,7 @@ label {
 }
 
 .btn {
-    padding-top: 20px;
+    padding-top: 15px;
 }
 .consul{
     display: flex;
@@ -90,15 +90,12 @@ label {
     align-items: flex-end;
     justify-content: space-between;
     align-content: flex-end;
-    padding: 10px;
+    padding-right: 10px';
 }
-.camp{
-    padding-top: 20px;
-    font-size: 12px;
-}
+
 .cansult{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
     align-content: flex-end;

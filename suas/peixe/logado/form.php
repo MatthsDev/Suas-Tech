@@ -25,12 +25,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
 
 /* Altera a cor do título */
 .swal2-title {
-    color: #555;
+    color: #13294b;
 }
 
 /* Altera o texto do corpo */
 .swal2-html-container {
-    color: #333;
+    color: #13294b;
 }
 </style>
 
@@ -156,14 +156,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/validar_cpf.php';
                 <div class="cansult">
                     <form method="POST" action="">
                         <div class="consul1">
-                                <div>
-                                    <button class="menu-button" onclick="consultar_familia()">CONSULTAR</button>
-                                </div>
+                            <div>
+                                <label>Consultar Cadastros:</label>
+                                <input class="camp1"  type="text" placeholder="Familias Cadastradas (CPF)." name="valorescolhido">
+                            </div>
                         </div>
                         <div class="consul2">
-                                <div class="camp">
-                                    <input  type="text" placeholder="Familias Cadastradas (CPF)" name="valorescolhido">
-                                </div>
+                            <div class="camp">
+                                <button class="menu-button" onclick="consultar_familia()">CONSULTAR</button>
+                            </div>
                         </div>
                     </form>
                 </div>
