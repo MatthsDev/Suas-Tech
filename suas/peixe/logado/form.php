@@ -209,11 +209,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         title: '$talao_peixe',
                         html: `
                             <p><strong>Data de Registro:</strong> $data_registro_peixe</p>
-                            <p><strong>Operador:</strong> $operador_peixe</p>
-                            <p><strong>Local de Entrega:</strong> $local_entrega_peixe</p>
-                            <p><strong>Local de Cadastro:</strong> $local_cadastro_peixe</p>
                             <p><strong>Nome da Pessoa:</strong> $nome_pessoa_peixe</p>
                             <p><strong>Parentesco:</strong> $parentesco_peixe</p>
+                            <p><strong>Local de Entrega:</strong> $local_entrega_peixe</p>
+                            <p><strong>Local de Cadastro:</strong> $local_cadastro_peixe</p>
+                            <p><strong>Operador:</strong> $operador_peixe</p>
                         `,
                     }).then((result) => {
                         if (result.isConfirmed) {
