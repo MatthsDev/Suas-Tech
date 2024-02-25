@@ -61,7 +61,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     </div>
 
     <div class="atendimento">
-        <a class="menu-button" onclick="location.href='';">
+        <a class="menu-button" onclick="location.href='/Suas-Tech/concessao/views/cadastro_item.php';">
         <span class="material-symbols-outlined">
             contacts
         </span>
