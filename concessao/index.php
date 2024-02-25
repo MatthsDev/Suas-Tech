@@ -1,60 +1,85 @@
 <?php
-
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
-
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concessão</title>
+    <title>TechSUAS - Concessão</title>
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="website icon" type="png" href="/Suas-Tech/img/logo.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
-<div class="img">
-        <h1 class="titulo-com-imagem">
-            <img src="" alt="Titulocomimagem">
-        </h1>
+
+    <div class="img">
+    <h1 class="titulo-com-imagem">
+        <img src="" alt="Titulocomimagem">
+    </h1>
     </div>
-<div class="container">
-    <form method="post" action="">
-        <select name="buscar_dados" required>
-            <option value="cpf_dec">CPF:</option>
-            <option value="nis_dec">NIS:</option>
-        </select>
-        <input type="text" name="valorescolhido" placeholder="Digite aqui:" required>
-        <button type="submit">BUSCAR</button>
-
-        <?php
-if (isset($_POST['buscar_dados']) && !empty($_POST['buscar_dados'])) {
-    $opcao = $_POST['buscar_dados'];
-    if ($opcao == "cpf_dec") {
-        $cpf_dec = $_POST['valorescolhido'];
-        //dados da tabela com todos os cadastros
-        // Consulta preparada para evitar injeção de SQL
-        $sql = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_dec");
-        $sql->execute(array(':cpf_dec' => $cpf_dec));
-
-        if ($sql->rowCount() > 0) {
-
-            $dados = $sql->fetch(PDO::FETCH_ASSOC);
-            $nome = $dados['nom_pessoa'];
-            echo $nome;
-        }
-    } else {echo "erro não encontrado";}
-}
-
-?>
-
-        <a
-            href="<?php echo $voltar_link; ?>">
-                <i class="fas fa-arrow-left"></i> Voltar ao menu
-            </a>
-    </form>
-    <div class=lin1>
-        <div class="linha"></div>
+    <div class="container">
+    <div class="apelido">
+        <h3>Bem-vindo (a)
+            <?php echo $apelido; ?>.
+        </h3>
     </div>
-</div>
+<nav>
+
+    <div class="parecer">
+        <a class="menu-button" onclick="location.href='views/cadastro_pessoa.php';">
+        <span class="material-symbols-outlined">
+        quick_reference_all
+        </span>
+        Cadastrar Pessoa
+        </a>
+    </div>
+
+    <div class="atendimento">
+        <a class="menu-button" onclick="location.href='views/gerar_form.php';">
+        <span class="material-symbols-outlined">
+            contacts
+        </span>
+        Gerar Formulário
+        </a>
+    </div>
+
+    <div class="atendimento">
+        <a class="menu-button" onclick="location.href='';">
+        <span class="material-symbols-outlined">
+            contacts
+        </span>
+        Consultar Concessão
+        </a>
+    </div>
+
+    <div class="atendimento">
+        <a class="menu-button" onclick="location.href='';">
+        <span class="material-symbols-outlined">
+            contacts
+        </span>
+        Cadastrar Itens
+        </a>
+    </div>
+
+    <div class="atendimento">
+        <a class="menu-button" onclick="location.href='';">
+        <span class="material-symbols-outlined">
+            contacts
+        </span>
+        Editar informações
+        </a>
+    </div>
+    </div>
+</nav>
+
+
 </body>
 </html>
