@@ -18,7 +18,7 @@ if ($resultSetores->num_rows > 0) {
     if ($resultTiposAtendimento->num_rows > 0) {
         while ($rowTipoAtendimento = $resultTiposAtendimento->fetch_assoc()) {
             echo '<p><button id="btnCADUNICO2" onclick="gerarSenhaImprimir('.$rowTipoAtendimento['id'].')"> 
-            '. $nomeSetor .' '. $rowTipoAtendimento['tipos_atendimentos'] .'</button></p>';
+            '. $rowTipoAtendimento['tipos_atendimentos'] .'</button></p>';
         }
     }
 } else {

@@ -1,110 +1,64 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
-
 session_start();
 
 $nomeUser = $_SESSION['user_usuario'];
 
-$sqlSetor = "SELECT * FROM usuarios WHERE usuario = ?";
-$stmtSetor = $conn->prepare($sqlSetor);
-if (!$stmtSetor) {
-    echo "Erro na preparação da consulta: " . $conn->error;
-    exit;
-}
+// Consulta para obter informações do usuário
+$sqlUser = "SELECT id, setor FROM usuarios WHERE usuario = ?";
+$stmtUser = $conn->prepare($sqlUser);
+$stmtUser->bind_param("s", $nomeUser);
+$stmtUser->execute();
+$resultUser = $stmtUser->get_result();
 
-$stmtSetor->bind_param("s", $nomeUser);
-$stmtSetor->execute();
-$resultCons = $stmtSetor->get_result();
-echo '<div>
-        <h2> LISTA ATENDIMENTO </h2>
-    </div>';
-if ($resultCons->num_rows > 0) {
-    $dados_usuario = $resultCons->fetch_assoc();
-    $id_user = $dados_usuario['id'];
-    $nomeSetor = $dados_usuario['setor'];
+if ($resultUser->num_rows > 0) {
+    $dadosUsuario = $resultUser->fetch_assoc();
+    $idUsuario = $dadosUsuario['id'];
+    $nomeSetor = $dadosUsuario['setor'];
 
-    $sqlListar = "SELECT * FROM senhas_geradas WHERE nome_setor = ?";
-    $stmtListar = $conn->prepare($sqlListar);
-    if (!$stmtListar) {
-        echo "Erro na preparação da consulta: " . $conn->error;
-        exit;
-    }
+    // Consulta para listar senhas geradas no setor do usuário
+    $sqlListarSenhas = "SELECT sg.*, s.nome_senha, ts.tipos_atendimentos, ss.nome 
+                        FROM senhas_geradas sg
+                        INNER JOIN senhas s ON sg.senha_id = s.id
+                        INNER JOIN tipos_senhas ts ON sg.tip_senha_id = ts.id
+                        INNER JOIN sits_senhas ss ON sg.sits_senha_id = ss.id
+                        WHERE sg.nome_setor = ?";
+    $stmtListarSenhas = $conn->prepare($sqlListarSenhas);
+    $stmtListarSenhas->bind_param("s", $nomeSetor);
+    $stmtListarSenhas->execute();
+    $resultSenhas = $stmtListarSenhas->get_result();
 
-    $stmtListar->bind_param("s", $nomeSetor);
-    $stmtListar->execute();
-    $resultTiposAtendimento = $stmtListar->get_result();
+    if ($resultSenhas->num_rows > 0) {
+        echo '<div>
+                <h2> LISTA ATENDIMENTO </h2>
+              </div>
+              <table class="tabela_senha">
+                <thead class="titulo_senha">
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Senha</th>
+                    <th scope="col">Preferencial</th>
+                    <th scope="col">Situação</th>
+                    <th scope="col">Chamar Novamente</th>
+                  </tr>
+                </thead>
+                <tbody>';
 
-    
-
-    echo '
-    <table class="tabela_senha">
-        <thead class="titulo_senha">
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Senha</th>
-                <th scope="col">Prefrencial</th>
-                <th scope="col">Situação</th>
-                <th scope="col">Chamar Novamente</th>
-            </tr>
-        </thead>
-        <tbody>';
-
-    if ($resultTiposAtendimento->num_rows > 0) {
-
-        while ($rowTipoAtendimento = $resultTiposAtendimento->fetch_assoc()) {
-            $nomeSenha_lista = $rowTipoAtendimento['senha_id'];
-            $nomeSituacao_lista = $rowTipoAtendimento['sits_senha_id'];
-
-            // Consulta para obter o nome da senha com base no ID fornecido
-            $sqlSenha = "SELECT nome_senha FROM senhas WHERE id = ?";
-            $stmtSenha = $conn->prepare($sqlSenha);
-            if (!$stmtSenha) {
-                echo "Erro na preparação da consulta da senha: " . $conn->error;
-                exit;
-            }
-
-            $stmtSenha->bind_param("i", $nomeSenha_lista);
-            if (!$stmtSenha->execute()) {
-                echo "Erro na execução da consulta da senha: " . $stmtSenha->error;
-                exit;
-            }
-
-            $resultSenha = $stmtSenha->get_result();
-            $rowSenha = $resultSenha->fetch_assoc();
-
-            // Consulta para obter o nome da situação com base no ID fornecido
-            $sqlSituacao = "SELECT nome FROM sits_senhas WHERE id = ?";
-            $stmtSituacao = $conn->prepare($sqlSituacao);
-            if (!$stmtSituacao) {
-                echo "Erro na preparação da consulta da situação: " . $conn->error;
-                exit;
-            }
-
-            $stmtSituacao->bind_param("i", $nomeSituacao_lista);
-            if (!$stmtSituacao->execute()) {
-                echo "Erro na execução da consulta da situação: " . $stmtSituacao->error;
-                exit;
-            }
-
-            $resultSituacao = $stmtSituacao->get_result();
-            $rowSituacao = $resultSituacao->fetch_assoc();
-
-            echo '
-        <tr>
-            <td>' . $rowTipoAtendimento['nome_pess'] . '</td>
-            <td>' . $rowSenha['nome_senha']. '</td>
-            <td>' . $rowTipoAtendimento['tip_senha_id'] . '</td>
-            <td>' . $rowSituacao['nome'] . '</td>
-            <td><></td>
-        </tr>';
+        while ($rowSenha = $resultSenhas->fetch_assoc()) {
+            echo '<tr>
+                    <td>' . $rowSenha['nome_pess'] . '</td>
+                    <td>' . $rowSenha['nome_senha'] . '</td>
+                    <td>' . $rowSenha['tipos_atendimentos'] . '</td>
+                    <td>' . $rowSenha['nome'] . '</td>
+                    <td><></td>
+                  </tr>';
         }
-        echo '
-    </tbody>
-</table> ';
+
+        echo '</tbody></table>';
     } else {
-        echo '<p>Nenhuma senha encontrada </p>';
+        echo '<p>Nenhuma senha encontrada</p>';
     }
 } else {
-    echo '<p>Nenhum usuário encontrado com o nome: </p>';
+    echo '<p>Nenhum usuário encontrado com o nome: ' . $nomeUser . '</p>';
 }
 ?>
