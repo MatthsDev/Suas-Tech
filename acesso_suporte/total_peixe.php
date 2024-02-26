@@ -66,7 +66,7 @@
             var myPieChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: anos.concat(['Cadastros Realizados']),
+                    labels: anos,
                     datasets: [{
                         data: quantidades,
                         backgroundColor: ['#13294b', '#1f7a8c', '#40b9d4', '#9ad2e8', '#ff8200', '#ffd33d', '#ff6347', '#ffaec0'
