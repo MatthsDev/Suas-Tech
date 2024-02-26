@@ -61,7 +61,7 @@ exit();
                 </script>
             <?php
 } else {
-        echo "ERRO no envio dos DADOS: " . $smtp->error;
+        echo "ERRO no envio dos DADOS: " . $smtp_conc->error;
     }
     $smtp_conc->close();
     $conn->close();
