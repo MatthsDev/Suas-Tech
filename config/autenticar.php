@@ -32,6 +32,10 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
     $_SESSION['user_usuario'] = $dados['usuario'];
     $_SESSION['nivel_usuario'] = $dados['nivel'];
 
+    if ($setor_ == "CRIANÇA FELIZ"){
+        header("location:../suas/peixe/logado/form.php");
+        exit();
+    }
     // Redirecione com base no nível de acesso
     if ($_SESSION['nivel_usuario'] == 'suport') {
         header("location:../acesso_suporte/index.php");
