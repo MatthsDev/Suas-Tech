@@ -43,7 +43,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                     </div>
 
                 </div>    
-                <div class="bloco2">    
+                <div class="bloco2">  
+                        <div class="btn">
+                                <a class="menu-button" onclick="location.href='#';">
+                                Controle Peixe
+                                </a>
+                        </div>  
                         <div class="btn">
                                 <a class="menu-button" onclick="location.href='../cras/views/menu-cras-am.php';">
                                 CRAS Antonio Matias
@@ -59,8 +64,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                                 CREAS Gildo Soares
                                 </a>
                         </div>
-
-                    </div> 
+                </div> 
                 <div class="bloco2"> 
                         <div class="btn">
                                 <a class="menu-button" onclick="location.href='setores.php';">
