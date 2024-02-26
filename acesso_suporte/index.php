@@ -45,7 +45,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 </div>    
                 <div class="bloco2">  
                         <div class="btn">
-                                <a class="menu-button" onclick="location.href='#';">
+                                <a class="menu-button" onclick="location.href='total_peixe.php';">
                                 Controle Peixe
                                 </a>
                         </div>  
