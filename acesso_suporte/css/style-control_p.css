@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    background-image: url(../img/fundo-ddv.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    height: auto;
+}
+
+* {
+    margin-top: 0px;
+}
+
+img {
+    display: flex;
+    width: 100%;
+    max-height: 120px;
+}
+.container{
+    margin: -30px;
+}
+.grafico{
+    display: block;
+    box-sizing: border-box;
+    height: 400px;
+    width: 400px;
+}
+p{
+    color: #13294b;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-weight: 700;
+}
