@@ -32,6 +32,16 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
     $_SESSION['user_usuario'] = $dados['usuario'];
     $_SESSION['nivel_usuario'] = $dados['nivel'];
 
+        // Verifique se é o primeiro acesso pela senha
+        if ($senha_login == "@senha123") {
+            // Passa o nome do usuário para a página de primeiro acesso
+            $_SESSION['nome_user_1_acesso'] = $dados['usuario'];
+    
+            // Redirecione para a página de conclusão do cadastro
+            header("Location: ../cadunico/views/acessos/primeiro_acesso.php");
+            exit();
+        }
+
     if ($setor_ == "CRIANÇA FELIZ"){
         header("location:../suas/peixe/logado/form.php");
         exit();
@@ -74,15 +84,6 @@ if ($dados && password_verify($senha_login, $dados['senha'])) {
             <?php
     }
 
-    // Verifique se é o primeiro acesso pela senha
-    if ($senha_login == "@senha123") {
-        // Passa o nome do usuário para a página de primeiro acesso
-        $_SESSION['nome_user_1_acesso'] = $dados['usuario'];
-
-        // Redirecione para a página de conclusão do cadastro
-        header("Location: ../cadunico/views/acessos/primeiro_acesso.php");
-        exit();
-    }
     } else {
 
     ?>
