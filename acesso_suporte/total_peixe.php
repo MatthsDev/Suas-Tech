@@ -8,17 +8,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../cadunico/css/visitas.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="website icon" type="png" href="../../img/logo.png">
+    <link rel="website icon" type="png" href=/Suas-Tech/cadunico/img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/style-control_p.css">
-    <link rel="shortcut icon" href="/Suas-Tech/img/logo.png" type="image/x-icon">
-
+    <link rel="shortcut icon" href="/Suas-Tech/cadunico/img/logo.png" type="image/x-icon">
     <title>TechSUAS - Controle de Cadastros Peixe</title>
 </head>
 
@@ -33,6 +31,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <canvas id="graficoPizza"></canvas>
         </div>
         <?php
+        $tempo_atualizacao = 30;
+
+        // Cabeçalho HTTP para a atualização automática
+        header("refresh:$tempo_atualizacao;url=/Suas-Tech/acesso_suporte/total_peixe.php");
+
         include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         //dados totais dos registros de visitas
         $sqlr = "SELECT COUNT(*) as total_peixe FROM peixe";

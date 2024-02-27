@@ -19,22 +19,30 @@ img {
     width: 100%;
     max-height: 120px;
 }
-.container{
-    margin: -30px;
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
-.grafico{
+
+.grafico {
     display: block;
     box-sizing: border-box;
     height: 400px;
     width: 400px;
 }
-p{
+
+p {
     color: #13294b;
     font-size: 20px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     font-weight: 700;
 }
+
 button[name="drop"] {
     border: none;
     cursor: pointer;
@@ -95,6 +103,7 @@ button[name="drop"] {
     bottom: 25px;
     opacity: 80%;
 }
+
 footer {
     display: inline-block;
     width: 100%;
