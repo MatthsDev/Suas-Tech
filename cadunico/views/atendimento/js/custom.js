@@ -86,6 +86,7 @@ async function gerarSenhaImprimir(tipoSenha) {
         document.getElementById("senhaGerada").innerHTML = "";
     }
 }
+
 async function chamarSenhaNovamente(idSenhaGerada) {
     const dados = await fetch('/Suas-Tech/cadunico/views/atendimento/models/chamar_senha_novamente.php', {
         method: 'POST',

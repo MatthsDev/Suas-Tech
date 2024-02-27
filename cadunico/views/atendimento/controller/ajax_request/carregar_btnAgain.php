@@ -1,7 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
-
-session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
 
 $nomeUser = $_SESSION['user_usuario'];
 
@@ -25,10 +24,9 @@ echo '<div>
         <h2> CHAMAR NOVAMENTE </h2>
     </div>';
     if ($resultTiposAtendimento->num_rows > 0) {
-        while ($rowTipoAtendimento = $resultTiposAtendimento->fetch_assoc()) {
-            echo '<div><p><button type="button" onclick="chamarSenhaNovamente('.$rowTipoAtendimento['id'].')">
-         SENHA: '. $rowTipoAtendimento['tipos_atendimentos'] .'</button></p></div>';
-        }
+            echo '<div><p><button type="button" onclick="chamarSenhaNovamente('.$id_user.')">
+         CHAMAR NOVAMENTE </button></p></div>';
+
     } else {
         echo '<p>Nenhum tipo de atendimento encontrado para o setor: ' . $nomeSetor . '</p>';
     }
