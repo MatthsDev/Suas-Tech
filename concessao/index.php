@@ -10,7 +10,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechSUAS - Concessão</title>
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="css/style_conc.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="/Suas-Tech/img/logo.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -21,65 +21,93 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <body>
 
     <div class="img">
-    <h1 class="titulo-com-imagem">
-        <img src="" alt="Titulocomimagem">
-    </h1>
+        <h1 class="titulo-com-imagem">
+            <img src="img/h1-concessao.svg" alt="Titulocomimagem">
+        </h1>
     </div>
-    <div class="container">
-    <div class="apelido">
-        <h3>Bem-vindo (a)
-            <?php echo $apelido; ?>.
-        </h3>
-    </div>
-<nav>
+        <div class="apelido">
+            <h3>Bem-vindo (a)
+                <?php echo $apelido; ?>.
+            </h3>
+        </div>
+        <div class="container">
+            <div class="menu">
+                <nav>
+                    <div class="btn">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/cadastro_pessoa.php';">
+                            <span class="material-symbols-outlined">
+                            person_add
+                            </span>
+                            Cadastrar Pessoas
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='/Suas-Tech/concessao/views/cadastro_item.php';">
+                            <span class="material-symbols-outlined">
+                            add_box
+                            </span>
+                            Cadastrar Itens
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='#'">
+                            <span class="material-symbols-outlined">
+                            content_paste_search
+                            </span>
+                            Consultar Concessão
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/gerar_form.php';">
+                            <span class="material-symbols-outlined">
+                            inventory
+                            </span>
+                            Gerar Formulário 
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/gerar_form.php';">
+                            <span class="material-symbols-outlined">
+                            edit_document
+                            </span>
+                            Editar Informações 
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="mural">
+        <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
+<?php
 
-    <div class="parecer">
-        <a class="menu-button" onclick="location.href='views/cadastro_pessoa.php';">
-        <span class="material-symbols-outlined">
-        quick_reference_all
-        </span>
-        Cadastrar Pessoa
-        </a>
-    </div>
+?>
+        </div>
 
-    <div class="atendimento">
-        <a class="menu-button" onclick="location.href='views/gerar_form.php';">
-        <span class="material-symbols-outlined">
-            contacts
-        </span>
-        Gerar Formulário
-        </a>
-    </div>
-
-    <div class="atendimento">
-        <a class="menu-button" onclick="location.href='';">
-        <span class="material-symbols-outlined">
-            contacts
-        </span>
-        Consultar Concessão
-        </a>
-    </div>
-
-    <div class="atendimento">
-        <a class="menu-button" onclick="location.href='/Suas-Tech/concessao/views/cadastro_item.php';">
-        <span class="material-symbols-outlined">
-            contacts
-        </span>
-        Cadastrar Itens
-        </a>
-    </div>
-
-    <div class="atendimento">
-        <a class="menu-button" onclick="location.href='';">
-        <span class="material-symbols-outlined">
-            contacts
-        </span>
-        Editar informações
-        </a>
-    </div>
-    </div>
-</nav>
-
+        </div>
+        <footer><img src="../suas/views/adm/img/footer-adm.svg" alt=""></footer>
+        <div class="drop-all">
+            <div class="menu-drop">
+                <button class="logout" type="button" name="drop">
+                    <span class="material-symbols-outlined">
+                        Settings
+                    </span>
+                    <div class="drop-content">
+                        <a title="Sair" href='../../../config/logout.php' ;>
+                            <span title="Sair" class="material-symbols-outlined">logout</span>
+                        </a>
+                        <a title="Alterar Usuário" href='../../../cras/views/conta.php' ;>
+                            <span class="material-symbols-outlined">manage_accounts</span>
+                        </a>
+                        <?php
+if ($nivel == 'suport') {
+    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
+                                <span class="material-symbols-outlined">rule_settings</span>
+                            </a> <?php
+exit();
+}
+?>
+        </div>
+<footer><img src="img/footer-adm.svg" alt=""></footer>
 
 </body>
+
 </html>
