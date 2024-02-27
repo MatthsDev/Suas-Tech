@@ -2,13 +2,25 @@
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/visitas_pend.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="website icon" type="png" href="../../img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<button id="print" name="excluir[]" onclick="printerVisitas()">imprimir</button>
 <table width="650px" border="1">
-
 <tr class="titulo" >
-
 <th class="check">
                 <label class="urg">
                         <input type="checkbox" id="selecionarTodos">
@@ -71,7 +83,7 @@ if (!isset($_GET['ano_select'])) {
                 $referencia = $dados["txt_referencia_local_fam"];
             }
 
-            $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam ;
+            $endereco_conpleto = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam;
             echo $endereco_conpleto;?></td>
         </tr>
 <?php
@@ -79,14 +91,9 @@ if (!isset($_GET['ano_select'])) {
     }
 }?>
 </table>
-
+<p id="paraPrint"></p>
     <script>
-        document.getElementById('selecionarTodos').addEventListener('click', function (){
-            // Obter todos os checkboxes na tabela
-            var checkBoxes = document.querySelectorAll('input[name="excluir[]"]')
 
-            checkBoxes.forEach(function(checkbox){
-                checkbox.checked = document.getElementById('selecionarTodos').checked
-            })
-        })
     </script>
+    </body>
+    </html>

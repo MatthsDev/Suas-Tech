@@ -1,7 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
-session_start();
+
 
 // Verifique se a sessão foi iniciada
 if (!isset($_SESSION['nome_user_1_acesso'])) {
