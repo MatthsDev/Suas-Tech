@@ -38,7 +38,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             <span class="material-symbols-outlined">
                             person_add
                             </span>
-                            Cadastrar Pessoas
+                            Cadastrar Usuários
                         </a>
                     </div>
                     <div class="btn">
