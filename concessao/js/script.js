@@ -7,48 +7,37 @@ document.addEventListener("DOMContentLoaded", function () {
     telefoneInput.mask('(00) 0.0000-0000')
 });
 
-function validarCPF(cpf) {
-    cpf = cpf.replace(/[^\d]+/g, '');
+/*
 
-    if (cpf === '' || cpf.length !== 11 || /^(.)\1+$/.test(cpf)) {
-        return false;
-    }
+$(document).ready(function () {
+    //função calcula total
+    function calcularTotal() {
+        // loop para cada llinha
+        $("#tabelaItens tbody tr").each(function () {
+            // recebe a quantidade unitária
+            var quantidade = parseFloat($(this).find(".quantidade").val()) || 0;
+            var valorUnitario = parseFloat($(this).find(".valor-unitario").val().replace(",", ".")) || 0;
 
-    let soma = 0;
-    for (let i = 0; i < 9; i++) {
-        soma += parseInt(cpf.charAt(i)) * (10 - i);
-    }
-
-    let resto = 11 - (soma % 11);
-    resto = (resto === 10 || resto === 11) ? 0 : resto;
-
-    if (resto !== parseInt(cpf.charAt(9))) {
-        return false;
-    }
-
-    soma = 0;
-    for (let i = 0; i < 10; i++) {
-        soma += parseInt(cpf.charAt(i)) * (11 - i);
-    }
-
-    resto = 11 - (soma % 11);
-    resto = (resto === 10 || resto === 11) ? 0 : resto;
-
-    return resto === parseInt(cpf.charAt(10));
-}
-
-function validarFormulario() {
-    const cpfInput = document.getElementById('cpf');
-    const cpf = cpfInput.value;
-
-    if (!validarCPF(cpf)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'CPF INVÁLIDO',
-            text: 'Informe um CPF válido!',
+            // calcula total e formata moeda
+            var total = quantidade * valorUnitario;
+            $(this).find(".valor-total").val(total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
         });
-        cpfInput.focus();
-        return false;
     }
-    return true;
-}
+
+    // Attach the function to input change events
+    $(".quantidade, .valor-unitario").on("input", calcularTotal);
+});
+*/
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtém todos os campos de entrada de texto
+    var camposTexto = document.querySelectorAll('input[type="text"]');
+
+    // Adiciona um ouvinte de eventos de entrada a cada campo de texto
+    camposTexto.forEach(function (campo) {
+        campo.addEventListener('input', function () {
+            // Converte o valor do campo para maiúsculas
+            this.value = this.value.toUpperCase();
+        });
+    });
+});
