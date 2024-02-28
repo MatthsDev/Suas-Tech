@@ -51,4 +51,6 @@ if ($setor === 'CRAS - ANTONIO MATIAS') {
     echo '<script>window.location.href = "/Suas-Tech/cras/views/menu-cras-st.php"</script>';
 } elseif ($setor == 'CONCESSÃO') {
     echo '<script>window.location.href = "/Suas-Tech/concessao/index.php"</script>';
+} elseif ($setor == 'ADMINISTRATIVO') {
+    echo '<script>window.location.href = "/Suas-Tech/suas/views/adm/menu_adm.php"</script>';
 }
