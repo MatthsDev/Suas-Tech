@@ -14,47 +14,7 @@
     <link rel="shortcut icon" href="/Suas-Tech/cadunico/img/logo.png" type="image/x-icon">
     <title>TechSUAS - Controle de Cadastros Peixe</title>
     <style>
-        .legend-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            align-content: flex-end;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-            position: absolute; /* Adicionado para posicionar acima do gráfico */
-            top: 50px; /* Distância do topo */
-            width: 100%; /* Ocupar a largura total */
-        }
-
-        .legend-item {
-            display: flex;
-            align-content: flex-start;
-            align-items: center;
-            margin-right: 20px;
-        }
-
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-
-        .legend-text {
-            font-size: 14px;
-        }
-
-        .grafico-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative; /* Adicionado para posicionar corretamente */
-        }
-
-        .grafico {
-            margin-top: 50px; /* Ajustado para dar espaço para a legenda */
-        }
+        
     </style>
 </head>
 

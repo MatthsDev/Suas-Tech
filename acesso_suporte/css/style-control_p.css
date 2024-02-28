@@ -22,17 +22,18 @@ img {
 
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
-    justify-content: center;
-    align-content: center;
+    justify-content: flex-end;
+    align-content: flex-end;
+    position: relative; /* Adicionado para criar um contexto de posicionamento */
 }
 
 .grafico {
     display: block;
     box-sizing: border-box;
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 350px;
 }
 
 p {
@@ -118,4 +119,103 @@ footer img {
     text-align: center;
     right: 0;
     bottom: 0;
+}
+
+/* Estilos para o legend-container */
+.legend-container {
+    position: absolute;
+    top: 170px;
+    left: 60%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.legend-container div.legend-container {
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    align-content: stretch;
+    line-height: 2;
+}
+
+.legend-container .legend-text {
+    font-size: 10px;
+    line-height: 2;
+}
+
+.legend-container {
+    line-height: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    position: absolute; /* Adicionado para posicionar acima do gráfico */
+    top: 170px; /* Distância do topo corrigida */
+}
+
+.legend-item {
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    margin-right: 20px;
+}
+
+div.legend-color {
+    width: 20px;
+    height: 10px;
+    margin-right: 5px;
+    line-height: 2;
+}
+
+.legend-text {
+    font-size: 10px;
+    line-height: 2;
+}
+
+.grafico-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Adicionado para posicionar corretamente */
+}
+
+.grafico {
+    margin-top: 50px; /* Ajustado para dar espaço para a legenda */
+}
+/* Estilos para dispositivos móveis */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .grafico {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .legend-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        margin-top: 20px;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .legend-item {
+        margin: 5px 0;
+    }
 }
