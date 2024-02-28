@@ -106,7 +106,6 @@ exit();
 }
 ?>
         </div>
-<footer><img src="img/footer-adm.svg" alt=""></footer>
 
 </body>
 

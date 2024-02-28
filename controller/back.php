@@ -49,4 +49,6 @@ if ($setor === 'CRAS - ANTONIO MATIAS') {
     echo '<script>window.location.href = "/Suas-Tech/cozinha_comunitaria/menu.php"</script>';
 } elseif ($setor == 'CRAS - SANTO AFONSO') {
     echo '<script>window.location.href = "/Suas-Tech/cras/views/menu-cras-st.php"</script>';
+} elseif ($setor == 'CONCESSÃO') {
+    echo '<script>window.location.href = "/Suas-Tech/concessao/index.php"</script>';
 }
