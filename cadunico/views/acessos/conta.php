@@ -14,7 +14,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="stylesheet" href="../../css/style-alt-user.css">
     <link rel="website icon" type="image/png" href="../../img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
     <title>Sala do Usuário</title>
     <style>
         .edicao {

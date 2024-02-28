@@ -17,9 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Executa a exclusão
             if ($stmt->execute()) {
-                $mensagensExclusao .= "Registro com ID $id excluído com sucesso. <br>";
+                $mensagensExclusao .= "Registro com ID $id excluído com sucesso.";
             } else {
-                $mensagensExclusao .= "Erro ao excluir o registro com ID $id. <br>";
+                $mensagensExclusao .= "Erro ao excluir o registro com ID $id. ";
             }
 
         }
@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>";
 
         } else {
-            echo "Nenhum registro selecionado para exclusão. <br>";
+            echo "Nenhum registro selecionado para exclusão.";
         }
 } else {
-    echo "Acesso inválido ao script de exclusão. <br>";
+    echo "Acesso inválido ao script de exclusão.";
 }
 
 // Fechar conexão
