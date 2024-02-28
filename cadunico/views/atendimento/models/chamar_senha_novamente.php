@@ -9,17 +9,18 @@ $id_senha_gerada = filter_input(INPUT_POST, 'id_senha_gerada', FILTER_SANITIZE_N
 
 // Verificar se o ID da senha foi recebido
 if (!empty($id_senha_gerada)) {
+
     // Preparar a QUERY para buscar as informações da senha com o ID especificado
-    $query_senha_gerada = "SELECT senger.id AS id_senha_gerada,
-                            sen.nome_senha
-                            FROM senhas_geradas AS senger
-                            INNER JOIN senhas AS sen ON sen.id=senger.senha_id
-                            WHERE senger.id = :id_senha_gerada
-                            LIMIT 1";
+        $query_senha_gerada = "SELECT senger.id AS id_senha_gerada, sen.nome_senha
+        FROM senhas_geradas AS senger
+        INNER JOIN senhas AS sen ON sen.id = senger.senha_id
+        WHERE senger.user_id = :user_id
+        ORDER BY modified DESC
+        LIMIT 1";
 
     // Preparar e executar a QUERY
     $result_senha_gerada = $pdo->prepare($query_senha_gerada);
-    $result_senha_gerada->bindValue(":id_senha_gerada", $id_senha_gerada, PDO::PARAM_INT);
+    $result_senha_gerada->bindValue(":user_id", $id_senha_gerada, PDO::PARAM_INT);
     $result_senha_gerada->execute();
 
     // Verificar se a senha foi encontrada no banco de dados
@@ -34,7 +35,9 @@ if (!empty($id_senha_gerada)) {
         $query_update_senha = "UPDATE senhas_geradas 
                                SET sits_senha_id = 4,
                                    modified = NOW()
-                               WHERE id = :id_senha_gerada";
+                               WHERE senha_id = :id_senha_gerada
+                               ORDER BY modified DESC
+                               LIMIT 1";
 
         // Preparar e executar a QUERY de atualização
         $update_senha = $pdo->prepare($query_update_senha);

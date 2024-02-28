@@ -29,9 +29,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 <!-- Botões com os tipos de atendimento serão carregados dinamicamente aqui -->
             </div>
 
-            <!-- <div class="nova_cham" id="nova_cham">
-                 Botões com os tipos de atendimento serão carregados dinamicamente aqui 
-            </div> -->
+            <div class="nova_cham" id="nova_cham">
+                 <!-- Botões com os tipos de atendimento serão carregados dinamicamente aqui  -->
+            </div> 
 
 
             <div class="listaChamada" id="listaChamada">
