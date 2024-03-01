@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Suas-Tech/img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style_cad_cont.css">
+    <link rel="stylesheet" href="css/style_cad_consul_cont.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -70,14 +70,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <div class="btns">
                     <button type="submit" name="btn_contrato">Salvar Contrato</button>
                     <button type="button" id='btn_salva_contrato'>Cadastrar Itens</button>
+                    <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar ao menu
+                    </button>
                 </div>
             </form>
-        </div>
-        <div id="voltar1" class="back">
-            <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
-                <i class="fas fa-arrow-left"></i>
-                Voltar ao menu
-            </button>
         </div>
         <div id='form_itens' style='display: none'>
             <form action="/Suas-Tech/suas/controller/salvar_contrato.php" method="POST">
@@ -109,11 +107,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <button type="submit" name="btn_itens">Salvar Itens</button>
             </form>
             <div id="voltar1" class="back">
-            <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
-                <i class="fas fa-arrow-left"></i>
-                Voltar ao menu
-            </button>
-        </div>
+                <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar ao menu
+                </button>
+            </div>
         </div>
 
     </div>
