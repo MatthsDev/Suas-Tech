@@ -20,6 +20,7 @@ $num_form = $result['total_registros'] + 1;
     <link rel="stylesheet" href="#">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="website icon" type="png" href="/Suas-Tech/img/logo.png">
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -186,12 +187,111 @@ $num_form = $result['total_registros'] + 1;
             PORTARIA 143/2023 </p>
 
         <?php
-        } else {
-            echo 'Não encontrei';
+        } elseif ($sql_query_resp->rowCount() > 0 && $sql_query_benef->rowCount() == 0) {
+            $dados_resp = $sql_query_resp->fetch(PDO::FETCH_ASSOC);
+            ?>
+        
+            <h2>CONCESSÃO DE BENEFÍCIO EVENTUAL</h2>
+            <p>(Amparada pela Lei Municipal nº 1.978, de 01 de novembro de 2017)</p>
+            <p>Formulário: <?php echo $num_form; ?> / <?php echo $data_atual; ?></p>
+            <p>Considerando a Lei nº 8.742, de 07 de dezembro de 1973 - Lei Orgânica da Assistência Social, em seu Art. 22;</p>
+            <p>Considerando a Lei Municipal n° 1.978, 01 de novembro de 2017 e Pela Resolução CMAS n° 13/2017;</p>
+            <p>Considerando a solicitação do Benefício Eventual feita pelo(a) usuário(a) abaixo qualificado(a), e por ele(a) se enquadrar no perfil para acesso a Concessão de Benefício Eventual e apresentar os documentos necessários, conforme anexo;</p>
+            <p>Considerando a avaliação técnica da condição de vulnerabilidade social temporária em se apresenta o(a) beneficiário(a);</p>
+    
+                <table border='1'>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="2">RESPONSÁVEL:</td>
+                        <td class="resultado" colspan="9"> <b> <?php echo $dados_resp['nome']; ?> </b> </td>
+                        <td class="resultado" colspan="2">NATURALIDADE:</td>
+                        <td class="resultado" colspan="3"> <b> <?php echo $dados_resp['naturalidade']; ?></td>
+                    </tr>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="2">NOME DA MÃE:</td>
+                        <td class="resultado" colspan="9"> <b> <?php echo $dados_resp['nome_mae']; ?> </b> </td>
+                        <td class="resultado" colspan="2">CONTATO:</td>
+                        <td class="resultado" colspan="3"><b> <?php echo $dados_resp['contato']; ?> </b></td>
+                    </tr>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="16">Dados dos documentos do(a) Responsável:</td>
+                    </tr>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="3">CPF: <b> <?php echo $_POST['cpf']; ?></b></td>
+                        <td class="resultado" colspan="1">T.E: <b> <?php echo $dados_resp['tit_eleitor_pessoa']; ?></b></td>
+                        <td class="resultado" colspan="9">RG: <b> <?php echo $dados_resp['rg_pessoa']; ?></b></td>
+                        <td class="resultado" colspan="3">NIS: <b> <?php echo $dados_resp['nis_pessoa']; ?></b></td>
+                    </tr>
+
+                        <tr class="resultado">
+                            <td class="resultado" colspan="3">BENEFICIÁRIO:</td>
+                            <td class="resultado" colspan="6"> <b><input type="text" name="beneficio"></b> </td>
+                            <td class="resultado" colspan="3">NATURALIDADE:</td>
+                            <td class="resultado" colspan="4"> <b> <input type="text" name="naturalidade"></td>
+                        </tr>
+                        <tr class="resultado">
+                            <td class="resultado" colspan="3">NOME DA MÃE:</td>
+                            <td class="resultado" colspan="8"> <b><input type="text" name="nome_mae_benef"></b> </td>
+                            <td class="resultado" colspan="2">RENDA MEDIA:</td>
+                            <td class="resultado" colspan="3"><b> R$ <input type="text" name="renda_benef"></b></td>
+                        </tr>
+                        <tr class="resultado">
+                            <td class="resultado" colspan="3">ENDEREÇO:</td>
+                            <td class="resultado" colspan="13"> <b><input type="text" name="endereco_resp"></b> </td>
+                        </tr>
+                        <tr class="resultado">
+                            <td class="resultado" colspan="16">Dados dos documentos do(a) Beneficiário(a):</td>
+                        </tr>
+                        <tr class="resultado">
+                            <td class="resultado" colspan="3">CPF: <b><input type="text" name="cpf_beneficio"></b></td>
+                            <td class="resultado" colspan="1">T.E: <b><input type="text" name="te_beneficio"></b></td>
+                            <td class="resultado" colspan="9">RG: <b><input type="text" name="rg_beneficio"></b></td>
+                            <td class="resultado" colspan="3">NIS: <b><input type="text" name="nis_beneficio"></b></td>
+                        </tr>
+                    </table>
+                    <p>QUAL PARENTESCO O RESPONSÁVEL TEM COM O BENEFICIÁRIO?: <b>                    <select name="parentesco" id="parentesco" required>
+                        <option value="" disabled selected hidden>Selecione</option>
+                        <option value="UNIPESSOAL">Unipessoal</option>
+                        <option value="CONJUGE">Conjuge</option>
+                        <option value="FILHO(A)">Filho(a)</option>
+                        <option value="ENTEADO(A)">Enteado(a)</option>
+                        <option value="NETO OU BISNETO">Neto ou Bisneto</option>
+                        <option value="PAI OU MAE">Pai ou Mae</option>
+                        <option value="SOGRO(A)">Sogro(a)</option>
+                        <option value="IRMAOS OU IRMA">Irmão ou Irmã</option>
+                        <option value="GENRO OU NORA">Genro ou Nora</option>
+                        <option value="OUTRO PARENTE">Outro Parente</option>
+                        <option value="NAO PARENTE">Não Parente</option>
+                    </select>
+                </b></p>
+        
+                    <table border='1'>
+                        <tr>
+                            <th>ITEM</th>
+                            <th>Descrição sucinta do bem, objeto ou serviço a ser concedido.</th>
+                            <th>QUANT.</th>
+                            <th>VALOR UN</th>
+                            <th>VALOR TOTAL</th>
+                        </tr>
+                        <tr>
+                            <td><?php echo $_POST['itens_conc']; ?></td>
+                            <td><?php echo $_POST['itens_conc']; ?></td>
+                            <td><?php echo $_POST['quantidade']; ?></td>
+                            <td><?php echo $_POST['valor_unitario']; ?></td>
+                            <td><?php echo $_POST['valor_total']; ?></td>
+                        </tr>
+                    </table>
+        
+                    <p>São Bento do Una - PE ____ de _____________ de <?php echo $data_atual?></p>
+                    <p>_________________________________________________________________________</p>
+                    <p>ASSINATURA DO RESPONSÁVEL:</p>
+                    <p>____________________________________________________________</p>
+                    <p>MARTHONY DORNELAS SANTANA <br>
+                    SECRETÁRIO DE ASSISTÊNCIA SOCIAL<br>
+                    PORTARIA 143/2023 </p>
+                    <?php
         }
     }
     ?>
     </div>
 </body>
 </html>
-<?php
