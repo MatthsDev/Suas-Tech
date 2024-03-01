@@ -50,7 +50,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                     </div>
                     <div class="btn">
-                        <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='#'">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='views/editar.php'">
                             <span class="material-symbols-outlined">
                             content_paste_search
                             </span>
