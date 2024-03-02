@@ -271,7 +271,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
 
         <?php
-
                 $_SESSION['cpf'] = $_POST['cpf'];
             }
         }
