@@ -19,6 +19,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Suas-Tech/concessao/js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
         $(document).ready(function() {
             // Máscara para formatar os números
@@ -136,6 +137,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </table>
                     <div class="btn">
                         <button type="submit" id="btn_gerar">GERAR CAPA</button>
+                        <a href="/Suas-Tech/controller/back.php">
+                            <i class="fas fa-arrow-left"></i> Voltar ao menu
+                        </a>
                     </div>
                 </form>
             </div>
@@ -146,7 +150,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <input type="text">
             </div>
             <div>
-                                    <!-- LOCAL RESERVADOOOOO -->
+                <!-- LOCAL RESERVADOOOOO -->
             </div>
         </div>
     </div>
