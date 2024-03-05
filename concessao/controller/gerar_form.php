@@ -30,7 +30,15 @@ $num_form = $result['total_registros'] + 1;
 </head>
 
 <body>
-    <div class="container">
+    <div class="titulo">
+        <div class="tech">
+            <p>TechSUAS-Concessão</p>
+        </div>
+            <div 
+            id="dataHora">
+        </div>
+    </div>
+    <div class="container"> 
         <?php
 
         $nis_resp = $_POST['nis'];
@@ -80,18 +88,20 @@ $num_form = $result['total_registros'] + 1;
                 $dados_resp = $sql_query_resp->fetch(PDO::FETCH_ASSOC);
 
             ?>
-                <div class="cab0">
+                <div class="cab0" style="text-align: center;">
                     <h2>CONCESSÃO DE BENEFÍCIO EVENTUAL</h2>
                     <p>(Amparada pela Lei Municipal nº 1.978, de 01 de novembro de 2017)</p>
                 </div>
-                <div class="cab">
+                <div class="form">
                     <p>Formulário: <?php echo $num_form; ?> / <?php echo $data_atual; ?></p>
                 </div>
                 <div class="cab1">
-                    <p>Considerando a Lei nº 8.742, de 07 de dezembro de 1973 - Lei Orgânica da Assistência Social, em seu Art. 22;</p>
-                    <p>Considerando a Lei Municipal n° 1.978, 01 de novembro de 2017 e Pela Resolução CMAS n° 13/2017;</p>
-                    <p>Considerando a solicitação do Benefício Eventual feita pelo(a) usuário(a) abaixo qualificado(a), e por ele(a) se enquadrar no perfil para acesso a Concessão de Benefício Eventual e apresentar os documentos necessários, conforme anexo;</p>
-                    <p>Considerando a avaliação técnica da condição de vulnerabilidade social temporária em se apresenta o(a) beneficiário(a);</p>
+                    <div class="cab11" style="text-align: justify;">
+                        <p>Considerando a Lei nº 8.742, de 07 de dezembro de 1973 - Lei Orgânica da Assistência Social, em seu Art. 22;</p>
+                        <p>Considerando a Lei Municipal n° 1.978, 01 de novembro de 2017 e Pela Resolução CMAS n° 13/2017;</p>
+                        <p>Considerando a solicitação do Benefício Eventual feita pelo(a) usuário(a) abaixo qualificado(a), e por ele(a) se enquadrar no perfil para acesso a Concessão de Benefício Eventual e apresentar os documentos necessários, conforme anexo;</p>
+                        <p>Considerando a avaliação técnica da condição de vulnerabilidade social temporária em se apresenta o(a) beneficiário(a);</p>
+                    </div>
                 </div>
 
                 <table border='1'>
@@ -270,6 +280,37 @@ $num_form = $result['total_registros'] + 1;
         }
         ?>
     </div>
+    <script>
+        // Função para formatar um número com dois dígitos
+function formatarNumero(numero) {
+    return numero < 10 ? '0' + numero : numero;
+}
+
+// Função para obter a data e hora atual e exibir na página
+function mostrarDataHoraAtual() {
+    let dataAtual = new Date();
+
+    let dia = formatarNumero(dataAtual.getDate());
+    let mes = formatarNumero(dataAtual.getMonth() + 1);
+    let ano = dataAtual.getFullYear();
+
+    let horas = formatarNumero(dataAtual.getHours());
+    let minutos = formatarNumero(dataAtual.getMinutes());
+    let segundos = formatarNumero(dataAtual.getSeconds());
+
+    let dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+
+    document.getElementById('dataHora').textContent = " - " + dataHoraFormatada;
+}
+
+// Chamando a função para exibir a data e hora atual quando a página carrega
+window.onload = function() {
+    mostrarDataHoraAtual();
+    // Atualizar a cada segundo
+    setInterval(mostrarDataHoraAtual, 1000);
+};
+
+    </script>
 </body>
 
 </html>
