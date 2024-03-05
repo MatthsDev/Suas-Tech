@@ -145,12 +145,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             </div>
         </div>
         <div class="bloc2">
+            <form action="">
             <div class="btn">
-                <button type="submit" id="#">BUSCAR NIS</button>
-                <input type="text">
+                <button type="buttun" id="btn_bsc_nis">BUSCAR NIS</button>
+                <input type="text" name="cpf_benef">
             </div>
+            </form>
             <div>
-                <!-- LOCAL RESERVADOOOOO -->
+                                    <!-- LOCAL RESERVADOOOOO -->
             </div>
         </div>
     </div>
