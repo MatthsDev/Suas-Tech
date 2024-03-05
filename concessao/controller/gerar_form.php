@@ -238,22 +238,22 @@ if (isset($_POST['cpf'])) {
 
         if ($smtp_conc->execute()) {
             ?>
-                    <script>
-                        window.print()
-                        setTimeout(function() {
-                            Swal.fire({
-                                icon: "success",
-                                title: "SALVO",
-                                text: "Dados salvos com sucesso!",
-                                confirmButtonText: 'OK',
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = "/Suas-Tech/concessao/views/gerar_form.php"
-                                }
-                            })
-                        }, 3000)
-                    </script>
-                <?php
+        <script>
+            window.print()
+            setTimeout(function() {
+                Swal.fire({
+                    icon: "success",
+                    title: "SALVO",
+                    text: "Dados salvos com sucesso!",
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/Suas-Tech/concessao/views/gerar_form.php"
+                    }
+                })
+            }, 3000)
+        </script>
+    <?php
 } else {
             ?>
                     <script>
