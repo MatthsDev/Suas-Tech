@@ -131,6 +131,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <button type="submit" id="btn_gerar">GERAR CAPA</button>
             </div>
         </form>
+        <div class="btn">
+            <button type="submit" id="#" >BUSCAR NIS</button>
+            <input type="text">
+            <div>
+                
+            </div>
+        </div>
     </div>
 </body>
 
