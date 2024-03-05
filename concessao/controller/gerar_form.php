@@ -34,31 +34,31 @@ $num_form = $result['total_registros'] + 1;
         <div class="tech">
             <p>TechSUAS-Concessão</p>
         </div>
-            <div 
+            <div
             id="dataHora">
         </div>
     </div>
-    <div class="container"> 
+    <div class="container">
         <?php
 
-        $nis_resp = $_POST['nis'];
-        $cpf_resp = $_POST['cpf'];
-        $mes_pg = $_POST['mes_pg'];
-        $parentesco = $_POST['parentesco'];
-        $situation = "EM PROCESSO";
+$nis_resp = $_POST['nis'];
+$cpf_resp = $_POST['cpf'];
+$mes_pg = $_POST['mes_pg'];
+$parentesco = $_POST['parentesco'];
+$situation = "EM PROCESSO";
 
-        if (isset($_POST['cpf'])) {
+if (isset($_POST['cpf'])) {
 
-            $sql_query_resp = $pdo->prepare("SELECT * FROM concessao_tbl WHERE cpf_pessoa = :cpf_resp");
-            $sql_query_resp->bindParam(':cpf_resp', $cpf_resp, PDO::PARAM_STR);
-            $sql_query_resp->execute();
+    $sql_query_resp = $pdo->prepare("SELECT * FROM concessao_tbl WHERE cpf_pessoa = :cpf_resp");
+    $sql_query_resp->bindParam(':cpf_resp', $cpf_resp, PDO::PARAM_STR);
+    $sql_query_resp->execute();
 
-            $sql_query_benef = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_nis_pessoa_atual = :nis_resp");
-            $sql_query_benef->bindParam(':nis_resp', $nis_resp, PDO::PARAM_STR);
-            $sql_query_benef->execute();
+    $sql_query_benef = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_nis_pessoa_atual = :nis_resp");
+    $sql_query_benef->bindParam(':nis_resp', $nis_resp, PDO::PARAM_STR);
+    $sql_query_benef->execute();
 
-            if ($sql_query_resp->rowCount() == 0) {
-                $mensagem_sem_cad_resp = "
+    if ($sql_query_resp->rowCount() == 0) {
+        $mensagem_sem_cad_resp = "
         <script>
             Swal.fire({
                     icon: 'info',
@@ -78,16 +78,16 @@ $num_form = $result['total_registros'] + 1;
                 })
         </script>
     ";
-                echo $mensagem_sem_cad_resp;
+        echo $mensagem_sem_cad_resp;
         ?>
             <?php
 
-            }
+    }
 
-            if ($sql_query_resp->rowCount() > 0 && $sql_query_benef->rowCount() > 0) {
-                $dados_resp = $sql_query_resp->fetch(PDO::FETCH_ASSOC);
+    if ($sql_query_resp->rowCount() > 0 && $sql_query_benef->rowCount() > 0) {
+        $dados_resp = $sql_query_resp->fetch(PDO::FETCH_ASSOC);
 
-            ?>
+        ?>
                 <div class="cab0" style="text-align: center;">
                     <h2>CONCESSÃO DE BENEFÍCIO EVENTUAL</h2>
                     <p>(Amparada pela Lei Municipal nº 1.978, de 01 de novembro de 2017)</p>
@@ -128,50 +128,50 @@ $num_form = $result['total_registros'] + 1;
                     </tr>
                     <?php
 
-                    $dados_benef = $sql_query_benef->fetch(PDO::FETCH_ASSOC);
+        $dados_benef = $sql_query_benef->fetch(PDO::FETCH_ASSOC);
 
-                    $renda = $dados_benef['vlr_renda_media_fam'];
-                    // Formatando o número como moeda brasileira
-                    $renda_formatado = number_format($renda, 2, ',', '.');
+        $renda = $dados_benef['vlr_renda_media_fam'];
+        // Formatando o número como moeda brasileira
+        $renda_formatado = number_format($renda, 2, ',', '.');
 
-                    $rg_benef = $dados_benef['num_identidade_pessoa'];
-                    $rg_benef = ltrim($rg_benef, '0');
-                    $rg_benef_formatado = number_format($rg_benef, 0, '', '.');
+        $rg_benef = $dados_benef['num_identidade_pessoa'];
+        $rg_benef = ltrim($rg_benef, '0');
+        $rg_benef_formatado = number_format(intval($rg_benef), 0, '', '.');
 
-                    $tit_benef = $dados_benef['num_titulo_eleitor_pessoa'];
-                    // Adicionar hífens na formatação
-                    $tit_benef = substr($tit_benef, -12);
-                    $tit_benef_formatado = implode('-', str_split($tit_benef, 4));
+        $tit_benef = $dados_benef['num_titulo_eleitor_pessoa'];
+        // Adicionar hífens na formatação
+        $tit_benef = substr($tit_benef, -12);
+        $tit_benef_formatado = implode('-', str_split($tit_benef, 4));
 
-                    //Formatando o CPF
-                    $cpf_benef = $dados_benef['num_cpf_pessoa'];
-                    $cpf_formatando_benef = sprintf('%011s', $cpf_benef);
-                    $cpf_formatado_benef = substr($cpf_formatando_benef, 0, 3) . '.' . substr($cpf_formatando_benef, 3, 3) . '.' . substr($cpf_formatando_benef, 6, 3) . '-' . substr($cpf_formatando_benef, 9, 2);
+        //Formatando o CPF
+        $cpf_benef = $dados_benef['num_cpf_pessoa'];
+        $cpf_formatando_benef = sprintf('%011s', $cpf_benef);
+        $cpf_formatado_benef = substr($cpf_formatando_benef, 0, 3) . '.' . substr($cpf_formatando_benef, 3, 3) . '.' . substr($cpf_formatando_benef, 6, 3) . '-' . substr($cpf_formatando_benef, 9, 2);
 
-                    //Define as variáveis com o endereço
-                    $tipo_logradouro = $dados_benef["nom_tip_logradouro_fam"];
-                    $nom_logradouro_fam = $dados_benef["nom_logradouro_fam"];
-                    $num_logradouro_fam = $dados_benef["num_logradouro_fam"];
-                    if ($num_logradouro_fam == "") {
-                        $num_logradouro = "S/N";
-                    } else {
-                        $num_logradouro = $dados_benef["num_logradouro_fam"];
-                    }
-                    $nom_localidade_fam = $dados_benef["nom_localidade_fam"];
-                    $nom_titulo_logradouro_fam = $dados_benef["nom_titulo_logradouro_fam"];
-                    if ($nom_titulo_logradouro_fam == "") {
-                        $nom_tit = "";
-                    } else {
-                        $nom_tit = $dados_benef["nom_titulo_logradouro_fam"];
-                    }
-                    $txt_referencia_local_fam = $dados_benef["txt_referencia_local_fam"];
-                    if ($txt_referencia_local_fam == "") {
-                        $referencia = "SEM REFERÊNCIA";
-                    } else {
-                        $referencia = $dados_benef["txt_referencia_local_fam"];
-                    }
-                    $endereco_completo = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
-                    ?>
+        //Define as variáveis com o endereço
+        $tipo_logradouro = $dados_benef["nom_tip_logradouro_fam"];
+        $nom_logradouro_fam = $dados_benef["nom_logradouro_fam"];
+        $num_logradouro_fam = $dados_benef["num_logradouro_fam"];
+        if ($num_logradouro_fam == "") {
+            $num_logradouro = "S/N";
+        } else {
+            $num_logradouro = $dados_benef["num_logradouro_fam"];
+        }
+        $nom_localidade_fam = $dados_benef["nom_localidade_fam"];
+        $nom_titulo_logradouro_fam = $dados_benef["nom_titulo_logradouro_fam"];
+        if ($nom_titulo_logradouro_fam == "") {
+            $nom_tit = "";
+        } else {
+            $nom_tit = $dados_benef["nom_titulo_logradouro_fam"];
+        }
+        $txt_referencia_local_fam = $dados_benef["txt_referencia_local_fam"];
+        if ($txt_referencia_local_fam == "") {
+            $referencia = "SEM REFERÊNCIA";
+        } else {
+            $referencia = $dados_benef["txt_referencia_local_fam"];
+        }
+        $endereco_completo = $tipo_logradouro . " " . $nom_tit . " " . $nom_logradouro_fam . ", " . $num_logradouro . " - " . $nom_localidade_fam . ", " . $referencia;
+        ?>
                     <tr class="resultado">
                         <td class="resultado" colspan="3">BENEFICIÁRIO:</td>
                         <td class="resultado" colspan="6"> <b> <?php echo $dados_benef['nom_pessoa']; ?> </b> </td>
@@ -227,17 +227,17 @@ $num_form = $result['total_registros'] + 1;
                 </div>
                 <?php
 
-                $smtp_conc = $conn->prepare("INSERT INTO concessao_historico (id_concessao, num_form, ano_form, nome_benef, nis_benef, endereco, renda_media, nome_item, qtd_item, valor_uni, valor_total, data_registro, mes_pag, parentesco, operador, situacao_concessao) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $smtp_conc = $conn->prepare("INSERT INTO concessao_historico (id_concessao, num_form, ano_form, nome_benef, nis_benef, endereco, renda_media, nome_item, qtd_item, valor_uni, valor_total, data_registro, mes_pag, parentesco, operador, situacao_concessao) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-                // Verifica se a preparação foi bem-sucedida
-                if ($smtp_conc === false) {
-                    die('Erro na preparação SQL: ' . $conn->error);
-                }
+        // Verifica se a preparação foi bem-sucedida
+        if ($smtp_conc === false) {
+            die('Erro na preparação SQL: ' . $conn->error);
+        }
 
-                $smtp_conc->bind_param("ssssssssssssssss", $dados_resp['id_concessao'], $num_form, $data_atual, $dados_benef['nom_pessoa'], $dados_benef['num_nis_pessoa_atual'], $endereco_completo, $renda_formatado, $_POST['itens_conc'], $_POST['quantidade'], $_POST['valor_unitario'], $_POST['valor_total'], $hoje_, $mes_pg, $parentesco, $nome, $situation);
+        $smtp_conc->bind_param("ssssssssssssssss", $dados_resp['id_concessao'], $num_form, $data_atual, $dados_benef['nom_pessoa'], $dados_benef['num_nis_pessoa_atual'], $endereco_completo, $renda_formatado, $_POST['itens_conc'], $_POST['quantidade'], $_POST['valor_unitario'], $_POST['valor_total'], $hoje_, $mes_pg, $parentesco, $nome, $situation);
 
-                if ($smtp_conc->execute()) {
-                ?>
+        if ($smtp_conc->execute()) {
+            ?>
                     <script>
                         window.print()
                         setTimeout(function() {
@@ -254,8 +254,8 @@ $num_form = $result['total_registros'] + 1;
                         }, 3000)
                     </script>
                 <?php
-                } else {
-                ?>
+} else {
+            ?>
                     <script>
                         Swal.fire({
                             icon: "error",
@@ -269,16 +269,16 @@ $num_form = $result['total_registros'] + 1;
                         })
                     </script>
                 <?php
-                }
-            } elseif ($sql_query_resp->rowCount() > 0 && $sql_query_benef->rowCount() == 0) {
-                ?>
+}
+    } elseif ($sql_query_resp->rowCount() > 0 && $sql_query_benef->rowCount() == 0) {
+        ?>
                 <script>
                     window.location.href = '/Suas-Tech/concessao/views/cadastrar_beneficiario.php'
                 </script>
         <?php
-            }
-        }
-        ?>
+}
+}
+?>
     </div>
     <script>
         // Função para formatar um número com dois dígitos
