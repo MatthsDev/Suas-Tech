@@ -49,7 +49,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 Swal.fire({
                     icon: "info",
                     title: "NÃO ENCONTRADO",
-                    text: "Não existe nenhum formulário com esse CPF: <?php $_POST['cpf_pessoa']; ?> !",
+                    text: "Não existe nenhum formulário com esse CPF: <?php echo $_POST['cpf_resp']; ?> !",
                     confirmButtonText: 'OK',
                 }).then((result) => {
                     if (result.isConfirmed) {

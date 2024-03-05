@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 confirmButtonText: 'OK',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "/Suas-Tech/concessao/views/editar_conc.php"
+                    window.location.href = "/Suas-Tech/concessao/views/editar.php"
                 }
             })
         </script>
