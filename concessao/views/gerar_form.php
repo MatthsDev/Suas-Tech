@@ -141,12 +141,29 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             </div>
         </div>
         <div class="bloc2">
+            <form action="">
             <div class="btn">
-                <button type="submit" id="#">BUSCAR NIS</button>
-                <input type="text">
+                <button type="buttun" id="btn_bsc_nis">BUSCAR NIS</button>
+                <input type="text" name="cpf_benef">
             </div>
+            </form>
             <div>
-                                    <!-- LOCAL RESERVADOOOOO -->
+<?php
+    if (!isset($_GET['cpf_benef'])) {
+        
+    } else {
+        $cpf_benef = $_GET['cpf_benef'];
+        
+        $sql_cons_nis = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_benef");
+        $sql_cons_nis->bindParam(':cpf_benef', $cpf_benef, PDO::PARAM_STR);
+        $sql_cons_nis->execute();
+        if ($sql_cons_nis->rowCount() > 0) {
+            $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
+            echo 'O nis referente ao CPF consutado é <b>'. $dados_benef['num_nis_pessoa_atual']. '</b>';
+        }
+
+    }
+?>
             </div>
         </div>
     </div>
