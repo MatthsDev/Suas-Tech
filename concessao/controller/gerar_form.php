@@ -21,7 +21,7 @@ $num_form = $result['total_registros'] + 1;
     <title>TechSUAS - Concessão</title>
     <link rel="stylesheet" href="#">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="website icon" type="png" href="/Suas-Tech/img/logo.png">
+    <link rel="website icon" type="png" href="/Suas-Tech/cadunico/img/logo.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
