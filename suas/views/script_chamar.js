@@ -1,3 +1,26 @@
+// Instale o módulo 'socket.io' usando npm
+const http = require('http').createServer();
+const io = require('socket.io')(http);
+
+io.on('connection', (socket) => {
+    console.log('Cliente conectado');
+
+    // Escute o evento 'senhaChamada' enviado pelos operadores
+    socket.on('senhaChamada', (dadosSenha) => {
+        // Transmita as informações para todos os clientes (incluindo a smartTV)
+        io.emit('atualizarTela', dadosSenha);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Cliente desconectado');
+    });
+});
+
+http.listen(3000, () => {
+    console.log('Servidor Socket.IO escutando na porta 3000');
+});
+
+
 $(document).ready(function () {
     $('#chamar').click(function () {
         var senhaChamada = $(this).val();
@@ -7,12 +30,13 @@ $(document).ready(function () {
             $.ajax({
                 type: 'POST',
                 url: 'buscar_senha.php',
-                data: { 
+                data: {
                     senhaChamada: senhaChamada,
                     guiche: guicheValue,
                     tipoAtendimento: tipoAtendimentoValue
                 },
                 dataType: 'json',
+                
                 success: function (response) {
                     if (response.encontrado) {
                         $('#mostrar_nome').text('Nome: ' + response.nome);
@@ -31,6 +55,36 @@ $(document).ready(function () {
         } else {
             alert('Por favor, selecione seu GUICHÊ.');
         }
+        // Adicionar chamada AJAX para atualizar a tela do público e acionar a síntese de fala
+        $.ajax({
+            type: 'POST',
+            url: 'telaChamada.php',
+            data: { senhaChamada: senhaChamada },
+            dataType: 'json',
+            success: function (response) {
+                if (response.encontrado) {
+                    // Atualizar a tela do público com a senha chamada
+                    $('#senhaPublico').text('Senha Pública: ' + response.senha);
+                    $('#nomePublico').text('Nome: ' + response.nome);
+                    $('#guiche').text(guicheValue);
+
+                    // Chama a função de síntese de fala
+                    speakPassword(response.nome, response.senha, response.atendimento, guicheValue);
+                } else {
+                    $('#amostra').text('Não registrado em nosso banco de dados.');
+                }
+            },
+            error: function (error) {
+                console.error('Erro na chamada AJAX: ', error);
+            }
+        });
+        // Emita um evento 'senhaChamada' para o servidor Socket.IO
+        socket.emit('senhaChamada', {
+            nome: response.nome,
+            senha: response.senha,
+            atendimento: response.atendimento,
+            guiche: guicheValue
+        });
     });
 });
 
@@ -52,9 +106,6 @@ function speakPassword(nome, senha, atendimento, guicheValue) {
         alert('Seu navegador não suporta a síntese de fala.');
     }
 }
-
-
-
 
 $(document).ready(function () {
     // Evento de perda de foco no campo de CPF
@@ -282,11 +333,7 @@ function gerarSenha(prioridade) {
             $('#mensagemErro').text('Erro ao salvar a senha. Por favor, tente novamente.');
         }
     });
-    //function imprimirTicket() {
-    // Exibe informações no ticket
-    //window.print();
-    //location.reload(true);
-    //}
+
 }
 
 $(document).ready(function () {
