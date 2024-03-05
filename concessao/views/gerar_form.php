@@ -19,7 +19,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Suas-Tech/concessao/js/script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
         $(document).ready(function() {
             // Máscara para formatar os números
@@ -137,9 +136,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </table>
                     <div class="btn">
                         <button type="submit" id="btn_gerar">GERAR CAPA</button>
-                        <a href="/Suas-Tech/controller/back.php">
-                            <i class="fas fa-arrow-left"></i> Voltar ao menu
-                        </a>
                     </div>
                 </form>
             </div>
@@ -152,7 +148,22 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             </div>
             </form>
             <div>
-                                    <!-- LOCAL RESERVADOOOOO -->
+<?php
+    if (!isset($_GET['cpf_benef'])) {
+        
+    } else {
+        $cpf_benef = $_GET['cpf_benef'];
+        
+        $sql_cons_nis = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_benef");
+        $sql_cons_nis->bindParam(':cpf_benef', $cpf_benef, PDO::PARAM_STR);
+        $sql_cons_nis->execute();
+        if ($sql_cons_nis->rowCount() > 0) {
+            $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
+            echo 'O nis referente ao CPF consutado é <b>'. $dados_benef['num_nis_pessoa_atual']. '</b>';
+        }
+
+    }
+?>
             </div>
         </div>
     </div>
