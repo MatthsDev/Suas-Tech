@@ -82,7 +82,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/painel-adm/cadastro_user.php';">
+                                        <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/painel-adm/cadastro_user';">
                                                 <span class="material-symbols-outlined">
                                                         person_add
                                                 </span>
