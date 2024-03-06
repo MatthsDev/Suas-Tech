@@ -90,7 +90,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='/Suas-Tech/suas/views/atualizar_tabela.php';">
+                                        <a class="menu-button" onclick="location.href='/Suas-Tech/suas/views/atualizar_tabela';">
                                                 <span class="material-symbols-outlined">
                                                         library_add
                                                 </span>
