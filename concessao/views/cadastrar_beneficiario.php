@@ -32,7 +32,7 @@ $timestamp = date('d/m/Y H:i');
         <form method="POST" action="">
             <div>
                 <label>BENEFICIÁRIO:</label>
-                <input type="text" name="beneficio" required placeholder="Digite aqui, sem abreviação... " oninput="this.value = this.value.toUpperCase()">
+                <input type="text" name="beneficio" required placeholder="Digite aqui, sem abreviação... " required oninput="this.value = this.value.toUpperCase()">
             </div>
             <div>
                 <label>NATURALIDADE:</label>
@@ -52,7 +52,7 @@ $timestamp = date('d/m/Y H:i');
             </div>
             <div>
                 <label>CPF:</label>
-                <input type="text" class="cpf" name="cpf_beneficio" placeholder="Digite como no exemplo XXX.XXX.XXX-XX" required>
+                <input type="text" class="cpf" name="cpf_beneficio" placeholder="Digite como no exemplo XXX.XXX.XXX-XX">
             </div>
             <div>
                 <label>T.E:</label>
