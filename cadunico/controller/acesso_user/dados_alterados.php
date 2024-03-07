@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>TechSUAS - login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Suas-Tech/cadunico/css/login.css">
+    <link rel="shortcut icon" href="/Suas-Tech/cadunico/img/logo.png" type="image/x-icon">
+    <link rel="icon" href="" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
@@ -38,13 +51,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Obtém o nome do usuário da sessão
 
-    $smtp = $conn->prepare("UPDATE usuarios SET nome=?, apelido=?, senha=?, cpf=?, dt_nasc=?, telefone=?, email=?, cargo=?, id_cargo=? WHERE usuario=?");
+    $smtp = $conn->prepare("UPDATE usuarios SET nome=?, apelido=?, senha=?, cpf=?, dt_nasc=?, telefone=?, email=?, cargo=?, id_cargo=?, acesso=? WHERE usuario=?");
 
     if (!$smtp) {
         die('Erro na preparação da consulta: ' . $conn->error);
     }
-    
-    $smtp->bind_param("ssssssssss", $nome_completo, $apelido, $senha_hashed, $cpf, $data_nascimento, $telefone, $email, $cargo, $id_cargo, $nome_user);
+        $acesso = "0";
+    $smtp->bind_param("sssssssssss", $nome_completo, $apelido, $senha_hashed, $cpf, $data_nascimento, $telefone, $email, $cargo, $id_cargo, $acesso, $nome_user);
     
 
     //echo "Nome Completo: " . $nome_completo . "<br>";
@@ -78,3 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $smtp->close();
 }
+?>
+</body>
+</html>
