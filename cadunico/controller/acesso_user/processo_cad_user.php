@@ -43,19 +43,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($verifica_usuario->num_rows > 0) {
         // Se o nome de usuário já está em uso, exibe uma mensagem e redirecione de volta ao login
-        echo '<script>alert("Nome de usuário já em uso. Por favor, escolha outro."); window.location.href = "../../painel-adm/cadastro_user.php";</script>';
+        echo '<script>alert("Nome de usuário já em uso. Por favor, escolha outro."); window.location.href = "../../painel-adm/cadastro_user";</script>';
         exit();
     }
 
     // Caso o Nome do Usuário seja unico será adicionado ao SQL
-    $smtp = $conn->prepare("INSERT INTO usuarios (nome, usuario, senha, nivel, setor, funcao, email, data_registro) VALUES (?,?,?,?,?, ?, ?, NOW())");
+    $smtp = $conn->prepare("INSERT INTO usuarios (nome, usuario, senha, nivel, setor, funcao, email, acesso, data_registro) VALUES (?,?,?,?,?,?, ?, ?, NOW())");
 
     // Verifica se a preparação foi bem-sucedida
     if ($smtp === false) {
         die('Erro na preparação SQL: ' . $conn->error);
     }
-
-    $smtp->bind_param("sssssss", $user_maiusc, $nomeUsuario, $senha_hashed, $tpacesso, $setor, $funcao, $email);
+    $acesso = "1";
+    $smtp->bind_param("ssssssss", $user_maiusc, $nomeUsuario, $senha_hashed, $tpacesso, $setor, $funcao, $email, $acesso);
 
     if ($smtp->execute()) {
         ?>
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="linha"></div>
         <?php
 // Redireciona para a página DE CADASTRAR NOVO USUÁRIO após ALGUNS segundos
-        echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user.php"; }, 1500); </script>';
+        echo '<script> setTimeout(function(){ window.location.href = "../../painel-adm/cadastro_user"; }, 1500); </script>';
     } else {
         echo "ERRO no envio dos DADOS: " . $smtp->error;
     }
@@ -75,9 +75,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function gerarNomeUsuario($user_name)
 {
-    // Lógica para gerar o nome de usuário (por exemplo, usando o primeiro nome e sobrenome)
-    // Implemente sua própria lógica aqui
-    // Exemplo simples: usar as iniciais do primeiro e último nome
     $nomes = explode(" ", $user_name);
     $nomeUsuario = strtolower($nomes[0] . "." . end($nomes));
     return $nomeUsuario;
