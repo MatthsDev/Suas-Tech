@@ -44,7 +44,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 
                     while ($dados = $sql_dados->fetch_assoc()) {
                     ?>
-                        <tr class="resultado">
+                        <tr class="resultado" style="text-align: center;">
                             <td class="resultado"><?php echo $dados['cod_item']; ?></td>
                             <td class="resultado"><?php echo $dados['caracteristica']; ?></td>
                             <td class="resultado"><?php echo $dados['nome_item']; ?></td>
