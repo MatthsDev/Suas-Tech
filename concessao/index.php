@@ -38,7 +38,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             <span class="material-symbols-outlined">
                             person_add
                             </span>
-                            Cadastrar Usuários
+                            Cadastrar Responsável
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/cadastrar_beneficiario.php';">
+                            <span class="material-symbols-outlined">
+                            person_add
+                            </span>
+                            Cadastrar Beneficiario
                         </a>
                     </div>
                     <div class="btn">

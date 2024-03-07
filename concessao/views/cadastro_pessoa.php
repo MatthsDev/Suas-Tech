@@ -68,7 +68,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 </head>
 
 <body>
-<div class="img">
+    <div class="img">
         <h1 class="titulo-com-imagem">
             <img src="../img/h1-cad_user.svg" alt="Titulocomimagem">
         </h1>
@@ -212,69 +212,69 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     $conn->close();
                 } else {
                     ?>
-            </div>    
-                <div class="cadastro">
-                    <h2>CADASTRO MANUAL</h2>
-                    <form method="POST" action="/Suas-Tech/concessao/controller/processo_concessao.php">
-                        <table border='1'>
-                            <tr class="resultado">
-                                <td class="resultado" colspan="2">NOME COMPLETO:</td>
-                                <td class="resultado" colspan="9"><b><input class="inpu1" type="text" name="nome_pessoa" required oninput="this.value = this.value.toUpperCase()" /></b></td>
-                                <td class="resultado" colspan="2">NATURALIDADE:</td>
-                                <td class="resultado" colspan="3"><b><input type="text" name="naturalidade_pessoa" required oninput="this.value = this.value.toUpperCase()" /></b></td>
-                            </tr>
-                            <tr class="resultado">
-                                <td class="resultado" colspan="2">NOME DA MÃE:</td>
-                                <td class="resultado" colspan="9"><b><input class="inpu1" type="text" name="nome_mae_pessoa" required oninput="this.value = this.value.toUpperCase()" /></b></td>
-                                <td class="resultado" colspan="2">CONTATO:</td>
-                                <td class="resultado" colspan="3"><b><input type="text" name="contato" id="telefone" maxlenght="16" required></b></td>
-                            </tr>
-                            <tr class="resultado">
-                                <td class="resultado" colspan="2">CPF: <b><?php echo $_POST['cpf']; ?></b></td>
-                                <td class="resultado" colspan="9">T.E: <b><input type="text" name="te_pessoa" id="tit_ele" maxlenght="14"></b></td>
-                                <td class="resultado" colspan="2">RG: <b><input type="text" name="rg_pessoa" id="rg_pessoa" maxlenght="15"></b></td>
-                                <td class="resultado" colspan="3">NIS: <b><input type="text" name="nis_pessoa" id="nis_pessoa" maxlenght="12"></b></td>
-                            </tr>
-                            <tr class="resultado">
-                                <td class="resultado" colspan="2">ENDEREÇO:</td>
-                                <td class="resultado" colspan="14"><b><input type="text" name="endereco" required oninput="this.value = this.value.toUpperCase()" /></b></td>
-                            </tr>
-                        </table>
-                        <div class="btn">
-                            <label>Renda Media: R$</label>
-                            <input type="text" name="renda_per" id="renda" required />
-                            <button type="submit">SALVAR</button>
-                        </div>
-                    </form>
+        </div>
+        <div class="cadastro">
+            <h2>CADASTRO MANUAL</h2>
+            <form method="POST" action="/Suas-Tech/concessao/controller/processo_concessao.php">
+                <table border='1'>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="2">NOME COMPLETO:</td>
+                        <td class="resultado" colspan="9"><b><input class="inpu1" type="text" name="nome_pessoa" required oninput="this.value = this.value.toUpperCase()" /></b></td>
+                        <td class="resultado" colspan="2">NATURALIDADE:</td>
+                        <td class="resultado" colspan="3"><b><input type="text" name="naturalidade_pessoa" required oninput="this.value = this.value.toUpperCase()" /></b></td>
+                    </tr>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="2">NOME DA MÃE:</td>
+                        <td class="resultado" colspan="9"><b><input class="inpu1" type="text" name="nome_mae_pessoa" required oninput="this.value = this.value.toUpperCase()" /></b></td>
+                        <td class="resultado" colspan="2">CONTATO:</td>
+                        <td class="resultado" colspan="3"><b><input type="text" name="contato" id="telefone" maxlenght="16" required></b></td>
+                    </tr>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="2">CPF: <b><?php echo $_POST['cpf']; ?></b></td>
+                        <td class="resultado" colspan="9">T.E: <b><input type="text" name="te_pessoa" id="tit_ele" maxlenght="14"></b></td>
+                        <td class="resultado" colspan="2">RG: <b><input type="text" name="rg_pessoa" id="rg_pessoa" maxlenght="15"></b></td>
+                        <td class="resultado" colspan="3">NIS: <b><input type="text" name="nis_pessoa" id="nis_pessoa" maxlenght="12"></b></td>
+                    </tr>
+                    <tr class="resultado">
+                        <td class="resultado" colspan="2">ENDEREÇO:</td>
+                        <td class="resultado" colspan="14"><b><input type="text" name="endereco" required oninput="this.value = this.value.toUpperCase()" /></b></td>
+                    </tr>
+                </table>
+                <div class="btn">
+                    <label>Renda Media: R$</label>
+                    <input type="text" name="renda_per" id="renda" required />
+                    <button type="submit">SALVAR</button>
                 </div>
+            </form>
+        </div>
 
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        var telefoneInput = $("#telefone")
-                        var tituloInput = $("#tit_ele")
-                        var rgInput = $("#rg_pessoa")
-                        var nisInput = $("#nis_pessoa")
-                        var rendaInput = $("#renda")
-                        //Aplica as máscara
-                        telefoneInput.mask('(00) 0.0000-0000')
-                        tituloInput.mask('0000-0000-0000')
-                        nisInput.mask('0000000000-0')
-                        rendaInput.mask('000.000,00', {
-                            reverse: true
-                        })
-                        rgInput.mask('000.000.000.000', {
-                            reverse: true
-                        })
-                        $("#form").hide()
-                    })
-                </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var telefoneInput = $("#telefone")
+                var tituloInput = $("#tit_ele")
+                var rgInput = $("#rg_pessoa")
+                var nisInput = $("#nis_pessoa")
+                var rendaInput = $("#renda")
+                //Aplica as máscara
+                telefoneInput.mask('(00) 0.0000-0000')
+                tituloInput.mask('0000-0000-0000')
+                nisInput.mask('0000000000-0')
+                rendaInput.mask('000.000,00', {
+                    reverse: true
+                })
+                rgInput.mask('000.000.000.000', {
+                    reverse: true
+                })
+                $("#form").hide()
+            })
+        </script>
 
 
-        <?php
-                $_SESSION['cpf'] = $_POST['cpf'];
+<?php
+                    $_SESSION['cpf'] = $_POST['cpf'];
+                }
             }
-        }
-        ?>
+?>
     </div>
 </body>
 
