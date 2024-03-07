@@ -5,3 +5,16 @@ body {
     padding-left: 50px;
     padding-top: 50px;
 }
+@page {
+    size: auto;
+    /* ou A4, letter, etc., dependendo do tamanho da página que você deseja */
+    margin: 5;
+    /* opcional: define margens da página */
+}
+
+@media print {
+    body::after {
+        content: none !important;
+        /* Oculta o conteúdo após o corpo do documento */
+    }
+}

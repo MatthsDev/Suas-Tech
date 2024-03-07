@@ -83,6 +83,19 @@
     display:block;
     padding: 0px 5px 0px 30px;
 }
+@page {
+        size: auto;
+        /* ou A4, letter, etc., dependendo do tamanho da página que você deseja */
+        margin: 5;
+        /* opcional: define margens da página */
+    }
+
+    @media print {
+        body::after {
+            content: none !important;
+            /* Oculta o conteúdo após o corpo do documento */
+        }
+    }
 
     </style>
     <meta charset="UTF-8">
