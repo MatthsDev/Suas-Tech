@@ -36,21 +36,21 @@ if ($sql->rowCount() > 0) {
 
 
 if ($setor === 'CRAS - ANTONIO MATIAS') {
-    echo '<script>window.location.href = "/Suas-Tech/cras/views/menu-cras-am.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/cras/views/menu-cras-am"</script>';
 } else if ($setor === 'SUPORTE') {
-    echo '<script>window.location.href = "/Suas-Tech/acesso_suporte/index.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/acesso_suporte/"</script>';
 } else if ($setor === 'CREAS - GILDO SOARES') {
-    echo '<script>window.location.href = "/Suas-Tech/creas/views/menu-creas.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/creas/views/menu-creas"</script>';
 } else if ($setor == 'CADASTRO ÚNICO - SECRETARIS DE ASSISTÊNCIA SOCIAL' && $nivel == 'admin') {
-    echo '<script>window.location.href = "/Suas-Tech/cadunico/painel-adm/adm-view.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/cadunico/painel-adm/adm-view"</script>';
 } else if ($setor == 'CADASTRO ÚNICO - SECRETARIS DE ASSISTÊNCIA SOCIAL' && $nivel == 'usuario') {
-    echo '<script>window.location.href = "/Suas-Tech/cadunico/painel-usuario/user-painel.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/cadunico/painel-usuario/user-painel"</script>';
 } else if ($setor == 'COZINHA COMUNITARIA - MARIA NEUMA DA SILVA') {
-    echo '<script>window.location.href = "/Suas-Tech/cozinha_comunitaria/menu.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/cozinha_comunitaria/menu"</script>';
 } elseif ($setor == 'CRAS - SANTO AFONSO') {
-    echo '<script>window.location.href = "/Suas-Tech/cras/views/menu-cras-st.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/cras/views/menu-cras-st"</script>';
 } elseif ($setor == 'CONCESSÃO') {
-    echo '<script>window.location.href = "/Suas-Tech/concessao/index.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/concessao/index"</script>';
 } elseif ($setor == 'ADMINISTRATIVO') {
-    echo '<script>window.location.href = "/Suas-Tech/suas/views/adm/menu_adm.php"</script>';
+    echo '<script>window.location.href = "/Suas-Tech/suas/views/adm/menu_adm"</script>';
 }
