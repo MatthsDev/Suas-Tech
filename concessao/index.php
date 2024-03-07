@@ -107,7 +107,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                         <?php
 if ($nivel == 'suport') {
-    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
+    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index' ;>
                                 <span class="material-symbols-outlined">rule_settings</span>
                             </a> <?php
 exit();
