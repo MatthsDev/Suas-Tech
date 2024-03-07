@@ -42,14 +42,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                     </div>
                     <div class="btn">
-                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/cadastrar_beneficiario.php';">
-                            <span class="material-symbols-outlined">
-                            person_add
-                            </span>
-                            Cadastrar Beneficiario
-                        </a>
-                    </div>
-                    <div class="btn">
                         <a class="menu-button" id="cadastrar_contrato" onclick="location.href='/Suas-Tech/concessao/views/cadastro_item.php';">
                             <span class="material-symbols-outlined">
                             add_box
@@ -71,14 +63,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             inventory
                             </span>
                             Gerar Formulário 
-                        </a>
-                    </div>
-                    <div class="btn">
-                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='#';">
-                            <span class="material-symbols-outlined">
-                            edit_document
-                            </span>
-                            Editar Informações 
                         </a>
                     </div>
                 </nav>
