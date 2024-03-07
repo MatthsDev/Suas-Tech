@@ -74,7 +74,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             ?>
                 <table width="650px" border="1">
                     <tr>
-                        <th>Nº do formulário</th>
+                        <th>Nº DO FORMULÁRIO</th>
                         <th>NOME BENEFICIÁRIO</th>
                         <th>CONCESSÃO</th>
                         <th>VALOR</th>

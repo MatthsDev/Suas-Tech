@@ -86,7 +86,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             <option value="Novembro">Novembro</option>
                             <option value="Dezembro">Dezembro</option>
                         </select>
-
+                        <a href="/Suas-Tech/controller/back.php" style="margin-left: 50px;">
+                            <i class="fas fa-arrow-left"></i> Voltar ao menu
+                        </a>
                         <p>QUAL PARENTESCO O RESPONSÁVEL TEM COM O BENEFICIÁRIO?</label>
                             <select name="parentesco" id="parentesco" required>
                                 <option value="" disabled selected hidden>Selecione</option>
@@ -137,9 +139,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </table>
                     <div class="btn">
                         <button type="submit" id="btn_gerar">GERAR CAPA</button>
-                        <a href="/Suas-Tech/controller/back.php">
-                            <i class="fas fa-arrow-left"></i> Voltar ao menu
-                        </a>
                     </div>
                 </form>
             </div>
