@@ -28,7 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $situacao_senha = 1;
 
-            echo json_encode(array('encontrado' => true, 'senha' => $senha_chamada, 'nome' => $nome_atendido, 'atendimento' => $tipo_atendimento));
+            echo json_encode(array(
+                'encontrado' => true,
+                'senha' => $senha_chamada,
+                'nome' => $nome_atendido,
+                'atendimento' => $tipo_atendimento
+            ));
 
             // Prepare a nova consulta utilizando a extensão PDO
             $stmtUpdate = $pdo->prepare("UPDATE senhas SET situacao_senha=?, atendente=?, data_hora_atendido=?, setor_atendido=? WHERE nome_atendido=?");
