@@ -7,6 +7,59 @@ document.addEventListener("DOMContentLoaded", function () {
     telefoneInput.mask('(00) 0.0000-0000')
 });
 
+
+$(document).ready(function() {
+    $('#btn_imprimir').click(function() {
+        var idHist = $(this).attr('name');
+
+        $.ajax({
+            type: 'POST',
+            url: '/Suas-Tech/concessao/controller/print_conc.php',
+            data: { id_hist: idHist },
+            dataType: 'json', // Espera uma resposta JSON do servidor
+            success: function (response) {
+                if (response.encontrado) {
+                    $('#conteiner_hide').hide()
+                    $('#conteiner_show').show()
+                    $('#num_form').text('Formulário: ' + response.num_form + '/' + response.ano_form)
+                    $('#nome_resp').text(response.nome_resp)
+                    $('#naturalidade_resp').text(response.naturalidade_resp)
+                    $('#nome_m').text(response.nome_m)
+                    $('#contato').text(response.contato)
+                    $('#cpf_pessoa').text('CPF: ' + response.cpf_resp)
+                    $('#tet_ili').text('T.E.: ' + response.tit_eleitor_pessoa)
+                    $('#rg_pessoa').text('RG: ' + response.rg_pessoa)
+                    $('#nis_pessoa').text('NIS: ' + response.nis_pessoa)
+                    $('#nome_benef').text(response.nome_benef)
+                    $('#munic_nasc').text(response.munic_nasc)
+                    $('#nom_mae_pessoa').text(response.nom_mae_pessoa)
+                    $('#renda_media').text(response.renda_media)
+                    $('#endereco_conc').text(response.endereco)
+                    $('#cpf_pessoa_b').text('CPF: ' + response.cpf_pessoa_b)
+                    $('#tet_ili_b').text('T.E.: ' + response.tet_ili_b)
+                    $('#rg_pessoa_b').text('RG: ' + response.rg_pessoa_b)
+                    $('#nis_pessoa_b').text('NIS: ' + response.nis_pessoa_b)
+                    $('#parentes').text('QUAL PARENTESCO O RESPONSÁVEL TEM COM O BENEFICIÁRIO?: ' + response.parentes)
+                    $('#nome_item').text(response.nome_item)
+                    $('#descricao').text(response.nome_item)
+                    $('#qtd_item').text(response.qtd_item)
+                    $('#valor_uni').text(response.valor_uni)
+                    $('#valor_total').text(response.valor_total)
+                    $('#local_data').text('São Bento do Una - PE ____ de _____________ de ' + response.local_data)
+                    window.print()
+                } else {
+                    console.error(response.error)
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                // Lida com erros, se houver
+                console.error("AJAX Request Failed: " + textStatus, errorThrown)
+            }
+        });
+        $('#css_link').attr('href', '../css/style_impr_form.css')
+    });
+});
+
 /*
 
 $(document).ready(function () {
