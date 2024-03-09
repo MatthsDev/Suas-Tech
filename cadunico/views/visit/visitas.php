@@ -103,7 +103,7 @@ $numero_parecer = $totalRegistros;
     var myPieChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: anos.concat(['Visitas Feitas']),
+            labels: anos.concat([volaroe]),
             datasets: [{
                 data: quantidades,
                 backgroundColor: ['#13294b', '#065f33', '#8b0000', '#cd5c5c', '#008080', '#2e8b57', '#00ff00', '#ff9900']
