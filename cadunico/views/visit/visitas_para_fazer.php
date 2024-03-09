@@ -11,7 +11,6 @@ $data6 = $data1 - 4;
 $data7 = $data1 - 3;
 $data8 = $data1 - 2;
 $data9 = $data1 - 1;
-
 ?>
 
 <!DOCTYPE html>
