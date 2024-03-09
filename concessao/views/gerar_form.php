@@ -162,6 +162,21 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     if ($sql_cons_nis->rowCount() > 0) {
                         $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
                         echo 'O nis referente ao CPF consutado é <b>' . $dados_benef['num_nis_pessoa_atual'] . '</b>';
+                    } else {
+                        ?>
+                        <script>
+                                Swal.fire({
+                                    icon: "erro",
+                                    title: "NÃO ENCONTRADO",
+                                    text: "Não há cadastro para essa pessoa!",
+                                    confirmButtonText: 'OK',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "/Suas-Tech/concessao/views/cadastrar_beneficiario"
+                                    }
+                                })
+                        </script>
+                    <?php
                     }
                 }
                 ?>
