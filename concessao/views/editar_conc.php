@@ -47,8 +47,13 @@ echo 'Nº: ' . $conc['num_form'] . '/' . $conc['ano_form'] . '<br>';
     ?>
             <div class="visual">
                 <?php
+                if ($conc['pg_data'] == '0000-00-00') {
+                    $data_pago = "Não foi paga.";
+                } else {
+                    $data_pago = $conc['pg_data'];
+                }
     echo 'Mês de Pagamento: ' . $conc['mes_pag'] . '<br>';
-    echo 'PAGO: ' . $conc['pg_data'] . '<br>';
+    echo 'PAGO: ' . $data_pago . '<br>';
     echo 'SITUAÇÃO: ' . $conc['situacao_concessao'] . '<br>';
     ?>
                 <table width="500px" border="1" id="tabelaItens">
@@ -70,7 +75,7 @@ echo 'Nº: ' . $conc['num_form'] . '/' . $conc['ano_form'] . '<br>';
                 </table>
 
             </div>
-            <form method="POST" action="/Suas-Tech/concessao/controller/salva_alt_conc.php" class="editar_info" style="display: none">
+            <form method="POST" action="/Suas-Tech/concessao/controller/salva_alt_conc" class="editar_info" style="display: none">
                 <!--Tabela inicialmente oculta-->
                 <input name="id_hist" value="<?php echo $conc['id_hist']; ?>" style="display: none">
                 <label>PAGO:</label>
@@ -172,40 +177,41 @@ $consultaSetores = $conn->query("SELECT caracteristica FROM concessao_itens");
 </div>
 <script>
 $(document).ready(function() {
-$('#btn_editar').click(function() {
-    $('.editar_info').show()
-    $('.visual').hide()
-    $('#btn_editar').hide()
+    $('#btn_editar').click(function() {
+        
+        $('.editar_info').show()
+        $('.visual').hide()
+        $('#btn_editar').hide()
+    })
 })
-})
+
+
 $(document).ready(function() {
 // Máscara para formatar os números
-$('.valor-unitario').mask('000000,00', {
-    reverse: true
-});
-
-
-// Função para calcular o total
-function calcularTotal() {
-    // Recebe a quantidade e valor unitário
-    var quantidade = parseFloat($(".quantidade").val().replace(",", ".")) || 0;
-    var valorUnitario = parseFloat($(".valor-unitario").val().replace(",", ".")) || 0;
-
-    // Calcula o total e formata como moeda brasileira
-    var total = quantidade * valorUnitario;
-
-
-    // Formata o total como string
-    var formattedTotal = total.toLocaleString('pt-BR', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+    $('.valor-unitario').mask('000000,00', {
+        reverse: true
     });
 
-    // Define o valor formatado no campo
-    $(".valor-total").val(formattedTotal);
-}
-// Anexa a função aos eventos de alteração de entrada
-$(".quantidade, .valor-unitario").on("input", calcularTotal);
+    // Função para calcular o total
+    function calcularTotal() {
+        // Recebe a quantidade e valor unitário
+        var quantidade = parseFloat($(".quantidade").val().replace(",", ".")) || 0;
+        var valorUnitario = parseFloat($(".valor-unitario").val().replace(",", ".")) || 0;
+
+        // Calcula o total e formata como moeda brasileira
+        var total = quantidade * valorUnitario;
+
+        // Formata o total como string
+        var formattedTotal = total.toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+        // Define o valor formatado no campo
+        $(".valor-total").val(formattedTotal);
+    }
+        // Anexa a função aos eventos de alteração de entrada
+        $(".quantidade, .valor-unitario").on("input", calcularTotal);
 });
 
 </script>
