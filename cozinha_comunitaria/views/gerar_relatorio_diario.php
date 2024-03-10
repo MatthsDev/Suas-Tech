@@ -7,7 +7,7 @@ ob_end_clean();
 // Inclua a biblioteca FPDF
 require('../../teset/fpdf.php');
 
-$sql = 'SELECT nis_benef, nome, nome_mae, cpf_benef, data_de_entrega, encaminhado_cras, qtd_pessoa, qtd_marmita, marm_entregue, limiter, entregue, data_limite, entregue_por FROM fluxo_diario_coz';
+$sql = 'SELECT nis_benef, nome, nome_mae, cpf_benef, data_de_entrega, encaminhado_cras, qtd_pessoa, qtd_marmita, marm_entregue, entregue, entregue_por FROM fluxo_diario_coz';
 $resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
@@ -26,7 +26,7 @@ if ($resultado->num_rows > 0) {
     $pdf->Ln(10);
 
     // Adicione as colunas
-    $pdf->SetFont('Arial', 'B', 12);
+    $pdf->SetFont('Arial', '', 10);
     $pdf->Cell(30, 10, 'NIS', 1);
     $pdf->Cell(30, 10, 'Nome', 1);
     $pdf->Cell(40, 10, utf8_decode('Nome da Mãe'), 1);
@@ -36,9 +36,7 @@ if ($resultado->num_rows > 0) {
     $pdf->Cell(40, 10, utf8_decode('Quantidade de Pessoas na Família'), 1);
     $pdf->Cell(40, 10, 'Marmitas Disponibilizadas', 1);
     $pdf->Cell(40, 10, 'Marmitas Entregues', 1);
-    $pdf->Cell(30, 10, 'Limite', 1);
     $pdf->Cell(30, 10, 'Entregue', 1);
-    $pdf->Cell(40, 10, 'Data de Acompanhamento', 1);
     $pdf->Cell(40, 10, utf8_decode('Entregue por'), 1);
     $pdf->Ln();
 
