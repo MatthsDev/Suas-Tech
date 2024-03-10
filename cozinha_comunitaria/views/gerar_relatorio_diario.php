@@ -7,7 +7,7 @@ ob_end_clean();
 // Inclua a biblioteca FPDF
 require('../../teset/fpdf.php');
 
-$sql = 'SELECT nis_benef, nome, nome_mae, cpf_benef, data_de_entrega, encaminhado_cras, qtd_pessoa, qtd_marmita, marm_entregue, limiter, entregue, data_limite, entregue_por, data_registro FROM fluxo_diario_coz';
+$sql = 'SELECT nis_benef, nome, nome_mae, cpf_benef, data_de_entrega, encaminhado_cras, qtd_pessoa, qtd_marmita, marm_entregue, limiter, entregue, data_limite, entregue_por FROM fluxo_diario_coz';
 $resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
@@ -15,11 +15,12 @@ if ($resultado->num_rows > 0) {
 
     // Crie um objeto FPDF
     $pdf = new FPDF();
+    $pdf->SetOrientation('L');
     $pdf->AddPage();
 
     // Adicione um título
-    $pdf->SetFont('Arial', 'B', 14);
-    $pdf->Cell(0, 10, 'Relatório Diário', 0, 1, 'C');
+    $pdf->SetFont('Arial', 'B', 16);
+    $pdf->Cell(0, 10, 'RELATORIO DIARIO', 0, 1, 'C');
 
     // Adicione uma linha em branco
     $pdf->Ln(10);
@@ -39,7 +40,6 @@ if ($resultado->num_rows > 0) {
     $pdf->Cell(30, 10, 'Entregue', 1);
     $pdf->Cell(40, 10, 'Data de Acompanhamento', 1);
     $pdf->Cell(40, 10, utf8_decode('Entregue por'), 1);
-    $pdf->Cell(40, 10, utf8_decode('Data de Registro da Família'), 1);
     $pdf->Ln();
 
     // Adicione os dados
