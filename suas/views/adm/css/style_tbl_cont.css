@@ -21,22 +21,26 @@ img {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-between;
-    align-content: space-between;
     padding: 10px;
-    line-height: 2.6;
     background-color: #ffffff;
     border-radius: 10px;
 }
-
+table{
+    width: 100%;
+    color: #13294b;
+    border-radius: 10px;
+    text-align: center;
+}
+tr,
+th,
+td{
+    border-radius: 5px;
+    color: #13294b;
+}
 input,
 select,
 option,
-label,
-.resultado {
+label{
     font-size: 14px;
     font-weight: 700;
     background-color: #ffffff;
@@ -49,7 +53,7 @@ label,
     margin-left: 20px;
 }
 .resultado{ 
-    padding: 10px;
+    padding: 5px;
 }
 button,
 a {
@@ -72,29 +76,11 @@ a{
     text-decoration: none;
     text-transform: none;
 }
-.inpu {
-    width: 300px;
-}
-.inpu1{
-    width: 400px;
-    font-size: 14px;
-    font-weight: 700;
-    background-color: #ffffff;
-    color: #13294b;
-    border-radius: 5px;
-    padding: 1px 2px;
-    border-style: outset;
-}
-.back{
-        position: relative;
-        left: 50px;
-}
-p,
-label{
-    color: #13294b;
-    text-transform: capitalize;
-}
-span {
-    color: #13294b;
-    
+.btn{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding: 10px;
 }
