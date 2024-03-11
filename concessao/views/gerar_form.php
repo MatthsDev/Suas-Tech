@@ -158,13 +158,20 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <?php
                 if (!isset($_GET['cpf_benef'])) {
                 } else {
-                    $cpf_benef = $_GET['cpf_benef'];
+                    $cpf = $_GET['cpf_benef'];
+
+                        // Remove todos os caracteres não numéricos
+                        $cpfNumerico = preg_replace('/\D/', '', $cpf);
+                    
+                        // Remove os zeros à esquerda
+                        $cpf_benef = ltrim($cpfNumerico, '0');
 
                     $sql_cons_nis = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_benef");
                     $sql_cons_nis->bindParam(':cpf_benef', $cpf_benef, PDO::PARAM_STR);
                     $sql_cons_nis->execute();
                     if ($sql_cons_nis->rowCount() > 0) {
                         $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
+                        echo "O nis foi adicionado com sucesso no campo NIS.";
                         if (isset($dados_benef['num_nis_pessoa_atual'])) {
                             // Imprime o valor da variável no script JavaScript
                             echo '<script>var nisBeneficiario = "' . $dados_benef['num_nis_pessoa_atual'] . '";</script>';
