@@ -26,7 +26,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         <div class="container">
             <nav>
                 <div class="btn">
-                    <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='/Suas-Tech/suas/views/adm/cadastro_contrato.php'">
+                    <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='/Suas-Tech/suas/views/adm/cadastro_contrato'">
                         <span class="material-symbols-outlined">
                         contract_edit
                         </span>
@@ -34,7 +34,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </a>
                 </div>
                 <div class="btn">
-                    <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='/Suas-Tech/suas/views/adm/contratos.php'">
+                    <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='/Suas-Tech/suas/views/adm/contratos'">
                         <span class="material-symbols-outlined">
                         contract
                         </span>
