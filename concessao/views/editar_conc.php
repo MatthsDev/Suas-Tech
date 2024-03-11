@@ -145,7 +145,7 @@ $consultaSetores = $conn->query("SELECT caracteristica FROM concessao_itens");
             <div class="btn">
                 <button type="button" id="btn_editar">EDITAR</button>
                 <button type="button" id="btn_imprimir" name="<?php echo $conc['id_hist']; ?>">IMPRIMIR</button>
-                <a href="/Suas-Tech/controller/back.php" style=";">
+                <a href="/Suas-Tech/controller/back.php">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
