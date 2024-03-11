@@ -178,7 +178,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 })
             </script>
         </div>
-        <a href="../../controller/tbl_contrato.php">Visualizar todos os contratos</a>
+        <a href="../../controller/tbl_contrato">Visualizar todos os contratos</a>
     </div>
 </body>
 
