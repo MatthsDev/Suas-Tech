@@ -60,8 +60,22 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 ?>
                     <tr class="resultado">
                         <td class="resultado"><?php echo $linha['num_contrato']; ?></td>
-                        <td class="resultado"><?php echo $linha['data_assinatura']; ?></td>
-                        <td class="resultado"><?php echo $linha['vigencia']; ?></td>
+                        <td class="resultado">
+                            <?php 
+                            $dataAssinatura = $linha['data_assinatura'];
+                            $dataObj = new DateTime($dataAssinatura);
+                            $data_formatada = $dataObj->format('d/m/Y');
+                            echo $data_formatada;
+                            ?>
+                        </td>
+                        <td class="resultado">
+                            <?php 
+                            $dataVigencia = $linha['vigencia'];
+                            $dataObj2 = new DateTime($dataVigencia);
+                            $data_formatada2 = $dataObj2->format('d/m/Y');
+                            echo $data_formatada2;
+                            ?>
+                        </td>
                         <td class="resultado"><?php echo $linha['nome_empresa']; ?></td>
                         <td class="resultado"><?php echo $linha['cnpj']; ?></td>
                         <td class="resultado"><?php echo $linha['num_contato']; ?></td>
