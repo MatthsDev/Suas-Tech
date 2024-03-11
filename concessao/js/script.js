@@ -47,6 +47,10 @@ $(document).ready(function() {
                     $('#valor_total').text(response.valor_total)
                     $('#local_data').text('São Bento do Una - PE ____ de _____________ de ' + response.local_data)
                     window.print()
+
+                    setTimeout(function() {
+                        window.location.href = '/Suas-Tech/concessao/index'
+                    }, 300)
                 } else {
                     console.error(response.error)
                 }
