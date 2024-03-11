@@ -235,7 +235,8 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-    <table border='1'>
+    <div class="tabela">
+    <table align="center" width="500px" border='1'>
         <tr class="resultado">
             <td class="resultado" colspan="2">RESPONSÁVEL:</td>
             <td class="resultado" colspan="9" id="nome_resp"></td>
@@ -284,9 +285,10 @@ $(document).ready(function() {
         </tr>
     </table><br>
 
-    <p id="parentes"></p>
 
-    <table border='1'>
+    <p align="center" width="500px" id="parentes"></p>
+
+    <table align="center" width="500px" border='1'>
         <tr>
             <th>ITEM</th>
             <th>Descrição sucinta do bem, objeto ou serviço a ser concedido.</th>
@@ -302,6 +304,7 @@ $(document).ready(function() {
             <td id="valor_total"></td>
         </tr>
     </table><br>
+    
     <div class="sbu" style="text-align: right;">
         <p id="local_data"> </p>
     </div>
@@ -311,7 +314,8 @@ $(document).ready(function() {
         <p>_________________________________________________________________________<br>ASSINATURA DO RESPONSÁVEL:</p>
         <p>____________________________________________________________<br>MARTHONY DORNELAS SANTANA<br>SECRETÁRIO DE ASSISTÊNCIA SOCIAL<br>PORTARIA 143/2023 </p>
     </div>
-
+    </div>
+</div>
 </div>
 </body>
 </html>
