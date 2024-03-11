@@ -34,7 +34,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <div class="menu">
                 <nav>
                     <div class="btn">
-                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/cadastro_pessoa.php';">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/cadastro_pessoa';">
                             <span class="material-symbols-outlined">
                             person_add
                             </span>
@@ -42,7 +42,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                     </div>
                     <div class="btn">
-                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='/Suas-Tech/concessao/views/cadastro_item.php';">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='/Suas-Tech/concessao/views/cadastro_item';">
                             <span class="material-symbols-outlined">
                             add_box
                             </span>
@@ -50,7 +50,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                     </div>
                     <div class="btn">
-                        <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='views/editar.php'">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="window.location.href='views/editar'">
                             <span class="material-symbols-outlined">
                             content_paste_search
                             </span>
@@ -58,7 +58,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                     </div>
                     <div class="btn">
-                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/gerar_form.php';">
+                        <a class="menu-button" id="cadastrar_contrato" onclick="location.href='views/gerar_form';">
                             <span class="material-symbols-outlined">
                             inventory
                             </span>
@@ -83,10 +83,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         Settings
                     </span>
                     <div class="drop-content">
-                        <a title="Sair" href='/Suas-Tech/config/logout.php' ;>
+                        <a title="Sair" href='/Suas-Tech/config/logout' ;>
                             <span title="Sair" class="material-symbols-outlined">logout</span>
                         </a>
-                        <a title="Alterar Usuário" href='/Suas-Tech/cras/views/conta.php' ;>
+                        <a title="Alterar Usuário" href='/Suas-Tech/cras/views/conta' ;>
                             <span class="material-symbols-outlined">manage_accounts</span>
                         </a>
                         <?php

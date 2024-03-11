@@ -121,7 +121,7 @@ echo 'Nº: ' . $conc['num_form'] . '/' . $conc['ano_form'] . '<br>';
                         <td>
                             <select name="itens_conc" required>
                                 <option><?php echo $conc['nome_item']; ?></option>
-                                <?php
+<?php
 $consultaSetores = $conn->query("SELECT caracteristica FROM concessao_itens");
     // Verifica se há resultados na consulta
     if ($consultaSetores->num_rows > 0) {
@@ -130,7 +130,7 @@ $consultaSetores = $conn->query("SELECT caracteristica FROM concessao_itens");
             echo '<option value="' . $setor['caracteristica'] . '">' . $setor['caracteristica'] . '</option>';
         }
     }
-    ?>
+?>
                             </select>
                         </td>
                         <td><input type="text" name="quantidade" class="quantidade" value="<?php echo $conc['qtd_item']; ?>"></td>
