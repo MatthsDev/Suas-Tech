@@ -27,6 +27,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 reverse: true
             });
 
+        if (typeof nisBeneficiario !== 'undefined') {
+        // Atribui o valor da variável ao campo NIS
+        document.getElementById('nis_b').value = nisBeneficiario;
+        }
 
             // Função para calcular o total
             function calcularTotal() {
@@ -67,14 +71,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         <label>CPF DO RESPONSÁVEL:</label>
                         <input type="text" name="cpf" id="cpf" maxlength="14" required>
 
-                        <label>NIS DO BENEFIÁRIO:</label>
-                        <input type="text" name="nis" maxlength="11" required>
+                        <label>NIS DO BENEFICIÁRIO:</label>
+                        <input type="text" name="nis" maxlength="11" required id="nis_b">
 
                         <label>Mês de Pagamento</label>
                         <select name="mes_pg" id="mes_pg" required>
                             <option value="" disabled selected hidden>Selecione</option>
                             <option value="Janeiro">Janeiro</option>
-                            <option value="Feveiro">Feveiro</option>
+                            <option value="Fevereiro">Fevereiro</option>
                             <option value="Março">Março</option>
                             <option value="Abril">Abril</option>
                             <option value="Maio">Maio</option>
@@ -154,14 +158,39 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <?php
                 if (!isset($_GET['cpf_benef'])) {
                 } else {
-                    $cpf_benef = $_GET['cpf_benef'];
+                    $cpf = $_GET['cpf_benef'];
+
+                        // Remove todos os caracteres não numéricos
+                        $cpfNumerico = preg_replace('/\D/', '', $cpf);
+                    
+                        // Remove os zeros à esquerda
+                        $cpf_benef = ltrim($cpfNumerico, '0');
 
                     $sql_cons_nis = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_benef");
                     $sql_cons_nis->bindParam(':cpf_benef', $cpf_benef, PDO::PARAM_STR);
                     $sql_cons_nis->execute();
                     if ($sql_cons_nis->rowCount() > 0) {
                         $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
-                        echo 'O nis referente ao CPF consutado é <b>' . $dados_benef['num_nis_pessoa_atual'] . '</b>';
+                        echo "O nis foi adicionado com sucesso no campo NIS.";
+                        if (isset($dados_benef['num_nis_pessoa_atual'])) {
+                            // Imprime o valor da variável no script JavaScript
+                            echo '<script>var nisBeneficiario = "' . $dados_benef['num_nis_pessoa_atual'] . '";</script>';
+                        }
+                    } else {
+                        ?>
+                        <script>
+                                Swal.fire({
+                                    icon: "erro",
+                                    title: "NÃO ENCONTRADO",
+                                    text: "Não há cadastro para essa pessoa!",
+                                    confirmButtonText: 'OK',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = "/Suas-Tech/concessao/views/cadastrar_beneficiario"
+                                    }
+                                })
+                        </script>
+                    <?php
                     }
                 }
                 ?>

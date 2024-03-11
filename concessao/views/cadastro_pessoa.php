@@ -158,8 +158,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     $tit_resp_formatado = implode('-', str_split($tit_resp, 4));
 
                     $rg_resp = $dados_resp['num_identidade_pessoa'];
-                    $rg_resp = ltrim($rg_resp, '0');
-                    $rg_resp_formatado = number_format($rg_resp, 0, '', '.');
 
                     //Define as variáveis com o endereço
                     $tipo_logradouro = $dados_resp["nom_tip_logradouro_fam"];

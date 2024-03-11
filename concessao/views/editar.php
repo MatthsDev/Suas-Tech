@@ -33,7 +33,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <input type="text" id="cpf" name="cpf_resp">
 
             <button type="submit" id="btn_busca">BUSCAR</button>
-            <a href="/Suas-Tech/controller/back.php">
+            <a href="/Suas-Tech/controller/back">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
         </form>
@@ -54,7 +54,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         confirmButtonText: 'OK',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "/Suas-Tech/concessao/views/editar.php";
+                            window.location.href = "/Suas-Tech/concessao/views/editar";
                         }
                     });
                 </script>
@@ -96,7 +96,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             <td><?php echo $dados_hist_form['data_registro']; ?></td>
                             <td><?php echo $dados_hist_form['situacao_concessao']; ?></td>
                             <td>
-                                <form action="/Suas-Tech/concessao/views/editar_conc.php" method="post" style="display:inline;">
+                                <form action="/Suas-Tech/concessao/views/editar_conc" method="post" style="display:inline;">
                                     <input type="hidden" name="id_concessao" value="<?php echo $dados_hist_form['id_hist']; ?>">
                                     <button type="submit">Editar</button>
                                 </form>

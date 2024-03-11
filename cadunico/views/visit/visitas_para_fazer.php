@@ -11,7 +11,6 @@ $data6 = $data1 - 4;
 $data7 = $data1 - 3;
 $data8 = $data1 - 2;
 $data9 = $data1 - 1;
-
 ?>
 
 <!DOCTYPE html>
@@ -49,12 +48,13 @@ $data9 = $data1 - 1;
             <label>Fitre a localidade:</label>
                 <input name="localidade" class="busca2" placeholder="Qual localdade" type="text">
                 <button type="submit">Buscar</button>
-                <a href="visitas.php">
+                <a href="visitas">
                     <span class="fas fa-arrow-left"></span>
                 Voltar 
                 </a>
         </form>
     </div>
     <?php include '../../controller/parecer/tbl_tudo.php';?>
+    <script src='/Suas-Tech/cadunico/js/personalise.js'></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Suas-Tech/img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style_cad_cont.css">
+    <link rel="stylesheet" href="../views/adm/css/style_tbl_cont.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
@@ -23,10 +23,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="../img/consul_cont.svg" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="../views/adm/img/cadas_cont.svg" alt="Titulocomimagem">
         </h1>
     </div>
-    <div class="container">
     <?php
 
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
@@ -36,7 +35,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     if ($tbl_contrato->num_rows > 0) {
     ?>
         </div>
-        <div class="bloco">
+        <div class="container">
+            <div class="btn">
+                <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar ao menu
+                </button>
+            </div>
             <table width="650px" border="1">
                 <tr class="titulo">
                     <th class="cabecalho">Nº CONTRATO</th>
@@ -55,8 +60,22 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 ?>
                     <tr class="resultado">
                         <td class="resultado"><?php echo $linha['num_contrato']; ?></td>
-                        <td class="resultado"><?php echo $linha['data_assinatura']; ?></td>
-                        <td class="resultado"><?php echo $linha['vigencia']; ?></td>
+                        <td class="resultado">
+                            <?php 
+                            $dataAssinatura = $linha['data_assinatura'];
+                            $dataObj = new DateTime($dataAssinatura);
+                            $data_formatada = $dataObj->format('d/m/Y');
+                            echo $data_formatada;
+                            ?>
+                        </td>
+                        <td class="resultado">
+                            <?php 
+                            $dataVigencia = $linha['vigencia'];
+                            $dataObj2 = new DateTime($dataVigencia);
+                            $data_formatada2 = $dataObj2->format('d/m/Y');
+                            echo $data_formatada2;
+                            ?>
+                        </td>
                         <td class="resultado"><?php echo $linha['nome_empresa']; ?></td>
                         <td class="resultado"><?php echo $linha['cnpj']; ?></td>
                         <td class="resultado"><?php echo $linha['num_contato']; ?></td>
@@ -74,4 +93,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             }
             ?>
             </table>
-</div
+        </div>
+        </div>
+</body>

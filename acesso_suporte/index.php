@@ -24,27 +24,27 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                 <div class="menu">
                         <div class="bloco1">
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/views/atendimento/views/index.php';">
+                                        <a class="menu-button" onclick="location.href='/Suas-Tech/cadunico/views/atendimento/views/index';">
                                                 Sistema de Atendimento
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='../cadunico/painel-adm/adm-view.php';">
+                                        <a class="menu-button" onclick="location.href='../cadunico/painel-adm/adm-view';">
                                                 Cadastro único
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='/Suas-Tech/concessao/index.php';">
+                                        <a class="menu-button" onclick="location.href='/Suas-Tech/concessao/index';">
                                                 Concessão
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='../suas/views/adm/menu_adm.php';">
+                                        <a class="menu-button" onclick="location.href='../suas/views/adm/menu_adm';">
                                                 Administrativo
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='../cozinha_comunitaria/menu.php';">
+                                        <a class="menu-button" onclick="location.href='../cozinha_comunitaria/menu';">
                                                 Cozinha Comunitária
                                         </a>
                                 </div>
@@ -52,29 +52,29 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
                         </div>
                         <div class="bloco2">
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='total_peixe.php';">
+                                        <a class="menu-button" onclick="location.href='total_peixe';">
                                                 Controle Peixe
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='../cras/views/menu-cras-am.php';">
+                                        <a class="menu-button" onclick="location.href='../cras/views/menu-cras-am';">
                                                 CRAS Antonio Matias
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='../cras/views/menu-cras-st.php';">
+                                        <a class="menu-button" onclick="location.href='../cras/views/menu-cras-st';">
                                                 CRAS Santo Afonso
                                         </a>
                                 </div>
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='../creas/views/menu-creas.php';">
+                                        <a class="menu-button" onclick="location.href='../creas/views/menu-creas';">
                                                 CREAS Gildo Soares
                                         </a>
                                 </div>
                         </div>
                         <div class="bloco2">
                                 <div class="btn">
-                                        <a class="menu-button" onclick="location.href='setores.php';">
+                                        <a class="menu-button" onclick="location.href='setores';">
                                                 <span class="material-symbols-outlined">
                                                         domain_add
                                                 </span>
