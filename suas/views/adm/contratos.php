@@ -68,7 +68,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             confirmButtonText: 'OK',
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = "/Suas-Tech/suas/views/adm/contratos.php";
+                                window.location.href = "/Suas-Tech/suas/views/adm/contratos";
                             }
                         });
                     </script>
@@ -84,12 +84,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     echo '<div class="contato">Contato: ' . $dados_contrato['num_contato'] . '</div>';
                     echo '<div class="numero_contrato">Número: ' . $dados_contrato['num_contrato'] . '</div>';
 
-
+                    ?>
+                        <button type="button" id="btn_pedido_itens">FAZER PEDIDO</button>
+                    <?php
 
                     // cria uma sessão para transmitir o valor para outro php
                     $_SESSION['num_contrato'] = $dados_contrato['num_contrato'];
 
-                    // Consulta itens relacionados ao contrato
+                    // consulta itens relacionados ao contrato
                     $itens = $conn->real_escape_string($id_contrato);
                     $valor_itens = "SELECT * FROM tabela_itens WHERE id_contrato LIKE '$itens'";
                     $itens_query = $conn->query($valor_itens) or die("ERRO ao consultar!" . $conn - error);
@@ -103,7 +105,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     ?>
                         <!-- Formulário para editar prazo -->
                         <div id="form_ed_data">
-                            <form method="POST" action="/Suas-Tech/suas/controller/editar_prazo.php">
+                            <form method="POST" action="/Suas-Tech/suas/controller/editar_prazo">
                                 <label>Nova data</label>
                                 <input type="date" name="data_alt">
                                 <label>Apotilamento</label>
