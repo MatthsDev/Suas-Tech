@@ -27,6 +27,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 reverse: true
             });
 
+        if (typeof nisBeneficiario !== 'undefined') {
+        // Atribui o valor da variável ao campo NIS
+        document.getElementById('nis_b').value = nisBeneficiario;
+        }
 
             // Função para calcular o total
             function calcularTotal() {
@@ -67,14 +71,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         <label>CPF DO RESPONSÁVEL:</label>
                         <input type="text" name="cpf" id="cpf" maxlength="14" required>
 
-                        <label>NIS DO BENEFIÁRIO:</label>
-                        <input type="text" name="nis" maxlength="11" required>
+                        <label>NIS DO BENEFICIÁRIO:</label>
+                        <input type="text" name="nis" maxlength="11" required id="nis_b">
 
                         <label>Mês de Pagamento</label>
                         <select name="mes_pg" id="mes_pg" required>
                             <option value="" disabled selected hidden>Selecione</option>
                             <option value="Janeiro">Janeiro</option>
-                            <option value="Feveiro">Feveiro</option>
+                            <option value="Fevereiro">Fevereiro</option>
                             <option value="Março">Março</option>
                             <option value="Abril">Abril</option>
                             <option value="Maio">Maio</option>
@@ -161,7 +165,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     $sql_cons_nis->execute();
                     if ($sql_cons_nis->rowCount() > 0) {
                         $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
-                        echo 'O nis referente ao CPF consutado é <b>' . $dados_benef['num_nis_pessoa_atual'] . '</b>';
+                        if (isset($dados_benef['num_nis_pessoa_atual'])) {
+                            // Imprime o valor da variável no script JavaScript
+                            echo '<script>var nisBeneficiario = "' . $dados_benef['num_nis_pessoa_atual'] . '";</script>';
+                        }
                     } else {
                         ?>
                         <script>
