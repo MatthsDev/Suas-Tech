@@ -98,3 +98,15 @@ span {
     color: #13294b;
     
 }
+table{
+    width: 100%;
+    color: #13294b;
+    border-radius: 10px;
+    text-align: center;
+}
+tr,
+th,
+td{
+    border-radius: 5px;
+    color: #13294b;
+}

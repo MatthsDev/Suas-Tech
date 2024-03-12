@@ -77,12 +77,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     // Exibe informações do contrato encontrado
                     $dados_contrato = $contrato_query->fetch_assoc();
                     $id_contrato = $dados_contrato['id_contrato'];
+                    $dataVigencia = $dados_contrato['vigencia'];
+                            $dataObj2 = new DateTime($dataVigencia);
+                            $data_formatada2 = $dataObj2->format('d/m/Y');
                     echo '<div class="resultado">';
                     echo '<div class="empresa">Empresa: ' . $dados_contrato['nome_empresa'] . '</div>';
                     echo '<div class="razao_social">Razão Social: ' . $dados_contrato['razao_social'] . '</div>';
                     echo '<div class="cnpj">CNPJ: ' . $dados_contrato['cnpj'] . '</div>';
                     echo '<div class="contato">Contato: ' . $dados_contrato['num_contato'] . '</div>';
                     echo '<div class="numero_contrato">Número: ' . $dados_contrato['num_contrato'] . '</div>';
+                    echo '<div class="#">Data de Vigência: ' . $data_formatada2. '</div>';
 
 
 
