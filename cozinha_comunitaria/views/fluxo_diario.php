@@ -28,7 +28,7 @@ ini_set('display_errors', 1);
     <title>TechSUAS - Fluxo diário</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/encerrarEntregas.js"></script>
 
     <title>Fluxo Diário</title>
@@ -48,7 +48,7 @@ ini_set('display_errors', 1);
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
-            <?php
+<?php
 include_once '../controller/tbl_fluxo.php';
 ?>
             <div id="buscar" class="buscar">
