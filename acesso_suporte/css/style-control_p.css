@@ -29,6 +29,13 @@ img {
     position: relative;
     /* Adicionado para criar um contexto de posicionamento */
 }
+a,
+b{
+    background-color: #13294b;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 .grafico {
     display: block;
@@ -223,5 +230,9 @@ div.legend-color {
 
     .legend-item {
         margin: 5px 0;
+    }
+    .local{
+        font-size: 12px;
+        padding-bottom: 15px;
     }
 }

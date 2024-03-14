@@ -24,8 +24,10 @@
             <img class="titulo-com-imagem" src="img/h1-controle.svg" alt="Titulocomimagem">
         </h1>
     </div>
+    <div class="local">
     <a href='total_peixe'>LOCAL CADASTRO</a>
     <label><b>LOCAL ENTREGA</b></label>
+    </div>
     <div class="container">
         <?php
         $tempo_atualizacao = 30;
