@@ -7,7 +7,7 @@ ob_end_clean();
 // Inclua a biblioteca FPDF
 require('../../teset/fpdf.php');
 
-$sql = 'SELECT nis_benef, nome, nome_mae, cpf_benef, data_de_entrega, encaminhado_cras, qtd_pessoa, qtd_marmita, marm_entregue, entregue, entregue_por FROM fluxo_diario_coz';
+$sql = 'SELECT nis_benef, nome, cpf_benef, data_de_entrega, encaminhado_cras, qtd_pessoa, qtd_marmita, marm_entregue FROM fluxo_diario_coz';
 $resultado = $conn->query($sql);
 
 if ($resultado->num_rows > 0) {
@@ -15,39 +15,52 @@ if ($resultado->num_rows > 0) {
 
     // Crie um objeto FPDF
     $pdf = new FPDF();
-    $pdf->SetOrientation('L');
-    $pdf->AddPage();
+    $pdf->AddPage('L');
 
     // Adicione um título
     $pdf->SetFont('Arial', 'B', 16);
-    $pdf->Cell(0, 10, 'RELATORIO DIARIO', 0, 1, 'C');
+    $pdf->Cell(0, 10, 'RELATÓRIO DIÁRIO', 0, 1, 'C');
 
     // Adicione uma linha em branco
     $pdf->Ln(10);
 
-    // Adicione as colunas
-    $pdf->SetFont('Arial', '', 10);
-    $pdf->Cell(30, 10, 'NIS', 1);
-    $pdf->Cell(30, 10, 'Nome', 1);
-    $pdf->Cell(40, 10, utf8_decode('Nome da Mãe'), 1);
-    $pdf->Cell(30, 10, 'CPF', 1);
-    $pdf->Cell(30, 10, 'Data de Entrega', 1);
-    $pdf->Cell(40, 10, utf8_decode('Encaminhado pelo CRAS'), 1);
-    $pdf->Cell(40, 10, utf8_decode('Quantidade de Pessoas na Família'), 1);
-    $pdf->Cell(40, 10, 'Marmitas Disponibilizadas', 1);
-    $pdf->Cell(40, 10, 'Marmitas Entregues', 1);
-    $pdf->Cell(30, 10, 'Entregue', 1);
-    $pdf->Cell(40, 10, utf8_decode('Entregue por'), 1);
-    $pdf->Ln();
+// Larguras das células de cabeçalho
+$largura_nis = 20;
+$largura_nome = 80;
+$largura_cpf = 25;
+$largura_data_entrega = 30;
+$largura_acompanhado = 40;
+$largura_qtd_pessoa = 25;
+$largura_marmitas_disp = 25;
+$largura_marmitas_entregues = 25;
 
-    // Adicione os dados
-    $pdf->SetFont('Arial', '', 10);
-    while ($linha = $resultado->fetch_assoc()) {
-        foreach ($linha as $coluna) {
-            $pdf->Cell(30, 10, utf8_decode($coluna), 1);
-        }
-        $pdf->Ln();
-    }
+// Adicione as colunas
+$pdf->SetFont('Arial', '', 8);
+$pdf->Cell($largura_nis, 10, 'NIS', 1);
+$pdf->Cell($largura_nome, 10, 'NOME', 1);
+$pdf->Cell($largura_cpf, 10, 'CPF', 1);
+$pdf->Cell($largura_data_entrega, 10, 'DATA ENTREGA', 1);
+$pdf->Cell($largura_acompanhado, 10, utf8_decode('ACOMPANHADO'), 1);
+$pdf->Cell($largura_qtd_pessoa, 10, utf8_decode('QTD PESSOA'), 1);
+$pdf->Cell($largura_marmitas_disp, 10, 'MARMITA DISP', 1);
+$pdf->Cell($largura_marmitas_entregues, 10, 'ENTREGUE', 1);
+$pdf->Ln();
+
+// Adicione os dados
+$pdf->SetFont('Arial', '', 8);
+while ($linha = $resultado->fetch_assoc()) {
+    // Adicione cada coluna com a largura correspondente
+    $pdf->Cell($largura_nis, 10, utf8_decode($linha['nis_benef']), 1);
+    $pdf->Cell($largura_nome, 10, utf8_decode($linha['nome']), 1);
+    $pdf->Cell($largura_cpf, 10, utf8_decode($linha['cpf_benef']), 1);
+    $pdf->Cell($largura_data_entrega, 10, utf8_decode($linha['data_de_entrega']), 1);
+    $pdf->Cell($largura_acompanhado, 10, utf8_decode($linha['encaminhado_cras']), 1);
+    $pdf->Cell($largura_qtd_pessoa, 10, utf8_decode($linha['qtd_pessoa']), 1);
+    $pdf->Cell($largura_marmitas_disp, 10, utf8_decode($linha['qtd_marmita']), 1);
+    $pdf->Cell($largura_marmitas_entregues, 10, utf8_decode($linha['marm_entregue']), 1);
+    $pdf->Ln();
+}
+
 
     // Nome do arquivo
     $pdf_nome = 'RELATORIO_' . $data_atual . '.pdf';
