@@ -17,6 +17,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="../../js/script_contrato.js"></script>
     <title>TechSUAS - Consultar Contrato</title>
 </head>
 
@@ -38,7 +39,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 
 
                 <button id="btn_busca">Buscar</button>
-                <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm';">
                     <i class="fas fa-arrow-left"></i>
                     Voltar ao menu
                 </button>
