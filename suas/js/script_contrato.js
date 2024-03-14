@@ -98,3 +98,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+$(document).ready(function () {
+    $('#btn_pedido_itens').click(function () {
+        Swal.fire({
+            icon: 'library',
+            html: 
+            `
+            <h2>FAZENDO PEDIDO</h2>
+            <label>Código:</label>
+            <input type='text' id='cod_iten'/><br>
+            <label>Quantidade:</label>
+            <input type='text' id='quantidade'/><br>
+            <label>Valor Unitário:</label>
+            <input type='text' id='valor_uni'/><br>
+
+            `
+        }).then((result) => {
+            if(result.isConfirmed){
+                var cod_iten = $('#cod_iten').val()
+                var quantidade = $('#quantidade').val()
+                var valor_uni = $('#valor_uni').val()
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Suas-Tech/suas/controller/pedidos.php',
+                    data: {
+                        cod_iten: cod_iten,
+                        quantidade: quantidade,
+                        valor_uni: valor_uni
+                    },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.encontrado) {
+                            
+                        }
+                    }
+                })
+            }
+        })
+    })
+})

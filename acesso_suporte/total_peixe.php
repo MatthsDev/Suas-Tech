@@ -17,19 +17,21 @@
         
     </style>
 </head>
-
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
             <img class="titulo-com-imagem" src="img/h1-controle.svg" alt="Titulocomimagem">
         </h1>
     </div>
+    <label><b>LOCAL CADASTRO</b></label>
+    <a href='total_peixe_entrega'>LOCAL ENTREGA</a>
+
     <div class="container">
         <?php
         $tempo_atualizacao = 30;
 
         // Cabeçalho HTTP para a atualização automática
-        header("refresh:$tempo_atualizacao;url=/Suas-Tech/acesso_suporte/total_peixe.php");
+        header("refresh:$tempo_atualizacao;url=/Suas-Tech/acesso_suporte/total_peixe");
 
         include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
         //dados totais dos registros de visitas
