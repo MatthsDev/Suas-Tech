@@ -86,7 +86,7 @@ $ano_atual = date('Y');
                 <div class="btns">
                     <button type="submit" name="btn_contrato">Salvar Contrato</button>
                     <button type="button" id='btn_salva_contrato'>Cadastrar Itens</button>
-                    <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                    <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm';">
                         <i class="fas fa-arrow-left"></i>
                         Voltar ao menu
                     </button>
@@ -123,7 +123,7 @@ $ano_atual = date('Y');
                 <button type="submit" name="btn_itens">Salvar Itens</button>
             </form>
             <div id="voltar1" class="back">
-                <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm';">
                     <i class="fas fa-arrow-left"></i>
                     Voltar ao menu
                 </button>
@@ -139,6 +139,7 @@ $ano_atual = date('Y');
             });
         });
     </script>
+
 
 </body>
 
