@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
+$ano_atual = date('Y');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,9 +14,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Cadastrar Contrato</title>
 </head>
@@ -23,7 +22,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
 <body>
     <div class="img">
         <h1 class="titulo-com-imagem">
-            <img class="titulo-com-imagem" src="../adm/img/cadas_cont.svg" alt="Titulocomimagem">
+            <img class="titulo-com-imagem" src="../adm/img/cadas_cont.svg" al
+            t="Titulocomimagem">
         </h1>
     </div>
     <div class="container">
@@ -65,7 +65,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </div>
                 <div>
                     <label>Prazo Vigente:</label>
-                    <input type="date" name="vigencia">
+                    <select name="vigencia" id="vigencia" required>
+                            <option value="" disabled selected hidden>Selecione</option>
+                            <option value="JAN">Janeiro</option>
+                            <option value="FEV">Fevereiro</option>
+                            <option value="MAR">Março</option>
+                            <option value="ABR">Abril</option>
+                            <option value="MAI">Maio</option>
+                            <option value="JUN">Junho</option>
+                            <option value="JUL">Julho</option>
+                            <option value="AGO">Agosto</option>
+                            <option value="SET">Setembro</option>
+                            <option value="OUT">Outubro</option>
+                            <option value="NOV">Novembro</option>
+                            <option value="DEZ">Dezembro</option>
+                        </select>/
+                        <input type="text" name="ano_vigencia" value="<?php echo $ano_atual; ?>"
+
                 </div>
                 <div class="btns">
                     <button type="submit" name="btn_contrato">Salvar Contrato</button>

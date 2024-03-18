@@ -14,8 +14,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
     <title>Cadastrar Empresas</title>
 </head>
@@ -32,11 +30,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <!-- Campos do Contrato -->
                 <div>
                     <label>Nome empresa:</label>
-                    <input type="text" name="nome_empresa" class="inpu">
+                    <input type="text" name="nome_empresa" class="inpu" required>
                 </div>
                 <div>
                     <label>Razão social:</label>
-                    <input type="text" name="razao_social" class="inpu">
+                    <input type="text" name="razao_social" class="inpu" required>
                 </div>
                 <div>
                     <label>Endereço:</label>
@@ -44,20 +42,32 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 </div>
                 <div>
                     <label>CNPJ:</label>
-                    <input type="text" name="cnpj" id="cnpjInput" maxlength="18">
+                    <input type="text" name="cnpj" id="cnpjInput" maxlength="18" required>
                 </div>
                 <div>
                     <label>Telefone:</label>
-                    <input type="text" name="num_contato" id="contatoInput" maxlength="16">
+                    <input type="text" name="num_contato" class="contatoInput" maxlength="16">
                 </div>
                 <div>
                     <label>E-mail:</label>
                     <input type="email" name="email_emp" class="inpu">
                 </div>
+                <div>
+                    <label>Representante Legal:</label>
+                    <input type="text" name="nom_representante">
+                </div>
+                <div>
+                    <label>Contato do Representante:</label>
+                    <input type="text" name="contato_representante" class="contatoInput">
+                </div>
+                <div>
+                    <label>Segmento:</label>
+                    <input type="text" name="segmento" class="contatoInput">
+                </div>
                 <div class="btns">
                     <button type="submit" name="btn_contrato">Salvar Empresa</button>
-                    <button type="button" id='#'>Cadastrar Contratos</button>
-                    <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm.php';">
+                    <button type="button" onclick="window.location.href ='/Suas-Tech/suas/views/adm/cadastro_contrato';">Cadastrar Contratos</button>
+                    <button type="button" class="back" onclick="window.location.href ='/Suas-Tech/suas/views/adm/menu_adm';">
                         <i class="fas fa-arrow-left"></i>
                         Voltar ao menu
                     </button>
@@ -108,6 +118,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             $('#valor_contrato').mask('000.000.000.000.000,00', {
                 reverse: true
             });
+            $('.contatoInput').mask('(00) 0.0000-0000')
         });
     </script>
 
