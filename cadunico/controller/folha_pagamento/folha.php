@@ -26,7 +26,7 @@ ini_set('memory_limit', '256M');
             <form action="">
                 <input name="cod_fam" class="busca2" placeholder="Digite o NIS ou NOME do beneficiário." type="text" required>
                 <button type="submit">Buscar</button>
-            <a onclick="goBack()">
+            <a href="/Suas-Tech/controller/back.php">
                 <i class="fas fa-arrow-left"></i> Voltar ao menu
             </a>
             </form>
@@ -74,6 +74,6 @@ ini_set('memory_limit', '256M');
         } ?>    
         </table>
     </div>
-    <script src='/Suas-Tech/controller/back.js'></script>
+    <script src='/Suas-Tech/controller/back.php'></script>
 </body>
 </html>

@@ -2,10 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400;500&display=swap');
 
 body {
-  background-color: #d7e9f8;
-  overflow: auto;
+  background-image: url(../img/fundo_cad.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
   font-family: "Inter", sans-serif;
-  height: 100%;
+  height: auto;
 }
 
 * {

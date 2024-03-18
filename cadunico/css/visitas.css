@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 body {
-  background-color: #d7e9f8;
+  background-image: url(../img/fundo_cad.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   overflow: auto;
   font-family: "Inter", sans-serif;
 }
