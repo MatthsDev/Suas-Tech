@@ -34,7 +34,7 @@ include_once '../controller/acesso_user/dados_usuario.php';
     <div class="container">
       <nav> 
         <div class="formularios">
-          <a class="menu-button" onclick="location.href='../views/forms/menuformulario.php';">
+          <a class="menu-button" onclick="location.href='../views/forms/menuformulario';">
             <span class="material-symbols-outlined">
               forms_add_on
             </span>
@@ -43,7 +43,7 @@ include_once '../controller/acesso_user/dados_usuario.php';
         </div>
 
         <div class="parecer">
-          <a class="menu-button" onclick="location.href='../views/visit/visitas.php';">
+          <a class="menu-button" onclick="location.href='../views/visit/visitas';">
             <span class="material-symbols-outlined">
             location_away
             </span>
@@ -52,7 +52,7 @@ include_once '../controller/acesso_user/dados_usuario.php';
         </div>
 
         <div class="visitas">
-          <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha.php';">
+          <a class="menu-button" onclick="location.href='../controller/folha_pagamento/folha';">
             <span class="material-symbols-outlined">
             request_quote
             </span>
@@ -61,7 +61,7 @@ include_once '../controller/acesso_user/dados_usuario.php';
         </div>
 
         <div class="folha">
-          <a class="menu-button" onclick="location.href='../views/declar/declaracao.php';">
+          <a class="menu-button" onclick="location.href='../views/declar/declaracao';">
             <span class="material-symbols-outlined">
             quick_reference_all
             </span>
@@ -70,14 +70,14 @@ include_once '../controller/acesso_user/dados_usuario.php';
         </div>
 
         <div class="atendimento">
-          <a class="menu-button" onclick="location.href='../views/atendimento/index.php';">
+          <a class="menu-button" href='../views/atendimento/index'>
             <span class="material-symbols-outlined">
               contacts
             </span>
             Atendimento
           </a>
           <div class="peixe">
-          <a class="menu-button" target="_blank" href='/Suas-Tech/suas/peixe/logado/form.php';">
+          <a class="menu-button" target="_blank" href='/Suas-Tech/suas/peixe/logado/form'>
             <span class="material-symbols-outlined">
               set_meal
             </span>
