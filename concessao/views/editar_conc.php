@@ -2,6 +2,13 @@
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/sessao.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_user/dados_usuario.php';
+$data_atual = date('Y');
+$qtd_conc = "SELECT COUNT(*) as total_registros FROM concessao_historico WHERE ano_form = $data_atual";
+
+$stmt = $pdo->query($qtd_conc);
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$hoje_ = date('d/m/Y H:i');
 
 $sql_ed_conc = $pdo->prepare("SELECT * FROM concessao_historico WHERE id_hist = :id_hist");
 $sql_ed_conc->execute(array(':id_hist' => $_POST['id_concessao']));
@@ -215,7 +222,14 @@ $(document).ready(function() {
 });
 
 </script>
-
+<div class="titulo">
+        <div class="tech">
+            <p>TechSUAS-Concessão</p>
+        </div>
+            <div
+            id="dataHora">
+        </div>
+    </div>
 <div id="conteiner_show" style="display: none;">
 
     <div class="container">
@@ -317,5 +331,36 @@ $(document).ready(function() {
     </div>
 </div>
 </div>
+<script>
+        // Função para formatar um número com dois dígitos
+function formatarNumero(numero) {
+    return numero < 10 ? '0' + numero : numero;
+}
+
+// Função para obter a data e hora atual e exibir na página
+function mostrarDataHoraAtual() {
+    let dataAtual = new Date();
+
+    let dia = formatarNumero(dataAtual.getDate());
+    let mes = formatarNumero(dataAtual.getMonth() + 1);
+    let ano = dataAtual.getFullYear();
+
+    let horas = formatarNumero(dataAtual.getHours());
+    let minutos = formatarNumero(dataAtual.getMinutes());
+    let segundos = formatarNumero(dataAtual.getSeconds());
+
+    let dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+
+    document.getElementById('dataHora').textContent = " - " + dataHoraFormatada;
+}
+
+// Chamando a função para exibir a data e hora atual quando a página carrega
+window.onload = function() {
+    mostrarDataHoraAtual();
+    // Atualizar a cada segundo
+    setInterval(mostrarDataHoraAtual, 1000);
+};
+
+    </script>
 </body>
 </html>
