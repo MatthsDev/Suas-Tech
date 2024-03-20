@@ -27,16 +27,30 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         </h1>
     </div>
     <div class="container">
-        <form method='POST' id="formulario">
-
-            <label>CPF Responsável:</label>
-            <input type="text" id="cpf" name="cpf_resp">
-
-            <button type="submit" id="btn_busca">BUSCAR</button>
-            <a href="/Suas-Tech/controller/back">
-                <i class="fas fa-arrow-left"></i> Voltar ao menu
-            </a>
-        </form>
+        <div>
+            <select name="tipo_busca" id="tipo_busca" style="text-align: center;">
+                <option value="cpf">CPF</option>
+                <option value="num_form">Nº Formulário</option>
+            </select>
+        </div>
+        <div class="forms">
+        <div>
+            <form method='POST' id="cpf_inpu">
+                <label>CPF Responsável:</label>
+                <input type="text" id="cpf" name="cpf_resp">
+                <button type="submit" id="btn_busca_cpf">BUSCAR</button>
+                <a href = "/Suas-Tech/controller/back"><i class="fas fa-arrow-left"></i> Voltar ao menu</a>
+            </form>
+        </div>
+        <div>
+            <form method='POST' id="num_form_inpu" style="display: none;">
+                <label>Nº Formulário:</label>
+                <input type="text" id="num_form" name="num_form">
+                <button type="submit" id="btn_busca_num_form">BUSCAR</button>
+                <a href = "/Suas-Tech/controller/back"><i class="fas fa-arrow-left"></i> Voltar ao menu</a>
+            </form>
+        </div>
+            
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sql_cpf_resp = $conn->real_escape_string($_POST['cpf_resp']);
@@ -109,5 +123,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             ?>
     </div>
 </body>
+<script>
+    document.getElementById("tipo_busca").addEventListener("change", function() {
+        var tipoSelecionado = this.value;
+        if (tipoSelecionado === "cpf") {
+            document.getElementById("cpf_inpu").style.display = "block";
+            document.getElementById("num_form_inpu").style.display = "none";
+        } else if (tipoSelecionado === "num_form") {
+            document.getElementById("cpf_inpu").style.display = "none";
+            document.getElementById("num_form_inpu").style.display = "block";
+        }
+    });
+</script>
+
 
 </html>
