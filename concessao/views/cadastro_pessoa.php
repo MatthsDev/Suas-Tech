@@ -212,7 +212,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     ?>
         </div>
         <div class="cadastro">
-            <h2>CADASTRO MANUAL</h2>
+            <h3>CADASTRO MANUAL</h3>
             <form method="POST" action="/Suas-Tech/concessao/controller/processo_concessao.php">
                 <table border='1'>
                     <tr class="resultado">
