@@ -56,7 +56,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             $sql_cpf_resp = $conn->real_escape_string($_POST['cpf_resp']);
             $sql_num_form = $conn->real_escape_string($_POST['num_form']);
 
-            $sql_dados_num_form = "SELECT * FROM concessao_tbl WHERE cpf_pessoa LIKE '$sql_cpf_resp' OR num_form '$sql_num_form'";
+            $sql_dados_num_form = "SELECT * FROM concessao_tbl WHERE cpf_pessoa LIKE '$sql_cpf_resp'";
             $sql_query = $conn->query($sql_dados_num_form) or die("ERRO ao consultar !" . $conn - error);
 
             if ($sql_query->num_rows == 0) {
