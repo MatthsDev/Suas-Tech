@@ -54,7 +54,6 @@ td{
     text-align: center;
 }
 table input{
-    opacity: 20%;
     height: 30px;
     width: 100%;
     color: #13294b;
@@ -132,7 +131,7 @@ label{
 
 /* Estilizando o visual do checkbox */
 .urg .checkmark {
-    display: inline-block;
+    display: inline-block;  
     width: 16px;
     /* Tamanho do checkbox */
     height: 16px;
