@@ -150,7 +150,7 @@ $timestamp = date('d/m/Y H:i');
                                 confirmButtonText: 'OK',
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = "/Suas-Tech/concessao/views/editar.php"
+                                    window.location.href = "/Suas-Tech/concessao/views/editar"
                                 }
                             })
                         }, 3000)
