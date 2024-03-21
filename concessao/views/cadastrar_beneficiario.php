@@ -130,14 +130,14 @@ $timestamp = date('d/m/Y H:i');
             if ($sql_query_resp->rowCount() > 0) {
                 $dados_resp = $sql_query_resp->fetch(PDO::FETCH_ASSOC);
 
-                $smtp_conc = $conn->prepare("INSERT INTO concessao_historico (id_concessao, num_form, ano_form, nome_benef, cpf_benef, rg_benef, tit_benef, endereco, renda_media, data_registro, parentesco, operador, situacao_concessao) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                $smtp_conc = $conn->prepare("INSERT INTO concessao_historico (id_concessao, num_form, ano_form, cpf_resp, nome_benef, cpf_benef, rg_benef, tit_benef, endereco, renda_media, data_registro, parentesco, operador, situacao_concessao) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
                 // Verifica se a preparação foi bem-sucedida
                 if ($smtp_conc === false) {
                     die('Erro na preparação SQL: ' . $conn->error);
                 }
 
-                $smtp_conc->bind_param("sssssssssssss", $dados_resp['id_concessao'], $num_form, $data_atual, $_POST['beneficio'], $_POST['cpf_beneficio'], $_POST['rg_beneficio'], $_POST['te_beneficio'], $_POST['endereco_resp'], $_POST['renda_media'], $hoje_, $_POST['parentesco'], $nome, $situation);
+                $smtp_conc->bind_param("ssssssssssssss", $dados_resp['id_concessao'], $num_form, $data_atual, $cpf_resp, $_POST['beneficio'], $_POST['cpf_beneficio'], $_POST['rg_beneficio'], $_POST['te_beneficio'], $_POST['endereco_resp'], $_POST['renda_media'], $hoje_, $_POST['parentesco'], $nome, $situation);
 
                 if ($smtp_conc->execute()) {
     ?>
@@ -145,8 +145,8 @@ $timestamp = date('d/m/Y H:i');
                         setTimeout(function() {
                             Swal.fire({
                                 icon: "success",
-                                title: "SALVO",
-                                text: "Dados salvos com sucesso!",
+                                html: `<h1>SALVO</h1>
+                        <p>Dados salvos com sucesso!</p>`,
                                 confirmButtonText: 'OK',
                             }).then((result) => {
                                 if (result.isConfirmed) {
@@ -177,8 +177,8 @@ window.location.href = "/Suas-Tech/concessao/views/gerar_form.php"
             <script>
                 Swal.fire({
                     icon: "error",
-                    title: "ERRO",
-                    text: "Erro no salvamento, contacte o suporte.",
+                    html: `<h1>ERRO</h1>
+                        <p>Erro no salvamento, contacte o suporte.</p>`,
                     confirmButtonText: 'OK',
                 }).then((result) => {
                     if (result.isConfirmed) {
