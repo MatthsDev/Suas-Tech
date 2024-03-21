@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 body {
-    background-color: #D7E9F8;
+    background-image: url(../img/fundo_cras.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: auto;
     font-family: "Inter", sans-serif;
     height: auto;
@@ -86,7 +89,9 @@ a {
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(255, 255, 255, 0.3) 0px 30px 60px -30px, rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
 }
-
+a{
+    text-decoration: none;
+}
 button:hover,
 a:hover {
     background-color: #3b82f6;

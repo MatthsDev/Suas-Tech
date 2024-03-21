@@ -5,10 +5,13 @@
 }
 
 body {
-    background-color: #d7e9f8;
+    background-image: url(../img/fundo_cras.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: auto;
     font-family: "Inter", sans-serif;
-    font-weight: bold;
+    height: auto;
     text-transform: uppercase;
 }
 
@@ -23,7 +26,7 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: #ffffff5f;
     padding: 15px;
     border-radius: 10px;
     color: #13294b;
@@ -114,6 +117,9 @@ a:hover {
     background-color: #3b82f6;
     box-shadow: 0 0 0 1px #3b83f65f;
     color: #fff;
+}
+a{
+    text-decoration: none;
 }
 
 input,
