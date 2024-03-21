@@ -4,9 +4,19 @@ body {
     margin: 2;
     padding: 0;
     text-align: justify;
-    background-image: url('../../img/marca.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    width: 80%;
+}
+
+.container {
+    width: 90%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    padding-top: 100px;
+}
+
+.center1 {
+    text-align: center;
 }
 
 .center {
@@ -22,20 +32,58 @@ body {
     background-color: transparent;
 }
 
-.paragraph {
+.paragraph1 {
     margin-bottom: 20px;
 }
 
 .topic {
     margin-bottom: 20px;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th, td {
+.impr {
+    margin-left: 90%;
+    margin-top: 10px;
+}
+
+th,
+td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
+}
+
+.topic,
+.center,
+.right,
+.paragraph1 {
+    display: none;
+}
+
+@media print {
+    body {
+        background-image: url('../../img/marca.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    button {
+        display: none;
+        /* Oculta a div container na impressão */
+    }
+
+    .topic,
+    .center,
+    .right,
+    .paragraph1 {
+        display:block;
+    }
+    label,
+    input{
+        display: none;
+    }
 }
