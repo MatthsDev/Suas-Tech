@@ -119,7 +119,7 @@ include_once '../controller/acesso_user/dados_usuario.php';
                 }
                   ?>
         </div>
-    </div>
+  </div>
 
 </body>
 

@@ -26,72 +26,78 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <?php echo $apelido; ?>.
         </h3>
     </div>
-    <div class="container">
-        <div class="menu">
-            <nav>
-                <div class="btn">
-                    <a class="menu-button" onclick="location.href='cadastro_usuarios.php';">
-                        <span class="material-symbols-outlined">
-                            deployed_code_account
-                        </span>
-                        Cadastro de Usuários
-                    </a>
-                </div>
-                <div class="btn">
-                    <a class="menu-button" onclick="location.href='acompanhamento.php';">
-                        <span class="material-symbols-outlined">
-                            deployed_code_account
-                        </span>
-                        Acompanhamento de Usuários
-                    </a>
-                </div>
-                <div class="btn">
-                    <a class="menu-button" onclick="location.href='declaracao.php';">
-                        <span class="material-symbols-outlined">
-                            content_paste_go
-                        </span>
-                        Encaminhamento
-                    </a>
-                </div>
-                <div class="btn">
-                        <a class="menu-button" target="_blank" href='/Suas-Tech/suas/peixe/logado/form.php';">
+    <div class="bloco">
+        <div class="container">
+            <div class="menu">
+                <nav>
+                    <div class="btn">
+                        <a class="menu-button" onclick="location.href='cadastro_usuarios.php';">
+                            <span class="material-symbols-outlined">
+                                deployed_code_account
+                            </span>
+                            Cadastro de Usuários
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" onclick="location.href='acompanhamento.php';">
+                            <span class="material-symbols-outlined">
+                                deployed_code_account
+                            </span>
+                            Acompanhamento de Usuários
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" onclick="location.href='declaracao.php';">
+                            <span class="material-symbols-outlined">
+                                content_paste_go
+                            </span>
+                            Encaminhamento
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a class="menu-button" target="_blank" href='/Suas-Tech/suas/peixe/logado/form.php' ;">
                             <span class="material-symbols-outlined">
                                 set_meal
                             </span>
                             Cadastro Peixe
                         </a>
                     </div>
-            </nav>
-        </div>
-        <div class="mural">
-        <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
-<?php
-include_once '../../controller/aviso_prazo.php';
-?>
-        </div>
-        <div class="drop-all">
-            <div class="menu-drop">
-                <button class="logout" type="button" name="drop">
-                    <span class="material-symbols-outlined">
-                        Settings
-                    </span>
-                    <div class="drop-content">
-                        <a title="Sair" href='../../config/logout.php' ;>
-                            <span title="Sair" class="material-symbols-outlined">logout</span>
-                        </a>
-                        <a title="Alterar Usuário" href='conta.php' ;>
-                            <span class="material-symbols-outlined">manage_accounts</span>
-                        </a>
-                        <?php
-if ($nivel == 'suport') {
-    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
-                                <span class="material-symbols-outlined">rule_settings</span>
-                            </a> <?php
-exit();
-}
-?>
-                    </div>
+                </nav>
+            </div>
+            <div class="mural">
+                <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
+                <?php
+                include_once '../../controller/aviso_prazo.php';
+                ?>
             </div>
 
+        </div>
+    </div>
+    <footer><img src="../../suas/views/adm/img/footer-adm.svg" alt=""></footer>
+    <div class="drop-all">
+        <div class="menu-drop">
+            <button class="logout" type="button" name="drop">
+                <span class="material-symbols-outlined">
+                    Settings
+                </span>
+                <div class="drop-content">
+                    <a title="Sair" href='../../config/logout.php' ;>
+                        <span title="Sair" class="material-symbols-outlined">logout</span>
+                    </a>
+                    <a title="Alterar Usuário" href='conta.php' ;>
+                        <span class="material-symbols-outlined">manage_accounts</span>
+                    </a>
+                    <?php
+                    if ($nivel == 'suport') {
+                    ?> <a title="Suporte" href='/Suas-Tech/acesso_suporte/index.php' ;>
+                            <span class="material-symbols-outlined">rule_settings</span>
+                        </a> <?php
+                                exit();
+                            }
+                                ?>
+                </div>
+        </div>
+    </div>
 </body>
+
 </html>
