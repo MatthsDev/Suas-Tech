@@ -182,7 +182,7 @@ window.location.href = "/Suas-Tech/concessao/views/gerar_form.php"
                     confirmButtonText: 'OK',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "/Suas-Tech/concessao/index.php"
+                        window.location.href = "/Suas-Tech/concessao/index"
                     }
                 })
             </script>
