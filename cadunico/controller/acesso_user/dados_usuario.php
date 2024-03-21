@@ -4,7 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/config/conexao.php';
 if(!isset($_SESSION )){
     session_start();
 }
-
+    $data_hoje = date('d/m/Y H:i');
 $user_name = $_SESSION['user_usuario'];
 
 $sql = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = :user_usuario");

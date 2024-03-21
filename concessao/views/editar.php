@@ -50,17 +50,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <a href = "/Suas-Tech/controller/back"><i class="fas fa-arrow-left"></i> Voltar ao menu</a>
             </form>
         </div>
-            
+
         <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $sql_cpf_resp = $conn->real_escape_string($_POST['cpf_resp']);
-            $sql_num_form = $conn->real_escape_string($_POST['num_form']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $sql_dados_num_form = "SELECT * FROM concessao_tbl WHERE cpf_pessoa LIKE '$sql_cpf_resp'";
-            $sql_query = $conn->query($sql_dados_num_form) or die("ERRO ao consultar !" . $conn - error);
+    if (!isset($_POST['num_form'])) {
+        $sql_cpf_resp = $conn->real_escape_string($_POST['cpf_resp']);
 
-            if ($sql_query->num_rows == 0) {
-        ?>
+        $sql_dados_num_form = "SELECT * FROM concessao_tbl WHERE cpf_pessoa LIKE '$sql_cpf_resp'";
+        $sql_query = $conn->query($sql_dados_num_form) or die("ERRO ao consultar !" . $conn - error);
+
+        if ($sql_query->num_rows == 0) {
+            ?>
                 <script>
                     Swal.fire({
                         icon: "info",
@@ -74,17 +75,17 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     });
                 </script>
             <?php
-            } else {
+} else {
 
-                $dados = $sql_query->fetch_assoc();
-                $id_hist_conc = $dados['id_concessao'];
+            $dados = $sql_query->fetch_assoc();
+            $id_hist_conc = $dados['id_concessao'];
 
-                echo '<p> O(A) Responsável <b>' . $dados['nome'] . '</b> tem os seguintes formulários...</p>';
+            echo '<p> O(A) Responsável <b>' . $dados['nome'] . '</b> tem os seguintes formulários...</p>';
 
-                // Consulta dos historico relacionados ao responsáveis
-                $form = $conn->real_escape_string($id_hist_conc);
-                $dados_form = "SELECT * FROM concessao_historico WHERE id_concessao LIKE '$form' ORDER BY num_form DESC";
-                $form_query = $conn->query($dados_form) or die("ERRO ao consultar!" . $conn - error);
+            // Consulta dos historico relacionados ao responsáveis
+            $form = $conn->real_escape_string($id_hist_conc);
+            $dados_form = "SELECT * FROM concessao_historico WHERE id_concessao LIKE '$form' ORDER BY num_form DESC";
+            $form_query = $conn->query($dados_form) or die("ERRO ao consultar!" . $conn - error);
 
             ?>
                 <table width="650px" border="1">
@@ -100,8 +101,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                     </tr>
                     <?php
 
-                    while ($dados_hist_form = $form_query->fetch_assoc()) {
-                    ?>
+            while ($dados_hist_form = $form_query->fetch_assoc()) {
+                ?>
                         <tr>
                             <td><?php echo $dados_hist_form['num_form'] . '/' . $dados_hist_form['ano_form']; ?></td>
                             <td><?php echo $dados_hist_form['nome_benef']; ?></td>
@@ -118,10 +119,78 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                             </td>
                         </tr>
             <?php
-                    }
-                }
-            }
+}
+        }
+    } else {
+        $sql_num_form = $conn->real_escape_string($_POST['num_form']);
+
+        $sql_dados_num_form = "SELECT * FROM concessao_historico WHERE num_form LIKE '$sql_num_form'";
+        $sql_query = $conn->query($sql_dados_num_form) or die("ERRO ao consultar !" . $conn - error);
+
+        if ($sql_query->num_rows == 0) {
             ?>
+                    <script>
+                        Swal.fire({
+                            icon: "info",
+                            title: "NÃO ENCONTRADO",
+                            text: "Não existe nenhum formulário com o número: <?php echo $_POST['num_form']; ?> !",
+                            confirmButtonText: 'OK',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "/Suas-Tech/concessao/views/editar";
+                            }
+                        });
+                    </script>
+                <?php
+} else {
+
+            $dados = $sql_query->fetch_assoc();
+            $id_hist_conc = $dados['num_form'];
+
+            echo '<p> Formulário nº <b>' . $dados['num_form'] . '/' . $dados['ano_form'] . '</b>.</p>';
+
+            // Consulta dos historico relacionados ao responsáveis
+            $form = $conn->real_escape_string($id_hist_conc);
+            $dados_form = "SELECT * FROM concessao_historico WHERE num_form LIKE '$form'";
+            $form_query = $conn->query($dados_form) or die("ERRO ao consultar!" . $conn - error);
+
+            ?>
+                    <table width="650px" border="1">
+                        <tr>
+                            <th>Nº DO FORMULÁRIO</th>
+                            <th>NOME BENEFICIÁRIO</th>
+                            <th>CONCESSÃO</th>
+                            <th>VALOR</th>
+                            <th>MÊS DE PAGAMENTO</th>
+                            <th>REGISTRO</th>
+                            <th>SITUAÇÃO</th>
+                            <th>AÇÃO</th>
+                        </tr>
+                        <?php
+
+            while ($dados_hist_form = $form_query->fetch_assoc()) {
+                ?>
+                            <tr>
+                                <td><?php echo $dados_hist_form['num_form'] . '/' . $dados_hist_form['ano_form']; ?></td>
+                                <td><?php echo $dados_hist_form['nome_benef']; ?></td>
+                                <td><?php echo $dados_hist_form['nome_item']; ?></td>
+                                <td><?php echo 'R$ ' . $dados_hist_form['valor_total']; ?></td>
+                                <td><?php echo $dados_hist_form['mes_pag']; ?></td>
+                                <td><?php echo $dados_hist_form['data_registro']; ?></td>
+                                <td><?php echo $dados_hist_form['situacao_concessao']; ?></td>
+                                <td>
+                                    <form action="/Suas-Tech/concessao/views/editar_conc" method="post" style="display:inline;">
+                                        <input type="hidden" name="id_concessao" value="<?php echo $dados_hist_form['id_hist']; ?>">
+                                        <button type="submit">Editar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                <?php
+}
+        }
+    }
+}
+?>
     </div>
 </body>
 <script>

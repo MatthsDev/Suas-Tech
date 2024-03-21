@@ -138,7 +138,7 @@ $consultaSetores = $conn->query("SELECT caracteristica FROM concessao_itens");
         }
     }
 ?>
-                            </select>
+                    </select>
                         </td>
                         <td><input type="text" name="quantidade" class="quantidade" value="<?php echo $conc['qtd_item']; ?>"></td>
                         <td><input type="text" name="valor_unitario" class="valor-unitario" value="<?php echo $conc['valor_uni']; ?>"></td>
