@@ -27,10 +27,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 reverse: true
             });
 
-        if (typeof nisBeneficiario !== 'undefined') {
-        // Atribui o valor da variável ao campo NIS
-        document.getElementById('nis_b').value = nisBeneficiario;
-        }
+            if (typeof nisBeneficiario !== 'undefined') {
+                // Atribui o valor da variável ao campo NIS
+                document.getElementById('nis_b').value = nisBeneficiario;
+            }
 
             // Função para calcular o total
             function calcularTotal() {
@@ -63,139 +63,143 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             <img src="../img/h1-relatorio.svg" alt="Titulocomimagem">
         </h1>
     </div>
-    <div class="bloc">
-        <div class="bloc1">
-            <div class="container">
-                <form action="/Suas-Tech/concessao/controller/gerar_form.php" method="POST">
-                    <div id="form">
-                        <label>CPF DO RESPONSÁVEL:</label>
-                        <input type="text" name="cpf" id="cpf" maxlength="14" required>
 
-                        <label>NIS DO BENEFICIÁRIO:</label>
-                        <input type="text" name="nis" maxlength="11" required id="nis_b">
+    <div class="container">
+        <form action="/Suas-Tech/concessao/controller/gerar_form.php" method="POST">
+            <div id="form">
+                <label>CPF DO RESPONSÁVEL:</label>
+                <input type="text" name="cpf" id="cpf" maxlength="14" required>
 
-                        <label>Mês de Pagamento</label>
-                        <select name="mes_pg" id="mes_pg" required>
+                <label>NIS DO BENEFICIÁRIO:</label>
+                <input type="text" name="nis" maxlength="11" required id="nis_b">
+
+                <label>Mês de Pagamento</label>
+                <select name="mes_pg" id="mes_pg" required>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    <option value="Janeiro">Janeiro</option>
+                    <option value="Fevereiro">Fevereiro</option>
+                    <option value="Março">Março</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Maio">Maio</option>
+                    <option value="Junho">Junho</option>
+                    <option value="Julho">Julho</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Setembro">Setembro</option>
+                    <option value="Outubro">Outubro</option>
+                    <option value="Novembro">Novembro</option>
+                    <option value="Dezembro">Dezembro</option>
+                </select>
+                <a href="/Suas-Tech/controller/back.php" style="margin-left: 50px;">
+                    <i class="fas fa-arrow-left"></i> Voltar ao menu
+                </a>
+                <p>QUAL PARENTESCO O RESPONSÁVEL TEM COM O BENEFICIÁRIO?</label>
+                    <select name="parentesco" id="parentesco" required>
+                        <option value="" disabled selected hidden>Selecione</option>
+                        <option value="UNIPESSOAL">Unipessoal</option>
+                        <option value="CONJUGE">Conjuge</option>
+                        <option value="FILHO(A)">Filho(a)</option>
+                        <option value="ENTEADO(A)">Enteado(a)</option>
+                        <option value="NETO OU BISNETO">Neto ou Bisneto</option>
+                        <option value="PAI OU MAE">Pai ou Mae</option>
+                        <option value="SOGRO(A)">Sogro(a)</option>
+                        <option value="IRMAOS OU IRMA">Irmão ou Irmã</option>
+                        <option value="GENRO OU NORA">Genro ou Nora</option>
+                        <option value="OUTRO PARENTE">Outro Parente</option>
+                        <option value="NAO PARENTE">Não Parente</option>
+                    </select>
+            </div>
+
+            <table width="500px" border="1" id="tabelaItens">
+                <tr>
+                    <th colspan="4">TABELA ITENS</th>
+                </tr>
+                <tr>
+                    <th>Nome</th>
+                    <th>Quantidade</th>
+                    <th>Valor Unitário</th>
+                    <th>Valor Total</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="itens_conc" required>
                             <option value="" disabled selected hidden>Selecione</option>
-                            <option value="Janeiro">Janeiro</option>
-                            <option value="Fevereiro">Fevereiro</option>
-                            <option value="Março">Março</option>
-                            <option value="Abril">Abril</option>
-                            <option value="Maio">Maio</option>
-                            <option value="Junho">Junho</option>
-                            <option value="Julho">Julho</option>
-                            <option value="Agosto">Agosto</option>
-                            <option value="Setembro">Setembro</option>
-                            <option value="Outubro">Outubro</option>
-                            <option value="Novembro">Novembro</option>
-                            <option value="Dezembro">Dezembro</option>
+                            <?php
+                            $consultaSetores = $conn->query("SELECT caracteristica FROM concessao_itens");
+                            // Verifica se há resultados na consulta
+                            if ($consultaSetores->num_rows > 0) {
+                                // Loop para criar as opções do select
+                                while ($setor = $consultaSetores->fetch_assoc()) {
+                                    echo '<option value="' . $setor['caracteristica'] . '">' . $setor['caracteristica'] . '</option>';
+                                }
+                            }
+                            ?>
                         </select>
-                        <a href="/Suas-Tech/controller/back.php" style="margin-left: 50px;">
-                            <i class="fas fa-arrow-left"></i> Voltar ao menu
-                        </a>
-                        <p>QUAL PARENTESCO O RESPONSÁVEL TEM COM O BENEFICIÁRIO?</label>
-                            <select name="parentesco" id="parentesco" required>
-                                <option value="" disabled selected hidden>Selecione</option>
-                                <option value="UNIPESSOAL">Unipessoal</option>
-                                <option value="CONJUGE">Conjuge</option>
-                                <option value="FILHO(A)">Filho(a)</option>
-                                <option value="ENTEADO(A)">Enteado(a)</option>
-                                <option value="NETO OU BISNETO">Neto ou Bisneto</option>
-                                <option value="PAI OU MAE">Pai ou Mae</option>
-                                <option value="SOGRO(A)">Sogro(a)</option>
-                                <option value="IRMAOS OU IRMA">Irmão ou Irmã</option>
-                                <option value="GENRO OU NORA">Genro ou Nora</option>
-                                <option value="OUTRO PARENTE">Outro Parente</option>
-                                <option value="NAO PARENTE">Não Parente</option>
-                            </select>
-                    </div>
-
-                    <table width="500px" border="1" id="tabelaItens">
-                        <tr>
-                            <th colspan="4">TABELA ITENS</th>
-                        </tr>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Quantidade</th>
-                            <th>Valor Unitário</th>
-                            <th>Valor Total</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <select name="itens_conc" required>
-                                    <option value="" disabled selected hidden>Selecione</option>
-                                    <?php
-                                    $consultaSetores = $conn->query("SELECT caracteristica FROM concessao_itens");
-                                    // Verifica se há resultados na consulta
-                                    if ($consultaSetores->num_rows > 0) {
-                                        // Loop para criar as opções do select
-                                        while ($setor = $consultaSetores->fetch_assoc()) {
-                                            echo '<option value="' . $setor['caracteristica'] . '">' . $setor['caracteristica'] . '</option>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                            <td><input type="text" name="quantidade" class="quantidade"></td>
-                            <td><input type="text" name="valor_unitario" class="valor-unitario"></td>
-                            <td><input type="text" name="valor_total" class="valor-total" readonly></td>
-                        </tr>
-                    </table>
-                    <div class="btn">
-                        <button type="submit" id="btn_gerar">GERAR CAPA</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="bloc2">
-            <form action="">
+                    </td>
+                    <td><input type="text" name="quantidade" class="quantidade"></td>
+                    <td><input type="text" name="valor_unitario" class="valor-unitario"></td>
+                    <td><input type="text" name="valor_total" class="valor-total" readonly></td>
+                </tr>
+            </table>
+            <div class="btns">
                 <div class="btn">
-                    <button type="buttun" id="btn_bsc_nis">BUSCAR NIS</button>
-                    <input type="text" name="cpf_benef">
+                    <button type="submit" id="btn_gerar">GERAR CAPA</button>
                 </div>
-            </form>
-            <div>
-                <?php
-                if (!isset($_GET['cpf_benef'])) {
-                } else {
-                    $cpf = $_GET['cpf_benef'];
-
-                        // Remove todos os caracteres não numéricos
-                        $cpfNumerico = preg_replace('/\D/', '', $cpf);
+                <div class="bloc2">
                     
-                        // Remove os zeros à esquerda
-                        $cpf_benef = ltrim($cpfNumerico, '0');
+                        <div class="btn">
+                        <form action="">
+                            <button type="buttun" id="btn_bsc_nis">BUSCAR NIS</button>
+                            <input type="text" name="cpf_benef">
+                            </form>
+                        </div>
 
-                    $sql_cons_nis = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_benef");
-                    $sql_cons_nis->bindParam(':cpf_benef', $cpf_benef, PDO::PARAM_STR);
-                    $sql_cons_nis->execute();
-                    if ($sql_cons_nis->rowCount() > 0) {
-                        $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
-                        echo "O nis foi adicionado com sucesso no campo NIS.";
-                        if (isset($dados_benef['num_nis_pessoa_atual'])) {
-                            // Imprime o valor da variável no script JavaScript
-                            echo '<script>var nisBeneficiario = "' . $dados_benef['num_nis_pessoa_atual'] . '";</script>';
-                        }
-                    } else {
-                        ?>
-                        <script>
-                                Swal.fire({
-                                    icon: "erro",
-                                    title: "NÃO ENCONTRADO",
-                                    text: "Não há cadastro para essa pessoa!",
-                                    confirmButtonText: 'OK',
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = "/Suas-Tech/concessao/views/cadastrar_beneficiario"
-                                    }
-                                })
-                        </script>
-                    <?php
-                    }
-                }
-                ?>
+                    <div>
             </div>
-        </div>
+        </form>
+    </div>
+    </div>
+    
+    <?php
+    if (!isset($_GET['cpf_benef'])) {
+    } else {
+        $cpf = $_GET['cpf_benef'];
+
+        // Remove todos os caracteres não numéricos
+        $cpfNumerico = preg_replace('/\D/', '', $cpf);
+
+        // Remove os zeros à esquerda
+        $cpf_benef = ltrim($cpfNumerico, '0');
+
+        $sql_cons_nis = $pdo->prepare("SELECT * FROM tbl_tudo WHERE num_cpf_pessoa = :cpf_benef");
+        $sql_cons_nis->bindParam(':cpf_benef', $cpf_benef, PDO::PARAM_STR);
+        $sql_cons_nis->execute();
+        if ($sql_cons_nis->rowCount() > 0) {
+            $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
+            echo "O nis foi adicionado com sucesso no campo NIS.";
+            if (isset($dados_benef['num_nis_pessoa_atual'])) {
+                // Imprime o valor da variável no script JavaScript
+                echo '<script>var nisBeneficiario = "' . $dados_benef['num_nis_pessoa_atual'] . '";</script>';
+            }
+        } else {
+    ?>
+            <script>
+                Swal.fire({
+                    icon: "erro",
+                    title: "NÃO ENCONTRADO",
+                    text: "Não há cadastro para essa pessoa!",
+                    confirmButtonText: 'OK',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/Suas-Tech/concessao/views/cadastrar_beneficiario"
+                    }
+                })
+            </script>
+    <?php
+        }
+    }
+    ?>
+    </div>
+    </div>
     </div>
 </body>
 

@@ -18,7 +18,8 @@
         width: 90%;
         padding-left: 30px;
     }
-    .titulo{
+
+    .titulo {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -26,7 +27,8 @@
         align-content: center;
         padding-right: 15px;
     }
-    .tech{
+
+    .tech {
         padding-right: 5px;
 
     }

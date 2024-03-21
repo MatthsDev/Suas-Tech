@@ -5,7 +5,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow: hidden;
+    overflow: auto;
     font-family: "Inter", sans-serif;
     height: auto;
     text-transform:capitalize;
@@ -32,6 +32,7 @@ img {
     line-height: 2.6;
     background-color: #ffffff;
     border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 table{
     line-height: 2;
@@ -51,7 +52,9 @@ table input{
     width: 100%;
     color: #13294b;
 }
-
+table{
+    width: 100%;
+}
 input,
 select,
 option,
