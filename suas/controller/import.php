@@ -235,10 +235,17 @@ if ($csv_tbl == 'tudo') {
             } else {
                 $linhas_n_importadas++;
                 $linha_nao_importada = $linhas_n_importadas . ", " . ($linha[0] ?? "NULL");
-
             }
         }
         echo "$linhas_importadas linha(s) importadas, $linhas_n_importadas linha(s) não importada(s). ";
+?>
+        <script>
+            setTimeout(function() {
+                window.location.href = "/Suas-Tech/suas/views/atualizar_tabela";
+            }, 1500);
+        </script>
+<?php
+
     } else {
         echo "Apenas arquivos CSV.";
     }
@@ -367,7 +374,6 @@ if ($csv_tbl == 'tudo') {
             } else {
                 $linhas_n_importadas++;
                 $linha_nao_importada = $linhas_n_importadas . ", " . ($linha[0] ?? "NULL");
-
             }
         }
         echo "$linhas_importadas linha(s) importadas, $linhas_n_importadas linha(s) não importada(s). ";

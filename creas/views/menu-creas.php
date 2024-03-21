@@ -62,11 +62,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
             </nav>
         </div>  
         <div class="mural">
-        <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
-        <?php
-include_once '../../controller/aviso_prazo.php';
-        ?>
+                <h4><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h4>
+                <?php
+                include_once '../../controller/aviso_prazo.php';
+                ?>
+            </div>
+
         </div>
+    </div>
+    <footer><img src="../../suas/views/adm/img/footer-adm.svg" alt=""></footer>
         <div class="drop-all">
             <div class="menu-drop">
                 <button class="logout" type="button" name="drop">
