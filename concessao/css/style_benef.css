@@ -21,11 +21,9 @@ img {
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between;
-    align-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide o container em duas colunas */
+    gap: 20px; /* Espaçamento entre as colunas */
     padding: 10px;
     line-height: 2.6;
     background-color: #ffffff;
@@ -79,9 +77,7 @@ a{
 input{
     width: 300px;
 }
-.btn{
-    padding-top: 20px;
-}
+
 p,
 label{
     color: #13294b;

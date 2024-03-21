@@ -144,18 +144,17 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                 <div class="btn">
                     <button type="submit" id="btn_gerar">GERAR CAPA</button>
                 </div>
+                </form>
                 <div class="bloc2">
-                    
                         <div class="btn">
-                        <form action="">
-                            <button type="buttun" id="btn_bsc_nis">BUSCAR NIS</button>
-                            <input type="text" name="cpf_benef">
-                            </form>
+                            <form action="">
+                                <button type="buttun" id="btn_bsc_nis">BUSCAR NIS</button>
+                                <input type="text" name="cpf_benef">
+                                </form>
                         </div>
-
-                    <div>
+                <div>
             </div>
-        </form>
+
     </div>
     </div>
     
@@ -175,7 +174,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
         $sql_cons_nis->execute();
         if ($sql_cons_nis->rowCount() > 0) {
             $dados_benef = $sql_cons_nis->fetch(PDO::FETCH_ASSOC);
-            echo "O nis foi adicionado com sucesso no campo NIS.";
+            echo "O NIS foi adicionado com sucesso no campo NIS.";
             if (isset($dados_benef['num_nis_pessoa_atual'])) {
                 // Imprime o valor da variável no script JavaScript
                 echo '<script>var nisBeneficiario = "' . $dados_benef['num_nis_pessoa_atual'] . '";</script>';

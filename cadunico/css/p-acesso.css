@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-*{
+
+* {
     margin-top: 0px;
 }
+
 body {
     background-image: url(../img/fundo_cad.svg);
     background-size: cover;
@@ -12,21 +14,21 @@ body {
     height: auto;
     font-weight: bold;
     text-transform: uppercase;
-  }
-  
+}
 
 img {
     display: flex;
     width: 100%;
     max-height: 120px
 }
-h3{
+
+h3 {
     color: #13294b;
     padding-bottom: 0px;
-    text-decoration:underline 2px;
+    text-decoration: underline 2px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -35,6 +37,7 @@ h3{
     padding: 15px;
     border-radius: 10px;
 }
+
 button,
 a {
     font-size: 14px;
@@ -46,28 +49,41 @@ a {
     color: white;
     cursor: pointer;
 }
+
 button:hover,
-a:hover{
+a:hover {
     background-color: #3b82f6;
     box-shadow: 0 0 0 1px #3b83f65f;
     color: #fff;
-}   
-a{
+}
+
+a {
     text-decoration: none;
     text-transform: none;
 }
-.btn{
+
+.btn {
     padding-top: 25px;
 }
-.cpf,.dtnasc,.email,.telefone,.cargo,.idcargo,.senha,.nomesocial{
+
+.cpf,
+.dtnasc,
+.email,
+.telefone,
+.cargo,
+.idcargo,
+.senha,
+.nomesocial {
     font-size: 16px;
     padding-top: 15px;
     color: #13294b;
 }
-.nome{
+
+.nome {
     font-size: 16px;
     color: #13294b;
 }
+
 input,
 select {
     background-color: #ffffff;
@@ -77,5 +93,3 @@ select {
     padding: 1px 2px;
     border-style: outset;
 }
-
-
