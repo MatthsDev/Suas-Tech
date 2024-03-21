@@ -85,7 +85,7 @@ $timestamp = date('d/m/Y H:i');
             </div>
             <div class="btn">
                 <button type="submit">SALVAR</button>
-                <a href="/Suas-Tech/controller/back.php" style="margin-left: 100px;">
+                <a href="/Suas-Tech/controller/back" style="margin-left: 100px;">
                     <i class="fas fa-arrow-left"></i> Voltar ao menu
                 </a>
             </div>
