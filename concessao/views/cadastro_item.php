@@ -12,7 +12,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
     <title>TechSUAS - Concessão</title>
     <link rel="stylesheet" href="#">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="website icon" type="png" href="/Suas-Tech/img/logo.png">
+    <link rel="website icon" type="png" href="/Suas-Tech/img/cadunico/logo.png">
     <link rel="stylesheet" href="../css/style_item.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>

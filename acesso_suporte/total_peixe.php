@@ -24,8 +24,8 @@
         </h1>
     </div>
     <div class="local">
-    <label><b>LOCAL CADASTRO</b></label>
-    <a href='total_peixe_entrega'>LOCAL ENTREGA</a>
+    <label ><b style="color:green;">LOCAL CADASTRO</b></label>
+    <a href='total_peixe_entrega' style="color:red;">LOCAL ENTREGA</a>
     </div>
     <div class="container">
         <?php

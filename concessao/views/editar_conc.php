@@ -24,7 +24,7 @@ if ($sql_ed_conc->rowCount() > 0) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link id="css_link" rel="stylesheet" href="../css/style_consultar.css">
-        <link rel="website icon" type="image/png" href="../../img/logo.png">
+        <link rel="website icon" type="image/png" href="/Suas-Tech/cadunico/img/logo.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <title>TechSUAS Concessão</title>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -224,14 +224,7 @@ $(document).ready(function() {
 </script>
 
 <div id="conteiner_show" style="display: none;">
-<div class="titulo">
-        <div class="tech">
-            <p>TechSUAS-Concessão</p>
-        </div>
-            <div
-            id="dataHora">
-        </div>
-    </div>
+
     <div class="container">
         <div class="cab0" style="text-align: center;">
             <h2>CONCESSÃO DE BENEFÍCIO EVENTUAL</h2>
