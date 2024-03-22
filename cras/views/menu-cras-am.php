@@ -54,6 +54,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Suas-Tech/cadunico/controller/acesso_
                         </a>
                     </div>
                     <div class="btn">
+                        <a class="menu-button" target="_blank" href='#';">
+                            <span class="material-symbols-outlined">
+                                cooking
+                            </span>
+                            Cozinha Comunitária
+                        </a>
+                    </div>
+                    <div class="btn">
                         <a class="menu-button" target="_blank" href='/Suas-Tech/suas/peixe/logado/form.php';">
                             <span class="material-symbols-outlined">
                                 set_meal
